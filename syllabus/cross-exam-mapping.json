@@ -1,0 +1,152 @@
+{
+  "$schema": "exam-tutor/cross-exam-mapping/v1",
+  "version": "2024",
+  "mappings": {
+    "PPSC": {
+      "Independence Movement": {
+        "equivalents": {
+          "SPSC": {
+            "topic": "Pakistan Movement",
+            "confidence": 0.95,
+            "notes": "Nearly identical coverage, same historical events"
+          },
+          "KPPSC": {
+            "topic": "Creation of Pakistan",
+            "confidence": 0.90,
+            "notes": "Similar scope with regional emphasis variations"
+          }
+        }
+      },
+      "Constitutional History": {
+        "equivalents": {
+          "SPSC": {
+            "topic": "Constitutional Development",
+            "confidence": 0.92,
+            "notes": "Same constitutional amendments and structure"
+          },
+          "KPPSC": {
+            "topic": "Pakistan Constitution",
+            "confidence": 0.90,
+            "notes": "Similar content, different question patterns"
+          }
+        }
+      },
+      "Geography of Pakistan": {
+        "equivalents": {
+          "SPSC": {
+            "topic": "Physical Geography",
+            "confidence": 0.85,
+            "notes": "SPSC may emphasize Sindh geography more"
+          },
+          "KPPSC": {
+            "topic": "Geography",
+            "confidence": 0.85,
+            "notes": "KPPSC may emphasize KPK geography more"
+          }
+        }
+      },
+      "General Science": {
+        "equivalents": {
+          "SPSC": {
+            "topic": "Everyday Science",
+            "confidence": 0.95,
+            "notes": "Essentially the same topics across all exams"
+          },
+          "KPPSC": {
+            "topic": "General Science",
+            "confidence": 0.98,
+            "notes": "Identical topic coverage"
+          }
+        }
+      },
+      "Grammar": {
+        "equivalents": {
+          "SPSC": {
+            "topic": "English Grammar",
+            "confidence": 0.95,
+            "notes": "Standard grammar topics across all exams"
+          },
+          "KPPSC": {
+            "topic": "Grammar",
+            "confidence": 0.98,
+            "notes": "Identical grammar requirements"
+          }
+        }
+      },
+      "Arithmetic": {
+        "equivalents": {
+          "SPSC": {
+            "topic": "Basic Mathematics",
+            "confidence": 0.90,
+            "notes": "Similar mathematical concepts"
+          },
+          "KPPSC": {
+            "topic": "Quantitative Aptitude",
+            "confidence": 0.88,
+            "notes": "KPPSC may include more aptitude-style questions"
+          }
+        }
+      },
+      "Basic Beliefs": {
+        "equivalents": {
+          "SPSC": {
+            "topic": "Islamic Studies - Beliefs",
+            "confidence": 0.95,
+            "notes": "Universal Islamic content"
+          },
+          "KPPSC": {
+            "topic": "Islamiat Fundamentals",
+            "confidence": 0.95,
+            "notes": "Universal Islamic content"
+          }
+        }
+      },
+      "Current Affairs": {
+        "equivalents": {
+          "SPSC": {
+            "topic": "Current Affairs",
+            "confidence": 0.80,
+            "notes": "National events similar, regional events differ"
+          },
+          "KPPSC": {
+            "topic": "Current Affairs",
+            "confidence": 0.80,
+            "notes": "National events similar, regional events differ"
+          }
+        }
+      }
+    },
+    "SPSC": {
+      "Pakistan Movement": {
+        "equivalents": {
+          "PPSC": {
+            "topic": "Independence Movement",
+            "confidence": 0.95,
+            "notes": "Nearly identical coverage"
+          },
+          "KPPSC": {
+            "topic": "Creation of Pakistan",
+            "confidence": 0.90,
+            "notes": "Similar historical content"
+          }
+        }
+      }
+    },
+    "KPPSC": {
+      "Creation of Pakistan": {
+        "equivalents": {
+          "PPSC": {
+            "topic": "Independence Movement",
+            "confidence": 0.90,
+            "notes": "Similar historical content"
+          },
+          "SPSC": {
+            "topic": "Pakistan Movement",
+            "confidence": 0.90,
+            "notes": "Similar historical content"
+          }
+        }
+      }
+    }
+  }
+}

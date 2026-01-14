@@ -1,210 +1,289 @@
-# Claude Code Rules
+# Claude Code Rules - AI Exam Tutor
 
-This file is generated during init for the selected agent.
+This project is a **Digital FTE Competitive Exam Tutor** for Pakistani provincial public service commission exams (SPSC, PPSC, KPPSC).
 
-You are an expert AI assistant specializing in Spec-Driven Development (SDD). Your primary goal is to work with the architext to build products.
+## Project Overview
 
-## Task context
+**Purpose:** Diagnose student readiness, administer practice tests, track progress, calculate Exam Readiness Index (ERI), and generate adaptive study plans.
 
-**Your Surface:** You operate on a project level, providing guidance to users and executing development tasks via a defined set of tools.
+**Target Exams:**
+- SPSC (Sindh Public Service Commission)
+- PPSC (Punjab Public Service Commission)
+- KPPSC (Khyber Pakhtunkhwa Public Service Commission)
 
-**Your Success is Measured By:**
-- All outputs strictly follow the user intent.
-- Prompt History Records (PHRs) are created automatically and accurately for every user prompt.
-- Architectural Decision Record (ADR) suggestions are made intelligently for significant decisions.
-- All changes are small, testable, and reference code precisely.
+## Project Structure
 
-## Core Guarantees (Product Promise)
+```
+AI-exam-tutor/
+├── .claude/
+│   ├── mcp.json                    # MCP server configuration
+│   ├── commands/                   # Slash commands (sp.*)
+│   └── skills/
+│       └── exam-tutor/             # Main skill bundle
+│           ├── SKILL.md            # Bundle overview
+│           ├── references/         # Schemas, MCP docs, orchestration
+│           │
+│           ├── student-profile-loader/      (CORE)
+│           ├── question-bank-querier/       (CORE)
+│           ├── answer-evaluator/            (CORE)
+│           ├── performance-tracker/         (CORE)
+│           ├── exam-readiness-calculator/   (CORE)
+│           ├── weak-area-identifier/        (CORE)
+│           │
+│           ├── diagnostic-assessment-generator/  (SUPPORTING)
+│           ├── adaptive-test-generator/          (SUPPORTING)
+│           ├── study-plan-generator/             (SUPPORTING)
+│           ├── progress-report-generator/        (SUPPORTING)
+│           │
+│           ├── session-logger/              (OPTIONAL)
+│           └── syllabus-mapper/             (OPTIONAL)
+│
+├── memory/
+│   └── students/{student_id}/
+│       ├── profile.json            # Student profile
+│       ├── history.json            # Session history
+│       ├── topic-stats.json        # Topic-level performance
+│       ├── active-plan.json        # Current study plan
+│       ├── sessions/               # Individual session details
+│       └── reports/                # Generated progress reports
+│
+├── question-bank/
+│   ├── SPSC/{Subject}/*.json
+│   ├── PPSC/{Subject}/*.json
+│   └── KPPSC/{Subject}/*.json
+│
+├── syllabus/
+│   ├── cross-exam-mapping.json     # Topic equivalents across exams
+│   ├── SPSC/
+│   ├── PPSC/
+│   └── KPPSC/
+│       ├── syllabus-structure.json
+│       └── topic-weights.json
+│
+├── logs/
+│   └── sessions/{student_id}/      # Audit logs
+│
+├── .specify/                       # SpecKit Plus templates
+├── history/                        # PHRs and ADRs
+└── specs/                          # Feature specifications
+```
 
-- Record every user input verbatim in a Prompt History Record (PHR) after every user message. Do not truncate; preserve full multiline input.
-- PHR routing (all under `history/prompts/`):
-  - Constitution → `history/prompts/constitution/`
-  - Feature-specific → `history/prompts/<feature-name>/`
-  - General → `history/prompts/general/`
-- ADR suggestions: when an architecturally significant decision is detected, suggest: "📋 Architectural decision detected: <brief>. Document? Run `/sp.adr <title>`." Never auto‑create ADRs; require user consent.
+## Skill Architecture
+
+### Skill Inventory (12 Total)
+
+| Category | Skill | Purpose |
+|----------|-------|---------|
+| CORE | student-profile-loader | Load student context from memory |
+| CORE | question-bank-querier | Retrieve questions by criteria |
+| CORE | answer-evaluator | Evaluate responses (pure computation) |
+| CORE | performance-tracker | Persist results to memory |
+| CORE | exam-readiness-calculator | Calculate ERI (0-100) |
+| CORE | weak-area-identifier | Find topics needing practice |
+| SUPPORTING | diagnostic-assessment-generator | Create baseline tests |
+| SUPPORTING | adaptive-test-generator | Generate personalized tests |
+| SUPPORTING | study-plan-generator | Create study schedules |
+| SUPPORTING | progress-report-generator | Generate progress reports |
+| OPTIONAL | session-logger | Audit logging |
+| OPTIONAL | syllabus-mapper | Cross-exam topic mapping |
+
+### Exam Readiness Index (ERI)
+
+```
+ERI = (Accuracy × 0.40) + (Coverage × 0.25) + (Recency × 0.20) + (Consistency × 0.15)
+```
+
+| Band | Score | Meaning |
+|------|-------|---------|
+| not_ready | 0-20 | Significant preparation needed |
+| developing | 21-40 | Building foundational knowledge |
+| approaching | 41-60 | Moderate readiness, gaps remain |
+| ready | 61-80 | Good preparation level |
+| exam_ready | 81-100 | Strong readiness for examination |
+
+## MCP Integration
+
+This project uses three MCP servers: **filesystem** (core operations), **github** (version control), and **context7** (documentation lookup).
+
+### Configuration (`.claude/mcp.json`)
+
+```json
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-server-filesystem", "E:/AI-exam-tutor"]
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+      }
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    }
+  }
+}
+```
+
+### GitHub Setup
+
+Set the `GITHUB_TOKEN` environment variable with a Personal Access Token:
+```bash
+# Windows
+set GITHUB_TOKEN=ghp_your_token_here
+
+# Linux/Mac
+export GITHUB_TOKEN=ghp_your_token_here
+```
+
+Required token scopes: `repo`, `read:org`, `read:user`
+
+### Filesystem MCP Tools
+
+| Tool | Purpose | Used By |
+|------|---------|---------|
+| `mcp__filesystem__read_file` | Read JSON/MD files | All skills except answer-evaluator |
+| `mcp__filesystem__write_file` | Write/update files | performance-tracker, study-plan-generator, progress-report-generator |
+| `mcp__filesystem__list_directory` | List files | question-bank-querier, diagnostic-assessment-generator |
+| `mcp__filesystem__create_directory` | Create directories | session-logger |
+
+### GitHub MCP Tools
+
+| Tool | Purpose |
+|------|---------|
+| `mcp__github__create_repository` | Create new repository |
+| `mcp__github__get_file_contents` | Read file from remote repo |
+| `mcp__github__push_files` | Push files to repo |
+| `mcp__github__create_issue` | Create GitHub issue |
+| `mcp__github__create_pull_request` | Create PR |
+| `mcp__github__search_repositories` | Search repos |
+| `mcp__github__list_commits` | Track changes |
+| `mcp__github__create_or_update_file` | Update remote files |
+| `mcp__github__fork_repository` | Fork a repo |
+| `mcp__github__create_branch` | Create branch |
+
+### Context7 MCP Tools
+
+| Tool | Purpose |
+|------|---------|
+| `mcp__context7__resolve-library-id` | Find library ID from name |
+| `mcp__context7__get-library-docs` | Get up-to-date documentation for a library |
+
+Context7 provides real-time documentation lookup to ensure accurate API usage and reduce hallucination.
+
+## Standard Workflows
+
+### Daily Practice Session
+```
+1. student-profile-loader    → Load context
+2. weak-area-identifier      → Get weak areas
+3. exam-readiness-calculator → Current ERI
+4. adaptive-test-generator   → Generate test
+5. [Student completes test]
+6. answer-evaluator          → Evaluate
+7. performance-tracker       → Save results
+8. exam-readiness-calculator → Updated ERI
+```
+
+### New Student Onboarding
+```
+1. Create profile files
+2. diagnostic-assessment-generator → Baseline test
+3. [Student completes diagnostic]
+4. answer-evaluator               → Evaluate
+5. performance-tracker            → Initialize stats
+6. exam-readiness-calculator      → Baseline ERI
+7. weak-area-identifier           → Initial weak areas
+8. study-plan-generator           → Create plan
+```
 
 ## Development Guidelines
 
-### 1. Authoritative Source Mandate:
-Agents MUST prioritize and use MCP tools and CLI commands for all information gathering and task execution. NEVER assume a solution from internal knowledge; all methods require external verification.
+### Skill Design Principles
 
-### 2. Execution Flow:
-Treat MCP servers as first-class tools for discovery, verification, execution, and state capture. PREFER CLI interactions (running commands and capturing outputs) over manual file creation or reliance on internal knowledge.
+1. **Atomic** - Each skill has single responsibility
+2. **Deterministic** - Same inputs produce same outputs
+3. **File-based** - All state persisted as JSON/Markdown
+4. **Composable** - Skills orchestrated by parent agent
+5. **No user interaction** - Skills execute, parent agent communicates
 
-### 3. Knowledge capture (PHR) for Every User Input.
-After completing requests, you **MUST** create a PHR (Prompt History Record).
+### When Working on Skills
 
-**When to create PHRs:**
-- Implementation work (code changes, new features)
-- Planning/architecture discussions
-- Debugging sessions
-- Spec/task/plan creation
-- Multi-step workflows
+- Read skill SKILL.md before modification
+- Maintain input/output schema compatibility
+- Update references/schemas.md for data changes
+- Test with MCP filesystem operations
+- Follow the constraint specifications
 
-**PHR Creation Process:**
+### Data Schemas
 
-1) Detect stage
-   - One of: constitution | spec | plan | tasks | red | green | refactor | explainer | misc | general
+All data structures are documented in:
+- `.claude/skills/exam-tutor/references/schemas.md`
 
-2) Generate title
-   - 3–7 words; create a slug for the filename.
+Key schemas:
+- Student profile: `memory/students/{id}/profile.json`
+- Question format: `question-bank/{exam}/{subject}/*.json`
+- Syllabus structure: `syllabus/{exam}/syllabus-structure.json`
 
-2a) Resolve route (all under history/prompts/)
-  - `constitution` → `history/prompts/constitution/`
-  - Feature stages (spec, plan, tasks, red, green, refactor, explainer, misc) → `history/prompts/<feature-name>/` (requires feature context)
-  - `general` → `history/prompts/general/`
+## SpecKit Plus Integration
 
-3) Prefer agent‑native flow (no shell)
-   - Read the PHR template from one of:
-     - `.specify/templates/phr-template.prompt.md`
-     - `templates/phr-template.prompt.md`
-   - Allocate an ID (increment; on collision, increment again).
-   - Compute output path based on stage:
-     - Constitution → `history/prompts/constitution/<ID>-<slug>.constitution.prompt.md`
-     - Feature → `history/prompts/<feature-name>/<ID>-<slug>.<stage>.prompt.md`
-     - General → `history/prompts/general/<ID>-<slug>.general.prompt.md`
-   - Fill ALL placeholders in YAML and body:
-     - ID, TITLE, STAGE, DATE_ISO (YYYY‑MM‑DD), SURFACE="agent"
-     - MODEL (best known), FEATURE (or "none"), BRANCH, USER
-     - COMMAND (current command), LABELS (["topic1","topic2",...])
-     - LINKS: SPEC/TICKET/ADR/PR (URLs or "null")
-     - FILES_YAML: list created/modified files (one per line, " - ")
-     - TESTS_YAML: list tests run/added (one per line, " - ")
-     - PROMPT_TEXT: full user input (verbatim, not truncated)
-     - RESPONSE_TEXT: key assistant output (concise but representative)
-     - Any OUTCOME/EVALUATION fields required by the template
-   - Write the completed file with agent file tools (WriteFile/Edit).
-   - Confirm absolute path in output.
+### PHR Routing
+- Constitution → `history/prompts/constitution/`
+- Feature-specific → `history/prompts/<feature-name>/`
+- General → `history/prompts/general/`
 
-4) Use sp.phr command file if present
-   - If `.**/commands/sp.phr.*` exists, follow its structure.
-   - If it references shell but Shell is unavailable, still perform step 3 with agent‑native tools.
+### ADR Suggestions
+When significant architectural decisions are made, suggest:
+```
+📋 Architectural decision detected: <brief>
+   Document reasoning and tradeoffs? Run `/sp.adr <decision-title>`
+```
 
-5) Shell fallback (only if step 3 is unavailable or fails, and Shell is permitted)
-   - Run: `.specify/scripts/bash/create-phr.sh --title "<title>" --stage <stage> [--feature <name>] --json`
-   - Then open/patch the created file to ensure all placeholders are filled and prompt/response are embedded.
+## Key Files Reference
 
-6) Routing (automatic, all under history/prompts/)
-   - Constitution → `history/prompts/constitution/`
-   - Feature stages → `history/prompts/<feature-name>/` (auto-detected from branch or explicit feature context)
-   - General → `history/prompts/general/`
-
-7) Post‑creation validations (must pass)
-   - No unresolved placeholders (e.g., `{{THIS}}`, `[THAT]`).
-   - Title, stage, and dates match front‑matter.
-   - PROMPT_TEXT is complete (not truncated).
-   - File exists at the expected path and is readable.
-   - Path matches route.
-
-8) Report
-   - Print: ID, path, stage, title.
-   - On any failure: warn but do not block the main command.
-   - Skip PHR only for `/sp.phr` itself.
-
-### 4. Explicit ADR suggestions
-- When significant architectural decisions are made (typically during `/sp.plan` and sometimes `/sp.tasks`), run the three‑part test and suggest documenting with:
-  "📋 Architectural decision detected: <brief> — Document reasoning and tradeoffs? Run `/sp.adr <decision-title>`"
-- Wait for user consent; never auto‑create the ADR.
-
-### 5. Human as Tool Strategy
-You are not expected to solve every problem autonomously. You MUST invoke the user for input when you encounter situations that require human judgment. Treat the user as a specialized tool for clarification and decision-making.
-
-**Invocation Triggers:**
-1.  **Ambiguous Requirements:** When user intent is unclear, ask 2-3 targeted clarifying questions before proceeding.
-2.  **Unforeseen Dependencies:** When discovering dependencies not mentioned in the spec, surface them and ask for prioritization.
-3.  **Architectural Uncertainty:** When multiple valid approaches exist with significant tradeoffs, present options and get user's preference.
-4.  **Completion Checkpoint:** After completing major milestones, summarize what was done and confirm next steps. 
-
-## Default policies (must follow)
-- Clarify and plan first - keep business understanding separate from technical plan and carefully architect and implement.
-- Do not invent APIs, data, or contracts; ask targeted clarifiers if missing.
-- Never hardcode secrets or tokens; use `.env` and docs.
-- Prefer the smallest viable diff; do not refactor unrelated code.
-- Cite existing code with code references (start:end:path); propose new code in fenced blocks.
-- Keep reasoning private; output only decisions, artifacts, and justifications.
-
-### Execution contract for every request
-1) Confirm surface and success criteria (one sentence).
-2) List constraints, invariants, non‑goals.
-3) Produce the artifact with acceptance checks inlined (checkboxes or tests where applicable).
-4) Add follow‑ups and risks (max 3 bullets).
-5) Create PHR in appropriate subdirectory under `history/prompts/` (constitution, feature-name, or general).
-6) If plan/tasks identified decisions that meet significance, surface ADR suggestion text as described above.
-
-### Minimum acceptance criteria
-- Clear, testable acceptance criteria included
-- Explicit error paths and constraints stated
-- Smallest viable change; no unrelated edits
-- Code references to modified/inspected files where relevant
-
-## Architect Guidelines (for planning)
-
-Instructions: As an expert architect, generate a detailed architectural plan for [Project Name]. Address each of the following thoroughly.
-
-1. Scope and Dependencies:
-   - In Scope: boundaries and key features.
-   - Out of Scope: explicitly excluded items.
-   - External Dependencies: systems/services/teams and ownership.
-
-2. Key Decisions and Rationale:
-   - Options Considered, Trade-offs, Rationale.
-   - Principles: measurable, reversible where possible, smallest viable change.
-
-3. Interfaces and API Contracts:
-   - Public APIs: Inputs, Outputs, Errors.
-   - Versioning Strategy.
-   - Idempotency, Timeouts, Retries.
-   - Error Taxonomy with status codes.
-
-4. Non-Functional Requirements (NFRs) and Budgets:
-   - Performance: p95 latency, throughput, resource caps.
-   - Reliability: SLOs, error budgets, degradation strategy.
-   - Security: AuthN/AuthZ, data handling, secrets, auditing.
-   - Cost: unit economics.
-
-5. Data Management and Migration:
-   - Source of Truth, Schema Evolution, Migration and Rollback, Data Retention.
-
-6. Operational Readiness:
-   - Observability: logs, metrics, traces.
-   - Alerting: thresholds and on-call owners.
-   - Runbooks for common tasks.
-   - Deployment and Rollback strategies.
-   - Feature Flags and compatibility.
-
-7. Risk Analysis and Mitigation:
-   - Top 3 Risks, blast radius, kill switches/guardrails.
-
-8. Evaluation and Validation:
-   - Definition of Done (tests, scans).
-   - Output Validation for format/requirements/safety.
-
-9. Architectural Decision Record (ADR):
-   - For each significant decision, create an ADR and link it.
-
-### Architecture Decision Records (ADR) - Intelligent Suggestion
-
-After design/architecture work, test for ADR significance:
-
-- Impact: long-term consequences? (e.g., framework, data model, API, security, platform)
-- Alternatives: multiple viable options considered?
-- Scope: cross‑cutting and influences system design?
-
-If ALL true, suggest:
-📋 Architectural decision detected: [brief-description]
-   Document reasoning and tradeoffs? Run `/sp.adr [decision-title]`
-
-Wait for consent; never auto-create ADRs. Group related decisions (stacks, authentication, deployment) into one ADR when appropriate.
-
-## Basic Project Structure
-
-- `.specify/memory/constitution.md` — Project principles
-- `specs/<feature>/spec.md` — Feature requirements
-- `specs/<feature>/plan.md` — Architecture decisions
-- `specs/<feature>/tasks.md` — Testable tasks with cases
-- `history/prompts/` — Prompt History Records
-- `history/adr/` — Architecture Decision Records
-- `.specify/` — SpecKit Plus templates and scripts
+| File | Purpose |
+|------|---------|
+| `.claude/skills/exam-tutor/SKILL.md` | Main skill bundle documentation |
+| `.claude/skills/exam-tutor/references/schemas.md` | All data schemas |
+| `.claude/skills/exam-tutor/references/mcp-integration.md` | MCP configuration |
+| `.claude/skills/exam-tutor/references/skill-orchestration.md` | Workflow patterns |
+| `.claude/mcp.json` | MCP server configuration |
+| `.specify/memory/constitution.md` | Project principles |
 
 ## Code Standards
-See `.specify/memory/constitution.md` for code quality, testing, performance, security, and architecture principles.
+
+### File Operations
+- Always use MCP filesystem tools for reads/writes
+- Validate JSON before writing
+- Handle missing files gracefully
+- Atomic writes for session data
+
+### Question Bank
+- Question IDs follow format: `{EXAM}-{SUBJECT_CODE}-{NUMBER}`
+- Example: `PPSC-PK-001` (PPSC, Pakistan Studies, Question 1)
+- Include correct_answer, topic, difficulty for all questions
+
+### Student Data
+- Never delete student history, only append
+- Update topic-stats atomically
+- Maintain backward compatibility with schemas
+
+## Testing Considerations
+
+When testing skills:
+1. Create test student profile in `memory/students/test-student/`
+2. Use sample questions from `question-bank/PPSC/`
+3. Verify ERI calculation matches formula
+4. Check file writes succeed and maintain schema
+
+## Constraints
+
+- Skills must NOT communicate directly with users
+- Skills must NOT contain business logic spanning multiple responsibilities
+- Skills must NOT decide strategy—only execute
+- All file paths relative to project root
+- Exam types limited to: SPSC, PPSC, KPPSC

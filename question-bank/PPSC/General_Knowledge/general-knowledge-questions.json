@@ -1,0 +1,152 @@
+{
+  "$schema": "exam-tutor/question-bank/v1",
+  "metadata": {
+    "exam_type": "PPSC",
+    "subject": "General Knowledge",
+    "created_at": "2024-01-01T00:00:00Z",
+    "updated_at": "2024-01-01T00:00:00Z",
+    "question_count": 10
+  },
+  "questions": [
+    {
+      "id": "PPSC-GK-001",
+      "text": "Which is the largest continent by area?",
+      "options": {
+        "A": "Africa",
+        "B": "North America",
+        "C": "Asia",
+        "D": "Europe"
+      },
+      "correct_answer": "C",
+      "topic": "World Geography",
+      "difficulty": "easy",
+      "explanation": "Asia is the largest continent, covering approximately 44.58 million square kilometers."
+    },
+    {
+      "id": "PPSC-GK-002",
+      "text": "What is the chemical symbol for Gold?",
+      "options": {
+        "A": "Ag",
+        "B": "Au",
+        "C": "Go",
+        "D": "Gd"
+      },
+      "correct_answer": "B",
+      "topic": "General Science",
+      "difficulty": "easy",
+      "explanation": "Au (from Latin 'Aurum') is the chemical symbol for Gold."
+    },
+    {
+      "id": "PPSC-GK-003",
+      "text": "Who invented the telephone?",
+      "options": {
+        "A": "Thomas Edison",
+        "B": "Nikola Tesla",
+        "C": "Alexander Graham Bell",
+        "D": "Guglielmo Marconi"
+      },
+      "correct_answer": "C",
+      "topic": "Inventions and Discoveries",
+      "difficulty": "easy",
+      "explanation": "Alexander Graham Bell is credited with inventing the first practical telephone in 1876."
+    },
+    {
+      "id": "PPSC-GK-004",
+      "text": "The United Nations headquarters is located in:",
+      "options": {
+        "A": "Geneva",
+        "B": "London",
+        "C": "New York",
+        "D": "Washington D.C."
+      },
+      "correct_answer": "C",
+      "topic": "International Organizations",
+      "difficulty": "easy",
+      "explanation": "The United Nations headquarters is located in New York City, USA."
+    },
+    {
+      "id": "PPSC-GK-005",
+      "text": "Which scientist proposed the theory of relativity?",
+      "options": {
+        "A": "Isaac Newton",
+        "B": "Albert Einstein",
+        "C": "Niels Bohr",
+        "D": "Stephen Hawking"
+      },
+      "correct_answer": "B",
+      "topic": "Famous Personalities",
+      "difficulty": "easy",
+      "explanation": "Albert Einstein proposed the theory of relativity, including E=mc²."
+    },
+    {
+      "id": "PPSC-GK-006",
+      "text": "What is the powerhouse of the cell?",
+      "options": {
+        "A": "Nucleus",
+        "B": "Ribosome",
+        "C": "Mitochondria",
+        "D": "Chloroplast"
+      },
+      "correct_answer": "C",
+      "topic": "General Science",
+      "difficulty": "medium",
+      "explanation": "Mitochondria are known as the powerhouse of the cell because they generate most of the cell's ATP energy."
+    },
+    {
+      "id": "PPSC-GK-007",
+      "text": "Which ocean is the largest by area?",
+      "options": {
+        "A": "Atlantic Ocean",
+        "B": "Indian Ocean",
+        "C": "Arctic Ocean",
+        "D": "Pacific Ocean"
+      },
+      "correct_answer": "D",
+      "topic": "World Geography",
+      "difficulty": "easy",
+      "explanation": "The Pacific Ocean is the largest and deepest ocean, covering about 165.25 million square kilometers."
+    },
+    {
+      "id": "PPSC-GK-008",
+      "text": "The World Health Organization (WHO) was established in which year?",
+      "options": {
+        "A": "1945",
+        "B": "1948",
+        "C": "1950",
+        "D": "1952"
+      },
+      "correct_answer": "B",
+      "topic": "International Organizations",
+      "difficulty": "medium",
+      "explanation": "WHO was established on April 7, 1948, which is now celebrated as World Health Day."
+    },
+    {
+      "id": "PPSC-GK-009",
+      "text": "Who discovered Penicillin?",
+      "options": {
+        "A": "Louis Pasteur",
+        "B": "Alexander Fleming",
+        "C": "Robert Koch",
+        "D": "Edward Jenner"
+      },
+      "correct_answer": "B",
+      "topic": "Inventions and Discoveries",
+      "difficulty": "medium",
+      "explanation": "Alexander Fleming discovered Penicillin in 1928, revolutionizing medicine with the first antibiotic."
+    },
+    {
+      "id": "PPSC-GK-010",
+      "text": "The Sahara Desert is located in which continent?",
+      "options": {
+        "A": "Asia",
+        "B": "Australia",
+        "C": "Africa",
+        "D": "South America"
+      },
+      "correct_answer": "C",
+      "topic": "World Geography",
+      "difficulty": "easy",
+      "explanation": "The Sahara Desert is the world's largest hot desert, located in North Africa."
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "$schema": "exam-tutor/topic-weights/v1",
+  "exam_type": "PPSC",
+  "weights": {
+    "Independence Movement": {
+      "weight": 0.05,
+      "importance": "high",
+      "frequency": 0.85,
+      "estimated_questions": 5
+    },
+    "Constitutional History": {
+      "weight": 0.04,
+      "importance": "high",
+      "frequency": 0.80,
+      "estimated_questions": 4
+    },
+    "Geography of Pakistan": {
+      "weight": 0.04,
+      "importance": "medium",
+      "frequency": 0.75,
+      "estimated_questions": 4
+    },
+    "Economy of Pakistan": {
+      "weight": 0.03,
+      "importance": "medium",
+      "frequency": 0.70,
+      "estimated_questions": 3
+    },
+    "Foreign Relations": {
+      "weight": 0.04,
+      "importance": "high",
+      "frequency": 0.75,
+      "estimated_questions": 4
+    },
+    "World Geography": {
+      "weight": 0.04,
+      "importance": "medium",
+      "frequency": 0.80,
+      "estimated_questions": 4
+    },
+    "General Science": {
+      "weight": 0.05,
+      "importance": "high",
+      "frequency": 0.90,
+      "estimated_questions": 5
+    },
+    "Famous Personalities": {
+      "weight": 0.03,
+      "importance": "low",
+      "frequency": 0.60,
+      "estimated_questions": 3
+    },
+    "International Organizations": {
+      "weight": 0.04,
+      "importance": "medium",
+      "frequency": 0.75,
+      "estimated_questions": 4
+    },
+    "Inventions and Discoveries": {
+      "weight": 0.04,
+      "importance": "medium",
+      "frequency": 0.70,
+      "estimated_questions": 4
+    },
+    "Pakistan Current Events": {
+      "weight": 0.06,
+      "importance": "high",
+      "frequency": 0.95,
+      "estimated_questions": 6
+    },
+    "International Current Events": {
+      "weight": 0.05,
+      "importance": "high",
+      "frequency": 0.90,
+      "estimated_questions": 5
+    },
+    "Sports Updates": {
+      "weight": 0.02,
+      "importance": "low",
+      "frequency": 0.50,
+      "estimated_questions": 2
+    },
+    "Awards and Honors": {
+      "weight": 0.02,
+      "importance": "low",
+      "frequency": 0.45,
+      "estimated_questions": 2
+    },
+    "Grammar": {
+      "weight": 0.05,
+      "importance": "high",
+      "frequency": 0.90,
+      "estimated_questions": 5
+    },
+    "Vocabulary": {
+      "weight": 0.04,
+      "importance": "high",
+      "frequency": 0.85,
+      "estimated_questions": 4
+    },
+    "Comprehension": {
+      "weight": 0.04,
+      "importance": "medium",
+      "frequency": 0.75,
+      "estimated_questions": 4
+    },
+    "Sentence Correction": {
+      "weight": 0.03,
+      "importance": "medium",
+      "frequency": 0.70,
+      "estimated_questions": 3
+    },
+    "Arithmetic": {
+      "weight": 0.05,
+      "importance": "high",
+      "frequency": 0.90,
+      "estimated_questions": 5
+    },
+    "Algebra": {
+      "weight": 0.04,
+      "importance": "medium",
+      "frequency": 0.75,
+      "estimated_questions": 4
+    },
+    "Geometry": {
+      "weight": 0.03,
+      "importance": "medium",
+      "frequency": 0.65,
+      "estimated_questions": 3
+    },
+    "Data Interpretation": {
+      "weight": 0.04,
+      "importance": "high",
+      "frequency": 0.80,
+      "estimated_questions": 4
+    },
+    "Basic Beliefs": {
+      "weight": 0.04,
+      "importance": "high",
+      "frequency": 0.85,
+      "estimated_questions": 4
+    },
+    "Pillars of Islam": {
+      "weight": 0.04,
+      "importance": "high",
+      "frequency": 0.85,
+      "estimated_questions": 4
+    },
+    "Life of Prophet Muhammad": {
+      "weight": 0.05,
+      "importance": "high",
+      "frequency": 0.90,
+      "estimated_questions": 5
+    },
+    "Islamic History": {
+      "weight": 0.03,
+      "importance": "medium",
+      "frequency": 0.70,
+      "estimated_questions": 3
+    }
+  }
+}

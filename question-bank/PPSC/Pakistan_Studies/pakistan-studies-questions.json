@@ -1,0 +1,152 @@
+{
+  "$schema": "exam-tutor/question-bank/v1",
+  "metadata": {
+    "exam_type": "PPSC",
+    "subject": "Pakistan Studies",
+    "created_at": "2024-01-01T00:00:00Z",
+    "updated_at": "2024-01-01T00:00:00Z",
+    "question_count": 10
+  },
+  "questions": [
+    {
+      "id": "PPSC-PK-001",
+      "text": "When was the Pakistan Resolution passed?",
+      "options": {
+        "A": "March 23, 1939",
+        "B": "March 23, 1940",
+        "C": "August 14, 1947",
+        "D": "March 23, 1941"
+      },
+      "correct_answer": "B",
+      "topic": "Independence Movement",
+      "difficulty": "easy",
+      "explanation": "The Lahore Resolution, commonly known as the Pakistan Resolution, was passed on March 23, 1940, at the annual session of the All-India Muslim League."
+    },
+    {
+      "id": "PPSC-PK-002",
+      "text": "Who was the first Prime Minister of Pakistan?",
+      "options": {
+        "A": "Quaid-e-Azam Muhammad Ali Jinnah",
+        "B": "Liaquat Ali Khan",
+        "C": "Khawaja Nazimuddin",
+        "D": "Muhammad Ali Bogra"
+      },
+      "correct_answer": "B",
+      "topic": "Independence Movement",
+      "difficulty": "easy",
+      "explanation": "Liaquat Ali Khan served as the first Prime Minister of Pakistan from 1947 until his assassination in 1951."
+    },
+    {
+      "id": "PPSC-PK-003",
+      "text": "The first Constitution of Pakistan was adopted in which year?",
+      "options": {
+        "A": "1947",
+        "B": "1952",
+        "C": "1956",
+        "D": "1962"
+      },
+      "correct_answer": "C",
+      "topic": "Constitutional History",
+      "difficulty": "medium",
+      "explanation": "The first Constitution of Pakistan was adopted on March 23, 1956, declaring Pakistan an Islamic Republic."
+    },
+    {
+      "id": "PPSC-PK-004",
+      "text": "Which mountain is the highest peak in Pakistan?",
+      "options": {
+        "A": "Nanga Parbat",
+        "B": "K2",
+        "C": "Broad Peak",
+        "D": "Tirich Mir"
+      },
+      "correct_answer": "B",
+      "topic": "Geography of Pakistan",
+      "difficulty": "easy",
+      "explanation": "K2 (8,611 meters) is the highest peak in Pakistan and the second-highest mountain in the world after Mount Everest."
+    },
+    {
+      "id": "PPSC-PK-005",
+      "text": "The 18th Amendment to the Constitution was passed in which year?",
+      "options": {
+        "A": "2008",
+        "B": "2010",
+        "C": "2012",
+        "D": "2015"
+      },
+      "correct_answer": "B",
+      "topic": "Constitutional History",
+      "difficulty": "medium",
+      "explanation": "The 18th Amendment was passed on April 8, 2010, making significant changes to Pakistan's federal structure and provincial autonomy."
+    },
+    {
+      "id": "PPSC-PK-006",
+      "text": "Which river is NOT part of the Indus River System?",
+      "options": {
+        "A": "Jhelum",
+        "B": "Chenab",
+        "C": "Brahmaputra",
+        "D": "Ravi"
+      },
+      "correct_answer": "C",
+      "topic": "Geography of Pakistan",
+      "difficulty": "medium",
+      "explanation": "The Brahmaputra River flows through Tibet, India, and Bangladesh but is not part of Pakistan's Indus River System."
+    },
+    {
+      "id": "PPSC-PK-007",
+      "text": "Pakistan's largest trading partner is:",
+      "options": {
+        "A": "United States",
+        "B": "China",
+        "C": "United Kingdom",
+        "D": "Saudi Arabia"
+      },
+      "correct_answer": "B",
+      "topic": "Foreign Relations",
+      "difficulty": "easy",
+      "explanation": "China is Pakistan's largest trading partner and a key ally in economic and strategic matters."
+    },
+    {
+      "id": "PPSC-PK-008",
+      "text": "The Indus Water Treaty was signed between Pakistan and India in which year?",
+      "options": {
+        "A": "1955",
+        "B": "1960",
+        "C": "1965",
+        "D": "1971"
+      },
+      "correct_answer": "B",
+      "topic": "Foreign Relations",
+      "difficulty": "hard",
+      "explanation": "The Indus Water Treaty was signed on September 19, 1960, with the World Bank as a mediator, dividing the rivers between Pakistan and India."
+    },
+    {
+      "id": "PPSC-PK-009",
+      "text": "What is the main export of Pakistan?",
+      "options": {
+        "A": "Rice",
+        "B": "Cotton Textiles",
+        "C": "Leather",
+        "D": "Sports Goods"
+      },
+      "correct_answer": "B",
+      "topic": "Economy of Pakistan",
+      "difficulty": "medium",
+      "explanation": "Textile products, particularly cotton-based textiles, constitute the largest share of Pakistan's exports."
+    },
+    {
+      "id": "PPSC-PK-010",
+      "text": "The Two-Nation Theory was presented by which leader?",
+      "options": {
+        "A": "Sir Syed Ahmed Khan",
+        "B": "Allama Iqbal",
+        "C": "Quaid-e-Azam",
+        "D": "Liaquat Ali Khan"
+      },
+      "correct_answer": "A",
+      "topic": "Independence Movement",
+      "difficulty": "hard",
+      "explanation": "The Two-Nation Theory was first articulated by Sir Syed Ahmed Khan in the 19th century, later developed by Allama Iqbal and championed by Quaid-e-Azam."
+    }
+  ]
+}
