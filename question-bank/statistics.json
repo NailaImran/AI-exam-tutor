@@ -1,28 +1,36 @@
 {
   "version": "1.0.0",
-  "last_updated": "2026-01-20T00:00:00Z",
-  "total_questions": 0,
+  "last_updated": "2026-01-21T00:00:00Z",
+  "total_questions": 47,
   "by_exam": {
-    "SPSC": 0,
-    "PPSC": 0,
-    "KPPSC": 0
+    "SPSC": 15,
+    "PPSC": 20,
+    "KPPSC": 12
   },
   "by_subject": {
-    "Pakistan Studies": 0,
-    "General Knowledge": 0,
-    "Current Affairs": 0,
+    "Pakistan Studies": 20,
+    "General Knowledge": 15,
+    "Current Affairs": 12,
     "English": 0
   },
   "by_difficulty": {
-    "easy": 0,
-    "medium": 0,
+    "easy": 32,
+    "medium": 15,
     "hard": 0
   },
-  "by_source": {},
-  "by_year": {},
+  "by_source": {
+    "ppsc-sample-2023": 20,
+    "spsc-sample-2023": 15,
+    "kppsc-sample-2023": 12
+  },
+  "by_year": {
+    "2023": 47
+  },
   "metadata": {
     "calculation_method": "Incremental updates from question-bank-manager",
     "accuracy_requirement": "Within 1% of ground truth",
-    "notes": "Statistics automatically updated when questions are added/updated/deactivated"
+    "notes": "Statistics automatically updated when questions are added/updated/deactivated",
+    "test_data": "Sample papers from Phase 2 testing (47 questions)",
+    "test_date": "2026-01-21"
   }
 }
