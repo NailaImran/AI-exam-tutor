@@ -1,0 +1,77 @@
+# AI Exam Tutor - Git Ignore Rules
+
+# Environment and Secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+credentials.json
+secrets/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS Files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+desktop.ini
+
+# IDE Files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.history/
+
+# Temporary Files
+*.tmp
+*.temp
+tmp/
+temp/
+.cache/
+
+# Student Data (if sensitive)
+# Uncomment if student data should not be committed
+# students/
+# memory/students/
+
+# MCP Server Logs (if generated)
+.mcp/
+mcp-*.log
+
+# Node.js (if using file watcher)
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Python (if using watchdog)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+env/
+ENV/
+
+# Build artifacts
+dist/
+build/
+out/
+
+# Phase 2: Raw Papers (large binary files)
+Raw-Papers/
+*.pdf
+
+# Phase 2: Needs Review (temporary staging)
+Needs-Review/

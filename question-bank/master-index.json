@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "created_at": "2026-01-20T00:00:00Z",
+  "last_updated": "2026-01-20T00:00:00Z",
+  "questions": {},
+  "next_id_counters": {
+    "SPSC-PK": 1,
+    "SPSC-GK": 1,
+    "SPSC-CA": 1,
+    "SPSC-EN": 1,
+    "PPSC-PK": 1,
+    "PPSC-GK": 1,
+    "PPSC-CA": 1,
+    "PPSC-EN": 1,
+    "KPPSC-PK": 1,
+    "KPPSC-GK": 1,
+    "KPPSC-CA": 1,
+    "KPPSC-EN": 1
+  },
+  "metadata": {
+    "total_questions": 0,
+    "total_exams": 3,
+    "total_subjects": 4,
+    "notes": "Master index for all questions across SPSC, PPSC, KPPSC"
+  }
+}

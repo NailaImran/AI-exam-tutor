@@ -1,0 +1,172 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-01-20",
+  "sources": [
+    {
+      "id": "spsc-official",
+      "exam": "SPSC",
+      "name": "SPSC Official Website",
+      "url": "https://spsc.gov.pk/past-papers",
+      "format": "PDF",
+      "reliability": 5,
+      "rate_limit": {
+        "delay_seconds": 2,
+        "max_requests_per_hour": 100
+      },
+      "robots_txt_url": "https://spsc.gov.pk/robots.txt",
+      "user_agent": "ExamTutor-Bot/1.0 (Educational)",
+      "last_verified": "2026-01-20",
+      "status": "active",
+      "notes": "Primary source, most authoritative"
+    },
+    {
+      "id": "spsc-results-portal",
+      "exam": "SPSC",
+      "name": "SPSC Results Portal",
+      "url": "https://online.spsc.gov.pk/downloads",
+      "format": "PDF",
+      "reliability": 5,
+      "rate_limit": {
+        "delay_seconds": 2,
+        "max_requests_per_hour": 100
+      },
+      "robots_txt_url": "https://online.spsc.gov.pk/robots.txt",
+      "user_agent": "ExamTutor-Bot/1.0 (Educational)",
+      "last_verified": "2026-01-20",
+      "status": "active",
+      "notes": "Official downloads section"
+    },
+    {
+      "id": "ilmkidunya-spsc",
+      "exam": "SPSC",
+      "name": "IlmKiDunya SPSC",
+      "url": "https://ilmkidunya.com/spsc/past-papers",
+      "format": "HTML",
+      "reliability": 4,
+      "rate_limit": {
+        "delay_seconds": 3,
+        "max_requests_per_hour": 100
+      },
+      "robots_txt_url": "https://ilmkidunya.com/robots.txt",
+      "user_agent": "ExamTutor-Bot/1.0 (Educational)",
+      "last_verified": "2026-01-20",
+      "status": "active",
+      "notes": "Well-maintained, cross-verified"
+    },
+    {
+      "id": "ppsc-official",
+      "exam": "PPSC",
+      "name": "PPSC Official Website",
+      "url": "https://ppsc.gop.pk/past_papers",
+      "format": "PDF",
+      "reliability": 5,
+      "rate_limit": {
+        "delay_seconds": 2,
+        "max_requests_per_hour": 100
+      },
+      "robots_txt_url": "https://ppsc.gop.pk/robots.txt",
+      "user_agent": "ExamTutor-Bot/1.0 (Educational)",
+      "last_verified": "2026-01-20",
+      "status": "active",
+      "notes": "Primary source, most authoritative"
+    },
+    {
+      "id": "ppsc-download-center",
+      "exam": "PPSC",
+      "name": "PPSC Download Center",
+      "url": "https://online.ppsc.gop.pk/downloads",
+      "format": "PDF",
+      "reliability": 5,
+      "rate_limit": {
+        "delay_seconds": 2,
+        "max_requests_per_hour": 100
+      },
+      "robots_txt_url": "https://online.ppsc.gop.pk/robots.txt",
+      "user_agent": "ExamTutor-Bot/1.0 (Educational)",
+      "last_verified": "2026-01-20",
+      "status": "active",
+      "notes": "Official downloads portal"
+    },
+    {
+      "id": "ilmkidunya-ppsc",
+      "exam": "PPSC",
+      "name": "IlmKiDunya PPSC",
+      "url": "https://ilmkidunya.com/ppsc/past-papers",
+      "format": "HTML",
+      "reliability": 4,
+      "rate_limit": {
+        "delay_seconds": 3,
+        "max_requests_per_hour": 100
+      },
+      "robots_txt_url": "https://ilmkidunya.com/robots.txt",
+      "user_agent": "ExamTutor-Bot/1.0 (Educational)",
+      "last_verified": "2026-01-20",
+      "status": "active",
+      "notes": "Well-maintained, cross-verified"
+    },
+    {
+      "id": "kppsc-official",
+      "exam": "KPPSC",
+      "name": "KPPSC Official Website",
+      "url": "https://kppsc.gov.pk/past-papers",
+      "format": "PDF",
+      "reliability": 5,
+      "rate_limit": {
+        "delay_seconds": 2,
+        "max_requests_per_hour": 100
+      },
+      "robots_txt_url": "https://kppsc.gov.pk/robots.txt",
+      "user_agent": "ExamTutor-Bot/1.0 (Educational)",
+      "last_verified": "2026-01-20",
+      "status": "active",
+      "notes": "Primary source, most authoritative"
+    },
+    {
+      "id": "kppsc-downloads",
+      "exam": "KPPSC",
+      "name": "KPPSC Downloads",
+      "url": "https://online.kppsc.gov.pk/downloads",
+      "format": "PDF",
+      "reliability": 5,
+      "rate_limit": {
+        "delay_seconds": 2,
+        "max_requests_per_hour": 100
+      },
+      "robots_txt_url": "https://online.kppsc.gov.pk/robots.txt",
+      "user_agent": "ExamTutor-Bot/1.0 (Educational)",
+      "last_verified": "2026-01-20",
+      "status": "active",
+      "notes": "Official downloads section"
+    },
+    {
+      "id": "ilmkidunya-kppsc",
+      "exam": "KPPSC",
+      "name": "IlmKiDunya KPPSC",
+      "url": "https://ilmkidunya.com/kppsc/past-papers",
+      "format": "HTML",
+      "reliability": 4,
+      "rate_limit": {
+        "delay_seconds": 3,
+        "max_requests_per_hour": 100
+      },
+      "robots_txt_url": "https://ilmkidunya.com/robots.txt",
+      "user_agent": "ExamTutor-Bot/1.0 (Educational)",
+      "last_verified": "2026-01-20",
+      "status": "active",
+      "notes": "Well-maintained, cross-verified"
+    }
+  ],
+  "metadata": {
+    "total_sources": 9,
+    "by_exam": {
+      "SPSC": 3,
+      "PPSC": 3,
+      "KPPSC": 3
+    },
+    "by_reliability": {
+      "5": 6,
+      "4": 3
+    },
+    "notes": "Registry contains official and verified secondary sources for all three exams"
+  }
+}

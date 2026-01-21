@@ -1,0 +1,28 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-01-20T00:00:00Z",
+  "total_questions": 0,
+  "by_exam": {
+    "SPSC": 0,
+    "PPSC": 0,
+    "KPPSC": 0
+  },
+  "by_subject": {
+    "Pakistan Studies": 0,
+    "General Knowledge": 0,
+    "Current Affairs": 0,
+    "English": 0
+  },
+  "by_difficulty": {
+    "easy": 0,
+    "medium": 0,
+    "hard": 0
+  },
+  "by_source": {},
+  "by_year": {},
+  "metadata": {
+    "calculation_method": "Incremental updates from question-bank-manager",
+    "accuracy_requirement": "Within 1% of ground truth",
+    "notes": "Statistics automatically updated when questions are added/updated/deactivated"
+  }
+}
