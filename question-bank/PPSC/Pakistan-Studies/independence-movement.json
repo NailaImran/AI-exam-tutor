@@ -1,0 +1,153 @@
+{
+  "$schema": "exam-tutor/question-bank/v1",
+  "metadata": {
+    "exam_type": "PPSC",
+    "subject": "Pakistan Studies",
+    "topic": "Independence Movement",
+    "created_at": "2026-01-19T00:00:00Z",
+    "updated_at": "2026-01-19T00:00:00Z",
+    "question_count": 10
+  },
+  "questions": [
+    {
+      "id": "PPSC-PK-00011",
+      "text": "When was the Pakistan Resolution (Lahore Resolution) passed?",
+      "options": {
+        "A": "March 23, 1939",
+        "B": "March 23, 1940",
+        "C": "August 14, 1947",
+        "D": "March 23, 1941"
+      },
+      "correct_answer": "B",
+      "topic": "Independence Movement",
+      "difficulty": "easy",
+      "explanation": "The Lahore Resolution was passed on March 23, 1940, at the annual session of the All-India Muslim League."
+    },
+    {
+      "id": "PPSC-PK-00012",
+      "text": "Who was the first Prime Minister of Pakistan?",
+      "options": {
+        "A": "Quaid-e-Azam Muhammad Ali Jinnah",
+        "B": "Liaquat Ali Khan",
+        "C": "Khawaja Nazimuddin",
+        "D": "Muhammad Ali Bogra"
+      },
+      "correct_answer": "B",
+      "topic": "Independence Movement",
+      "difficulty": "easy",
+      "explanation": "Liaquat Ali Khan served as the first Prime Minister of Pakistan from 1947 until his assassination in 1951."
+    },
+    {
+      "id": "PPSC-PK-00013",
+      "text": "The Two-Nation Theory was first articulated by:",
+      "options": {
+        "A": "Quaid-e-Azam Muhammad Ali Jinnah",
+        "B": "Allama Iqbal",
+        "C": "Sir Syed Ahmed Khan",
+        "D": "Liaquat Ali Khan"
+      },
+      "correct_answer": "C",
+      "topic": "Independence Movement",
+      "difficulty": "medium",
+      "explanation": "The Two-Nation Theory was first articulated by Sir Syed Ahmed Khan in the 19th century."
+    },
+    {
+      "id": "PPSC-PK-00014",
+      "text": "Allama Iqbal delivered his famous Allahabad Address in:",
+      "options": {
+        "A": "1928",
+        "B": "1929",
+        "C": "1930",
+        "D": "1931"
+      },
+      "correct_answer": "C",
+      "topic": "Independence Movement",
+      "difficulty": "medium",
+      "explanation": "Allama Iqbal delivered his famous Allahabad Address on December 29, 1930, proposing a separate Muslim state."
+    },
+    {
+      "id": "PPSC-PK-00015",
+      "text": "The All India Muslim League was founded in which city?",
+      "options": {
+        "A": "Lahore",
+        "B": "Delhi",
+        "C": "Dhaka",
+        "D": "Aligarh"
+      },
+      "correct_answer": "C",
+      "topic": "Independence Movement",
+      "difficulty": "easy",
+      "explanation": "The All India Muslim League was founded on December 30, 1906, in Dhaka (now Bangladesh)."
+    },
+    {
+      "id": "PPSC-PK-00016",
+      "text": "The Quit India Movement was launched in:",
+      "options": {
+        "A": "1940",
+        "B": "1942",
+        "C": "1944",
+        "D": "1946"
+      },
+      "correct_answer": "B",
+      "topic": "Independence Movement",
+      "difficulty": "medium",
+      "explanation": "The Quit India Movement was launched by the Indian National Congress on August 8, 1942."
+    },
+    {
+      "id": "PPSC-PK-00017",
+      "text": "Who was the last Viceroy of British India?",
+      "options": {
+        "A": "Lord Wavell",
+        "B": "Lord Mountbatten",
+        "C": "Lord Linlithgow",
+        "D": "Lord Irwin"
+      },
+      "correct_answer": "B",
+      "topic": "Independence Movement",
+      "difficulty": "easy",
+      "explanation": "Lord Mountbatten was the last Viceroy of British India and oversaw the partition."
+    },
+    {
+      "id": "PPSC-PK-00018",
+      "text": "The Lucknow Pact between Congress and Muslim League was signed in:",
+      "options": {
+        "A": "1914",
+        "B": "1916",
+        "C": "1918",
+        "D": "1920"
+      },
+      "correct_answer": "B",
+      "topic": "Independence Movement",
+      "difficulty": "hard",
+      "explanation": "The Lucknow Pact was signed in December 1916, establishing Hindu-Muslim political cooperation."
+    },
+    {
+      "id": "PPSC-PK-00019",
+      "text": "Who presided over the Lahore session of Muslim League in 1940?",
+      "options": {
+        "A": "Allama Iqbal",
+        "B": "Liaquat Ali Khan",
+        "C": "Quaid-e-Azam Muhammad Ali Jinnah",
+        "D": "Sir Sikandar Hayat Khan"
+      },
+      "correct_answer": "C",
+      "topic": "Independence Movement",
+      "difficulty": "easy",
+      "explanation": "Quaid-e-Azam Muhammad Ali Jinnah presided over the historic Lahore session where the Pakistan Resolution was passed."
+    },
+    {
+      "id": "PPSC-PK-00020",
+      "text": "The Cabinet Mission came to India in:",
+      "options": {
+        "A": "1944",
+        "B": "1945",
+        "C": "1946",
+        "D": "1947"
+      },
+      "correct_answer": "C",
+      "topic": "Independence Movement",
+      "difficulty": "medium",
+      "explanation": "The Cabinet Mission arrived in India in March 1946 to discuss the transfer of power."
+    }
+  ]
+}

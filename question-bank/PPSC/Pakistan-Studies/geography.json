@@ -1,0 +1,153 @@
+{
+  "$schema": "exam-tutor/question-bank/v1",
+  "metadata": {
+    "exam_type": "PPSC",
+    "subject": "Pakistan Studies",
+    "topic": "Geography of Pakistan",
+    "created_at": "2026-01-19T00:00:00Z",
+    "updated_at": "2026-01-19T00:00:00Z",
+    "question_count": 10
+  },
+  "questions": [
+    {
+      "id": "PPSC-PK-00021",
+      "text": "Which mountain is the highest peak in Pakistan?",
+      "options": {
+        "A": "Nanga Parbat",
+        "B": "K2",
+        "C": "Broad Peak",
+        "D": "Tirich Mir"
+      },
+      "correct_answer": "B",
+      "topic": "Geography of Pakistan",
+      "difficulty": "easy",
+      "explanation": "K2 (8,611 meters) is the highest peak in Pakistan and the second-highest mountain in the world."
+    },
+    {
+      "id": "PPSC-PK-00022",
+      "text": "Which river is NOT part of the Indus River System?",
+      "options": {
+        "A": "Jhelum",
+        "B": "Chenab",
+        "C": "Brahmaputra",
+        "D": "Ravi"
+      },
+      "correct_answer": "C",
+      "topic": "Geography of Pakistan",
+      "difficulty": "medium",
+      "explanation": "The Brahmaputra flows through Tibet, India, and Bangladesh but is not part of Pakistan's Indus River System."
+    },
+    {
+      "id": "PPSC-PK-00023",
+      "text": "The Thar Desert is located in which province of Pakistan?",
+      "options": {
+        "A": "Punjab",
+        "B": "Sindh",
+        "C": "Balochistan",
+        "D": "KPK"
+      },
+      "correct_answer": "B",
+      "topic": "Geography of Pakistan",
+      "difficulty": "easy",
+      "explanation": "The Thar Desert (also called the Great Indian Desert) extends into the southeastern part of Sindh province."
+    },
+    {
+      "id": "PPSC-PK-00024",
+      "text": "What is the total area of Pakistan in square kilometers?",
+      "options": {
+        "A": "696,096 sq km",
+        "B": "796,096 sq km",
+        "C": "896,096 sq km",
+        "D": "996,096 sq km"
+      },
+      "correct_answer": "B",
+      "topic": "Geography of Pakistan",
+      "difficulty": "medium",
+      "explanation": "Pakistan has a total area of approximately 796,096 square kilometers, making it the 33rd largest country."
+    },
+    {
+      "id": "PPSC-PK-00025",
+      "text": "The Khyber Pass connects Pakistan with:",
+      "options": {
+        "A": "China",
+        "B": "Iran",
+        "C": "Afghanistan",
+        "D": "India"
+      },
+      "correct_answer": "C",
+      "topic": "Geography of Pakistan",
+      "difficulty": "easy",
+      "explanation": "The Khyber Pass is a mountain pass connecting Peshawar, Pakistan with Jalalabad, Afghanistan."
+    },
+    {
+      "id": "PPSC-PK-00026",
+      "text": "Which is the largest province of Pakistan by area?",
+      "options": {
+        "A": "Punjab",
+        "B": "Sindh",
+        "C": "Balochistan",
+        "D": "KPK"
+      },
+      "correct_answer": "C",
+      "topic": "Geography of Pakistan",
+      "difficulty": "easy",
+      "explanation": "Balochistan is the largest province, covering about 44% of Pakistan's total land area."
+    },
+    {
+      "id": "PPSC-PK-00027",
+      "text": "The Karakoram Highway connects Pakistan with:",
+      "options": {
+        "A": "Afghanistan",
+        "B": "China",
+        "C": "Iran",
+        "D": "India"
+      },
+      "correct_answer": "B",
+      "topic": "Geography of Pakistan",
+      "difficulty": "easy",
+      "explanation": "The Karakoram Highway connects Hasan Abdal in Pakistan to Kashgar in China through the Khunjerab Pass."
+    },
+    {
+      "id": "PPSC-PK-00028",
+      "text": "Which lake is located in Skardu, Gilgit-Baltistan?",
+      "options": {
+        "A": "Saif ul Malook",
+        "B": "Shangrila Lake",
+        "C": "Rawal Lake",
+        "D": "Keenjhar Lake"
+      },
+      "correct_answer": "B",
+      "topic": "Geography of Pakistan",
+      "difficulty": "medium",
+      "explanation": "Shangrila Lake (also called Lower Kachura Lake) is located in Skardu district of Gilgit-Baltistan."
+    },
+    {
+      "id": "PPSC-PK-00029",
+      "text": "The Indus River originates from:",
+      "options": {
+        "A": "Karakoram Range",
+        "B": "Hindu Kush",
+        "C": "Himalayas (Tibet)",
+        "D": "Sulaiman Range"
+      },
+      "correct_answer": "C",
+      "topic": "Geography of Pakistan",
+      "difficulty": "medium",
+      "explanation": "The Indus River originates from Lake Mansarovar in Tibet, near Mount Kailash in the Himalayas."
+    },
+    {
+      "id": "PPSC-PK-00030",
+      "text": "Which city is known as the 'City of Gardens' in Pakistan?",
+      "options": {
+        "A": "Karachi",
+        "B": "Islamabad",
+        "C": "Lahore",
+        "D": "Peshawar"
+      },
+      "correct_answer": "C",
+      "topic": "Geography of Pakistan",
+      "difficulty": "easy",
+      "explanation": "Lahore is known as the 'City of Gardens' due to its many historic Mughal gardens like Shalimar Gardens."
+    }
+  ]
+}

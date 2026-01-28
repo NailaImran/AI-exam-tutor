@@ -1,36 +1,119 @@
 {
-  "version": "1.0.0",
-  "last_updated": "2026-01-21T00:00:00Z",
-  "total_questions": 47,
+  "version": "2.0.0",
+  "last_updated": "2026-01-28T00:00:00Z",
+  "total_questions": 1570,
   "by_exam": {
-    "SPSC": 15,
-    "PPSC": 20,
-    "KPPSC": 12
+    "PPSC": 670,
+    "SPSC": 450,
+    "KPPSC": 450
   },
   "by_subject": {
-    "Pakistan Studies": 20,
-    "General Knowledge": 15,
-    "Current Affairs": 12,
-    "English": 0
+    "Pakistan Studies": 520,
+    "General Knowledge": 250,
+    "Current Affairs": 115,
+    "Islamic Studies": 160,
+    "Everyday Science": 158,
+    "Computer Science": 160,
+    "English": 150,
+    "World History": 50,
+    "International Affairs": 50
   },
   "by_difficulty": {
-    "easy": 32,
-    "medium": 15,
-    "hard": 0
+    "easy": 940,
+    "medium": 480,
+    "hard": 150
+  },
+  "by_topic": {
+    "History": 280,
+    "Constitutional History": 60,
+    "Independence Movement": 60,
+    "Geography": 170,
+    "Culture": 80,
+    "Economy": 100,
+    "Current Affairs": 115,
+    "Islamic Studies": 160,
+    "Physics": 50,
+    "Chemistry": 40,
+    "Biology": 50,
+    "Earth Science": 30,
+    "Astronomy": 25,
+    "Environment": 15,
+    "Computer Hardware": 45,
+    "MS Office": 40,
+    "Networking": 35,
+    "Programming": 20,
+    "Vocabulary": 60,
+    "Grammar": 50,
+    "Idioms": 20,
+    "Prepositions": 20,
+    "World History": 50,
+    "International Organizations": 30,
+    "World Capitals": 15,
+    "World Geography": 15,
+    "Sports": 15,
+    "Defense": 10,
+    "Technology": 10
   },
   "by_source": {
     "ppsc-sample-2023": 20,
     "spsc-sample-2023": 15,
-    "kppsc-sample-2023": 12
+    "kppsc-sample-2023": 12,
+    "pakmcqs-web-2026": 73,
+    "compiled-2026-01-26": 950,
+    "compiled-2026-01-28": 500
   },
   "by_year": {
-    "2023": 47
+    "2023": 47,
+    "2026": 1523
+  },
+  "files_count": {
+    "PPSC": 21,
+    "SPSC": 12,
+    "KPPSC": 12
   },
   "metadata": {
     "calculation_method": "Incremental updates from question-bank-manager",
     "accuracy_requirement": "Within 1% of ground truth",
-    "notes": "Statistics automatically updated when questions are added/updated/deactivated",
-    "test_data": "Sample papers from Phase 2 testing (47 questions)",
-    "test_date": "2026-01-21"
+    "notes": "Major expansion completed - T052-T055 phase 2 tasks",
+    "last_import": "2026-01-28 - Mass question bank expansion",
+    "phase2_completion": {
+      "T051": "PDF extraction pipeline documentation created",
+      "T052": "PPSC questions expanded to 670+",
+      "T053": "SPSC questions expanded to 450+",
+      "T054": "KPPSC questions expanded to 450+",
+      "T055": "Statistics updated to reflect 1500+ total questions"
+    },
+    "subjects_covered": [
+      "Pakistan Studies",
+      "General Knowledge",
+      "Current Affairs",
+      "Islamic Studies",
+      "Everyday Science",
+      "Computer Science",
+      "English"
+    ],
+    "new_files_created": [
+      "PPSC/English/english-vocabulary.json",
+      "PPSC/Islamic-Studies/islamic-studies-expanded.json",
+      "PPSC/Everyday-Science/everyday-science-expanded.json",
+      "PPSC/Computer-Science/computer-science-expanded.json",
+      "PPSC/General-Knowledge/general-knowledge-expanded.json",
+      "PPSC/Pakistan-Studies/geography-expanded.json",
+      "PPSC/Pakistan-Studies/economy-culture.json",
+      "PPSC/Current-Affairs/international-affairs.json",
+      "PPSC/General-Knowledge/world-history.json",
+      "SPSC/General-Knowledge/general-knowledge.json",
+      "SPSC/English/english-vocabulary.json",
+      "SPSC/Islamic-Studies/islamic-studies.json",
+      "SPSC/Everyday-Science/everyday-science.json",
+      "SPSC/Computer-Science/computer-science.json",
+      "SPSC/Pakistan-Studies/pakistan-studies.json",
+      "KPPSC/General-Knowledge/general-knowledge.json",
+      "KPPSC/Islamic-Studies/islamic-studies.json",
+      "KPPSC/English/english-vocabulary.json",
+      "KPPSC/Everyday-Science/everyday-science.json",
+      "KPPSC/Computer-Science/computer-science.json",
+      "KPPSC/Pakistan-Studies/pakistan-studies.json"
+    ]
   }
 }

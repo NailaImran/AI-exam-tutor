@@ -1,0 +1,153 @@
+{
+  "$schema": "exam-tutor/question-bank/v1",
+  "metadata": {
+    "exam_type": "KPPSC",
+    "subject": "Pakistan Studies",
+    "topic": "Creation of Pakistan",
+    "created_at": "2026-01-19T00:00:00Z",
+    "updated_at": "2026-01-19T00:00:00Z",
+    "question_count": 10
+  },
+  "questions": [
+    {
+      "id": "KPPSC-PK-00011",
+      "text": "Khan Abdul Ghaffar Khan was also known as:",
+      "options": {
+        "A": "Sher-e-Bengal",
+        "B": "Bacha Khan",
+        "C": "Quaid-e-Millat",
+        "D": "Sher-e-Punjab"
+      },
+      "correct_answer": "B",
+      "topic": "Creation of Pakistan",
+      "difficulty": "easy",
+      "explanation": "Khan Abdul Ghaffar Khan was known as Bacha Khan and also as the Frontier Gandhi."
+    },
+    {
+      "id": "KPPSC-PK-00012",
+      "text": "The Khudai Khidmatgar movement was started by:",
+      "options": {
+        "A": "Allama Iqbal",
+        "B": "Khan Abdul Ghaffar Khan",
+        "C": "Quaid-e-Azam",
+        "D": "Sir Syed Ahmed Khan"
+      },
+      "correct_answer": "B",
+      "topic": "Creation of Pakistan",
+      "difficulty": "medium",
+      "explanation": "The Khudai Khidmatgar (Servants of God) movement was started by Khan Abdul Ghaffar Khan."
+    },
+    {
+      "id": "KPPSC-PK-00013",
+      "text": "The 1946 referendum in NWFP resulted in favor of:",
+      "options": {
+        "A": "India",
+        "B": "Pakistan",
+        "C": "Independence",
+        "D": "British Rule"
+      },
+      "correct_answer": "B",
+      "topic": "Creation of Pakistan",
+      "difficulty": "medium",
+      "explanation": "The 1947 referendum in NWFP resulted in 99.02% votes in favor of joining Pakistan."
+    },
+    {
+      "id": "KPPSC-PK-00014",
+      "text": "Who was the first Chief Minister of NWFP after independence?",
+      "options": {
+        "A": "Khan Abdul Ghaffar Khan",
+        "B": "Khan Abdul Qayyum Khan",
+        "C": "Arbab Sikandar Khan",
+        "D": "Dr. Khan Sahib"
+      },
+      "correct_answer": "B",
+      "topic": "Creation of Pakistan",
+      "difficulty": "hard",
+      "explanation": "Khan Abdul Qayyum Khan was the first Chief Minister of NWFP after Pakistan's independence."
+    },
+    {
+      "id": "KPPSC-PK-00015",
+      "text": "When did Pakistan become independent?",
+      "options": {
+        "A": "August 14, 1947",
+        "B": "August 15, 1947",
+        "C": "March 23, 1940",
+        "D": "December 25, 1947"
+      },
+      "correct_answer": "A",
+      "topic": "Creation of Pakistan",
+      "difficulty": "easy",
+      "explanation": "Pakistan became independent on August 14, 1947, a day before India's independence."
+    },
+    {
+      "id": "KPPSC-PK-00016",
+      "text": "Who was the first Governor-General of Pakistan?",
+      "options": {
+        "A": "Liaquat Ali Khan",
+        "B": "Quaid-e-Azam Muhammad Ali Jinnah",
+        "C": "Khawaja Nazimuddin",
+        "D": "Lord Mountbatten"
+      },
+      "correct_answer": "B",
+      "topic": "Creation of Pakistan",
+      "difficulty": "easy",
+      "explanation": "Quaid-e-Azam Muhammad Ali Jinnah was the first Governor-General of Pakistan."
+    },
+    {
+      "id": "KPPSC-PK-00017",
+      "text": "The Radcliffe Award was announced on:",
+      "options": {
+        "A": "August 14, 1947",
+        "B": "August 15, 1947",
+        "C": "August 17, 1947",
+        "D": "August 20, 1947"
+      },
+      "correct_answer": "C",
+      "topic": "Creation of Pakistan",
+      "difficulty": "hard",
+      "explanation": "The Radcliffe Award, determining the India-Pakistan border, was announced on August 17, 1947."
+    },
+    {
+      "id": "KPPSC-PK-00018",
+      "text": "Quaid-e-Azam died on:",
+      "options": {
+        "A": "September 11, 1948",
+        "B": "October 16, 1951",
+        "C": "December 25, 1947",
+        "D": "March 23, 1949"
+      },
+      "correct_answer": "A",
+      "topic": "Creation of Pakistan",
+      "difficulty": "easy",
+      "explanation": "Quaid-e-Azam Muhammad Ali Jinnah died on September 11, 1948, in Karachi."
+    },
+    {
+      "id": "KPPSC-PK-00019",
+      "text": "The First Constituent Assembly of Pakistan met on:",
+      "options": {
+        "A": "August 10, 1947",
+        "B": "August 11, 1947",
+        "C": "August 14, 1947",
+        "D": "August 15, 1947"
+      },
+      "correct_answer": "B",
+      "topic": "Creation of Pakistan",
+      "difficulty": "medium",
+      "explanation": "The First Constituent Assembly of Pakistan met on August 11, 1947, in Karachi."
+    },
+    {
+      "id": "KPPSC-PK-00020",
+      "text": "Which province acceded to Pakistan through its ruler's decision?",
+      "options": {
+        "A": "Punjab",
+        "B": "Sindh",
+        "C": "Balochistan",
+        "D": "NWFP"
+      },
+      "correct_answer": "C",
+      "topic": "Creation of Pakistan",
+      "difficulty": "hard",
+      "explanation": "Balochistan (Kalat State) acceded to Pakistan in March 1948 through the Khan of Kalat's decision."
+    }
+  ]
+}

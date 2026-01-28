@@ -1,0 +1,153 @@
+{
+  "$schema": "exam-tutor/question-bank/v1",
+  "metadata": {
+    "exam_type": "PPSC",
+    "subject": "Pakistan Studies",
+    "topic": "Foreign Relations",
+    "created_at": "2026-01-19T00:00:00Z",
+    "updated_at": "2026-01-19T00:00:00Z",
+    "question_count": 10
+  },
+  "questions": [
+    {
+      "id": "PPSC-PK-00041",
+      "text": "The Indus Water Treaty was signed between Pakistan and India in:",
+      "options": {
+        "A": "1955",
+        "B": "1960",
+        "C": "1965",
+        "D": "1971"
+      },
+      "correct_answer": "B",
+      "topic": "Foreign Relations",
+      "difficulty": "medium",
+      "explanation": "The Indus Water Treaty was signed on September 19, 1960, with the World Bank as a mediator."
+    },
+    {
+      "id": "PPSC-PK-00042",
+      "text": "Pakistan joined the United Nations in:",
+      "options": {
+        "A": "1947",
+        "B": "1948",
+        "C": "1949",
+        "D": "1950"
+      },
+      "correct_answer": "A",
+      "topic": "Foreign Relations",
+      "difficulty": "easy",
+      "explanation": "Pakistan became a member of the United Nations on September 30, 1947."
+    },
+    {
+      "id": "PPSC-PK-00043",
+      "text": "The Simla Agreement between India and Pakistan was signed in:",
+      "options": {
+        "A": "1966",
+        "B": "1971",
+        "C": "1972",
+        "D": "1973"
+      },
+      "correct_answer": "C",
+      "topic": "Foreign Relations",
+      "difficulty": "medium",
+      "explanation": "The Simla Agreement was signed on July 2, 1972, following the 1971 war."
+    },
+    {
+      "id": "PPSC-PK-00044",
+      "text": "Pakistan is a founding member of which organization?",
+      "options": {
+        "A": "ASEAN",
+        "B": "SAARC",
+        "C": "European Union",
+        "D": "African Union"
+      },
+      "correct_answer": "B",
+      "topic": "Foreign Relations",
+      "difficulty": "easy",
+      "explanation": "Pakistan is a founding member of SAARC (South Asian Association for Regional Cooperation), established in 1985."
+    },
+    {
+      "id": "PPSC-PK-00045",
+      "text": "The first country to recognize Pakistan after independence was:",
+      "options": {
+        "A": "United States",
+        "B": "United Kingdom",
+        "C": "Iran",
+        "D": "Turkey"
+      },
+      "correct_answer": "C",
+      "topic": "Foreign Relations",
+      "difficulty": "medium",
+      "explanation": "Iran was the first country to recognize Pakistan's independence on August 14, 1947."
+    },
+    {
+      "id": "PPSC-PK-00046",
+      "text": "The Tashkent Declaration was signed in:",
+      "options": {
+        "A": "1964",
+        "B": "1965",
+        "C": "1966",
+        "D": "1967"
+      },
+      "correct_answer": "C",
+      "topic": "Foreign Relations",
+      "difficulty": "hard",
+      "explanation": "The Tashkent Declaration was signed on January 10, 1966, ending the 1965 Indo-Pakistani War."
+    },
+    {
+      "id": "PPSC-PK-00047",
+      "text": "Pakistan shares its longest border with:",
+      "options": {
+        "A": "India",
+        "B": "Afghanistan",
+        "C": "Iran",
+        "D": "China"
+      },
+      "correct_answer": "A",
+      "topic": "Foreign Relations",
+      "difficulty": "easy",
+      "explanation": "Pakistan shares its longest border (approximately 3,323 km) with India."
+    },
+    {
+      "id": "PPSC-PK-00048",
+      "text": "OIC (Organisation of Islamic Cooperation) is headquartered in:",
+      "options": {
+        "A": "Islamabad",
+        "B": "Jeddah",
+        "C": "Tehran",
+        "D": "Cairo"
+      },
+      "correct_answer": "B",
+      "topic": "Foreign Relations",
+      "difficulty": "medium",
+      "explanation": "The OIC is headquartered in Jeddah, Saudi Arabia. Pakistan is an active member of this organization."
+    },
+    {
+      "id": "PPSC-PK-00049",
+      "text": "The Lahore Declaration between India and Pakistan was signed in:",
+      "options": {
+        "A": "1997",
+        "B": "1998",
+        "C": "1999",
+        "D": "2000"
+      },
+      "correct_answer": "C",
+      "topic": "Foreign Relations",
+      "difficulty": "hard",
+      "explanation": "The Lahore Declaration was signed on February 21, 1999, during Indian PM Vajpayee's visit to Lahore."
+    },
+    {
+      "id": "PPSC-PK-00050",
+      "text": "Pakistan conducted its first nuclear tests in:",
+      "options": {
+        "A": "1995",
+        "B": "1997",
+        "C": "1998",
+        "D": "1999"
+      },
+      "correct_answer": "C",
+      "topic": "Foreign Relations",
+      "difficulty": "easy",
+      "explanation": "Pakistan conducted its first nuclear tests on May 28, 1998, in response to India's nuclear tests."
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "$schema": "exam-tutor/question-bank/v1",
+  "metadata": {
+    "exam_type": "PPSC",
+    "subject": "Computer Science",
+    "topic": "Computer",
+    "source": "pakmcqs.com",
+    "created_at": "2026-01-22T00:00:00Z",
+    "question_count": 10
+  },
+  "questions": [
+    {
+      "id": "PPSC-CS-00001",
+      "text": "How many margin types are available in MS Excel?",
+      "options": {"A": "2 (Normal & Wide)", "B": "4 (Normal, Wide, Narrow & Moderate)", "C": "3 (Normal, Wide & Narrow)", "D": "Just one margin"},
+      "correct_answer": "B",
+      "topic": "MS Excel",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-CS-00002",
+      "text": "To split text into multiple columns in Excel, use:",
+      "options": {"A": "Data >> Sort & Filter", "B": "Data >> Text to Columns", "C": "Home >> Fill >> Justify", "D": "Home >> Editing >> Justify"},
+      "correct_answer": "B",
+      "topic": "MS Excel",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-CS-00003",
+      "text": "Which feature is used for defining names/text in formulas?",
+      "options": {"A": "Defined Names", "B": "Create from Selection", "C": "Formulas Bar", "D": "Name Manager"},
+      "correct_answer": "A",
+      "topic": "MS Excel",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-CS-00004",
+      "text": "A group of cells in Excel is called:",
+      "options": {"A": "Cell Range", "B": "Workbook", "C": "Margin", "D": "None of these"},
+      "correct_answer": "A",
+      "topic": "MS Excel",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-CS-00005",
+      "text": "What-if analysis in Excel includes:",
+      "options": {"A": "Goal Seek", "B": "Solver", "C": "Scenario Manager", "D": "All of the above"},
+      "correct_answer": "D",
+      "topic": "MS Excel",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-CS-00006",
+      "text": "Which is the most common language for Artificial Intelligence?",
+      "options": {"A": "Java", "B": "Python", "C": "Lisp", "D": "None of these"},
+      "correct_answer": "B",
+      "topic": "AI",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-CS-00007",
+      "text": "Who is considered the father of Artificial Intelligence?",
+      "options": {"A": "Charles Babbage", "B": "John McCarthy", "C": "Alan Turing", "D": "None of these"},
+      "correct_answer": "B",
+      "topic": "AI",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-CS-00008",
+      "text": "Data transmission rate is called:",
+      "options": {"A": "Noise", "B": "Bandwidth", "C": "Frequency", "D": "None of these"},
+      "correct_answer": "B",
+      "topic": "Networking",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-CS-00009",
+      "text": "Operating system memory initialization is done by:",
+      "options": {"A": "BIOS", "B": "RAM", "C": "ROM", "D": "CPU"},
+      "correct_answer": "A",
+      "topic": "Operating Systems",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-CS-00010",
+      "text": "The Arab League was established on:",
+      "options": {"A": "21 December 1945", "B": "22 March 1945", "C": "23 July 1945", "D": "29 April 1946"},
+      "correct_answer": "B",
+      "topic": "General Knowledge",
+      "difficulty": "medium"
+    }
+  ]
+}

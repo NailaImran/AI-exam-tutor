@@ -1,0 +1,153 @@
+{
+  "$schema": "exam-tutor/question-bank/v1",
+  "metadata": {
+    "exam_type": "SPSC",
+    "subject": "Pakistan Studies",
+    "topic": "Economy of Pakistan",
+    "created_at": "2026-01-19T00:00:00Z",
+    "updated_at": "2026-01-19T00:00:00Z",
+    "question_count": 10
+  },
+  "questions": [
+    {
+      "id": "SPSC-PK-00031",
+      "text": "Which city is Pakistan's financial capital?",
+      "options": {
+        "A": "Lahore",
+        "B": "Islamabad",
+        "C": "Karachi",
+        "D": "Peshawar"
+      },
+      "correct_answer": "C",
+      "topic": "Economy of Pakistan",
+      "difficulty": "easy",
+      "explanation": "Karachi is Pakistan's financial and commercial capital, housing the stock exchange and major businesses."
+    },
+    {
+      "id": "SPSC-PK-00032",
+      "text": "The Pakistan Stock Exchange is headquartered in:",
+      "options": {
+        "A": "Islamabad",
+        "B": "Lahore",
+        "C": "Karachi",
+        "D": "Faisalabad"
+      },
+      "correct_answer": "C",
+      "topic": "Economy of Pakistan",
+      "difficulty": "easy",
+      "explanation": "The Pakistan Stock Exchange (formerly KSE, LSE, ISE) is headquartered in Karachi."
+    },
+    {
+      "id": "SPSC-PK-00033",
+      "text": "Port Qasim is located near:",
+      "options": {
+        "A": "Gwadar",
+        "B": "Karachi",
+        "C": "Ormara",
+        "D": "Pasni"
+      },
+      "correct_answer": "B",
+      "topic": "Economy of Pakistan",
+      "difficulty": "easy",
+      "explanation": "Port Qasim is located about 35 km southeast of Karachi, serving as Pakistan's second largest port."
+    },
+    {
+      "id": "SPSC-PK-00034",
+      "text": "Sindh Industrial Trading Estate (SITE) is located in:",
+      "options": {
+        "A": "Hyderabad",
+        "B": "Karachi",
+        "C": "Sukkur",
+        "D": "Larkana"
+      },
+      "correct_answer": "B",
+      "topic": "Economy of Pakistan",
+      "difficulty": "medium",
+      "explanation": "SITE is one of the largest industrial areas in Karachi, established in 1947."
+    },
+    {
+      "id": "SPSC-PK-00035",
+      "text": "Pakistan Steel Mills is located in:",
+      "options": {
+        "A": "Lahore",
+        "B": "Islamabad",
+        "C": "Karachi",
+        "D": "Peshawar"
+      },
+      "correct_answer": "C",
+      "topic": "Economy of Pakistan",
+      "difficulty": "easy",
+      "explanation": "Pakistan Steel Mills, the country's largest steel mill, is located in Karachi."
+    },
+    {
+      "id": "SPSC-PK-00036",
+      "text": "Which is the major cash crop of Sindh?",
+      "options": {
+        "A": "Wheat",
+        "B": "Rice",
+        "C": "Cotton",
+        "D": "Sugarcane"
+      },
+      "correct_answer": "D",
+      "topic": "Economy of Pakistan",
+      "difficulty": "medium",
+      "explanation": "Sugarcane is a major cash crop in Sindh, along with cotton and rice."
+    },
+    {
+      "id": "SPSC-PK-00037",
+      "text": "Sindh contributes approximately what percentage to Pakistan's GDP?",
+      "options": {
+        "A": "15%",
+        "B": "25%",
+        "C": "30%",
+        "D": "40%"
+      },
+      "correct_answer": "C",
+      "topic": "Economy of Pakistan",
+      "difficulty": "hard",
+      "explanation": "Sindh contributes approximately 30% to Pakistan's GDP, second only to Punjab."
+    },
+    {
+      "id": "SPSC-PK-00038",
+      "text": "The first bank established in Pakistan was:",
+      "options": {
+        "A": "Habib Bank",
+        "B": "National Bank",
+        "C": "State Bank",
+        "D": "United Bank"
+      },
+      "correct_answer": "A",
+      "topic": "Economy of Pakistan",
+      "difficulty": "medium",
+      "explanation": "Habib Bank was the first commercial bank established in Pakistan (August 25, 1947)."
+    },
+    {
+      "id": "SPSC-PK-00039",
+      "text": "Which international organization provides loans to Pakistan for development?",
+      "options": {
+        "A": "WHO",
+        "B": "IMF",
+        "C": "UNESCO",
+        "D": "UNICEF"
+      },
+      "correct_answer": "B",
+      "topic": "Economy of Pakistan",
+      "difficulty": "easy",
+      "explanation": "The International Monetary Fund (IMF) provides financial assistance and loans to Pakistan."
+    },
+    {
+      "id": "SPSC-PK-00040",
+      "text": "Korangi Industrial Area is located in:",
+      "options": {
+        "A": "Lahore",
+        "B": "Karachi",
+        "C": "Faisalabad",
+        "D": "Hyderabad"
+      },
+      "correct_answer": "B",
+      "topic": "Economy of Pakistan",
+      "difficulty": "medium",
+      "explanation": "Korangi Industrial Area is one of the largest industrial zones in Karachi."
+    }
+  ]
+}

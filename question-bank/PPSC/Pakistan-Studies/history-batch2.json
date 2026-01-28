@@ -1,0 +1,253 @@
+{
+  "$schema": "exam-tutor/question-bank/v1",
+  "metadata": {
+    "exam_type": "PPSC",
+    "subject": "Pakistan Studies",
+    "topic": "History",
+    "source": "pakmcqs.com",
+    "created_at": "2026-01-22T00:00:00Z",
+    "question_count": 30
+  },
+  "questions": [
+    {
+      "id": "PPSC-PK-00101",
+      "text": "Who assassinated Lord Louis Mountbatten, the last Viceroy of United India?",
+      "options": {"A": "Thomas Saviory", "B": "Henry Lekvin", "C": "Thomas McMahon", "D": "Ravin Simmon Bovey"},
+      "correct_answer": "C",
+      "topic": "History",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-PK-00102",
+      "text": "After the war of independence, the British Government assumed control of India through:",
+      "options": {"A": "Indian Council Act, 1862", "B": "Queen's Proclamation of 1858", "C": "Queen's Order, 1857", "D": "East India Company Order 1858"},
+      "correct_answer": "B",
+      "topic": "History",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-PK-00103",
+      "text": "Lord Curzon created province of NWFP in:",
+      "options": {"A": "1900", "B": "1901", "C": "1906", "D": "None of these"},
+      "correct_answer": "B",
+      "topic": "History",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-PK-00104",
+      "text": "How many years did Aurangzeb Alamgir rule India?",
+      "options": {"A": "40", "B": "49", "C": "52", "D": "None of these"},
+      "correct_answer": "B",
+      "topic": "History",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-PK-00105",
+      "text": "How many years did Suri dynasty rule India?",
+      "options": {"A": "12", "B": "16", "C": "17", "D": "None of these"},
+      "correct_answer": "B",
+      "topic": "History",
+      "difficulty": "hard"
+    },
+    {
+      "id": "PPSC-PK-00106",
+      "text": "How many years did Slave dynasty rule India?",
+      "options": {"A": "82", "B": "84", "C": "86", "D": "None of these"},
+      "correct_answer": "B",
+      "topic": "History",
+      "difficulty": "hard"
+    },
+    {
+      "id": "PPSC-PK-00107",
+      "text": "Bengal was divided into two parts. In which part were Muslims in majority?",
+      "options": {"A": "Western Bengal", "B": "Eastern Bengal", "C": "North Western Bengal", "D": "None of these"},
+      "correct_answer": "B",
+      "topic": "History",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-PK-00108",
+      "text": "Who issued an order dividing Bengal into two parts on July 20, 1905?",
+      "options": {"A": "Lord Lytton", "B": "Lord Curzon", "C": "Lord Hastings", "D": "Lord Wallington"},
+      "correct_answer": "B",
+      "topic": "History",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-PK-00109",
+      "text": "Hindus started Swadeshi Movement in August 1905. The Movement was started against:",
+      "options": {"A": "Muslims", "B": "British", "C": "Both of these", "D": "None of these"},
+      "correct_answer": "B",
+      "topic": "History",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-PK-00110",
+      "text": "Which Hindu leader started a movement against the partition of Bengal?",
+      "options": {"A": "Surindar Nath Banerjee", "B": "Raja Ram Mohan Roy", "C": "Dayananda Saraswati", "D": "None of these"},
+      "correct_answer": "A",
+      "topic": "History",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-PK-00111",
+      "text": "Urdu Defence Association was founded in August 1900 in which City?",
+      "options": {"A": "Delhi", "B": "Karachi", "C": "Lucknow", "D": "Calcutta"},
+      "correct_answer": "C",
+      "topic": "History",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-PK-00112",
+      "text": "The system of Dyarchy was in operation from 1921 to:",
+      "options": {"A": "1930", "B": "1935", "C": "1937", "D": "1940"},
+      "correct_answer": "C",
+      "topic": "History",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-PK-00113",
+      "text": "Under the 1973 Constitution who was sworn in as President of Pakistan?",
+      "options": {"A": "Z.A Bhutto", "B": "Ghulam Ishaq Khan", "C": "Fazal Elahi", "D": "None of these"},
+      "correct_answer": "C",
+      "topic": "History",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-PK-00114",
+      "text": "Who announced the Communal Award?",
+      "options": {"A": "Macdonald", "B": "Irwin", "C": "Curzon", "D": "Wavell"},
+      "correct_answer": "A",
+      "topic": "History",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-PK-00115",
+      "text": "What was the important element in the strength of the revolt of 1857?",
+      "options": {"A": "Leadership of Nana Sahib", "B": "Leadership of Rani of Jhansi", "C": "Support of Bahadur Shah", "D": "Hindu Muslim unity"},
+      "correct_answer": "D",
+      "topic": "History",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-PK-00116",
+      "text": "Buland Darwaza was built by Akbar the Great at:",
+      "options": {"A": "Gujarat", "B": "Delhi", "C": "Fatehpur Sikri", "D": "Agra"},
+      "correct_answer": "C",
+      "topic": "History",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-PK-00117",
+      "text": "Under which scheme did Muslim League surrender the demand of separate electorate?",
+      "options": {"A": "Delhi Proposal 1927", "B": "Patna Scheme 1938", "C": "Poona Pact", "D": "Never Surrender"},
+      "correct_answer": "A",
+      "topic": "History",
+      "difficulty": "hard"
+    },
+    {
+      "id": "PPSC-PK-00118",
+      "text": "Which Political Party was in Power in NWFP at independence?",
+      "options": {"A": "Muslim League", "B": "Congress", "C": "Justice Party", "D": "Tehreek-e-Khaksaar"},
+      "correct_answer": "B",
+      "topic": "History",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-PK-00119",
+      "text": "Who was the Viceroy of India during the Quit India Movement?",
+      "options": {"A": "Lord Wavell", "B": "Lord Wellington", "C": "Lord Linlithgow", "D": "None of these"},
+      "correct_answer": "C",
+      "topic": "History",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-PK-00120",
+      "text": "When was the Simla Conference held?",
+      "options": {"A": "1944", "B": "1945", "C": "1956", "D": "1942"},
+      "correct_answer": "B",
+      "topic": "History",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-PK-00121",
+      "text": "Who presented the Pakistan Resolution on 23rd March, 1940?",
+      "options": {"A": "Allama Iqbal", "B": "Liaquat Ali Khan", "C": "Quaid-e-Azam Muhammad Ali Jinnah", "D": "A.K. Fazlul Haq"},
+      "correct_answer": "D",
+      "topic": "History",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-PK-00122",
+      "text": "In March 1942, who came with proposals to solve constitutional problems?",
+      "options": {"A": "Lord Ripon", "B": "Lord Minto", "C": "Stafford Cripps", "D": "Linlithgow"},
+      "correct_answer": "C",
+      "topic": "History",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-PK-00123",
+      "text": "Ibrahim Lodi was defeated by ___ in the First Battle of Panipat in 1526:",
+      "options": {"A": "Akbar", "B": "Babur", "C": "Jahangir", "D": "Iltutmish"},
+      "correct_answer": "B",
+      "topic": "History",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-PK-00124",
+      "text": "The Boundary Commission was headed by:",
+      "options": {"A": "Adorn Radcliffe", "B": "Cecil Radcliffe", "C": "Cyril Radcliffe", "D": "Thomas Radcliffe"},
+      "correct_answer": "C",
+      "topic": "History",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-PK-00125",
+      "text": "Who founded Muhammadan Literary Society in 1863?",
+      "options": {"A": "Shah Waliullah Dehlawi", "B": "Syed Ameer Ali", "C": "Nawab Abdul Latif", "D": "Sir Syed Ahmad Khan"},
+      "correct_answer": "C",
+      "topic": "History",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-PK-00126",
+      "text": "Act of 1935 consisted of how many sections?",
+      "options": {"A": "320", "B": "321", "C": "322", "D": "323"},
+      "correct_answer": "B",
+      "topic": "History",
+      "difficulty": "hard"
+    },
+    {
+      "id": "PPSC-PK-00127",
+      "text": "Act of 1935 contained how many schedules?",
+      "options": {"A": "8", "B": "9", "C": "11", "D": "10"},
+      "correct_answer": "D",
+      "topic": "History",
+      "difficulty": "hard"
+    },
+    {
+      "id": "PPSC-PK-00128",
+      "text": "Who was the first Emperor of Tughlaq Dynasty?",
+      "options": {"A": "Ameer Gulzar Tughlaq", "B": "Alauddin Khilji", "C": "Ghiyasuddin Tughlaq", "D": "Ziauddin Tughlaq"},
+      "correct_answer": "C",
+      "topic": "History",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-PK-00129",
+      "text": "Sir Sultan Muhammad Shah headed the Simla Deputation before:",
+      "options": {"A": "Lord Curzon", "B": "Lord Irwin", "C": "Lord Minto", "D": "None of these"},
+      "correct_answer": "C",
+      "topic": "History",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-PK-00130",
+      "text": "The first Urdu newspaper in Indian subcontinent was:",
+      "options": {"A": "Jam-e-Jahan Numa", "B": "Nawai-e-Waqt", "C": "Imroz", "D": "Indian Gazette"},
+      "correct_answer": "A",
+      "topic": "History",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "$schema": "exam-tutor/question-bank/v1",
+  "metadata": {
+    "exam_type": "KPPSC",
+    "subject": "Pakistan Studies",
+    "topic": "Economy of Pakistan",
+    "created_at": "2026-01-19T00:00:00Z",
+    "updated_at": "2026-01-19T00:00:00Z",
+    "question_count": 10
+  },
+  "questions": [
+    {
+      "id": "KPPSC-PK-00031",
+      "text": "Which is the major mineral resource of KPK?",
+      "options": {
+        "A": "Gold",
+        "B": "Marble",
+        "C": "Diamond",
+        "D": "Silver"
+      },
+      "correct_answer": "B",
+      "topic": "Economy of Pakistan",
+      "difficulty": "easy",
+      "explanation": "Marble is one of the major mineral resources of Khyber Pakhtunkhwa."
+    },
+    {
+      "id": "KPPSC-PK-00032",
+      "text": "Warsak Dam is located near which city?",
+      "options": {
+        "A": "Abbottabad",
+        "B": "Peshawar",
+        "C": "Mardan",
+        "D": "Swat"
+      },
+      "correct_answer": "B",
+      "topic": "Economy of Pakistan",
+      "difficulty": "easy",
+      "explanation": "Warsak Dam is located on the Kabul River, about 30 km northwest of Peshawar."
+    },
+    {
+      "id": "KPPSC-PK-00033",
+      "text": "Which fruit is KPK most famous for producing?",
+      "options": {
+        "A": "Mangoes",
+        "B": "Oranges",
+        "C": "Apples and Peaches",
+        "D": "Bananas"
+      },
+      "correct_answer": "C",
+      "topic": "Economy of Pakistan",
+      "difficulty": "easy",
+      "explanation": "KPK, especially Swat, is famous for producing apples, peaches, and other temperate fruits."
+    },
+    {
+      "id": "KPPSC-PK-00034",
+      "text": "The Hayatabad Industrial Estate is located in:",
+      "options": {
+        "A": "Mardan",
+        "B": "Peshawar",
+        "C": "Abbottabad",
+        "D": "Dera Ismail Khan"
+      },
+      "correct_answer": "B",
+      "topic": "Economy of Pakistan",
+      "difficulty": "medium",
+      "explanation": "Hayatabad Industrial Estate is a major industrial area in Peshawar."
+    },
+    {
+      "id": "KPPSC-PK-00035",
+      "text": "Which sector contributes most to KPK's economy?",
+      "options": {
+        "A": "Industry",
+        "B": "Agriculture",
+        "C": "Services",
+        "D": "Mining"
+      },
+      "correct_answer": "B",
+      "topic": "Economy of Pakistan",
+      "difficulty": "medium",
+      "explanation": "Agriculture contributes significantly to KPK's economy, employing a large portion of the workforce."
+    },
+    {
+      "id": "KPPSC-PK-00036",
+      "text": "Tobacco is a major crop of which district in KPK?",
+      "options": {
+        "A": "Peshawar",
+        "B": "Swabi",
+        "C": "Charsadda",
+        "D": "Both B and C"
+      },
+      "correct_answer": "D",
+      "topic": "Economy of Pakistan",
+      "difficulty": "medium",
+      "explanation": "Swabi and Charsadda districts are known for tobacco cultivation in KPK."
+    },
+    {
+      "id": "KPPSC-PK-00037",
+      "text": "The Gadoon Amazai Industrial Estate is located in:",
+      "options": {
+        "A": "Peshawar",
+        "B": "Swabi",
+        "C": "Haripur",
+        "D": "Mardan"
+      },
+      "correct_answer": "B",
+      "topic": "Economy of Pakistan",
+      "difficulty": "hard",
+      "explanation": "Gadoon Amazai Industrial Estate is located in Swabi district."
+    },
+    {
+      "id": "KPPSC-PK-00038",
+      "text": "Which forest type is most common in KPK?",
+      "options": {
+        "A": "Tropical",
+        "B": "Coniferous",
+        "C": "Mangrove",
+        "D": "Desert"
+      },
+      "correct_answer": "B",
+      "topic": "Economy of Pakistan",
+      "difficulty": "easy",
+      "explanation": "Coniferous forests (deodar, pine, fir) are the most common forest type in KPK's northern areas."
+    },
+    {
+      "id": "KPPSC-PK-00039",
+      "text": "The Pak-Afghan Transit Trade Agreement benefits which province most?",
+      "options": {
+        "A": "Punjab",
+        "B": "Sindh",
+        "C": "KPK",
+        "D": "Balochistan"
+      },
+      "correct_answer": "C",
+      "topic": "Economy of Pakistan",
+      "difficulty": "medium",
+      "explanation": "KPK benefits most from the transit trade agreement due to its border with Afghanistan."
+    },
+    {
+      "id": "KPPSC-PK-00040",
+      "text": "Ghee and sugar mills are concentrated in which area of KPK?",
+      "options": {
+        "A": "Hazara",
+        "B": "Peshawar Valley",
+        "C": "Southern KPK",
+        "D": "Malakand"
+      },
+      "correct_answer": "B",
+      "topic": "Economy of Pakistan",
+      "difficulty": "hard",
+      "explanation": "The Peshawar Valley, especially Mardan and Charsadda, has several sugar and ghee mills."
+    }
+  ]
+}

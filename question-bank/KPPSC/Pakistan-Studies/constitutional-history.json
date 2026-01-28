@@ -1,0 +1,153 @@
+{
+  "$schema": "exam-tutor/question-bank/v1",
+  "metadata": {
+    "exam_type": "KPPSC",
+    "subject": "Pakistan Studies",
+    "topic": "Pakistan Constitution",
+    "created_at": "2026-01-19T00:00:00Z",
+    "updated_at": "2026-01-19T00:00:00Z",
+    "question_count": 10
+  },
+  "questions": [
+    {
+      "id": "KPPSC-PK-00001",
+      "text": "The 1973 Constitution of Pakistan is based on:",
+      "options": {
+        "A": "Presidential system",
+        "B": "Parliamentary system",
+        "C": "Mixed system",
+        "D": "Monarchical system"
+      },
+      "correct_answer": "B",
+      "topic": "Pakistan Constitution",
+      "difficulty": "easy",
+      "explanation": "The 1973 Constitution established a Parliamentary system of government in Pakistan."
+    },
+    {
+      "id": "KPPSC-PK-00002",
+      "text": "Article 1 of the Constitution declares Pakistan as:",
+      "options": {
+        "A": "Islamic Republic of Pakistan",
+        "B": "Democratic Republic of Pakistan",
+        "C": "Federal Republic of Pakistan",
+        "D": "People's Republic of Pakistan"
+      },
+      "correct_answer": "A",
+      "topic": "Pakistan Constitution",
+      "difficulty": "easy",
+      "explanation": "Article 1 declares Pakistan as the Islamic Republic of Pakistan."
+    },
+    {
+      "id": "KPPSC-PK-00003",
+      "text": "The total number of articles in the 1973 Constitution is:",
+      "options": {
+        "A": "200",
+        "B": "250",
+        "C": "280",
+        "D": "300"
+      },
+      "correct_answer": "C",
+      "topic": "Pakistan Constitution",
+      "difficulty": "hard",
+      "explanation": "The 1973 Constitution originally had 280 articles (now modified through amendments)."
+    },
+    {
+      "id": "KPPSC-PK-00004",
+      "text": "The term of the National Assembly is:",
+      "options": {
+        "A": "3 years",
+        "B": "4 years",
+        "C": "5 years",
+        "D": "6 years"
+      },
+      "correct_answer": "C",
+      "topic": "Pakistan Constitution",
+      "difficulty": "easy",
+      "explanation": "The National Assembly has a term of 5 years unless dissolved earlier."
+    },
+    {
+      "id": "KPPSC-PK-00005",
+      "text": "According to the Constitution, the President must be a:",
+      "options": {
+        "A": "Muslim of at least 35 years",
+        "B": "Muslim of at least 40 years",
+        "C": "Muslim of at least 45 years",
+        "D": "Muslim of at least 50 years"
+      },
+      "correct_answer": "C",
+      "topic": "Pakistan Constitution",
+      "difficulty": "medium",
+      "explanation": "Article 41 requires the President to be a Muslim of at least 45 years of age."
+    },
+    {
+      "id": "KPPSC-PK-00006",
+      "text": "Which constitutional amendment changed the name of NWFP to Khyber Pakhtunkhwa?",
+      "options": {
+        "A": "17th Amendment",
+        "B": "18th Amendment",
+        "C": "19th Amendment",
+        "D": "20th Amendment"
+      },
+      "correct_answer": "B",
+      "topic": "Pakistan Constitution",
+      "difficulty": "easy",
+      "explanation": "The 18th Amendment (2010) changed NWFP to Khyber Pakhtunkhwa."
+    },
+    {
+      "id": "KPPSC-PK-00007",
+      "text": "The Fundamental Rights are given in which Part of the Constitution?",
+      "options": {
+        "A": "Part I",
+        "B": "Part II",
+        "C": "Part III",
+        "D": "Part IV"
+      },
+      "correct_answer": "B",
+      "topic": "Pakistan Constitution",
+      "difficulty": "medium",
+      "explanation": "Part II of the Constitution contains the Fundamental Rights and Principles of Policy."
+    },
+    {
+      "id": "KPPSC-PK-00008",
+      "text": "The Chief Election Commissioner is appointed by:",
+      "options": {
+        "A": "Prime Minister",
+        "B": "President",
+        "C": "National Assembly",
+        "D": "Supreme Court"
+      },
+      "correct_answer": "B",
+      "topic": "Pakistan Constitution",
+      "difficulty": "medium",
+      "explanation": "The President appoints the Chief Election Commissioner in consultation with the PM and Opposition Leader."
+    },
+    {
+      "id": "KPPSC-PK-00009",
+      "text": "Money bills can only be introduced in:",
+      "options": {
+        "A": "Senate",
+        "B": "National Assembly",
+        "C": "Joint Session",
+        "D": "Any House"
+      },
+      "correct_answer": "B",
+      "topic": "Pakistan Constitution",
+      "difficulty": "medium",
+      "explanation": "Money bills can only be introduced in the National Assembly, not in the Senate."
+    },
+    {
+      "id": "KPPSC-PK-00010",
+      "text": "The 25th Amendment to the Constitution dealt with:",
+      "options": {
+        "A": "FATA merger with KPK",
+        "B": "Senate elections",
+        "C": "Provincial autonomy",
+        "D": "Judicial reforms"
+      },
+      "correct_answer": "A",
+      "topic": "Pakistan Constitution",
+      "difficulty": "hard",
+      "explanation": "The 25th Amendment (2018) merged FATA into Khyber Pakhtunkhwa province."
+    }
+  ]
+}

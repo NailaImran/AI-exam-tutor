@@ -1,0 +1,153 @@
+{
+  "$schema": "exam-tutor/question-bank/v1",
+  "metadata": {
+    "exam_type": "KPPSC",
+    "subject": "Pakistan Studies",
+    "topic": "Foreign Relations",
+    "created_at": "2026-01-19T00:00:00Z",
+    "updated_at": "2026-01-19T00:00:00Z",
+    "question_count": 10
+  },
+  "questions": [
+    {
+      "id": "KPPSC-PK-00041",
+      "text": "Pakistan established diplomatic relations with China in:",
+      "options": {
+        "A": "1947",
+        "B": "1950",
+        "C": "1951",
+        "D": "1963"
+      },
+      "correct_answer": "C",
+      "topic": "Foreign Relations",
+      "difficulty": "medium",
+      "explanation": "Pakistan established diplomatic relations with the People's Republic of China in 1951."
+    },
+    {
+      "id": "KPPSC-PK-00042",
+      "text": "SEATO (Southeast Asia Treaty Organization) was dissolved in:",
+      "options": {
+        "A": "1975",
+        "B": "1977",
+        "C": "1979",
+        "D": "1981"
+      },
+      "correct_answer": "B",
+      "topic": "Foreign Relations",
+      "difficulty": "hard",
+      "explanation": "SEATO was dissolved on June 30, 1977. Pakistan was a founding member."
+    },
+    {
+      "id": "KPPSC-PK-00043",
+      "text": "The Gwadar Port was built with assistance from:",
+      "options": {
+        "A": "USA",
+        "B": "China",
+        "C": "Saudi Arabia",
+        "D": "UAE"
+      },
+      "correct_answer": "B",
+      "topic": "Foreign Relations",
+      "difficulty": "easy",
+      "explanation": "Gwadar Port was developed with Chinese assistance as part of CPEC."
+    },
+    {
+      "id": "KPPSC-PK-00044",
+      "text": "Pakistan is NOT a member of:",
+      "options": {
+        "A": "OIC",
+        "B": "SAARC",
+        "C": "ASEAN",
+        "D": "ECO"
+      },
+      "correct_answer": "C",
+      "topic": "Foreign Relations",
+      "difficulty": "easy",
+      "explanation": "Pakistan is not a member of ASEAN (Association of Southeast Asian Nations)."
+    },
+    {
+      "id": "KPPSC-PK-00045",
+      "text": "The Karachi Agreement between Pakistan and Afghanistan was signed in:",
+      "options": {
+        "A": "1958",
+        "B": "1963",
+        "C": "1988",
+        "D": "Never signed"
+      },
+      "correct_answer": "D",
+      "topic": "Foreign Relations",
+      "difficulty": "hard",
+      "explanation": "There has been no Karachi Agreement between Pakistan and Afghanistan; the Durand Line remains disputed."
+    },
+    {
+      "id": "KPPSC-PK-00046",
+      "text": "Pakistan joined the Commonwealth of Nations in:",
+      "options": {
+        "A": "1947",
+        "B": "1948",
+        "C": "1949",
+        "D": "1950"
+      },
+      "correct_answer": "A",
+      "topic": "Foreign Relations",
+      "difficulty": "medium",
+      "explanation": "Pakistan became a member of the Commonwealth upon independence in 1947."
+    },
+    {
+      "id": "KPPSC-PK-00047",
+      "text": "The Agra Summit between India and Pakistan was held in:",
+      "options": {
+        "A": "1999",
+        "B": "2001",
+        "C": "2004",
+        "D": "2006"
+      },
+      "correct_answer": "B",
+      "topic": "Foreign Relations",
+      "difficulty": "medium",
+      "explanation": "The Agra Summit was held in July 2001 between President Musharraf and PM Vajpayee."
+    },
+    {
+      "id": "KPPSC-PK-00048",
+      "text": "Pakistan was suspended from the Commonwealth in 1999 due to:",
+      "options": {
+        "A": "Nuclear tests",
+        "B": "Military coup",
+        "C": "War with India",
+        "D": "Economic crisis"
+      },
+      "correct_answer": "B",
+      "topic": "Foreign Relations",
+      "difficulty": "medium",
+      "explanation": "Pakistan was suspended from the Commonwealth in 1999 following General Musharraf's military coup."
+    },
+    {
+      "id": "KPPSC-PK-00049",
+      "text": "The D-8 Organization for Economic Cooperation was founded in:",
+      "options": {
+        "A": "1995",
+        "B": "1997",
+        "C": "1999",
+        "D": "2001"
+      },
+      "correct_answer": "B",
+      "topic": "Foreign Relations",
+      "difficulty": "hard",
+      "explanation": "D-8 was founded in 1997 in Istanbul. Pakistan is a founding member."
+    },
+    {
+      "id": "KPPSC-PK-00050",
+      "text": "Who proposed the concept of 'Strategic Depth' in Pakistan's foreign policy?",
+      "options": {
+        "A": "Zulfikar Ali Bhutto",
+        "B": "General Zia-ul-Haq",
+        "C": "Military strategists in 1980s",
+        "D": "Pervez Musharraf"
+      },
+      "correct_answer": "C",
+      "topic": "Foreign Relations",
+      "difficulty": "hard",
+      "explanation": "The concept of 'Strategic Depth' regarding Afghanistan was developed by Pakistani military strategists in the 1980s."
+    }
+  ]
+}

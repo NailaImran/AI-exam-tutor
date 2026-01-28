@@ -1,0 +1,153 @@
+{
+  "$schema": "exam-tutor/question-bank/v1",
+  "metadata": {
+    "exam_type": "KPPSC",
+    "subject": "Pakistan Studies",
+    "topic": "Geography",
+    "created_at": "2026-01-19T00:00:00Z",
+    "updated_at": "2026-01-19T00:00:00Z",
+    "question_count": 10
+  },
+  "questions": [
+    {
+      "id": "KPPSC-PK-00021",
+      "text": "What is the capital of Khyber Pakhtunkhwa?",
+      "options": {
+        "A": "Abbottabad",
+        "B": "Peshawar",
+        "C": "Mardan",
+        "D": "Swat"
+      },
+      "correct_answer": "B",
+      "topic": "Geography",
+      "difficulty": "easy",
+      "explanation": "Peshawar is the capital and largest city of Khyber Pakhtunkhwa province."
+    },
+    {
+      "id": "KPPSC-PK-00022",
+      "text": "The Swat Valley is located in which division?",
+      "options": {
+        "A": "Peshawar Division",
+        "B": "Malakand Division",
+        "C": "Hazara Division",
+        "D": "Kohat Division"
+      },
+      "correct_answer": "B",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "explanation": "Swat Valley is located in Malakand Division of Khyber Pakhtunkhwa."
+    },
+    {
+      "id": "KPPSC-PK-00023",
+      "text": "Nanga Parbat is located in which mountain range?",
+      "options": {
+        "A": "Karakoram",
+        "B": "Hindu Kush",
+        "C": "Himalayas",
+        "D": "Sulaiman Range"
+      },
+      "correct_answer": "C",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "explanation": "Nanga Parbat (8,126m) is located in the western Himalayas in Gilgit-Baltistan."
+    },
+    {
+      "id": "KPPSC-PK-00024",
+      "text": "The Torkham border crossing connects Pakistan with:",
+      "options": {
+        "A": "China",
+        "B": "Iran",
+        "C": "Afghanistan",
+        "D": "India"
+      },
+      "correct_answer": "C",
+      "topic": "Geography",
+      "difficulty": "easy",
+      "explanation": "Torkham is a border crossing between Pakistan and Afghanistan through the Khyber Pass."
+    },
+    {
+      "id": "KPPSC-PK-00025",
+      "text": "Which river flows through Peshawar?",
+      "options": {
+        "A": "Indus",
+        "B": "Kabul River",
+        "C": "Swat River",
+        "D": "Jhelum"
+      },
+      "correct_answer": "B",
+      "topic": "Geography",
+      "difficulty": "easy",
+      "explanation": "The Kabul River flows near Peshawar before joining the Indus River."
+    },
+    {
+      "id": "KPPSC-PK-00026",
+      "text": "Tirich Mir is the highest peak of which mountain range?",
+      "options": {
+        "A": "Karakoram",
+        "B": "Hindu Kush",
+        "C": "Himalayas",
+        "D": "Sulaiman Range"
+      },
+      "correct_answer": "B",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "explanation": "Tirich Mir (7,708m) is the highest peak of the Hindu Kush range, located in Chitral."
+    },
+    {
+      "id": "KPPSC-PK-00027",
+      "text": "Kaghan Valley is located in which district?",
+      "options": {
+        "A": "Swat",
+        "B": "Mansehra",
+        "C": "Dir",
+        "D": "Abbottabad"
+      },
+      "correct_answer": "B",
+      "topic": "Geography",
+      "difficulty": "easy",
+      "explanation": "Kaghan Valley is a beautiful valley located in Mansehra district of KPK."
+    },
+    {
+      "id": "KPPSC-PK-00028",
+      "text": "The Tarbela Dam is built on which river?",
+      "options": {
+        "A": "Jhelum",
+        "B": "Chenab",
+        "C": "Indus",
+        "D": "Kabul"
+      },
+      "correct_answer": "C",
+      "topic": "Geography",
+      "difficulty": "easy",
+      "explanation": "Tarbela Dam is built on the Indus River in Haripur District, KPK."
+    },
+    {
+      "id": "KPPSC-PK-00029",
+      "text": "FATA was merged into Khyber Pakhtunkhwa in which year?",
+      "options": {
+        "A": "2016",
+        "B": "2017",
+        "C": "2018",
+        "D": "2019"
+      },
+      "correct_answer": "C",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "explanation": "FATA was merged into KPK through the 25th Constitutional Amendment in May 2018."
+    },
+    {
+      "id": "KPPSC-PK-00030",
+      "text": "Chitral is famous for which unique ethnic group?",
+      "options": {
+        "A": "Pathans",
+        "B": "Kalash",
+        "C": "Hazaras",
+        "D": "Baloch"
+      },
+      "correct_answer": "B",
+      "topic": "Geography",
+      "difficulty": "medium",
+      "explanation": "Chitral is home to the Kalash people, known for their unique culture and traditions."
+    }
+  ]
+}

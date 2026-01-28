@@ -1,0 +1,77 @@
+{
+  "$schema": "exam-tutor/question-bank/v1",
+  "metadata": {
+    "exam_type": "PPSC",
+    "subject": "Everyday Science",
+    "topic": "Science",
+    "source": "pakmcqs.com",
+    "created_at": "2026-01-22T00:00:00Z",
+    "question_count": 8
+  },
+  "questions": [
+    {
+      "id": "PPSC-ES-00001",
+      "text": "What is the largest type of shark?",
+      "options": {"A": "Hammerhead Shark", "B": "Tiger Shark", "C": "Great White Shark", "D": "Bull Shark"},
+      "correct_answer": "C",
+      "topic": "Biology",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-ES-00002",
+      "text": "Which famous scientist formulated the laws of motion and universal gravitation?",
+      "options": {"A": "Isaac Newton", "B": "Galileo Galilei", "C": "Albert Einstein", "D": "Nikola Tesla"},
+      "correct_answer": "A",
+      "topic": "Physics",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-ES-00003",
+      "text": "Which planet is known for its beautiful rings?",
+      "options": {"A": "Mars", "B": "Jupiter", "C": "Saturn", "D": "Uranus"},
+      "correct_answer": "C",
+      "topic": "Astronomy",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-ES-00004",
+      "text": "Which vitamin is primarily produced in the skin in response to sunlight?",
+      "options": {"A": "Vitamin A", "B": "Vitamin C", "C": "Vitamin D", "D": "Vitamin K"},
+      "correct_answer": "C",
+      "topic": "Biology",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-ES-00005",
+      "text": "Which gas is most commonly used in neon signs?",
+      "options": {"A": "Argon", "B": "Neon", "C": "Krypton", "D": "Xenon"},
+      "correct_answer": "B",
+      "topic": "Chemistry",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-ES-00006",
+      "text": "The electron was first identified by:",
+      "options": {"A": "J.J. Thomson", "B": "Ernest Rutherford", "C": "Johannes Kepler", "D": "None of these"},
+      "correct_answer": "A",
+      "topic": "Physics",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-ES-00007",
+      "text": "Who discovered the Vaccine?",
+      "options": {"A": "Edward Jenner", "B": "Alexander Fleming", "C": "J.J. Thomson", "D": "None of these"},
+      "correct_answer": "A",
+      "topic": "Biology",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-ES-00008",
+      "text": "World Ozone Day is observed on:",
+      "options": {"A": "April 4", "B": "June 5", "C": "September 16", "D": "None of these"},
+      "correct_answer": "C",
+      "topic": "Environment",
+      "difficulty": "medium"
+    }
+  ]
+}

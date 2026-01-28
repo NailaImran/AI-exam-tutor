@@ -1,0 +1,153 @@
+{
+  "$schema": "exam-tutor/question-bank/v1",
+  "metadata": {
+    "exam_type": "SPSC",
+    "subject": "Pakistan Studies",
+    "topic": "Constitutional Development",
+    "created_at": "2026-01-19T00:00:00Z",
+    "updated_at": "2026-01-19T00:00:00Z",
+    "question_count": 10
+  },
+  "questions": [
+    {
+      "id": "SPSC-PK-00001",
+      "text": "The 1973 Constitution came into force on:",
+      "options": {
+        "A": "March 23, 1973",
+        "B": "April 12, 1973",
+        "C": "August 14, 1973",
+        "D": "December 25, 1973"
+      },
+      "correct_answer": "C",
+      "topic": "Constitutional Development",
+      "difficulty": "medium",
+      "explanation": "The 1973 Constitution was adopted on April 12, 1973, but came into force on August 14, 1973."
+    },
+    {
+      "id": "SPSC-PK-00002",
+      "text": "Under which article of the 1973 Constitution is Urdu declared the national language?",
+      "options": {
+        "A": "Article 251",
+        "B": "Article 252",
+        "C": "Article 253",
+        "D": "Article 254"
+      },
+      "correct_answer": "A",
+      "topic": "Constitutional Development",
+      "difficulty": "hard",
+      "explanation": "Article 251 of the 1973 Constitution declares Urdu as the national language of Pakistan."
+    },
+    {
+      "id": "SPSC-PK-00003",
+      "text": "The Basic Democracies system was introduced by:",
+      "options": {
+        "A": "Liaquat Ali Khan",
+        "B": "Iskander Mirza",
+        "C": "Ayub Khan",
+        "D": "Yahya Khan"
+      },
+      "correct_answer": "C",
+      "topic": "Constitutional Development",
+      "difficulty": "medium",
+      "explanation": "The Basic Democracies system was introduced by Ayub Khan in 1959 as a form of local government."
+    },
+    {
+      "id": "SPSC-PK-00004",
+      "text": "How many parts are there in the 1973 Constitution?",
+      "options": {
+        "A": "10",
+        "B": "12",
+        "C": "14",
+        "D": "16"
+      },
+      "correct_answer": "B",
+      "topic": "Constitutional Development",
+      "difficulty": "medium",
+      "explanation": "The 1973 Constitution consists of 12 parts covering various aspects of governance."
+    },
+    {
+      "id": "SPSC-PK-00005",
+      "text": "The 2nd Amendment to the Constitution (1974) declared which group as non-Muslims?",
+      "options": {
+        "A": "Bahais",
+        "B": "Ahmadis",
+        "C": "Christians",
+        "D": "Hindus"
+      },
+      "correct_answer": "B",
+      "topic": "Constitutional Development",
+      "difficulty": "medium",
+      "explanation": "The 2nd Amendment (1974) declared Ahmadis as non-Muslims for constitutional purposes."
+    },
+    {
+      "id": "SPSC-PK-00006",
+      "text": "Which amendment gave President the power to dissolve National Assembly?",
+      "options": {
+        "A": "5th Amendment",
+        "B": "8th Amendment",
+        "C": "13th Amendment",
+        "D": "17th Amendment"
+      },
+      "correct_answer": "B",
+      "topic": "Constitutional Development",
+      "difficulty": "hard",
+      "explanation": "The 8th Amendment (1985) gave the President power to dissolve the National Assembly."
+    },
+    {
+      "id": "SPSC-PK-00007",
+      "text": "The minimum age for a member of National Assembly is:",
+      "options": {
+        "A": "18 years",
+        "B": "21 years",
+        "C": "25 years",
+        "D": "30 years"
+      },
+      "correct_answer": "C",
+      "topic": "Constitutional Development",
+      "difficulty": "easy",
+      "explanation": "Article 62 of the Constitution requires a minimum age of 25 years for National Assembly membership."
+    },
+    {
+      "id": "SPSC-PK-00008",
+      "text": "The 1956 Constitution was abrogated by:",
+      "options": {
+        "A": "Ayub Khan",
+        "B": "Iskander Mirza",
+        "C": "Yahya Khan",
+        "D": "Liaquat Ali Khan"
+      },
+      "correct_answer": "B",
+      "topic": "Constitutional Development",
+      "difficulty": "hard",
+      "explanation": "President Iskander Mirza abrogated the 1956 Constitution on October 7, 1958, and declared martial law."
+    },
+    {
+      "id": "SPSC-PK-00009",
+      "text": "The Senate of Pakistan has how many members?",
+      "options": {
+        "A": "87",
+        "B": "96",
+        "C": "100",
+        "D": "104"
+      },
+      "correct_answer": "D",
+      "topic": "Constitutional Development",
+      "difficulty": "medium",
+      "explanation": "The Senate of Pakistan has 104 members representing the four provinces, federal capital, and tribal areas."
+    },
+    {
+      "id": "SPSC-PK-00010",
+      "text": "The concurrent list was abolished by which constitutional amendment?",
+      "options": {
+        "A": "13th Amendment",
+        "B": "17th Amendment",
+        "C": "18th Amendment",
+        "D": "19th Amendment"
+      },
+      "correct_answer": "C",
+      "topic": "Constitutional Development",
+      "difficulty": "hard",
+      "explanation": "The 18th Amendment (2010) abolished the concurrent list, giving more powers to provinces."
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "$schema": "exam-tutor/question-bank/v1",
+  "metadata": {
+    "exam_type": "SPSC",
+    "subject": "Pakistan Studies",
+    "topic": "Pakistan Movement",
+    "created_at": "2026-01-19T00:00:00Z",
+    "updated_at": "2026-01-19T00:00:00Z",
+    "question_count": 10
+  },
+  "questions": [
+    {
+      "id": "SPSC-PK-00011",
+      "text": "The Aligarh Movement was started by:",
+      "options": {
+        "A": "Allama Iqbal",
+        "B": "Sir Syed Ahmed Khan",
+        "C": "Quaid-e-Azam",
+        "D": "Liaquat Ali Khan"
+      },
+      "correct_answer": "B",
+      "topic": "Pakistan Movement",
+      "difficulty": "easy",
+      "explanation": "Sir Syed Ahmed Khan started the Aligarh Movement to promote modern education among Muslims."
+    },
+    {
+      "id": "SPSC-PK-00012",
+      "text": "The Khilafat Movement was launched in:",
+      "options": {
+        "A": "1918",
+        "B": "1919",
+        "C": "1920",
+        "D": "1921"
+      },
+      "correct_answer": "B",
+      "topic": "Pakistan Movement",
+      "difficulty": "medium",
+      "explanation": "The Khilafat Movement was launched in 1919 to protect the Ottoman Caliphate."
+    },
+    {
+      "id": "SPSC-PK-00013",
+      "text": "Who wrote 'Pakistan Ka Matlab Kia - La Ilaha Illallah'?",
+      "options": {
+        "A": "Faiz Ahmed Faiz",
+        "B": "Asghar Gondvi",
+        "C": "Allama Iqbal",
+        "D": "Hafeez Jalandhari"
+      },
+      "correct_answer": "B",
+      "topic": "Pakistan Movement",
+      "difficulty": "hard",
+      "explanation": "Asghar Gondvi wrote this famous couplet that became a slogan of the Pakistan Movement."
+    },
+    {
+      "id": "SPSC-PK-00014",
+      "text": "The Indian Independence Act was passed on:",
+      "options": {
+        "A": "July 14, 1947",
+        "B": "July 18, 1947",
+        "C": "August 3, 1947",
+        "D": "August 14, 1947"
+      },
+      "correct_answer": "B",
+      "topic": "Pakistan Movement",
+      "difficulty": "hard",
+      "explanation": "The Indian Independence Act was passed by the British Parliament on July 18, 1947."
+    },
+    {
+      "id": "SPSC-PK-00015",
+      "text": "Who was known as the 'Mother of the Nation'?",
+      "options": {
+        "A": "Begum Ra'ana Liaquat Ali Khan",
+        "B": "Fatima Jinnah",
+        "C": "Benazir Bhutto",
+        "D": "Begum Nusrat Bhutto"
+      },
+      "correct_answer": "B",
+      "topic": "Pakistan Movement",
+      "difficulty": "easy",
+      "explanation": "Fatima Jinnah, sister of Quaid-e-Azam, is known as Madar-e-Millat (Mother of the Nation)."
+    },
+    {
+      "id": "SPSC-PK-00016",
+      "text": "The Round Table Conferences were held in:",
+      "options": {
+        "A": "New Delhi",
+        "B": "Lahore",
+        "C": "London",
+        "D": "Bombay"
+      },
+      "correct_answer": "C",
+      "topic": "Pakistan Movement",
+      "difficulty": "medium",
+      "explanation": "The Round Table Conferences (1930-1932) were held in London to discuss constitutional reforms."
+    },
+    {
+      "id": "SPSC-PK-00017",
+      "text": "Day of Deliverance was observed on:",
+      "options": {
+        "A": "December 22, 1939",
+        "B": "March 23, 1940",
+        "C": "August 14, 1947",
+        "D": "September 11, 1948"
+      },
+      "correct_answer": "A",
+      "topic": "Pakistan Movement",
+      "difficulty": "medium",
+      "explanation": "Day of Deliverance was observed on December 22, 1939, celebrating the resignation of Congress ministries."
+    },
+    {
+      "id": "SPSC-PK-00018",
+      "text": "Who presided over the founding session of the All India Muslim League?",
+      "options": {
+        "A": "Sir Agha Khan",
+        "B": "Nawab Viqar-ul-Mulk",
+        "C": "Sir Syed Ahmed Khan",
+        "D": "Nawab Salimullah Khan"
+      },
+      "correct_answer": "B",
+      "topic": "Pakistan Movement",
+      "difficulty": "hard",
+      "explanation": "Nawab Viqar-ul-Mulk presided over the founding session of the Muslim League in Dhaka, 1906."
+    },
+    {
+      "id": "SPSC-PK-00019",
+      "text": "The Cripps Mission came to India in:",
+      "options": {
+        "A": "1940",
+        "B": "1942",
+        "C": "1944",
+        "D": "1946"
+      },
+      "correct_answer": "B",
+      "topic": "Pakistan Movement",
+      "difficulty": "medium",
+      "explanation": "The Cripps Mission came to India in March 1942 to secure Indian cooperation during World War II."
+    },
+    {
+      "id": "SPSC-PK-00020",
+      "text": "Direct Action Day was observed on:",
+      "options": {
+        "A": "August 16, 1946",
+        "B": "September 2, 1946",
+        "C": "October 27, 1946",
+        "D": "December 9, 1946"
+      },
+      "correct_answer": "A",
+      "topic": "Pakistan Movement",
+      "difficulty": "hard",
+      "explanation": "Direct Action Day was observed on August 16, 1946, called by the Muslim League."
+    }
+  ]
+}

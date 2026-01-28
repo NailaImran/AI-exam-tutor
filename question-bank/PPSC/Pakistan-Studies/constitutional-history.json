@@ -1,0 +1,153 @@
+{
+  "$schema": "exam-tutor/question-bank/v1",
+  "metadata": {
+    "exam_type": "PPSC",
+    "subject": "Pakistan Studies",
+    "topic": "Constitutional History",
+    "created_at": "2026-01-19T00:00:00Z",
+    "updated_at": "2026-01-19T00:00:00Z",
+    "question_count": 10
+  },
+  "questions": [
+    {
+      "id": "PPSC-PK-00001",
+      "text": "When was the first constitution of Pakistan enacted?",
+      "options": {
+        "A": "1947",
+        "B": "1956",
+        "C": "1962",
+        "D": "1973"
+      },
+      "correct_answer": "B",
+      "topic": "Constitutional History",
+      "difficulty": "easy",
+      "explanation": "The first constitution of Pakistan was enacted on March 23, 1956, establishing Pakistan as an Islamic Republic."
+    },
+    {
+      "id": "PPSC-PK-00002",
+      "text": "Which constitution of Pakistan introduced the Presidential form of government?",
+      "options": {
+        "A": "1956 Constitution",
+        "B": "1962 Constitution",
+        "C": "1973 Constitution",
+        "D": "Interim Constitution 1972"
+      },
+      "correct_answer": "B",
+      "topic": "Constitutional History",
+      "difficulty": "medium",
+      "explanation": "The 1962 Constitution introduced the Presidential form of government under Ayub Khan."
+    },
+    {
+      "id": "PPSC-PK-00003",
+      "text": "The 18th Amendment to the Constitution was passed in which year?",
+      "options": {
+        "A": "2008",
+        "B": "2010",
+        "C": "2012",
+        "D": "2015"
+      },
+      "correct_answer": "B",
+      "topic": "Constitutional History",
+      "difficulty": "medium",
+      "explanation": "The 18th Amendment was passed on April 8, 2010, making significant changes to Pakistan's federal structure."
+    },
+    {
+      "id": "PPSC-PK-00004",
+      "text": "Who was the first President of Pakistan under the 1956 Constitution?",
+      "options": {
+        "A": "Quaid-e-Azam Muhammad Ali Jinnah",
+        "B": "Iskander Mirza",
+        "C": "Ayub Khan",
+        "D": "Khawaja Nazimuddin"
+      },
+      "correct_answer": "B",
+      "topic": "Constitutional History",
+      "difficulty": "medium",
+      "explanation": "Iskander Mirza became the first President of Pakistan under the 1956 Constitution."
+    },
+    {
+      "id": "PPSC-PK-00005",
+      "text": "The Objectives Resolution was passed by the Constituent Assembly in:",
+      "options": {
+        "A": "1947",
+        "B": "1948",
+        "C": "1949",
+        "D": "1950"
+      },
+      "correct_answer": "C",
+      "topic": "Constitutional History",
+      "difficulty": "easy",
+      "explanation": "The Objectives Resolution was passed on March 12, 1949, laying the foundation for Pakistan's constitutional development."
+    },
+    {
+      "id": "PPSC-PK-00006",
+      "text": "Which amendment made Islam the state religion of Pakistan?",
+      "options": {
+        "A": "1st Amendment",
+        "B": "2nd Amendment",
+        "C": "8th Amendment",
+        "D": "Islam was in original 1973 Constitution"
+      },
+      "correct_answer": "D",
+      "topic": "Constitutional History",
+      "difficulty": "hard",
+      "explanation": "Islam was declared the state religion in the original 1973 Constitution, not through an amendment."
+    },
+    {
+      "id": "PPSC-PK-00007",
+      "text": "The 1973 Constitution was passed during the government of:",
+      "options": {
+        "A": "Yahya Khan",
+        "B": "Zulfikar Ali Bhutto",
+        "C": "Zia-ul-Haq",
+        "D": "Benazir Bhutto"
+      },
+      "correct_answer": "B",
+      "topic": "Constitutional History",
+      "difficulty": "easy",
+      "explanation": "The 1973 Constitution was passed on April 12, 1973, during the government of Zulfikar Ali Bhutto."
+    },
+    {
+      "id": "PPSC-PK-00008",
+      "text": "Which amendment restored the Parliamentary form of government in Pakistan?",
+      "options": {
+        "A": "8th Amendment",
+        "B": "13th Amendment",
+        "C": "17th Amendment",
+        "D": "18th Amendment"
+      },
+      "correct_answer": "B",
+      "topic": "Constitutional History",
+      "difficulty": "hard",
+      "explanation": "The 13th Amendment (1997) removed the President's power to dissolve the National Assembly, restoring the Parliamentary system."
+    },
+    {
+      "id": "PPSC-PK-00009",
+      "text": "How many schedules are there in the 1973 Constitution of Pakistan?",
+      "options": {
+        "A": "4",
+        "B": "5",
+        "C": "6",
+        "D": "7"
+      },
+      "correct_answer": "D",
+      "topic": "Constitutional History",
+      "difficulty": "medium",
+      "explanation": "The 1973 Constitution has 7 schedules dealing with various matters like oaths, languages, and distribution of powers."
+    },
+    {
+      "id": "PPSC-PK-00010",
+      "text": "The Federal Shariat Court was established under which constitutional amendment?",
+      "options": {
+        "A": "5th Amendment",
+        "B": "7th Amendment",
+        "C": "8th Amendment",
+        "D": "9th Amendment"
+      },
+      "correct_answer": "C",
+      "topic": "Constitutional History",
+      "difficulty": "hard",
+      "explanation": "The Federal Shariat Court was established under the 8th Amendment in 1980 during Zia-ul-Haq's regime."
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "$schema": "exam-tutor/question-bank/v1",
+  "metadata": {
+    "exam_type": "PPSC",
+    "subject": "Islamic Studies",
+    "topic": "Islamic Studies",
+    "source": "pakmcqs.com",
+    "created_at": "2026-01-22T00:00:00Z",
+    "question_count": 10
+  },
+  "questions": [
+    {
+      "id": "PPSC-IS-00001",
+      "text": "Zaboor is revealed in which language?",
+      "options": {"A": "Hebrew", "B": "Syriac", "C": "Arabic", "D": "Farsi"},
+      "correct_answer": "B",
+      "topic": "Islamic Studies",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-IS-00002",
+      "text": "Surah Muzammil means:",
+      "options": {"A": "Cover", "B": "Wrapped in Garments", "C": "In The Sky", "D": "Iron"},
+      "correct_answer": "B",
+      "topic": "Islamic Studies",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-IS-00003",
+      "text": "Surah Ankaboot means:",
+      "options": {"A": "Cat", "B": "Cockroach", "C": "Horse", "D": "Spider"},
+      "correct_answer": "D",
+      "topic": "Islamic Studies",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-IS-00004",
+      "text": "The major part of Holy Quran was revealed at which time?",
+      "options": {"A": "Day", "B": "Night", "C": "Both A & B", "D": "None of these"},
+      "correct_answer": "B",
+      "topic": "Islamic Studies",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-IS-00005",
+      "text": "Namaz-e-Taraweeh is:",
+      "options": {"A": "Wajib", "B": "Farz", "C": "Sunnat", "D": "None of them"},
+      "correct_answer": "C",
+      "topic": "Islamic Studies",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-IS-00006",
+      "text": "Which Prophet (AS) is known as Shaikh al-Anbiya?",
+      "options": {"A": "Hazrat Nooh (AS)", "B": "Hazrat Essa (AS)", "C": "Hazrat Musa (AS)", "D": "Hazrat Haroon (AS)"},
+      "correct_answer": "A",
+      "topic": "Islamic Studies",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-IS-00007",
+      "text": "Who is known as Adam-e-Sani (Second Adam)?",
+      "options": {"A": "Hazrat Adam (AS)", "B": "Hazrat Musa (AS)", "C": "Hazrat Nooh (AS)", "D": "Hazrat Ibrahim (AS)"},
+      "correct_answer": "C",
+      "topic": "Islamic Studies",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-IS-00008",
+      "text": "How many doors does Hell have?",
+      "options": {"A": "5", "B": "6", "C": "7", "D": "8"},
+      "correct_answer": "C",
+      "topic": "Islamic Studies",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-IS-00009",
+      "text": "How many times did Jibrael (AS) come to the Holy Prophet (PBUH)?",
+      "options": {"A": "20,000", "B": "22,000", "C": "24,000", "D": "26,000"},
+      "correct_answer": "C",
+      "topic": "Islamic Studies",
+      "difficulty": "hard"
+    },
+    {
+      "id": "PPSC-IS-00010",
+      "text": "Which Prophet died while standing with the support of a stick?",
+      "options": {"A": "Hazrat Suleman (AS)", "B": "Hazrat Musa (AS)", "C": "Hazrat Haroon (AS)", "D": "Hazrat Essa (AS)"},
+      "correct_answer": "A",
+      "topic": "Islamic Studies",
+      "difficulty": "medium"
+    }
+  ]
+}

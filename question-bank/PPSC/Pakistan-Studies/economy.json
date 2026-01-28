@@ -1,0 +1,153 @@
+{
+  "$schema": "exam-tutor/question-bank/v1",
+  "metadata": {
+    "exam_type": "PPSC",
+    "subject": "Pakistan Studies",
+    "topic": "Economy of Pakistan",
+    "created_at": "2026-01-19T00:00:00Z",
+    "updated_at": "2026-01-19T00:00:00Z",
+    "question_count": 10
+  },
+  "questions": [
+    {
+      "id": "PPSC-PK-00031",
+      "text": "What is the main export of Pakistan?",
+      "options": {
+        "A": "Rice",
+        "B": "Cotton Textiles",
+        "C": "Leather",
+        "D": "Sports Goods"
+      },
+      "correct_answer": "B",
+      "topic": "Economy of Pakistan",
+      "difficulty": "easy",
+      "explanation": "Textile products, particularly cotton-based textiles, constitute the largest share of Pakistan's exports."
+    },
+    {
+      "id": "PPSC-PK-00032",
+      "text": "Pakistan's currency is called:",
+      "options": {
+        "A": "Rupee",
+        "B": "Taka",
+        "C": "Riyal",
+        "D": "Dinar"
+      },
+      "correct_answer": "A",
+      "topic": "Economy of Pakistan",
+      "difficulty": "easy",
+      "explanation": "The Pakistani Rupee (PKR) is the official currency of Pakistan."
+    },
+    {
+      "id": "PPSC-PK-00033",
+      "text": "Which sector contributes most to Pakistan's GDP?",
+      "options": {
+        "A": "Agriculture",
+        "B": "Services",
+        "C": "Industry",
+        "D": "Mining"
+      },
+      "correct_answer": "B",
+      "topic": "Economy of Pakistan",
+      "difficulty": "medium",
+      "explanation": "The services sector contributes the largest share (over 50%) to Pakistan's GDP."
+    },
+    {
+      "id": "PPSC-PK-00034",
+      "text": "The State Bank of Pakistan was established in:",
+      "options": {
+        "A": "1947",
+        "B": "1948",
+        "C": "1949",
+        "D": "1950"
+      },
+      "correct_answer": "B",
+      "topic": "Economy of Pakistan",
+      "difficulty": "medium",
+      "explanation": "The State Bank of Pakistan was established on July 1, 1948, as the central bank of Pakistan."
+    },
+    {
+      "id": "PPSC-PK-00035",
+      "text": "Which crop is Pakistan's largest agricultural export?",
+      "options": {
+        "A": "Wheat",
+        "B": "Rice",
+        "C": "Cotton",
+        "D": "Sugarcane"
+      },
+      "correct_answer": "B",
+      "topic": "Economy of Pakistan",
+      "difficulty": "medium",
+      "explanation": "Rice (especially Basmati) is Pakistan's largest agricultural export."
+    },
+    {
+      "id": "PPSC-PK-00036",
+      "text": "CPEC stands for:",
+      "options": {
+        "A": "China Pakistan Economic Center",
+        "B": "China Pakistan Economic Corridor",
+        "C": "Central Pakistan Economic Corridor",
+        "D": "China-Pak Energy Cooperation"
+      },
+      "correct_answer": "B",
+      "topic": "Economy of Pakistan",
+      "difficulty": "easy",
+      "explanation": "CPEC stands for China Pakistan Economic Corridor, a major infrastructure and development project."
+    },
+    {
+      "id": "PPSC-PK-00037",
+      "text": "What percentage of Pakistan's labor force is employed in agriculture?",
+      "options": {
+        "A": "About 20%",
+        "B": "About 30%",
+        "C": "About 40%",
+        "D": "About 50%"
+      },
+      "correct_answer": "C",
+      "topic": "Economy of Pakistan",
+      "difficulty": "hard",
+      "explanation": "Approximately 40% of Pakistan's labor force is employed in the agricultural sector."
+    },
+    {
+      "id": "PPSC-PK-00038",
+      "text": "Pakistan's largest trading partner is:",
+      "options": {
+        "A": "United States",
+        "B": "China",
+        "C": "United Kingdom",
+        "D": "Saudi Arabia"
+      },
+      "correct_answer": "B",
+      "topic": "Economy of Pakistan",
+      "difficulty": "easy",
+      "explanation": "China is Pakistan's largest trading partner and a key ally in economic matters."
+    },
+    {
+      "id": "PPSC-PK-00039",
+      "text": "The Karachi Stock Exchange was established in:",
+      "options": {
+        "A": "1947",
+        "B": "1949",
+        "C": "1951",
+        "D": "1954"
+      },
+      "correct_answer": "B",
+      "topic": "Economy of Pakistan",
+      "difficulty": "hard",
+      "explanation": "The Karachi Stock Exchange (now Pakistan Stock Exchange) was established on September 18, 1947."
+    },
+    {
+      "id": "PPSC-PK-00040",
+      "text": "Which port is the largest in Pakistan?",
+      "options": {
+        "A": "Gwadar Port",
+        "B": "Port Qasim",
+        "C": "Karachi Port",
+        "D": "Ormara Port"
+      },
+      "correct_answer": "C",
+      "topic": "Economy of Pakistan",
+      "difficulty": "easy",
+      "explanation": "Karachi Port is the largest and busiest port in Pakistan, handling most of the country's maritime trade."
+    }
+  ]
+}

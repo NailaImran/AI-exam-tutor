@@ -1,0 +1,133 @@
+{
+  "$schema": "exam-tutor/question-bank/v1",
+  "metadata": {
+    "exam_type": "PPSC",
+    "subject": "Current Affairs",
+    "topic": "Pakistan Current Affairs",
+    "source": "pakmcqs.com",
+    "created_at": "2026-01-22T00:00:00Z",
+    "question_count": 15
+  },
+  "questions": [
+    {
+      "id": "PPSC-CA-00001",
+      "text": "Who is the Current Prime Minister of Azad Jammu and Kashmir?",
+      "options": {"A": "Raja Faisal Mumtaz Rathore", "B": "Chaudhry Anwar-ul-Haq", "C": "Sardar Tanveer Ilyas", "D": "Sardar Muhammad Yaqoob Khan"},
+      "correct_answer": "D",
+      "topic": "Current Affairs",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-CA-00002",
+      "text": "Who is the Current IG of Sindh Police?",
+      "options": {"A": "Ghulam Nabi Memon", "B": "Mushtaq Mehar", "C": "Javed Alam Odho", "D": "None of These"},
+      "correct_answer": "C",
+      "topic": "Current Affairs",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-CA-00003",
+      "text": "Who has been appointed as new Spokesperson for Ministry of Foreign Affairs?",
+      "options": {"A": "Shafqat Ali Khan", "B": "Tahir Andrabi", "C": "Ayesha Farooqi", "D": "None of these"},
+      "correct_answer": "B",
+      "topic": "Current Affairs",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-CA-00004",
+      "text": "Who is the Current Director General of National Cyber Crime Investigation Agency (NCCIA)?",
+      "options": {"A": "Ahmed Ishaq Jahangir", "B": "Riffat Mukhtar Raja", "C": "Waqar-ud-Din Syed", "D": "None of These"},
+      "correct_answer": "C",
+      "topic": "Current Affairs",
+      "difficulty": "hard"
+    },
+    {
+      "id": "PPSC-CA-00005",
+      "text": "When was the National Cyber Crimes Investigation Agency (NCCIA) established?",
+      "options": {"A": "23 March 2024", "B": "1 April 2024", "C": "3 May 2024", "D": "14 August 2024"},
+      "correct_answer": "C",
+      "topic": "Current Affairs",
+      "difficulty": "hard"
+    },
+    {
+      "id": "PPSC-CA-00006",
+      "text": "The tomb of Hafeez Jalandhari is situated in?",
+      "options": {"A": "Civil Secretariat", "B": "Badshahi Mosque", "C": "Iqbal Park", "D": "Shalamar Gardens"},
+      "correct_answer": "C",
+      "topic": "Current Affairs",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-CA-00007",
+      "text": "The lower age limit for a candidate contesting Senate elections is:",
+      "options": {"A": "30", "B": "35", "C": "25", "D": "None of these"},
+      "correct_answer": "A",
+      "topic": "Current Affairs",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-CA-00008",
+      "text": "What is the range of the latest Shaheen-III missile?",
+      "options": {"A": "3750 km", "B": "2750 km", "C": "1750 km", "D": "None of these"},
+      "correct_answer": "B",
+      "topic": "Current Affairs",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-CA-00009",
+      "text": "When did Pakistan join SEATO?",
+      "options": {"A": "1953", "B": "1954", "C": "1956", "D": "None of these"},
+      "correct_answer": "B",
+      "topic": "Current Affairs",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-CA-00010",
+      "text": "Gwadar Port is operated by:",
+      "options": {"A": "Gwadar Port Authority", "B": "Port of Singapore Authority", "C": "China Overseas Port Holding Company", "D": "None of these"},
+      "correct_answer": "C",
+      "topic": "Current Affairs",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-CA-00011",
+      "text": "What is the approximate area covered by Pakistan's forests?",
+      "options": {"A": "14%", "B": "7%", "C": "5%", "D": "None of these"},
+      "correct_answer": "C",
+      "topic": "Current Affairs",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-CA-00012",
+      "text": "The Geneva Accords were signed on:",
+      "options": {"A": "14 May, 1988", "B": "14 April, 1988", "C": "14 June, 1988", "D": "None of these"},
+      "correct_answer": "B",
+      "topic": "Current Affairs",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-CA-00013",
+      "text": "Pakistan conducted its nuclear tests in Chaghi in:",
+      "options": {"A": "1998", "B": "1997", "C": "1999", "D": "None of these"},
+      "correct_answer": "A",
+      "topic": "Current Affairs",
+      "difficulty": "easy"
+    },
+    {
+      "id": "PPSC-CA-00014",
+      "text": "Pakistan and Tajikistan are separated by:",
+      "options": {"A": "Durand Line", "B": "Wakhan Corridor", "C": "Amu Darya", "D": "None of these"},
+      "correct_answer": "B",
+      "topic": "Current Affairs",
+      "difficulty": "medium"
+    },
+    {
+      "id": "PPSC-CA-00015",
+      "text": "Objective Resolution was presented by Liaquat Ali Khan on:",
+      "options": {"A": "February 7, 1949", "B": "March 7, 1949", "C": "April 7, 1949", "D": "None of these"},
+      "correct_answer": "B",
+      "topic": "Current Affairs",
+      "difficulty": "easy"
+    }
+  ]
+}

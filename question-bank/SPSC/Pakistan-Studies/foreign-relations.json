@@ -1,0 +1,153 @@
+{
+  "$schema": "exam-tutor/question-bank/v1",
+  "metadata": {
+    "exam_type": "SPSC",
+    "subject": "Pakistan Studies",
+    "topic": "Foreign Relations",
+    "created_at": "2026-01-19T00:00:00Z",
+    "updated_at": "2026-01-19T00:00:00Z",
+    "question_count": 10
+  },
+  "questions": [
+    {
+      "id": "SPSC-PK-00041",
+      "text": "Pakistan is a member of which regional organization?",
+      "options": {
+        "A": "ASEAN",
+        "B": "EU",
+        "C": "SAARC",
+        "D": "NATO"
+      },
+      "correct_answer": "C",
+      "topic": "Foreign Relations",
+      "difficulty": "easy",
+      "explanation": "Pakistan is a member of SAARC (South Asian Association for Regional Cooperation)."
+    },
+    {
+      "id": "SPSC-PK-00042",
+      "text": "The CPEC (China-Pakistan Economic Corridor) was launched in:",
+      "options": {
+        "A": "2013",
+        "B": "2015",
+        "C": "2017",
+        "D": "2019"
+      },
+      "correct_answer": "B",
+      "topic": "Foreign Relations",
+      "difficulty": "medium",
+      "explanation": "CPEC was officially launched in April 2015 with Chinese President Xi Jinping's visit to Pakistan."
+    },
+    {
+      "id": "SPSC-PK-00043",
+      "text": "The ECO (Economic Cooperation Organization) was founded in:",
+      "options": {
+        "A": "1985",
+        "B": "1987",
+        "C": "1990",
+        "D": "1992"
+      },
+      "correct_answer": "A",
+      "topic": "Foreign Relations",
+      "difficulty": "hard",
+      "explanation": "ECO was founded in 1985 by Pakistan, Iran, and Turkey to promote economic cooperation."
+    },
+    {
+      "id": "SPSC-PK-00044",
+      "text": "Pakistan's first ambassador to the United Nations was:",
+      "options": {
+        "A": "Sir Zafarullah Khan",
+        "B": "Agha Hilaly",
+        "C": "Sir Feroz Khan Noon",
+        "D": "Ismail Ibrahim Chundrigar"
+      },
+      "correct_answer": "A",
+      "topic": "Foreign Relations",
+      "difficulty": "hard",
+      "explanation": "Sir Muhammad Zafarullah Khan was Pakistan's first ambassador to the UN and later served as ICJ President."
+    },
+    {
+      "id": "SPSC-PK-00045",
+      "text": "The Durand Line is the border between Pakistan and:",
+      "options": {
+        "A": "India",
+        "B": "Iran",
+        "C": "Afghanistan",
+        "D": "China"
+      },
+      "correct_answer": "C",
+      "topic": "Foreign Relations",
+      "difficulty": "easy",
+      "explanation": "The Durand Line is the 2,670 km border between Pakistan and Afghanistan, established in 1893."
+    },
+    {
+      "id": "SPSC-PK-00046",
+      "text": "BRICS is an economic grouping of which countries?",
+      "options": {
+        "A": "Brazil, Russia, India, China, South Africa",
+        "B": "Britain, Russia, India, China, Spain",
+        "C": "Brazil, Romania, India, Canada, Sweden",
+        "D": "Belgium, Russia, Indonesia, China, Switzerland"
+      },
+      "correct_answer": "A",
+      "topic": "Foreign Relations",
+      "difficulty": "medium",
+      "explanation": "BRICS stands for Brazil, Russia, India, China, and South Africa - major emerging economies."
+    },
+    {
+      "id": "SPSC-PK-00047",
+      "text": "Pakistan became a nuclear power in:",
+      "options": {
+        "A": "1988",
+        "B": "1993",
+        "C": "1998",
+        "D": "2003"
+      },
+      "correct_answer": "C",
+      "topic": "Foreign Relations",
+      "difficulty": "easy",
+      "explanation": "Pakistan conducted its first nuclear tests on May 28, 1998, becoming a nuclear-armed state."
+    },
+    {
+      "id": "SPSC-PK-00048",
+      "text": "The Shanghai Cooperation Organisation (SCO) was founded in:",
+      "options": {
+        "A": "1996",
+        "B": "2001",
+        "C": "2006",
+        "D": "2011"
+      },
+      "correct_answer": "B",
+      "topic": "Foreign Relations",
+      "difficulty": "medium",
+      "explanation": "SCO was founded in 2001. Pakistan became a full member in 2017."
+    },
+    {
+      "id": "SPSC-PK-00049",
+      "text": "The Line of Control (LoC) separates:",
+      "options": {
+        "A": "Pakistan and Afghanistan",
+        "B": "Pakistan and India in Kashmir",
+        "C": "Pakistan and Iran",
+        "D": "Pakistan and China"
+      },
+      "correct_answer": "B",
+      "topic": "Foreign Relations",
+      "difficulty": "easy",
+      "explanation": "The Line of Control is the de facto border dividing Kashmir between Pakistan and India."
+    },
+    {
+      "id": "SPSC-PK-00050",
+      "text": "Pakistan withdrew from CENTO (Central Treaty Organization) in:",
+      "options": {
+        "A": "1972",
+        "B": "1975",
+        "C": "1979",
+        "D": "1982"
+      },
+      "correct_answer": "C",
+      "topic": "Foreign Relations",
+      "difficulty": "hard",
+      "explanation": "Pakistan withdrew from CENTO in 1979 following the Iranian Revolution and the organization dissolved."
+    }
+  ]
+}
