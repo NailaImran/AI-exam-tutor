@@ -88,7 +88,21 @@ This skill uses the **filesystem MCP server** for all persistence operations.
    Content: full evaluation_results with metadata
    ```
 
-10. **Return status and updated totals**
+10. **Trigger ERI recalculation**
+    ```
+    After session data is persisted, invoke exam-readiness-calculator skill:
+
+    Input:
+      student_id: {student_id}
+      exam_type: {exam_type}
+
+    Write result to:
+      Path: memory/students/{student_id}/eri.json
+    ```
+    - This ensures ERI is always current after each practice session
+    - The updated ERI will be available for Dashboard display
+
+11. **Return status and updated totals**
 
 ## Input Schema
 
@@ -140,6 +154,12 @@ This skill uses the **filesystem MCP server** for all persistence operations.
     "overall_accuracy": "number",
     "topics_practiced": "integer",
     "last_session_date": "string"
+  },
+  "eri_update": {
+    "previous_score": "number (0-100)",
+    "new_score": "number (0-100)",
+    "band": "string (not_ready|developing|approaching|ready|exam_ready)",
+    "change": "number (delta from previous)"
   }
 }
 ```
@@ -151,6 +171,7 @@ This skill uses the **filesystem MCP server** for all persistence operations.
 | Read/Write | `memory/students/{student_id}/history.json` |
 | Read/Write | `memory/students/{student_id}/topic-stats.json` |
 | Write | `memory/students/{student_id}/sessions/{session_id}.json` |
+| Write | `memory/students/{student_id}/eri.json` (via exam-readiness-calculator) |
 
 ## History File Schema
 
