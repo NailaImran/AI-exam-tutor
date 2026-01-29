@@ -1,0 +1,50 @@
+{
+  "$schema": "exam-tutor/eri/v1",
+  "student_id": "test-student",
+  "current_score": 37.90,
+  "band": "developing",
+  "components": {
+    "accuracy": {
+      "value": 48.89,
+      "weight": 0.40,
+      "weighted_contribution": 19.56,
+      "calculation_notes": "Weighted average: (60×0.20 + 40×0.25) / 0.45 = 48.89"
+    },
+    "coverage": {
+      "value": 6.67,
+      "weight": 0.25,
+      "weighted_contribution": 1.67,
+      "topics_practiced": 2,
+      "total_topics": 30,
+      "calculation_notes": "2 topics with ≥5 attempts out of 30 syllabus topics"
+    },
+    "recency": {
+      "value": 45.84,
+      "weight": 0.20,
+      "weighted_contribution": 9.17,
+      "days_since_last_session": 3,
+      "calculation_notes": "Decay-weighted average of session accuracies within 30 days"
+    },
+    "consistency": {
+      "value": 50.00,
+      "weight": 0.15,
+      "weighted_contribution": 7.50,
+      "score_std_dev": 0,
+      "calculation_notes": "2 actual sessions vs 4 expected (every other day)"
+    }
+  },
+  "sessions_count": 2,
+  "last_calculated": "2026-01-29T00:00:00Z",
+  "trend": "improving",
+  "validation": {
+    "formula": "ERI = (Accuracy × 0.40) + (Coverage × 0.25) + (Recency × 0.20) + (Consistency × 0.15)",
+    "manual_verification": {
+      "accuracy_component": "48.89 × 0.40 = 19.56",
+      "coverage_component": "6.67 × 0.25 = 1.67",
+      "recency_component": "45.84 × 0.20 = 9.17",
+      "consistency_component": "50.00 × 0.15 = 7.50",
+      "sum": "19.56 + 1.67 + 9.17 + 7.50 = 37.90"
+    },
+    "band_verification": "37.90 falls in developing (21-40) ✓"
+  }
+}

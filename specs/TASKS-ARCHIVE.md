@@ -135,8 +135,8 @@ This document tracks all implementation tasks organized by MASTER_PLAN phases. E
 
 ### Stage 2B: ERI Calculator & Dashboard (US2)
 
-- [ ] T056 Implement exam-readiness-calculator skill at .claude/skills/exam-tutor/exam-readiness-calculator/SKILL.md
-- [ ] T057 Validate ERI calculation matches formula: (Accuracy×0.40)+(Coverage×0.25)+(Recency×0.20)+(Consistency×0.15)
+- [x] T056 Implement exam-readiness-calculator skill at .claude/skills/exam-tutor/exam-readiness-calculator/SKILL.md
+- [x] T057 Validate ERI calculation matches formula: (Accuracy×0.40)+(Coverage×0.25)+(Recency×0.20)+(Consistency×0.15)
 - [ ] T058 Validate ERI band assignment: not_ready (0-20), developing (21-40), approaching (41-60), ready (61-80), exam_ready (81-100)
 - [ ] T059 Update performance-tracker to trigger ERI recalculation after each session
 - [ ] T060 Create Dashboard.md template at vault root with ERI display section
@@ -177,13 +177,13 @@ This document tracks all implementation tasks organized by MASTER_PLAN phases. E
 
 - [x] Question bank expanded beyond 150 questions (currently 200+)
 - [x] 1500+ questions in question bank (actual: 1,570)
-- [ ] exam-readiness-calculator computes ERI correctly
+- [x] exam-readiness-calculator computes ERI correctly (validated: test-student ERI = 37.90)
 - [ ] weak-area-identifier identifies knowledge gaps
 - [ ] Dashboard.md displays ERI with component breakdown
 - [ ] Company_Handbook.md complete with all sections
 - [ ] File watcher detects files within 5 seconds
 
-**Phase 2 Summary**: 12/37 tasks complete (32%)
+**Phase 2 Summary**: 14/37 tasks complete (38%)
 
 ---
 
@@ -332,11 +332,11 @@ This document tracks all implementation tasks organized by MASTER_PLAN phases. E
 | Phase | Tasks | Complete | Remaining | Status |
 |-------|-------|----------|-----------|--------|
 | Phase 1: Foundation | 43 | 43 | 0 | ✅ COMPLETE |
-| Phase 2: Core Product | 37 | 12 | 25 | ⏳ IN PROGRESS |
+| Phase 2: Core Product | 37 | 14 | 23 | ⏳ IN PROGRESS |
 | Phase 3: Growth Engine | 17 | 0 | 17 | ⏳ NOT STARTED |
 | Phase 4: Full Platform | 10 | 0 | 10 | ⏳ NOT STARTED |
 | Phase 5: Autonomous | 13 | 0 | 13 | ⏳ NOT STARTED |
-| **Total** | **120** | **55** | **65** | **46%** |
+| **Total** | **120** | **57** | **63** | **48%** |
 
 ---
 
@@ -348,7 +348,7 @@ This document tracks all implementation tasks organized by MASTER_PLAN phases. E
 | **1** | question-bank-querier | CORE | ✅ |
 | **1** | answer-evaluator | CORE | ✅ |
 | **1** | performance-tracker | CORE | ✅ |
-| **2** | exam-readiness-calculator | CORE | ⏳ |
+| **2** | exam-readiness-calculator | CORE | ✅ |
 | **2** | weak-area-identifier | CORE | ⏳ |
 | **2** | diagnostic-assessment-generator | SUPPORTING | ⏳ |
 | **2** | adaptive-test-generator | SUPPORTING | ⏳ |
@@ -374,7 +374,7 @@ This document tracks all implementation tasks organized by MASTER_PLAN phases. E
 | **5** | referral-tracker | ENGAGEMENT | ⏳ |
 | **5** | score-predictor | PREMIUM | ⏳ |
 
-**Skills Complete**: 4/29 (14%)
+**Skills Complete**: 5/29 (17%)
 
 ---
 
@@ -391,7 +391,7 @@ Phase 1: Foundation (COMPLETE)
             ▼
 Phase 2: Core Product (IN PROGRESS)
     │
-    ├── exam-readiness-calculator ⏳
+    ├── exam-readiness-calculator ✅
     ├── weak-area-identifier ⏳
     ├── diagnostic-assessment-generator ⏳
     └── adaptive-test-generator ⏳
@@ -429,6 +429,6 @@ Phase 5: Autonomous
 
 ---
 
-**Next Action**: Continue Phase 2 Stage 2B - implement T056 (exam-readiness-calculator skill)
+**Next Action**: Continue Phase 2 Stage 2B - implement T058 (ERI band assignment validation)
 
-**Last Updated**: 2026-01-28 - Completed T051-T055 (Question Bank Expansion to 1,570 questions)
+**Last Updated**: 2026-01-29 - Completed T056-T057 (ERI Calculator implementation and formula validation)
