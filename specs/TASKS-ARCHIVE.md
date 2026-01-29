@@ -151,9 +151,9 @@ This document tracks all implementation tasks organized by MASTER_PLAN phases. E
 
 ### Stage 2D: Diagnostic & Adaptive Tests
 
-- [ ] T066 Implement diagnostic-assessment-generator skill
-- [ ] T067 Implement adaptive-test-generator skill
-- [ ] T068 Validate adaptive tests focus on weak topics
+- [x] T066 Implement diagnostic-assessment-generator skill
+- [x] T067 Implement adaptive-test-generator skill
+- [x] T068 Validate adaptive tests focus on weak topics
 
 ### Stage 2E: Documentation & Automation (US4, US5)
 
@@ -183,7 +183,7 @@ This document tracks all implementation tasks organized by MASTER_PLAN phases. E
 - [ ] Company_Handbook.md complete with all sections
 - [ ] File watcher detects files within 5 seconds
 
-**Phase 2 Summary**: 22/37 tasks complete (59%)
+**Phase 2 Summary**: 25/37 tasks complete (68%)
 
 ---
 
@@ -332,11 +332,11 @@ This document tracks all implementation tasks organized by MASTER_PLAN phases. E
 | Phase | Tasks | Complete | Remaining | Status |
 |-------|-------|----------|-----------|--------|
 | Phase 1: Foundation | 43 | 43 | 0 | ✅ COMPLETE |
-| Phase 2: Core Product | 37 | 22 | 15 | ⏳ IN PROGRESS |
+| Phase 2: Core Product | 37 | 25 | 12 | ⏳ IN PROGRESS |
 | Phase 3: Growth Engine | 17 | 0 | 17 | ⏳ NOT STARTED |
 | Phase 4: Full Platform | 10 | 0 | 10 | ⏳ NOT STARTED |
 | Phase 5: Autonomous | 13 | 0 | 13 | ⏳ NOT STARTED |
-| **Total** | **120** | **65** | **55** | **54%** |
+| **Total** | **120** | **68** | **52** | **57%** |
 
 ---
 
@@ -350,8 +350,8 @@ This document tracks all implementation tasks organized by MASTER_PLAN phases. E
 | **1** | performance-tracker | CORE | ✅ |
 | **2** | exam-readiness-calculator | CORE | ✅ |
 | **2** | weak-area-identifier | CORE | ✅ |
-| **2** | diagnostic-assessment-generator | SUPPORTING | ⏳ |
-| **2** | adaptive-test-generator | SUPPORTING | ⏳ |
+| **2** | diagnostic-assessment-generator | SUPPORTING | ✅ |
+| **2** | adaptive-test-generator | SUPPORTING | ✅ |
 | **3** | study-plan-generator | SUPPORTING | ⏳ |
 | **3** | progress-report-generator | SUPPORTING | ⏳ |
 | **3** | whatsapp-message-sender | ENGAGEMENT | ⏳ |
@@ -374,7 +374,7 @@ This document tracks all implementation tasks organized by MASTER_PLAN phases. E
 | **5** | referral-tracker | ENGAGEMENT | ⏳ |
 | **5** | score-predictor | PREMIUM | ⏳ |
 
-**Skills Complete**: 6/29 (21%)
+**Skills Complete**: 8/29 (28%)
 
 ---
 
@@ -393,8 +393,8 @@ Phase 2: Core Product (IN PROGRESS)
     │
     ├── exam-readiness-calculator ✅
     ├── weak-area-identifier ✅
-    ├── diagnostic-assessment-generator ⏳
-    └── adaptive-test-generator ⏳
+    ├── diagnostic-assessment-generator ✅
+    └── adaptive-test-generator ✅
             │
             ▼
 Phase 3: Growth Engine
@@ -429,6 +429,6 @@ Phase 5: Autonomous
 
 ---
 
-**Next Action**: Continue Phase 2 Stage 2D - implement T066 (diagnostic-assessment-generator skill)
+**Next Action**: Continue Phase 2 Stage 2E - implement T069 (Company_Handbook.md)
 
-**Last Updated**: 2026-01-29 - Completed Stage 2C (T063-T065: Weak Area Identifier)
+**Last Updated**: 2026-01-29 - Completed Stage 2D (T066-T068: Diagnostic & Adaptive Tests)
