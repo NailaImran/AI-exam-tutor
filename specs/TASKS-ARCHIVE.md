@@ -157,14 +157,14 @@ This document tracks all implementation tasks organized by MASTER_PLAN phases. E
 
 ### Stage 2E: Documentation & Automation (US4, US5)
 
-- [ ] T069 Create Company_Handbook.md at vault root with system overview
-- [ ] T070 Add test request instructions to Company_Handbook.md
-- [ ] T071 Add ERI calculation documentation to Company_Handbook.md
-- [ ] T072 Add Constitution behavioral rules to Company_Handbook.md
-- [ ] T073 Implement inbox monitoring file watcher
-- [ ] T074 Implement request parser for test-request.md format
-- [ ] T075 Implement file movement logic: /inbox → /done or /needs_action
-- [ ] T076 Implement event logging to logs/watcher/{date}.log
+- [x] T069 Create Company_Handbook.md at vault root with system overview
+- [x] T070 Add test request instructions to Company_Handbook.md
+- [x] T071 Add ERI calculation documentation to Company_Handbook.md
+- [x] T072 Add Constitution behavioral rules to Company_Handbook.md
+- [x] T073 Implement inbox monitoring file watcher
+- [x] T074 Implement request parser for test-request.md format
+- [x] T075 Implement file movement logic: /inbox → /done or /needs_action
+- [x] T076 Implement event logging to logs/watcher/{date}.log
 
 ### Stage 2F: Polish & Validation
 
@@ -180,10 +180,10 @@ This document tracks all implementation tasks organized by MASTER_PLAN phases. E
 - [x] exam-readiness-calculator computes ERI correctly (validated: test-student ERI = 37.90)
 - [x] weak-area-identifier identifies knowledge gaps (validated: 1 weak, 1 strong, 28 untested)
 - [x] Dashboard.md displays ERI with component breakdown
-- [ ] Company_Handbook.md complete with all sections
-- [ ] File watcher detects files within 5 seconds
+- [x] Company_Handbook.md complete with all sections
+- [x] File watcher detects files within 5 seconds
 
-**Phase 2 Summary**: 25/37 tasks complete (68%)
+**Phase 2 Summary**: 33/37 tasks complete (89%)
 
 ---
 
@@ -332,11 +332,11 @@ This document tracks all implementation tasks organized by MASTER_PLAN phases. E
 | Phase | Tasks | Complete | Remaining | Status |
 |-------|-------|----------|-----------|--------|
 | Phase 1: Foundation | 43 | 43 | 0 | ✅ COMPLETE |
-| Phase 2: Core Product | 37 | 25 | 12 | ⏳ IN PROGRESS |
+| Phase 2: Core Product | 37 | 33 | 4 | ⏳ IN PROGRESS |
 | Phase 3: Growth Engine | 17 | 0 | 17 | ⏳ NOT STARTED |
 | Phase 4: Full Platform | 10 | 0 | 10 | ⏳ NOT STARTED |
 | Phase 5: Autonomous | 13 | 0 | 13 | ⏳ NOT STARTED |
-| **Total** | **120** | **68** | **52** | **57%** |
+| **Total** | **120** | **76** | **44** | **63%** |
 
 ---
 
@@ -429,6 +429,6 @@ Phase 5: Autonomous
 
 ---
 
-**Next Action**: Continue Phase 2 Stage 2E - implement T069 (Company_Handbook.md)
+**Next Action**: Continue Phase 2 Stage 2F - implement T077 (verify all core skills)
 
-**Last Updated**: 2026-01-29 - Completed Stage 2D (T066-T068: Diagnostic & Adaptive Tests)
+**Last Updated**: 2026-01-29 - Completed Stage 2E (T069-T076: Documentation & File Watcher)
