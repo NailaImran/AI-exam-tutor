@@ -87,13 +87,42 @@
 
 ---
 
-## Weak Areas (Top 5)
+## Weak Areas Analysis
 
-| Rank | Topic | Accuracy | Attempts | Priority |
-|------|-------|----------|----------|----------|
-{{#weak_areas}}
-| {{rank}} | {{topic}} | {{accuracy}}% | {{attempts}} | {{priority}} |
-{{/weak_areas}}
+### Identified Weak Topics (Accuracy < 60%)
+
+| Severity Rank | Topic | Subject | Accuracy | Attempts | Severity Score | Action |
+|---------------|-------|---------|----------|----------|----------------|--------|
+{{#weak_topics}}
+| {{severity_rank}} | {{topic_name}} | {{subject}} | {{accuracy}}% | {{attempts}} | {{severity_score}} | Focus Practice |
+{{/weak_topics}}
+
+### Topic Categories Summary
+
+| Category | Count | Description |
+|----------|-------|-------------|
+| **Weak** | {{weak_count}} | Accuracy below threshold, needs focused practice |
+| **Strong** | {{strong_count}} | Accuracy at or above threshold |
+| **Untested** | {{untested_count}} | Less than 5 attempts, need more practice |
+
+### High Priority Untested Topics
+
+| Topic | Subject | Syllabus Weight | Recommendation |
+|-------|---------|-----------------|----------------|
+{{#priority_untested}}
+| {{topic_name}} | {{subject}} | {{weight}}% | Start practicing |
+{{/priority_untested}}
+
+### Severity Score Formula
+
+```
+Severity Score = (Threshold - Accuracy) × Attempt Weight
+
+Attempt Weights:
+  - 20+ attempts: 1.5 (persistent weakness)
+  - 10+ attempts: 1.2 (confirmed weakness)
+  - 5+ attempts:  1.0 (emerging weakness)
+```
 
 ---
 

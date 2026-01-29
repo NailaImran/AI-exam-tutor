@@ -1,0 +1,73 @@
+{
+  "$schema": "exam-tutor/weak-areas/v1",
+  "student_id": "test-student",
+  "exam_type": "PPSC",
+  "generated_at": "2026-01-29T00:00:00Z",
+  "parameters": {
+    "threshold_accuracy": 60,
+    "min_attempts": 5
+  },
+  "weak_topics": [
+    {
+      "topic_name": "Independence Movement",
+      "subject": "Pakistan Studies",
+      "accuracy": 40,
+      "attempts": 5,
+      "severity_rank": 1,
+      "severity_score": 20.0,
+      "last_practiced": "2026-01-26T14:30:00Z",
+      "recommendation": "Focus practice on this topic - accuracy 20% below threshold"
+    }
+  ],
+  "strong_topics": [
+    {
+      "topic_name": "Constitutional History",
+      "subject": "Pakistan Studies",
+      "accuracy": 60,
+      "attempts": 5,
+      "last_practiced": "2026-01-26T14:30:00Z"
+    }
+  ],
+  "untested_topics": [
+    {"topic_name": "Geography of Pakistan", "subject": "Pakistan Studies", "attempts": 0, "syllabus_weight": 0.20},
+    {"topic_name": "Economy of Pakistan", "subject": "Pakistan Studies", "attempts": 0, "syllabus_weight": 0.15},
+    {"topic_name": "Foreign Relations", "subject": "Pakistan Studies", "attempts": 0, "syllabus_weight": 0.20},
+    {"topic_name": "World Geography", "subject": "General Knowledge", "attempts": 0, "syllabus_weight": 0.20},
+    {"topic_name": "General Science", "subject": "General Knowledge", "attempts": 0, "syllabus_weight": 0.25},
+    {"topic_name": "Famous Personalities", "subject": "General Knowledge", "attempts": 0, "syllabus_weight": 0.15},
+    {"topic_name": "International Organizations", "subject": "General Knowledge", "attempts": 0, "syllabus_weight": 0.20},
+    {"topic_name": "Inventions and Discoveries", "subject": "General Knowledge", "attempts": 0, "syllabus_weight": 0.20},
+    {"topic_name": "Pakistan Current Events", "subject": "Current Affairs", "attempts": 0, "syllabus_weight": 0.40},
+    {"topic_name": "International Current Events", "subject": "Current Affairs", "attempts": 0, "syllabus_weight": 0.35},
+    {"topic_name": "Sports Updates", "subject": "Current Affairs", "attempts": 0, "syllabus_weight": 0.15},
+    {"topic_name": "Awards and Honors", "subject": "Current Affairs", "attempts": 0, "syllabus_weight": 0.10},
+    {"topic_name": "Grammar", "subject": "English", "attempts": 0, "syllabus_weight": 0.30},
+    {"topic_name": "Vocabulary", "subject": "English", "attempts": 0, "syllabus_weight": 0.25},
+    {"topic_name": "Comprehension", "subject": "English", "attempts": 0, "syllabus_weight": 0.25},
+    {"topic_name": "Sentence Correction", "subject": "English", "attempts": 0, "syllabus_weight": 0.20},
+    {"topic_name": "Arithmetic", "subject": "Mathematics", "attempts": 0, "syllabus_weight": 0.30},
+    {"topic_name": "Algebra", "subject": "Mathematics", "attempts": 0, "syllabus_weight": 0.25},
+    {"topic_name": "Geometry", "subject": "Mathematics", "attempts": 0, "syllabus_weight": 0.20},
+    {"topic_name": "Data Interpretation", "subject": "Mathematics", "attempts": 0, "syllabus_weight": 0.25},
+    {"topic_name": "Basic Beliefs", "subject": "Islamiat", "attempts": 0, "syllabus_weight": 0.25},
+    {"topic_name": "Pillars of Islam", "subject": "Islamiat", "attempts": 0, "syllabus_weight": 0.25},
+    {"topic_name": "Life of Prophet Muhammad", "subject": "Islamiat", "attempts": 0, "syllabus_weight": 0.30},
+    {"topic_name": "Islamic History", "subject": "Islamiat", "attempts": 0, "syllabus_weight": 0.20}
+  ],
+  "summary": {
+    "total_syllabus_topics": 30,
+    "weak_count": 1,
+    "strong_count": 1,
+    "untested_count": 28,
+    "coverage_percentage": 6.67
+  },
+  "validation": {
+    "T064_check": "Topics sorted by severity_score descending ✓",
+    "severity_formula": "severity_score = (threshold - accuracy) × attempt_weight",
+    "attempt_weights": {
+      ">=20 attempts": 1.5,
+      ">=10 attempts": 1.2,
+      ">=5 attempts": 1.0
+    }
+  }
+}

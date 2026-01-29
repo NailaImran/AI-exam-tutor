@@ -89,15 +89,39 @@
 
 ---
 
-## Weak Areas (Top 5)
+## Weak Areas Analysis
 
-| Rank | Topic | Accuracy | Attempts | Priority |
-|------|-------|----------|----------|----------|
-| 1 | Independence Movement | 40% | 5 | HIGH |
-| 2 | Constitutional History | 60% | 5 | MEDIUM |
-| 3 | Geography of Pakistan | - | 0 | HIGH (unpracticed) |
-| 4 | Economy of Pakistan | - | 0 | HIGH (unpracticed) |
-| 5 | Foreign Relations | - | 0 | HIGH (unpracticed) |
+### Identified Weak Topics (Accuracy < 60%)
+
+| Severity Rank | Topic | Subject | Accuracy | Attempts | Severity Score | Action |
+|---------------|-------|---------|----------|----------|----------------|--------|
+| 1 | Independence Movement | Pakistan Studies | 40% | 5 | 20.0 | Focus Practice |
+
+### Topic Categories Summary
+
+| Category | Count | Description |
+|----------|-------|-------------|
+| **Weak** | 1 | Accuracy below threshold, needs focused practice |
+| **Strong** | 1 | Accuracy at or above threshold |
+| **Untested** | 28 | Less than 5 attempts, need more practice |
+
+### High Priority Untested Topics
+
+| Topic | Subject | Syllabus Weight | Recommendation |
+|-------|---------|-----------------|----------------|
+| Pakistan Current Events | Current Affairs | 40% | Start practicing |
+| Life of Prophet Muhammad | Islamiat | 30% | Start practicing |
+| Grammar | English | 30% | Start practicing |
+| Arithmetic | Mathematics | 30% | Start practicing |
+| General Science | General Knowledge | 25% | Start practicing |
+
+### Severity Score Formula
+
+```
+Severity Score = (Threshold - Accuracy) × Attempt Weight
+
+Independence Movement: (60 - 40) × 1.0 = 20.0
+```
 
 ---
 
