@@ -1,0 +1,47 @@
+{
+  "$schema": "exam-tutor/session-detail/v1",
+  "session_id": "e2e-diag-001",
+  "student_id": "e2e-test-student",
+  "type": "diagnostic",
+  "exam_type": "SPSC",
+  "timestamp": "2026-01-29T09:00:00Z",
+  "duration_minutes": 25,
+  "questions": [
+    {"id": "SPSC-PK-001", "topic": "Constitutional Development", "difficulty": "medium", "student_answer": "B", "correct_answer": "B", "is_correct": true},
+    {"id": "SPSC-PK-002", "topic": "Constitutional Development", "difficulty": "medium", "student_answer": "A", "correct_answer": "C", "is_correct": false},
+    {"id": "SPSC-PK-003", "topic": "Constitutional Development", "difficulty": "hard", "student_answer": "D", "correct_answer": "D", "is_correct": true},
+    {"id": "SPSC-PK-004", "topic": "Constitutional Development", "difficulty": "easy", "student_answer": "B", "correct_answer": "A", "is_correct": false},
+    {"id": "SPSC-PK-005", "topic": "Independence Movement", "difficulty": "medium", "student_answer": "C", "correct_answer": "B", "is_correct": false},
+    {"id": "SPSC-PK-006", "topic": "Independence Movement", "difficulty": "medium", "student_answer": "A", "correct_answer": "A", "is_correct": true},
+    {"id": "SPSC-PK-007", "topic": "Independence Movement", "difficulty": "hard", "student_answer": "B", "correct_answer": "C", "is_correct": false},
+    {"id": "SPSC-PK-008", "topic": "Independence Movement", "difficulty": "medium", "student_answer": "D", "correct_answer": "A", "is_correct": false},
+    {"id": "SPSC-PK-009", "topic": "Independence Movement", "difficulty": "easy", "student_answer": "A", "correct_answer": "B", "is_correct": false},
+    {"id": "SPSC-PK-010", "topic": "Geography of Pakistan", "difficulty": "easy", "student_answer": "B", "correct_answer": "B", "is_correct": true},
+    {"id": "SPSC-PK-011", "topic": "Geography of Pakistan", "difficulty": "medium", "student_answer": "C", "correct_answer": "C", "is_correct": true},
+    {"id": "SPSC-PK-012", "topic": "Geography of Pakistan", "difficulty": "medium", "student_answer": "A", "correct_answer": "D", "is_correct": false},
+    {"id": "SPSC-PK-013", "topic": "Geography of Pakistan", "difficulty": "hard", "student_answer": "B", "correct_answer": "B", "is_correct": true},
+    {"id": "SPSC-PK-014", "topic": "Geography of Pakistan", "difficulty": "easy", "student_answer": "D", "correct_answer": "A", "is_correct": false},
+    {"id": "SPSC-PK-015", "topic": "Islamic History", "difficulty": "medium", "student_answer": "A", "correct_answer": "A", "is_correct": true},
+    {"id": "SPSC-PK-016", "topic": "Islamic History", "difficulty": "medium", "student_answer": "C", "correct_answer": "B", "is_correct": false},
+    {"id": "SPSC-PK-017", "topic": "Islamic History", "difficulty": "hard", "student_answer": "B", "correct_answer": "B", "is_correct": true},
+    {"id": "SPSC-PK-018", "topic": "Islamic History", "difficulty": "easy", "student_answer": "A", "correct_answer": "C", "is_correct": false},
+    {"id": "SPSC-PK-019", "topic": "Islamic History", "difficulty": "medium", "student_answer": "D", "correct_answer": "D", "is_correct": true},
+    {"id": "SPSC-PK-020", "topic": "Islamic History", "difficulty": "hard", "student_answer": "C", "correct_answer": "A", "is_correct": false}
+  ],
+  "results": {
+    "total": 20,
+    "correct": 8,
+    "accuracy": 40.0,
+    "by_topic": {
+      "Constitutional Development": {"attempted": 4, "correct": 2, "accuracy": 50.0},
+      "Independence Movement": {"attempted": 5, "correct": 1, "accuracy": 20.0},
+      "Geography of Pakistan": {"attempted": 5, "correct": 3, "accuracy": 60.0},
+      "Islamic History": {"attempted": 6, "correct": 4, "accuracy": 66.67}
+    },
+    "by_difficulty": {
+      "easy": {"attempted": 5, "correct": 2, "accuracy": 40.0},
+      "medium": {"attempted": 10, "correct": 4, "accuracy": 40.0},
+      "hard": {"attempted": 5, "correct": 2, "accuracy": 40.0}
+    }
+  }
+}

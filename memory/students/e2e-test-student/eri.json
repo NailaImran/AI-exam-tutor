@@ -1,0 +1,44 @@
+{
+  "$schema": "exam-tutor/eri/v1",
+  "student_id": "e2e-test-student",
+  "exam_type": "SPSC",
+  "calculated_at": "2026-01-30T10:15:00Z",
+  "eri_score": 32.45,
+  "readiness_band": "developing",
+  "components": {
+    "accuracy": {
+      "score": 47.50,
+      "weight": 0.40,
+      "weighted_contribution": 19.00,
+      "details": "Weighted average across 4 topics"
+    },
+    "coverage": {
+      "score": 13.33,
+      "weight": 0.25,
+      "weighted_contribution": 3.33,
+      "details": "4 of 30 syllabus topics practiced"
+    },
+    "recency": {
+      "score": 42.80,
+      "weight": 0.20,
+      "weighted_contribution": 8.56,
+      "details": "Decay-weighted recent performance"
+    },
+    "consistency": {
+      "score": 10.40,
+      "weight": 0.15,
+      "weighted_contribution": 1.56,
+      "details": "3 sessions in 2 days (target: 1 every 2 days)"
+    }
+  },
+  "trend": {
+    "previous_eri": null,
+    "change": null,
+    "direction": "baseline"
+  },
+  "recommendations": [
+    "Focus on Independence Movement - accuracy at 33.33%",
+    "Expand topic coverage - only 13% of syllabus practiced",
+    "Maintain regular practice schedule"
+  ]
+}

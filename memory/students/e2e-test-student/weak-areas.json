@@ -1,0 +1,63 @@
+{
+  "$schema": "exam-tutor/weak-areas/v1",
+  "student_id": "e2e-test-student",
+  "exam_type": "SPSC",
+  "analyzed_at": "2026-01-30T10:15:00Z",
+  "threshold_accuracy": 60,
+  "min_attempts": 5,
+  "weak_topics": [
+    {
+      "topic": "Independence Movement",
+      "accuracy": 33.33,
+      "attempts": 15,
+      "severity_score": 26.67,
+      "syllabus_weight": 0.25,
+      "priority": 1,
+      "recommendation": "High priority - critical topic with low accuracy"
+    },
+    {
+      "topic": "Constitutional Development",
+      "accuracy": 50.0,
+      "attempts": 8,
+      "severity_score": 10.0,
+      "syllabus_weight": 0.20,
+      "priority": 2,
+      "recommendation": "Medium priority - needs improvement"
+    },
+    {
+      "topic": "Islamic History",
+      "accuracy": 57.14,
+      "attempts": 7,
+      "severity_score": 2.86,
+      "syllabus_weight": 0.15,
+      "priority": 3,
+      "recommendation": "Low priority - approaching threshold"
+    }
+  ],
+  "strong_topics": [
+    {
+      "topic": "Geography of Pakistan",
+      "accuracy": 60.0,
+      "attempts": 10,
+      "status": "at_threshold"
+    }
+  ],
+  "untested_topics": [
+    "Economy of Pakistan",
+    "Current Affairs",
+    "Pakistan Foreign Policy",
+    "Provincial Administration",
+    "Local Government",
+    "Judicial System",
+    "Civil Services Structure",
+    "Pakistan Movement Leaders",
+    "Post-Independence Challenges",
+    "Democratic Transitions"
+  ],
+  "summary": {
+    "weak_count": 3,
+    "strong_count": 1,
+    "untested_count": 26,
+    "primary_focus": "Independence Movement"
+  }
+}

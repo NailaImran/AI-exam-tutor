@@ -1,0 +1,32 @@
+{
+  "$schema": "exam-tutor/session-detail/v1",
+  "session_id": "e2e-practice-002",
+  "student_id": "e2e-test-student",
+  "type": "adaptive",
+  "exam_type": "SPSC",
+  "timestamp": "2026-01-30T10:00:00Z",
+  "duration_minutes": 11,
+  "focus_areas": ["Independence Movement"],
+  "focus_ratio": 0.6,
+  "questions": [
+    {"id": "SPSC-PK-031", "topic": "Independence Movement", "difficulty": "easy", "student_answer": "A", "correct_answer": "A", "is_correct": true},
+    {"id": "SPSC-PK-032", "topic": "Independence Movement", "difficulty": "easy", "student_answer": "C", "correct_answer": "C", "is_correct": true},
+    {"id": "SPSC-PK-033", "topic": "Independence Movement", "difficulty": "medium", "student_answer": "B", "correct_answer": "B", "is_correct": true},
+    {"id": "SPSC-PK-034", "topic": "Independence Movement", "difficulty": "medium", "student_answer": "D", "correct_answer": "A", "is_correct": false},
+    {"id": "SPSC-PK-035", "topic": "Independence Movement", "difficulty": "medium", "student_answer": "A", "correct_answer": "C", "is_correct": false},
+    {"id": "SPSC-PK-036", "topic": "Independence Movement", "difficulty": "hard", "student_answer": "B", "correct_answer": "B", "is_correct": true},
+    {"id": "SPSC-PK-037", "topic": "Geography of Pakistan", "difficulty": "medium", "student_answer": "C", "correct_answer": "C", "is_correct": true},
+    {"id": "SPSC-PK-038", "topic": "Geography of Pakistan", "difficulty": "medium", "student_answer": "A", "correct_answer": "D", "is_correct": false},
+    {"id": "SPSC-PK-039", "topic": "Geography of Pakistan", "difficulty": "hard", "student_answer": "B", "correct_answer": "B", "is_correct": true},
+    {"id": "SPSC-PK-040", "topic": "Geography of Pakistan", "difficulty": "easy", "student_answer": "D", "correct_answer": "A", "is_correct": false}
+  ],
+  "results": {
+    "total": 10,
+    "correct": 6,
+    "accuracy": 60.0,
+    "by_topic": {
+      "Independence Movement": {"attempted": 6, "correct": 4, "accuracy": 66.67},
+      "Geography of Pakistan": {"attempted": 4, "correct": 2, "accuracy": 50.0}
+    }
+  }
+}

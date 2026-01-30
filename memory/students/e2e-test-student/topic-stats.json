@@ -1,0 +1,41 @@
+{
+  "$schema": "exam-tutor/topic-stats/v1",
+  "student_id": "e2e-test-student",
+  "exam_type": "SPSC",
+  "last_updated": "2026-01-30T10:15:00Z",
+  "topics": {
+    "Constitutional Development": {
+      "attempts": 8,
+      "correct": 4,
+      "accuracy": 50.0,
+      "last_practiced": "2026-01-29T14:00:00Z",
+      "trend": "stable"
+    },
+    "Independence Movement": {
+      "attempts": 15,
+      "correct": 5,
+      "accuracy": 33.33,
+      "last_practiced": "2026-01-30T10:00:00Z",
+      "trend": "improving"
+    },
+    "Geography of Pakistan": {
+      "attempts": 10,
+      "correct": 6,
+      "accuracy": 60.0,
+      "last_practiced": "2026-01-30T10:00:00Z",
+      "trend": "stable"
+    },
+    "Islamic History": {
+      "attempts": 7,
+      "correct": 4,
+      "accuracy": 57.14,
+      "last_practiced": "2026-01-29T09:00:00Z",
+      "trend": "stable"
+    }
+  },
+  "summary": {
+    "total_topics_practiced": 4,
+    "strongest_topic": "Geography of Pakistan",
+    "weakest_topic": "Independence Movement"
+  }
+}

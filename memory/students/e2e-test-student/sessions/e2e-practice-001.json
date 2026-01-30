@@ -1,0 +1,32 @@
+{
+  "$schema": "exam-tutor/session-detail/v1",
+  "session_id": "e2e-practice-001",
+  "student_id": "e2e-test-student",
+  "type": "adaptive",
+  "exam_type": "SPSC",
+  "timestamp": "2026-01-29T14:00:00Z",
+  "duration_minutes": 12,
+  "focus_areas": ["Independence Movement"],
+  "focus_ratio": 0.6,
+  "questions": [
+    {"id": "SPSC-PK-021", "topic": "Independence Movement", "difficulty": "easy", "student_answer": "B", "correct_answer": "B", "is_correct": true},
+    {"id": "SPSC-PK-022", "topic": "Independence Movement", "difficulty": "easy", "student_answer": "A", "correct_answer": "A", "is_correct": true},
+    {"id": "SPSC-PK-023", "topic": "Independence Movement", "difficulty": "medium", "student_answer": "C", "correct_answer": "D", "is_correct": false},
+    {"id": "SPSC-PK-024", "topic": "Independence Movement", "difficulty": "medium", "student_answer": "B", "correct_answer": "B", "is_correct": true},
+    {"id": "SPSC-PK-025", "topic": "Independence Movement", "difficulty": "medium", "student_answer": "A", "correct_answer": "C", "is_correct": false},
+    {"id": "SPSC-PK-026", "topic": "Independence Movement", "difficulty": "hard", "student_answer": "D", "correct_answer": "A", "is_correct": false},
+    {"id": "SPSC-PK-027", "topic": "Constitutional Development", "difficulty": "medium", "student_answer": "C", "correct_answer": "C", "is_correct": true},
+    {"id": "SPSC-PK-028", "topic": "Constitutional Development", "difficulty": "medium", "student_answer": "B", "correct_answer": "A", "is_correct": false},
+    {"id": "SPSC-PK-029", "topic": "Constitutional Development", "difficulty": "hard", "student_answer": "A", "correct_answer": "B", "is_correct": false},
+    {"id": "SPSC-PK-030", "topic": "Constitutional Development", "difficulty": "easy", "student_answer": "D", "correct_answer": "D", "is_correct": true}
+  ],
+  "results": {
+    "total": 10,
+    "correct": 5,
+    "accuracy": 50.0,
+    "by_topic": {
+      "Independence Movement": {"attempted": 6, "correct": 3, "accuracy": 50.0},
+      "Constitutional Development": {"attempted": 4, "correct": 2, "accuracy": 50.0}
+    }
+  }
+}
