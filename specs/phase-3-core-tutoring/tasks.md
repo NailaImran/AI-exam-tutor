@@ -179,21 +179,21 @@
 
 ### Implementation for User Story 5
 
-- [ ] T080 [US5] Create social-post-generator skill in .claude/skills/exam-tutor/social-post-generator/SKILL.md
-- [ ] T081 [US5] Define skill inputs: exam_type, excluded_question_ids
-- [ ] T082 [US5] Define skill outputs: SocialPost JSON per data-model.md
-- [ ] T083 [US5] Implement question selection using daily-question-selector skill with subject rotation
-- [ ] T084 [US5] Implement post formatting per contracts/linkedin-post-template.json
-- [ ] T085 [US5] Implement hashtag selection based on exam_type and topic
-- [ ] T086 [US5] Implement 3000 character limit validation (LinkedIn constraint)
-- [ ] T087 [US5] Save draft to needs_action/social-posts/linkedin-{date}.json
-- [ ] T088 [US5] Extend approval-workflow skill to handle social_post action type
-- [ ] T089 [US5] Implement approval flow: approve → publish via LinkedIn MCP → move to done/
-- [ ] T090 [US5] Implement rejection flow: reject with feedback → move to done/ → mark rejected
-- [ ] T091 [US5] Create social-media-coordinator subagent in .claude/subagents/social-media-coordinator/AGENT.md
-- [ ] T092 [US5] Define subagent workflow: daily-question-selector → social-post-generator → approval-workflow
-- [ ] T093 [US5] Create schedule config file schedules/linkedin-posts.json per data-model.md
-- [ ] T094 [US5] Implement subject rotation tracking to avoid repeats
+- [x] T080 [US5] Create social-post-generator skill in .claude/skills/exam-tutor/social-post-generator/SKILL.md
+- [x] T081 [US5] Define skill inputs: exam_type, excluded_question_ids
+- [x] T082 [US5] Define skill outputs: SocialPost JSON per data-model.md
+- [x] T083 [US5] Implement question selection using daily-question-selector skill with subject rotation
+- [x] T084 [US5] Implement post formatting per contracts/linkedin-post-template.json
+- [x] T085 [US5] Implement hashtag selection based on exam_type and topic
+- [x] T086 [US5] Implement 3000 character limit validation (LinkedIn constraint)
+- [x] T087 [US5] Save draft to needs_action/social-posts/linkedin-{date}.json
+- [x] T088 [US5] Extend approval-workflow skill to handle social_post action type
+- [x] T089 [US5] Implement approval flow: approve → publish via LinkedIn MCP → move to done/
+- [x] T090 [US5] Implement rejection flow: reject with feedback → move to done/ → mark rejected
+- [x] T091 [US5] Create social-media-coordinator subagent in .claude/subagents/social-media-coordinator/AGENT.md
+- [x] T092 [US5] Define subagent workflow: daily-question-selector → social-post-generator → approval-workflow
+- [x] T093 [US5] Create schedule config file schedules/linkedin-posts.json per data-model.md
+- [x] T094 [US5] Implement subject rotation tracking to avoid repeats
 
 **Checkpoint**: LinkedIn post generation and approval workflow fully functional
 

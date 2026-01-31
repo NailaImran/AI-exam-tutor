@@ -61,11 +61,136 @@ The approval-workflow skill handles the human approval process for items that re
    - Set approval.reviewed_at, approval.reviewer, approval.decision
    - Trigger LinkedIn MCP publish (if available)
    - Update status to `published` after successful post
+   - Set published_at timestamp
    - Move to `done/social-posts/`
 4. **If rejected**:
    - Update status to `rejected`
    - Set approval.reviewed_at, approval.reviewer, approval.decision, approval.feedback
    - Move to `done/social-posts/`
+   - Do NOT publish the post
+
+### Social Post Approval Implementation
+
+```javascript
+async function handleSocialPostApproval(item_id, decision, reviewer, feedback) {
+  // 1. Load the pending post
+  const post_path = `needs_action/social-posts/${item_id}.json`
+  const post = await read_file(post_path)
+
+  if (!post) {
+    return { success: false, error: `Post not found: ${item_id}` }
+  }
+
+  if (post.status !== "pending_approval") {
+    return { success: false, error: `Post not in pending_approval status: ${post.status}` }
+  }
+
+  const previous_status = post.status
+  const now = new Date().toISOString()
+
+  // 2. Update approval fields
+  post.approval.reviewed_at = now
+  post.approval.reviewer = reviewer
+  post.approval.decision = decision
+
+  if (decision === "approve") {
+    // 3a. Approve flow
+    post.status = "approved"
+
+    // Try to publish via LinkedIn MCP
+    try {
+      const publish_result = await mcp__linkedin__create_post({
+        text: post.content.text
+      })
+
+      if (publish_result.success) {
+        post.status = "published"
+        post.published_at = now
+        post.engagement = {
+          likes: 0,
+          comments: 0,
+          shares: 0
+        }
+      }
+    } catch (error) {
+      // MCP not available, leave as approved for manual publishing
+      console.log("LinkedIn MCP unavailable, marking as approved only")
+    }
+
+  } else if (decision === "reject") {
+    // 3b. Reject flow
+    if (!feedback) {
+      return { success: false, error: "Feedback required for rejection" }
+    }
+
+    post.status = "rejected"
+    post.approval.feedback = feedback
+  }
+
+  // 4. Move to done/ folder
+  const done_path = `done/social-posts/${item_id}.json`
+  await write_file(done_path, JSON.stringify(post, null, 2))
+
+  // 5. Remove from needs_action/
+  await delete_file(post_path)
+
+  return {
+    success: true,
+    item_id: item_id,
+    previous_status: previous_status,
+    new_status: post.status,
+    source_path: post_path,
+    destination_path: done_path,
+    notification_sent: false, // No notification for social posts
+    error: null
+  }
+}
+```
+
+### Social Post Rejection Example
+
+```json
+Input: {
+  "action_type": "social_post",
+  "item_id": "linkedin-2026-01-31",
+  "decision": "reject",
+  "reviewer": "social-media-manager@example.com",
+  "feedback": "Question text is too long. Please shorten the options."
+}
+
+Output: {
+  "success": true,
+  "item_id": "linkedin-2026-01-31",
+  "previous_status": "pending_approval",
+  "new_status": "rejected",
+  "source_path": "needs_action/social-posts/linkedin-2026-01-31.json",
+  "destination_path": "done/social-posts/linkedin-2026-01-31.json",
+  "notification_sent": false,
+  "error": null
+}
+```
+
+### Social Post Approval Example
+
+```json
+Input: {
+  "action_type": "social_post",
+  "item_id": "linkedin-2026-01-31",
+  "decision": "approve",
+  "reviewer": "social-media-manager@example.com"
+}
+
+Output: {
+  "success": true,
+  "item_id": "linkedin-2026-01-31",
+  "previous_status": "pending_approval",
+  "new_status": "published",
+  "source_path": "needs_action/social-posts/linkedin-2026-01-31.json",
+  "destination_path": "done/social-posts/linkedin-2026-01-31.json",
+  "notification_sent": false,
+  "error": null
+}
+```
 
 ## MCP Tools Used
 

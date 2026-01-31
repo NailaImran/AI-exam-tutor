@@ -1,0 +1,30 @@
+{
+  "$schema": "exam-tutor/scheduled-task/v1",
+  "task_type": "linkedin_post",
+  "enabled": true,
+  "schedule": {
+    "frequency": "daily",
+    "hour": 9,
+    "minute": 0,
+    "day_of_week": null,
+    "timezone": "Asia/Karachi"
+  },
+  "target": {
+    "scope": "global",
+    "student_id": null
+  },
+  "config": {
+    "exam_rotation": ["PPSC", "SPSC", "KPPSC"],
+    "topic_cooldown_days": 3,
+    "question_cooldown_days": 30,
+    "max_hashtags": 5,
+    "require_approval": true
+  },
+  "last_run": {
+    "timestamp": null,
+    "status": null,
+    "items_processed": null,
+    "post_id": null
+  },
+  "next_run": "2026-02-01T04:00:00Z"
+}
