@@ -6,13 +6,13 @@
 
 ## Student Profile
 
-| Field | Value |
-|-------|-------|
-| **Name** | {{student_name}} |
-| **Student ID** | {{student_id}} |
-| **Target Exam** | {{exam_target}} |
+| Field           | Value                |
+| --------------- | -------------------- |
+| **Name**        | {{student_name}}     |
+| **Student ID**  | {{student_id}}       |
+| **Target Exam** | {{exam_target}}      |
 | **Target Date** | {{target_exam_date}} |
-| **Status** | {{status}} |
+| **Status**      | {{status}}           |
 
 ---
 
@@ -32,23 +32,23 @@
 
 ### Component Breakdown
 
-| Component | Score | Weight | Contribution |
-|-----------|-------|--------|--------------|
-| **Accuracy** | {{accuracy_value}} | 40% | {{accuracy_contribution}} |
-| **Coverage** | {{coverage_value}} | 25% | {{coverage_contribution}} |
-| **Recency** | {{recency_value}} | 20% | {{recency_contribution}} |
-| **Consistency** | {{consistency_value}} | 15% | {{consistency_contribution}} |
-| **Total** | | | **{{eri_score}}** |
+| Component       | Score                 | Weight | Contribution                 |
+| --------------- | --------------------- | ------ | ---------------------------- |
+| **Accuracy**    | {{accuracy_value}}    | 40%    | {{accuracy_contribution}}    |
+| **Coverage**    | {{coverage_value}}    | 25%    | {{coverage_contribution}}    |
+| **Recency**     | {{recency_value}}     | 20%    | {{recency_contribution}}     |
+| **Consistency** | {{consistency_value}} | 15%    | {{consistency_contribution}} |
+| **Total**       |                       |        | **{{eri_score}}**            |
 
 ### Readiness Bands
 
-| Band | Range | Status |
-|------|-------|--------|
-| Exam Ready | 81-100 | {{band_exam_ready}} |
-| Ready | 61-80 | {{band_ready}} |
-| Approaching | 41-60 | {{band_approaching}} |
-| Developing | 21-40 | {{band_developing}} |
-| Not Ready | 0-20 | {{band_not_ready}} |
+| Band        | Range  | Status               |
+| ----------- | ------ | -------------------- |
+| Exam Ready  | 81-100 | {{band_exam_ready}}  |
+| Ready       | 61-80  | {{band_ready}}       |
+| Approaching | 41-60  | {{band_approaching}} |
+| Developing  | 21-40  | {{band_developing}}  |
+| Not Ready   | 0-20   | {{band_not_ready}}   |
 
 ---
 
@@ -99,11 +99,11 @@
 
 ### Topic Categories Summary
 
-| Category | Count | Description |
-|----------|-------|-------------|
-| **Weak** | {{weak_count}} | Accuracy below threshold, needs focused practice |
-| **Strong** | {{strong_count}} | Accuracy at or above threshold |
-| **Untested** | {{untested_count}} | Less than 5 attempts, need more practice |
+| Category     | Count              | Description                                      |
+| ------------ | ------------------ | ------------------------------------------------ |
+| **Weak**     | {{weak_count}}     | Accuracy below threshold, needs focused practice |
+| **Strong**   | {{strong_count}}   | Accuracy at or above threshold                   |
+| **Untested** | {{untested_count}} | Less than 5 attempts, need more practice         |
 
 ### High Priority Untested Topics
 

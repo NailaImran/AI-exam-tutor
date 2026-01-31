@@ -1,0 +1,46 @@
+{
+  "$schema": "exam-tutor/student-profile/v2",
+  "student_id": "test-student",
+  "name": "Ahmed Khan",
+  "email": "ahmed.khan@example.com",
+  "exam_target": "PPSC",
+  "target_exam_date": "2026-06-15T00:00:00Z",
+  "created_at": "2026-01-19T00:00:00Z",
+  "updated_at": "2026-01-30T00:00:00Z",
+  "preferences": {
+    "daily_time_minutes": 60,
+    "difficulty_preference": "adaptive",
+    "notification_enabled": true
+  },
+  "status": "active",
+
+  "whatsapp": {
+    "phone_number": "+923001234567",
+    "verified": true,
+    "verified_at": "2026-01-30T00:00:00Z",
+    "opted_in_daily_questions": true,
+    "opted_in_reports": true,
+    "preferred_time": "08:00",
+    "timezone": "Asia/Karachi",
+    "quiet_hours": {
+      "enabled": false,
+      "start": "22:00",
+      "end": "07:00"
+    }
+  },
+
+  "sharing_consent": {
+    "display_name": "Ahmed K.",
+    "show_full_name": false,
+    "allow_badge_sharing": true,
+    "allow_achievement_posts": false,
+    "consent_given_at": "2026-01-30T00:00:00Z"
+  },
+
+  "notifications": {
+    "daily_question": true,
+    "weekly_report": true,
+    "milestone_alerts": true,
+    "study_reminders": true
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "$schema": "exam-tutor/student-history/v1",
+  "student_id": "test-student",
+  "total_sessions": 2,
+  "total_questions_attempted": 10,
+  "total_correct": 5,
+  "overall_accuracy": 50,
+  "first_session_date": "2026-01-21T00:00:00Z",
+  "last_session_date": "2026-01-26T14:30:00Z",
+  "sessions": [
+    {
+      "session_id": "session-2026-01-21-001",
+      "date": "2026-01-21T00:00:00Z",
+      "type": "practice",
+      "subject": "Pakistan Studies",
+      "questions_attempted": 5,
+      "correct": 2,
+      "accuracy": 40,
+      "topics_covered": ["Constitutional History", "Independence Movement"],
+      "difficulty_distribution": {
+        "easy": 3,
+        "medium": 2,
+        "hard": 0
+      },
+      "questions": [
+        {"id": "PPSC-PK-00001", "topic": "Constitutional History", "difficulty": "easy", "correct": true},
+        {"id": "PPSC-PK-00011", "topic": "Independence Movement", "difficulty": "easy", "correct": true},
+        {"id": "PPSC-PK-00003", "topic": "Constitutional History", "difficulty": "medium", "correct": false},
+        {"id": "PPSC-PK-00013", "topic": "Independence Movement", "difficulty": "medium", "correct": false},
+        {"id": "PPSC-PK-00015", "topic": "Independence Movement", "difficulty": "easy", "correct": false}
+      ]
+    },
+    {
+      "session_id": "session-2026-01-26-001",
+      "date": "2026-01-26T14:30:00Z",
+      "type": "practice",
+      "subject": "Pakistan Studies",
+      "questions_attempted": 5,
+      "correct": 3,
+      "accuracy": 60,
+      "topics_covered": ["Constitutional History", "Independence Movement"],
+      "difficulty_distribution": {
+        "easy": 3,
+        "medium": 1,
+        "hard": 1
+      },
+      "questions": [
+        {"id": "PPSC-PK-00001", "topic": "Constitutional History", "difficulty": "easy", "correct": true},
+        {"id": "PPSC-PK-00005", "topic": "Constitutional History", "difficulty": "easy", "correct": true},
+        {"id": "PPSC-PK-00011", "topic": "Independence Movement", "difficulty": "easy", "correct": true},
+        {"id": "PPSC-PK-00003", "topic": "Constitutional History", "difficulty": "medium", "correct": false},
+        {"id": "PPSC-PK-00018", "topic": "Independence Movement", "difficulty": "hard", "correct": false}
+      ]
+    }
+  ]
+}

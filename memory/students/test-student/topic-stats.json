@@ -1,0 +1,31 @@
+{
+  "$schema": "exam-tutor/topic-stats/v1",
+  "student_id": "test-student",
+  "updated_at": "2026-01-26T14:30:00Z",
+  "topics": {
+    "Constitutional History": {
+      "total_attempted": 5,
+      "total_correct": 3,
+      "accuracy": 60,
+      "last_practiced": "2026-01-26T14:30:00Z",
+      "difficulty_breakdown": {
+        "easy": {"attempted": 3, "correct": 3, "accuracy": 100},
+        "medium": {"attempted": 2, "correct": 0, "accuracy": 0},
+        "hard": {"attempted": 0, "correct": 0, "accuracy": 0}
+      },
+      "trend": "improving"
+    },
+    "Independence Movement": {
+      "total_attempted": 5,
+      "total_correct": 2,
+      "accuracy": 40,
+      "last_practiced": "2026-01-26T14:30:00Z",
+      "difficulty_breakdown": {
+        "easy": {"attempted": 3, "correct": 2, "accuracy": 67},
+        "medium": {"attempted": 1, "correct": 0, "accuracy": 0},
+        "hard": {"attempted": 1, "correct": 0, "accuracy": 0}
+      },
+      "trend": "stable"
+    }
+  }
+}

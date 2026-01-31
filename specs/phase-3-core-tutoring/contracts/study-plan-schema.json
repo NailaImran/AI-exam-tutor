@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "exam-tutor/study-plan/v1",
+  "title": "Study Plan",
+  "description": "Personalized study plan for exam preparation",
+  "type": "object",
+  "required": [
+    "plan_id",
+    "student_id",
+    "exam_type",
+    "status",
+    "target_exam_date",
+    "focus_areas",
+    "weekly_schedule"
+  ],
+  "properties": {
+    "plan_id": {
+      "type": "string",
+      "pattern": "^plan-\\d{4}-\\d{2}-\\d{2}$",
+      "description": "Unique plan identifier"
+    },
+    "student_id": {
+      "type": "string",
+      "description": "Student identifier"
+    },
+    "exam_type": {
+      "type": "string",
+      "enum": ["SPSC", "PPSC", "KPPSC"]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "pending_approval", "active", "completed", "rejected"],
+      "default": "draft"
+    },
+    "approval": {
+      "type": "object",
+      "properties": {
+        "submitted_at": {"type": ["string", "null"], "format": "date-time"},
+        "reviewed_at": {"type": ["string", "null"], "format": "date-time"},
+        "reviewer": {"type": ["string", "null"]},
+        "decision": {"type": ["string", "null"], "enum": ["approved", "rejected", null]},
+        "feedback": {"type": ["string", "null"]}
+      }
+    },
+    "target_exam_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "days_remaining": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "daily_time_minutes": {
+      "type": "integer",
+      "minimum": 15,
+      "maximum": 180
+    },
+    "total_hours_available": {
+      "type": "number",
+      "minimum": 0
+    },
+    "focus_areas": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["topic", "severity_score", "allocated_hours", "priority"],
+        "properties": {
+          "topic": {"type": "string"},
+          "severity_score": {"type": "number", "minimum": 0},
+          "allocated_hours": {"type": "number", "minimum": 0},
+          "priority": {"type": "integer", "minimum": 1}
+        }
+      }
+    },
+    "weekly_schedule": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["week_number", "start_date", "topics"],
+        "properties": {
+          "week_number": {"type": "integer", "minimum": 1},
+          "start_date": {"type": "string", "format": "date"},
+          "topics": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["day", "topic", "duration_minutes"],
+              "properties": {
+                "day": {
+                  "type": "string",
+                  "enum": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+                },
+                "topic": {"type": "string"},
+                "duration_minutes": {"type": "integer", "minimum": 15},
+                "question_count": {"type": "integer", "minimum": 5, "default": 10}
+              }
+            }
+          },
+          "rest_days": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+            }
+          }
+        }
+      }
+    },
+    "milestones": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["week", "target_eri"],
+        "properties": {
+          "week": {"type": "integer", "minimum": 1},
+          "target_eri": {"type": "number", "minimum": 0, "maximum": 100},
+          "focus_achievement": {"type": "string"}
+        }
+      }
+    }
+  }
+}

@@ -10,7 +10,7 @@ Location: `memory/students/{student_id}/profile.json`
 
 ```json
 {
-  "$schema": "exam-tutor/student-profile/v1",
+  "$schema": "exam-tutor/student-profile/v2",
   "student_id": "string (required)",
   "name": "string (required)",
   "email": "string (optional)",
@@ -23,7 +23,37 @@ Location: `memory/students/{student_id}/profile.json`
     "difficulty_preference": "easy | medium | hard | adaptive (default: adaptive)",
     "notification_enabled": "boolean (default: true)"
   },
-  "status": "active | inactive | completed (default: active)"
+  "status": "active | inactive | completed (default: active)",
+
+  "whatsapp": {
+    "phone_number": "string E.164 format (optional)",
+    "verified": "boolean (default: false)",
+    "verified_at": "string ISO 8601 (optional)",
+    "opted_in_daily_questions": "boolean (default: false)",
+    "opted_in_reports": "boolean (default: false)",
+    "preferred_time": "string HH:MM (default: 08:00)",
+    "timezone": "string IANA timezone (default: Asia/Karachi)",
+    "quiet_hours": {
+      "enabled": "boolean (default: false)",
+      "start": "string HH:MM (default: 22:00)",
+      "end": "string HH:MM (default: 07:00)"
+    }
+  },
+
+  "sharing_consent": {
+    "display_name": "string (optional, public alias)",
+    "show_full_name": "boolean (default: false)",
+    "allow_badge_sharing": "boolean (default: false)",
+    "allow_achievement_posts": "boolean (default: false)",
+    "consent_given_at": "string ISO 8601 (optional)"
+  },
+
+  "notifications": {
+    "daily_question": "boolean (default: true)",
+    "weekly_report": "boolean (default: true)",
+    "milestone_alerts": "boolean (default: true)",
+    "study_reminders": "boolean (default: true)"
+  }
 }
 ```
 
@@ -273,6 +303,66 @@ Location: `syllabus/cross-exam-mapping.json`
 }
 ```
 
+## ERI Schema
+
+### eri.json
+
+Location: `memory/students/{student_id}/eri.json`
+
+```json
+{
+  "$schema": "exam-tutor/eri/v1",
+  "student_id": "string (required)",
+  "current_score": "number 0-100 (required)",
+  "band": "not_ready | developing | approaching | ready | exam_ready (required)",
+  "components": {
+    "accuracy": {
+      "value": "number 0-100",
+      "weight": 0.40,
+      "weighted_contribution": "number"
+    },
+    "coverage": {
+      "value": "number 0-100",
+      "weight": 0.25,
+      "weighted_contribution": "number",
+      "topics_practiced": "integer",
+      "total_topics": "integer"
+    },
+    "recency": {
+      "value": "number 0-100",
+      "weight": 0.20,
+      "weighted_contribution": "number",
+      "days_since_last_session": "integer"
+    },
+    "consistency": {
+      "value": "number 0-100",
+      "weight": 0.15,
+      "weighted_contribution": "number",
+      "score_std_dev": "number"
+    }
+  },
+  "sessions_count": "integer (required)",
+  "last_calculated": "string ISO 8601 (required)",
+  "trend": "improving | stable | declining (optional)"
+}
+```
+
+### ERI Band Definitions
+
+| Band | Score Range | Description |
+|------|-------------|-------------|
+| not_ready | 0-20 | Significant preparation needed |
+| developing | 21-40 | Building foundational knowledge |
+| approaching | 41-60 | Moderate readiness, gaps remain |
+| ready | 61-80 | Good preparation level |
+| exam_ready | 81-100 | Strong readiness for examination |
+
+### ERI Formula
+
+```
+ERI = (Accuracy × 0.40) + (Coverage × 0.25) + (Recency × 0.20) + (Consistency × 0.15)
+```
+
 ## Session Schemas
 
 ### Session Detail File
@@ -349,6 +439,226 @@ Location: `logs/sessions/{student_id}/{session_id}.json`
   }
 }
 ```
+
+## Phase 3: Growth Engine Schemas
+
+### StudyPlan
+
+Location: `memory/students/{student_id}/plans/plan-{date}.json`
+Active Plan: `memory/students/{student_id}/active-plan.json`
+
+```json
+{
+  "$schema": "exam-tutor/study-plan/v1",
+  "plan_id": "string plan-YYYY-MM-DD (required)",
+  "student_id": "string (required)",
+  "exam_type": "SPSC | PPSC | KPPSC (required)",
+  "created_at": "string ISO 8601 (required)",
+  "updated_at": "string ISO 8601 (required)",
+  "status": "draft | pending_approval | active | completed | rejected (required)",
+  "approval": {
+    "submitted_at": "string ISO 8601 | null",
+    "reviewed_at": "string ISO 8601 | null",
+    "reviewer": "string | null",
+    "decision": "approved | rejected | null",
+    "feedback": "string | null"
+  },
+  "target_exam_date": "string ISO 8601 (required)",
+  "days_remaining": "integer > 0 (required)",
+  "daily_time_minutes": "integer 15-180 (required)",
+  "total_hours_available": "number (required)",
+  "focus_areas": [
+    {
+      "topic": "string (required)",
+      "severity_score": "number 0-100 (required)",
+      "allocated_hours": "number (required)",
+      "priority": "integer >= 1 (required)"
+    }
+  ],
+  "weekly_schedule": [
+    {
+      "week_number": "integer >= 1 (required)",
+      "start_date": "string ISO 8601 (required)",
+      "topics": [
+        {
+          "day": "Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday (required)",
+          "topic": "string (required)",
+          "duration_minutes": "integer >= 15 (required)",
+          "question_count": "integer >= 5 (default: 10)"
+        }
+      ],
+      "rest_days": ["string day name (optional)"]
+    }
+  ],
+  "milestones": [
+    {
+      "week": "integer >= 1 (required)",
+      "target_eri": "number 0-100 (required)",
+      "focus_achievement": "string (optional)"
+    }
+  ]
+}
+```
+
+### ProgressReport
+
+Location: `memory/students/{student_id}/reports/report-{date}.md` (content)
+Metadata: `memory/students/{student_id}/reports/report-{date}.json`
+
+```json
+{
+  "$schema": "exam-tutor/progress-report/v1",
+  "report_id": "string report-YYYY-MM-DD (required)",
+  "student_id": "string (required)",
+  "period_start": "string ISO 8601 (required)",
+  "period_end": "string ISO 8601 (required)",
+  "generated_at": "string ISO 8601 (required)",
+  "delivered_via": "whatsapp | email | none (required)",
+  "delivered_at": "string ISO 8601 | null",
+  "summary": {
+    "eri_start": "number 0-100 (required)",
+    "eri_end": "number 0-100 (required)",
+    "eri_change": "number (required, must equal eri_end - eri_start)",
+    "sessions_count": "integer (required)",
+    "questions_count": "integer (required)",
+    "overall_accuracy": "number 0-100 (required)"
+  }
+}
+```
+
+### SocialPost
+
+Pending: `needs_action/social-posts/linkedin-{date}.json`
+Completed: `done/social-posts/linkedin-{date}.json`
+
+```json
+{
+  "$schema": "exam-tutor/social-post/v1",
+  "post_id": "string linkedin-YYYY-MM-DD (required)",
+  "platform": "linkedin (required)",
+  "created_at": "string ISO 8601 (required)",
+  "scheduled_for": "string ISO 8601 (required)",
+  "status": "draft | pending_approval | approved | rejected | published (required)",
+  "approval": {
+    "submitted_at": "string ISO 8601 | null",
+    "reviewed_at": "string ISO 8601 | null",
+    "reviewer": "string | null",
+    "decision": "approved | rejected | null",
+    "feedback": "string | null"
+  },
+  "content": {
+    "text": "string <= 3000 chars (required)",
+    "hashtags": ["string (max 5 items)"],
+    "question": {
+      "id": "string question ID (required)",
+      "text": "string (required)",
+      "options": {
+        "A": "string (required)",
+        "B": "string (required)",
+        "C": "string (required)",
+        "D": "string (required)"
+      },
+      "topic": "string (required)",
+      "exam_type": "SPSC | PPSC | KPPSC (required)"
+    },
+    "image_path": "string | null"
+  },
+  "published_at": "string ISO 8601 | null",
+  "engagement": {
+    "likes": "integer | null",
+    "comments": "integer | null",
+    "shares": "integer | null"
+  }
+}
+```
+
+### ScheduledTask
+
+Location: `schedules/{task_type}.json`
+
+```json
+{
+  "$schema": "exam-tutor/scheduled-task/v1",
+  "task_type": "daily_question | weekly_report | linkedin_post (required)",
+  "enabled": "boolean (required)",
+  "schedule": {
+    "frequency": "daily | weekly (required)",
+    "hour": "integer 0-23 (required)",
+    "minute": "integer 0-59 (required)",
+    "day_of_week": "integer 0-6 (Sunday=0) | null (required for weekly)",
+    "timezone": "string IANA timezone (required)"
+  },
+  "target": {
+    "scope": "all_opted_in | specific_student | global (required)",
+    "student_id": "string | null (required if scope is specific_student)"
+  },
+  "last_run": {
+    "timestamp": "string ISO 8601 | null",
+    "status": "success | failed | null",
+    "items_processed": "integer | null"
+  },
+  "next_run": "string ISO 8601 (required)"
+}
+```
+
+### MessageQueue
+
+Location: `queue/whatsapp/{message_id}.json`
+
+```json
+{
+  "$schema": "exam-tutor/message-queue/v1",
+  "message_id": "string msg-{uuid} (required)",
+  "created_at": "string ISO 8601 (required)",
+  "message_type": "daily_question | feedback | report_summary | test_question | test_start | test_complete | milestone_badge | study_plan_approved (required)",
+  "recipient": {
+    "student_id": "string (required)",
+    "phone_number": "string E.164 format (required)"
+  },
+  "content": {
+    "template": "string template name | null",
+    "text": "string (required)",
+    "variables": "object key-value pairs (optional)"
+  },
+  "status": "pending | sent | delivered | failed (required)",
+  "attempts": "integer <= 3 (required)",
+  "last_attempt": "string ISO 8601 | null",
+  "error": "string | null",
+  "delivered_at": "string ISO 8601 | null"
+}
+```
+
+### ERIBadge
+
+Location: `memory/students/{student_id}/badges/badge-{date}.png` (image)
+Metadata: `memory/students/{student_id}/badges/badge-{date}.json`
+
+```json
+{
+  "$schema": "exam-tutor/eri-badge/v1",
+  "badge_id": "string badge-YYYY-MM-DD (required)",
+  "student_id": "string (required)",
+  "generated_at": "string ISO 8601 (required)",
+  "eri_score": "number 0-100 (required)",
+  "readiness_band": "not_ready | developing | approaching | ready | exam_ready (required)",
+  "exam_type": "SPSC | PPSC | KPPSC (required)",
+  "display_name": "string | null (required if show_full_name is false)",
+  "is_milestone": "boolean (required)",
+  "milestone_type": "reached_40 | reached_60 | reached_80 | exam_ready | null",
+  "file_path": "string (required)",
+  "share_url": "string | null"
+}
+```
+
+### ERIBadge Band Colors
+
+| Band | Color Code | Hex |
+|------|------------|-----|
+| not_ready | Red | #e53e3e |
+| developing | Orange | #ed8936 |
+| approaching | Yellow | #ecc94b |
+| ready | Green | #48bb78 |
+| exam_ready | Dark Green | #38a169 |
 
 ## Validation Rules
 

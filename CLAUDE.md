@@ -287,3 +287,11 @@ When testing skills:
 - Skills must NOT decide strategy—only execute
 - All file paths relative to project root
 - Exam types limited to: SPSC, PPSC, KPPSC
+
+## Active Technologies
+- Claude Code Skills (Markdown-based prompts), JSON (data), Markdown (documents) + MCP Filesystem Server (@anthropic-ai/mcp-server-filesystem) (001-phase1-foundation)
+- Local file system (JSON files in memory/, question-bank/, syllabus/) (001-phase1-foundation)
+- Local file system (JSON files in vault) (001-phase1-foundation)
+
+## Recent Changes
+- 001-phase1-foundation: Added Claude Code Skills (Markdown-based prompts), JSON (data), Markdown (documents) + MCP Filesystem Server (@anthropic-ai/mcp-server-filesystem)

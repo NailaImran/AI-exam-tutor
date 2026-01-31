@@ -1,0 +1,59 @@
+{
+  "$schema": "exam-tutor/linkedin-post-template/v1",
+  "version": "1.0.0",
+  "template": {
+    "name": "daily_question",
+    "description": "Daily exam question post for LinkedIn",
+    "format": {
+      "intro": "📚 Daily {{exam_type}} Practice Question\n\n",
+      "topic_line": "Topic: {{topic}}\n\n",
+      "question": "{{question_text}}\n\n",
+      "options": "A) {{option_a}}\nB) {{option_b}}\nC) {{option_c}}\nD) {{option_d}}\n\n",
+      "engagement": "💬 Comment your answer below!\n🔔 Follow for daily questions\n\n",
+      "hashtags": "{{hashtags}}"
+    },
+    "variables": [
+      "exam_type",
+      "topic",
+      "question_text",
+      "option_a",
+      "option_b",
+      "option_c",
+      "option_d",
+      "hashtags"
+    ],
+    "default_hashtags": [
+      "#SPSC",
+      "#PPSC",
+      "#KPPSC",
+      "#ExamPreparation",
+      "#Pakistan",
+      "#CivilServices",
+      "#MCQ",
+      "#DailyQuiz"
+    ],
+    "hashtag_mapping": {
+      "SPSC": ["#SPSC", "#SindhPublicServiceCommission", "#SindhJobs"],
+      "PPSC": ["#PPSC", "#PunjabPublicServiceCommission", "#PunjabJobs"],
+      "KPPSC": ["#KPPSC", "#KPKPublicServiceCommission", "#KPKJobs"]
+    },
+    "topic_hashtags": {
+      "Constitutional Development": ["#ConstitutionOfPakistan", "#Law"],
+      "Independence Movement": ["#PakistanHistory", "#14August"],
+      "Geography of Pakistan": ["#Geography", "#PakistanGeography"],
+      "General Knowledge": ["#GK", "#GeneralKnowledge"],
+      "Current Affairs": ["#CurrentAffairs", "#News"],
+      "Islamic Studies": ["#IslamicStudies", "#Islam"]
+    }
+  },
+  "constraints": {
+    "max_text_length": 3000,
+    "max_hashtags": 5,
+    "image_required": false,
+    "mention_allowed": false
+  },
+  "example_post": {
+    "text": "📚 Daily SPSC Practice Question\n\nTopic: Constitutional Development\n\nThe 1973 Constitution came into force on:\n\nA) March 23, 1973\nB) April 12, 1973\nC) August 14, 1973\nD) December 25, 1973\n\n💬 Comment your answer below!\n🔔 Follow for daily questions\n\n#SPSC #ExamPreparation #ConstitutionOfPakistan #MCQ #Pakistan",
+    "character_count": 342
+  }
+}

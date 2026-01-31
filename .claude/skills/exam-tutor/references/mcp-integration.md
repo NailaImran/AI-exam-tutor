@@ -46,13 +46,18 @@ The primary MCP server used by all skills for file-based operations.
 ```
 Read Paths:
   - memory/students/**        (student data)
+  - students/**               (student data - alternate location)
   - question-bank/**          (questions)
   - syllabus/**               (syllabus structure)
   - logs/**                   (session logs)
+  - inbox/**                  (test requests)
 
 Write Paths:
   - memory/students/**        (student data updates)
-  - logs/sessions/**          (session logs)
+  - students/**               (student data - alternate location)
+  - logs/**                   (session and watcher logs)
+  - done/**                   (processed requests)
+  - needs_action/**           (invalid requests)
 ```
 
 ## Skill-to-MCP Tool Mapping

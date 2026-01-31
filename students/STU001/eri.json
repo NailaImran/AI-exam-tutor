@@ -1,0 +1,35 @@
+{
+  "$schema": "exam-tutor/eri/v1",
+  "student_id": "STU001",
+  "current_score": null,
+  "band": null,
+  "components": {
+    "accuracy": {
+      "value": null,
+      "weight": 0.40,
+      "weighted_contribution": null
+    },
+    "coverage": {
+      "value": 0,
+      "weight": 0.25,
+      "weighted_contribution": 0,
+      "topics_practiced": 0,
+      "total_topics": 20
+    },
+    "recency": {
+      "value": null,
+      "weight": 0.20,
+      "weighted_contribution": null,
+      "days_since_last_session": null
+    },
+    "consistency": {
+      "value": null,
+      "weight": 0.15,
+      "weighted_contribution": null,
+      "score_std_dev": null
+    }
+  },
+  "sessions_count": 0,
+  "last_calculated": null,
+  "trend": null
+}

@@ -1,0 +1,13 @@
+# Reports Directory
+
+This directory contains weekly progress reports for the student.
+
+## File Structure
+
+- `report-{YYYY-MM-DD}.md` - Full markdown progress report
+- `report-{YYYY-MM-DD}.json` - Report metadata (delivery status, summary stats)
+
+## Example Files
+
+- `report-2026-01-30.md` - Weekly report generated on January 30, 2026
+- `report-2026-01-30.json` - Metadata for the above report

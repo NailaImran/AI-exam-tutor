@@ -1,241 +1,310 @@
----
-name: study-plan-generator
-description: Generates a structured study plan based on weak areas, ERI score, and target exam date. Use this skill after diagnosis or when student requests a new plan. Produces daily/weekly topic schedule with practice targets and spaced repetition cycles. Requires outputs from exam-readiness-calculator and weak-area-identifier.
----
+# Skill: study-plan-generator
 
-# Study Plan Generator
+**Category**: SUPPORTING (Phase 3)
+**Purpose**: Generate personalized study plans based on weak areas, syllabus coverage, and target exam date
 
-Creates personalized, time-bound study plans optimized for exam preparation.
+## Description
 
-## MCP Integration
+The study-plan-generator skill creates customized study schedules for students preparing for SPSC, PPSC, or KPPSC exams. It analyzes weak areas, allocates time based on severity scores, generates weekly schedules with topic rotation, and sets ERI milestones.
 
-This skill uses the **filesystem MCP server** for reading and writing plans.
-
-### Required MCP Tools
-- `mcp__filesystem__read_file` - Read syllabus and topic weights
-- `mcp__filesystem__write_file` - Save active plan to student memory
-
-## Execution Steps
-
-1. **Validate inputs**
-   - student_id must be valid
-   - exam_type must be SPSC, PPSC, or KPPSC
-   - eri_data must contain eri_score and components
-   - weak_topics must be array
-   - daily_time_minutes must be positive
-
-2. **Load syllabus data**
-   ```
-   Use: mcp__filesystem__read_file
-   Path: syllabus/{exam_type}/syllabus-structure.json
-
-   Use: mcp__filesystem__read_file
-   Path: syllabus/{exam_type}/topic-weights.json
-   ```
-
-3. **Calculate available study time**
-   ```
-   if target_exam_date:
-     days_remaining = target_exam_date - today
-   else:
-     days_remaining = 90  // default 3-month horizon
-
-   total_minutes = days_remaining * daily_time_minutes
-   ```
-
-4. **Prioritize topics**
-   ```
-   priority_sequence = []
-
-   // Phase 1: Critical weak areas (severity 1-3)
-   Add weak_topics where severity_rank <= 3
-
-   // Phase 2: Remaining weak areas
-   Add remaining weak_topics
-
-   // Phase 3: Untested topics (high syllabus weight first)
-   Add untested_topics sorted by syllabus_weight desc
-
-   // Phase 4: Strong topics (maintenance)
-   Add strong_topics for periodic review
-   ```
-
-5. **Calculate time allocation per topic**
-   ```
-   For each topic in priority_sequence:
-     base_time = syllabus_weight * time_per_weight_unit
-
-     // Adjust for weakness
-     if topic in weak_topics:
-       base_time *= 1.5  // 50% more time for weak areas
-
-     // Adjust for ERI
-     if eri_score < 40:
-       // More time on fundamentals
-       base_time *= 1.2 for easy topics
-   ```
-
-6. **Generate weekly schedule**
-   ```
-   weeks = ceil(days_remaining / 7)
-
-   For each week:
-     weekly_topics = select_topics_for_week(priority_sequence, week_number)
-     daily_schedule = distribute_across_days(weekly_topics, daily_time_minutes)
-   ```
-
-7. **Insert spaced repetition cycles**
-   ```
-   Repetition schedule:
-     - Initial learning: Day 1
-     - First review: Day 3
-     - Second review: Day 7
-     - Third review: Day 14
-     - Maintenance: Every 21 days
-
-   Insert review sessions for previously covered topics
-   ```
-
-8. **Generate milestones**
-   ```
-   milestones = []
-
-   // ERI targets at intervals
-   if days_remaining > 30:
-     milestone at day 30: target_eri = current_eri + 15
-   if days_remaining > 60:
-     milestone at day 60: target_eri = current_eri + 25
-   // Final milestone
-   milestone at target_exam_date: target_eri = 80
-   ```
-
-9. **Write active plan**
-   ```
-   Use: mcp__filesystem__write_file
-   Path: memory/students/{student_id}/active-plan.json
-   ```
-
-10. **Return structured output**
-
-## Input Schema
+## Input
 
 ```json
 {
-  "student_id": {
-    "type": "string",
-    "required": true
-  },
-  "exam_type": {
-    "type": "enum",
-    "values": ["SPSC", "PPSC", "KPPSC"],
-    "required": true
-  },
-  "eri_data": {
-    "type": "object",
-    "required": true,
-    "description": "Output from exam-readiness-calculator",
-    "properties": {
-      "eri_score": "number",
-      "components": "object",
-      "syllabus_coverage": "object"
-    }
-  },
-  "weak_topics": {
-    "type": "array",
-    "required": true,
-    "description": "Output from weak-area-identifier"
-  },
-  "target_exam_date": {
-    "type": "string",
-    "format": "ISO 8601",
-    "required": false,
-    "description": "Target exam date (optional)"
-  },
-  "daily_time_minutes": {
-    "type": "integer",
-    "required": true,
-    "minimum": 30,
-    "description": "Available study time per day in minutes"
-  }
+  "student_id": "string (required)",
+  "exam_type": "SPSC | PPSC | KPPSC (optional, defaults to profile.exam_target)",
+  "target_exam_date": "string ISO 8601 (optional, defaults to profile.target_exam_date)",
+  "daily_time_minutes": "integer 15-180 (optional, defaults to profile.preferences.daily_time_minutes)",
+  "include_rest_days": "boolean (optional, default: true)",
+  "rest_days": ["Saturday", "Sunday"] (optional, default: ["Saturday"])
 }
 ```
 
-## Output Schema
+## Output
 
 ```json
 {
+  "success": "boolean",
   "plan": {
-    "id": "string",
+    "plan_id": "string plan-YYYY-MM-DD",
     "student_id": "string",
     "exam_type": "SPSC | PPSC | KPPSC",
-    "created_at": "string (ISO 8601)",
-    "target_exam_date": "string | null",
+    "status": "draft",
+    "target_exam_date": "string ISO 8601",
+    "days_remaining": "integer",
     "daily_time_minutes": "integer",
-    "total_days": "integer",
-    "phases": [
+    "total_hours_available": "number",
+    "focus_areas": [...],
+    "weekly_schedule": [...],
+    "milestones": [...]
+  },
+  "plan_path": "string (memory path)",
+  "approval_path": "string (needs_action path)",
+  "error": "string | null"
+}
+```
+
+## Workflow
+
+### 1. Load Student Context
+
+```
+Read: memory/students/{student_id}/profile.json
+Read: memory/students/{student_id}/weak-areas.json
+Read: memory/students/{student_id}/eri.json
+Read: syllabus/{exam_type}/syllabus-structure.json
+```
+
+### 2. Calculate Time Budget
+
+```javascript
+// Calculate available time
+days_remaining = (target_exam_date - today) in days
+practice_days = days_remaining - (rest_days_per_week * weeks)
+total_hours_available = (practice_days * daily_time_minutes) / 60
+
+// Validate minimum requirements
+if (days_remaining < 7) {
+  return error("Exam too soon for study plan - need at least 7 days")
+}
+if (total_hours_available < 10) {
+  return error("Insufficient time budget - increase daily time or extend target date")
+}
+```
+
+### 3. Prioritize Weak Areas
+
+Integration with `weak-area-identifier` skill:
+
+```json
+weak_areas = weak-area-identifier({
+  student_id: student_id,
+  exam_type: exam_type
+})
+```
+
+Sort weak areas by severity_score (highest first).
+
+### 4. Time Allocation Algorithm
+
+```javascript
+// Allocate hours based on severity score
+total_severity = sum(weak_areas.map(w => w.severity_score))
+
+for each weak_area in weak_areas:
+  weight = weak_area.severity_score / total_severity
+  allocated_hours = total_hours_available * weight * 0.8  // 80% to weak areas
+
+// Reserve 20% for review and strong topics
+review_hours = total_hours_available * 0.2
+
+// Set priorities
+priority = 1
+for each weak_area sorted by severity_score desc:
+  weak_area.priority = priority++
+  weak_area.allocated_hours = calculated_hours
+```
+
+### 5. Generate Weekly Schedule
+
+```javascript
+weeks = Math.ceil(days_remaining / 7)
+current_date = today
+
+for week_number = 1 to weeks:
+  week = {
+    week_number: week_number,
+    start_date: current_date,
+    topics: [],
+    rest_days: rest_days
+  }
+
+  for each day in ["Monday", "Tuesday", ..., "Sunday"]:
+    if day in rest_days:
+      continue
+
+    // Rotate through topics
+    topic = select_topic_for_day(focus_areas, week_number, day)
+
+    week.topics.push({
+      day: day,
+      topic: topic.name,
+      duration_minutes: daily_time_minutes,
+      question_count: Math.floor(daily_time_minutes / 6)  // ~6 min per question
+    })
+
+  weekly_schedule.push(week)
+  current_date += 7 days
+```
+
+### 6. Generate Milestones
+
+```javascript
+current_eri = eri.current_score
+target_eri = 80  // exam_ready threshold
+
+eri_gap = target_eri - current_eri
+weekly_improvement = eri_gap / weeks
+
+milestones = []
+for week = 1 to weeks:
+  milestones.push({
+    week: week,
+    target_eri: Math.min(current_eri + (weekly_improvement * week), 100),
+    focus_achievement: get_focus_for_week(week, focus_areas)
+  })
+```
+
+### 7. Create Draft Plan
+
+```javascript
+plan = {
+  "$schema": "exam-tutor/study-plan/v1",
+  "plan_id": `plan-${today}`,
+  "student_id": student_id,
+  "exam_type": exam_type,
+  "created_at": now(),
+  "updated_at": now(),
+  "status": "draft",
+  "approval": {
+    "submitted_at": null,
+    "reviewed_at": null,
+    "reviewer": null,
+    "decision": null,
+    "feedback": null
+  },
+  "target_exam_date": target_exam_date,
+  "days_remaining": days_remaining,
+  "daily_time_minutes": daily_time_minutes,
+  "total_hours_available": total_hours_available,
+  "focus_areas": focus_areas,
+  "weekly_schedule": weekly_schedule,
+  "milestones": milestones
+}
+```
+
+### 8. Save and Submit for Approval
+
+```javascript
+// Save to student's plans folder
+plan_path = `memory/students/${student_id}/plans/plan-${today}.json`
+write_file(plan_path, plan)
+
+// Transition to pending_approval
+plan.status = "pending_approval"
+plan.approval.submitted_at = now()
+
+// Copy to needs_action for human review
+approval_path = `needs_action/study-plans/${student_id}-plan-${today}.json`
+write_file(approval_path, plan)
+```
+
+## Topic Rotation Strategy
+
+```
+Week 1: Focus on highest-severity weak areas (priority 1-2)
+Week 2: Rotate to medium-severity areas (priority 3-4)
+Week 3: Mix of weak areas and review
+Week 4+: Decreasing weak-area focus, increasing review
+
+Daily rotation within week:
+- Monday: Priority 1 topic
+- Tuesday: Priority 2 topic
+- Wednesday: Priority 3 topic
+- Thursday: Review day (mix of topics)
+- Friday: Priority 1 topic (reinforcement)
+- Saturday: Rest (optional)
+- Sunday: Light review (optional)
+```
+
+## MCP Tools Used
+
+- `mcp__filesystem__read_file` - Load student data, syllabus
+- `mcp__filesystem__write_file` - Save plan to memory and needs_action
+
+## Validation Rules
+
+- `days_remaining` MUST be > 0 (positive)
+- `daily_time_minutes` MUST be between 15 and 180
+- `focus_areas` MUST not be empty
+- Sum of `allocated_hours` MUST not exceed `total_hours_available`
+- Each `weekly_schedule` entry MUST have valid day names
+
+## Error Handling
+
+| Error | Action |
+|-------|--------|
+| Student not found | Return error with student_id |
+| No weak areas identified | Generate plan with syllabus coverage |
+| Exam date in past | Return error |
+| Exam too soon (< 7 days) | Return error with recommendation |
+| Insufficient time budget | Return error with suggestions |
+
+## Constitution Compliance
+
+- **Principle III (Data-Driven)**: Plans based on weak-area-identifier analysis
+- **Principle VI (Bounded Autonomy)**: Plans require human approval before activation
+
+## Example Usage
+
+```json
+Input: {
+  "student_id": "test-student",
+  "target_exam_date": "2026-06-15",
+  "daily_time_minutes": 60
+}
+
+Output: {
+  "success": true,
+  "plan": {
+    "plan_id": "plan-2026-01-30",
+    "student_id": "test-student",
+    "exam_type": "PPSC",
+    "status": "pending_approval",
+    "target_exam_date": "2026-06-15T00:00:00Z",
+    "days_remaining": 136,
+    "daily_time_minutes": 60,
+    "total_hours_available": 116,
+    "focus_areas": [
       {
-        "phase_number": "integer",
-        "name": "string",
-        "duration_days": "integer",
-        "focus": "string",
-        "topics": ["string"]
+        "topic": "Constitutional Amendments",
+        "severity_score": 85,
+        "allocated_hours": 25,
+        "priority": 1
+      },
+      {
+        "topic": "Economic Policies",
+        "severity_score": 72,
+        "allocated_hours": 20,
+        "priority": 2
       }
     ],
     "weekly_schedule": [
       {
-        "week_number": "integer",
-        "start_date": "string",
-        "topics": ["string"],
-        "daily_targets": {
-          "monday": {"topic": "", "duration_minutes": 0, "activity": ""},
-          "tuesday": {},
-          "...": {}
-        },
-        "review_topics": ["string"]
+        "week_number": 1,
+        "start_date": "2026-02-02",
+        "topics": [
+          {"day": "Monday", "topic": "Constitutional Amendments", "duration_minutes": 60, "question_count": 10},
+          {"day": "Tuesday", "topic": "Economic Policies", "duration_minutes": 60, "question_count": 10}
+        ],
+        "rest_days": ["Saturday"]
       }
+    ],
+    "milestones": [
+      {"week": 4, "target_eri": 50, "focus_achievement": "Complete Constitutional Amendments"},
+      {"week": 8, "target_eri": 60, "focus_achievement": "Master Economic Policies"},
+      {"week": 16, "target_eri": 75, "focus_achievement": "Full syllabus coverage"},
+      {"week": 20, "target_eri": 80, "focus_achievement": "Exam ready"}
     ]
   },
-  "priority_sequence": ["string (ordered topic list)"],
-  "milestones": [
-    {
-      "date": "string (ISO 8601)",
-      "target_eri": "number",
-      "description": "string"
-    }
-  ]
+  "plan_path": "memory/students/test-student/plans/plan-2026-01-30.json",
+  "approval_path": "needs_action/study-plans/test-student-plan-2026-01-30.json",
+  "error": null
 }
 ```
 
-## File Paths
+## Related Skills
 
-| Operation | Path |
-|-----------|------|
-| Read | `syllabus/{exam_type}/syllabus-structure.json` |
-| Read | `syllabus/{exam_type}/topic-weights.json` |
-| Write | `memory/students/{student_id}/active-plan.json` |
-
-## Study Phases
-
-| Phase | Focus | Duration |
-|-------|-------|----------|
-| Foundation | Critical weak areas | 30% of time |
-| Expansion | Remaining weak + untested | 40% of time |
-| Consolidation | Full coverage + review | 20% of time |
-| Intensive | Mock tests + final review | 10% of time |
-
-## Spaced Repetition Schedule
-
-| Review | Days After Initial | Purpose |
-|--------|-------------------|---------|
-| R1 | +2 days | Short-term reinforcement |
-| R2 | +7 days | Medium-term retention |
-| R3 | +14 days | Long-term consolidation |
-| R4 | +30 days | Maintenance review |
-
-## Constraints
-
-- Weak topics must appear earlier in schedule
-- Must respect daily_time_minutes constraint
-- Must include revision cycles (spaced repetition logic)
-- Plan duration must not exceed days until target_exam_date
-- Must save plan to student's active-plan.json
+- weak-area-identifier (provides prioritization data)
+- approval-workflow (handles approval process)
+- whatsapp-message-sender (notifies on approval)

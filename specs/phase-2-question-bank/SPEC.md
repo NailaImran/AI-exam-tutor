@@ -268,54 +268,56 @@ Administrators and the system can view question bank health metrics: total quest
 
 ## Requirements *(mandatory)*
 
+> **Note**: Requirements use phase-prefixed IDs (P2-FR-XXX) to prevent collisions across phases.
+
 ### Functional Requirements
 
 #### Past Paper Sources
 
-- **FR-001**: System MUST document official sources for each exam type: SPSC (spsc.gov.pk), PPSC (ppsc.gop.pk), KPPSC (kppsc.gov.pk)
-- **FR-002**: System MUST assign reliability ratings to sources: "official" (PSC websites), "verified" (reputable educational sites), "unverified" (other sources)
-- **FR-003**: System MUST track source URL, access date, and reliability rating for every question
+- **P2-FR-001**: System MUST document official sources for each exam type: SPSC (spsc.gov.pk), PPSC (ppsc.gop.pk), KPPSC (kppsc.gov.pk)
+- **P2-FR-002**: System MUST assign reliability ratings to sources: "official" (PSC websites), "verified" (reputable educational sites), "unverified" (other sources)
+- **P2-FR-003**: System MUST track source URL, access date, and reliability rating for every question
 
-#### Past Paper Scraper Skill
+#### past-paper-scraper Skill
 
-- **FR-004**: System MUST accept inputs: exam_type (SPSC/PPSC/KPPSC), year_range (start-end), subjects list
-- **FR-005**: System MUST handle PDF downloads and HTML page scraping
-- **FR-006**: System MUST store raw papers in /Raw-Papers/{Exam}/{Year}/{Subject}/ with original filename preserved
-- **FR-007**: System MUST respect rate limiting and robots.txt directives when scraping
-- **FR-008**: System MUST log all scraping activities including successes, failures, and retries
+- **P2-FR-004**: System MUST accept inputs: exam_type (SPSC/PPSC/KPPSC), year_range (start-end), subjects list
+- **P2-FR-005**: System MUST handle PDF downloads and HTML page scraping
+- **P2-FR-006**: System MUST store raw papers in /Raw-Papers/{Exam}/{Year}/{Subject}/ with original filename preserved
+- **P2-FR-007**: System MUST respect rate limiting (2s delay between requests) and robots.txt directives when scraping
+- **P2-FR-008**: System MUST log all scraping activities including successes, failures, and retries
 
-#### Question Extractor Skill
+#### question-extractor Skill
 
-- **FR-009**: System MUST parse PDF files to extract question text, options A-D, and correct answer markers
-- **FR-010**: System MUST parse HTML pages to extract structured question data
-- **FR-011**: System MUST output structured JSON matching the question schema: id, text, options, correct_answer, explanation, source, year, difficulty, topic
-- **FR-012**: System MUST flag questions needing manual review with specific reasons: missing_option, no_correct_answer, low_ocr_confidence, ambiguous_format
-- **FR-013**: System MUST preserve reference to original source file for each extracted question
+- **P2-FR-009**: System MUST parse PDF files to extract question text, options A-D, and correct answer markers
+- **P2-FR-010**: System MUST parse HTML pages to extract structured question data
+- **P2-FR-011**: System MUST output structured JSON matching the question schema: id, text, options, correct_answer, explanation, source, year, difficulty, topic
+- **P2-FR-012**: System MUST flag questions needing manual review with specific reasons: missing_option, no_correct_answer, low_ocr_confidence (<80%), ambiguous_format
+- **P2-FR-013**: System MUST preserve reference to original source file for each extracted question
 
-#### Question Validator Skill
+#### question-validator Skill
 
-- **FR-014**: System MUST verify all four options (A, B, C, D) are present and non-empty
-- **FR-015**: System MUST verify correct_answer is one of A, B, C, or D
-- **FR-016**: System MUST detect duplicates by comparing question text similarity (>90% match)
-- **FR-017**: System MUST auto-assign difficulty based on historical accuracy data when available, defaulting to "medium"
-- **FR-018**: System MUST auto-suggest topics based on keyword matching against syllabus structure
-- **FR-019**: System MUST reject questions missing required fields and provide specific rejection reasons
+- **P2-FR-014**: System MUST verify all four options (A, B, C, D) are present and non-empty
+- **P2-FR-015**: System MUST verify correct_answer is one of A, B, C, or D
+- **P2-FR-016**: System MUST detect duplicates by comparing question text similarity (>90% match using Levenshtein distance or similar)
+- **P2-FR-017**: System MUST auto-assign difficulty based on historical accuracy data when available, defaulting to "medium"
+- **P2-FR-018**: System MUST auto-suggest topics based on keyword matching against syllabus structure
+- **P2-FR-019**: System MUST reject questions missing required fields and provide specific rejection reasons
 
-#### Question Bank Manager Skill
+#### question-bank-manager Skill
 
-- **FR-020**: System MUST generate unique question IDs following format: {EXAM}-{SUBJECT_CODE}-{NNNNN}
-- **FR-021**: System MUST organize questions into /Question-Bank/{Exam}/{Subject}/{topic}.json structure
-- **FR-022**: System MUST maintain a master index of all questions with metadata for quick lookup
-- **FR-023**: System MUST support add, update, and deactivate operations (no hard deletes)
-- **FR-024**: System MUST link cross-exam duplicate questions with bidirectional references
-- **FR-025**: System MUST track question count per exam/subject/topic and update statistics on changes
+- **P2-FR-020**: System MUST generate unique question IDs following format: {EXAM}-{SUBJECT_CODE}-{NNNNN}
+- **P2-FR-021**: System MUST organize questions into /question-bank/{Exam}/{Subject}/{topic}.json structure
+- **P2-FR-022**: System MUST maintain a master index of all questions with metadata for quick lookup
+- **P2-FR-023**: System MUST support add, update, and deactivate operations (no hard deletes)
+- **P2-FR-024**: System MUST link cross-exam duplicate questions with bidirectional references
+- **P2-FR-025**: System MUST track question count per exam/subject/topic and update statistics on changes
 
 #### Expanded Question Bank
 
-- **FR-026**: System MUST support minimum 500 questions per exam type (1500 total)
-- **FR-027**: Each question MUST include: id, text, options (A-D), correct_answer, explanation, source, year, difficulty, topic, created_at, validation_status
-- **FR-028**: System MUST maintain backward compatibility with Phase 1 question format
-- **FR-029**: System MUST support multiple subjects per exam: Pakistan Studies, General Knowledge, Current Affairs, English, Math (where applicable)
+- **P2-FR-026**: System MUST support minimum 500 questions per exam type (1500 total)
+- **P2-FR-027**: Each question MUST include: id, text, options (A-D), correct_answer, explanation, source, year, difficulty, topic, created_at, validation_status
+- **P2-FR-028**: System MUST maintain backward compatibility with Phase 1 question format
+- **P2-FR-029**: System MUST support multiple subjects per exam: Pakistan Studies, General Knowledge, Current Affairs, English, Math (where applicable)
 
 ### Key Entities
 
@@ -333,18 +335,27 @@ Administrators and the system can view question bank health metrics: total quest
 
 ## Success Criteria *(mandatory)*
 
+### Timeline
+
+**Phase 2 Duration**: 6-8 hours (as specified in header)
+**Milestone Targets**:
+- Hour 0-2: Sources documented, scraper skill operational
+- Hour 2-4: Extractor and validator skills operational
+- Hour 4-6: Question bank manager operational, 500+ questions imported
+- Hour 6-8: 1500+ questions imported, statistics verified
+
 ### Measurable Outcomes
 
-- **SC-001**: Question bank expands from 150 to 1500+ verified questions within Phase 2 timeline
-- **SC-002**: Each exam type (SPSC, PPSC, KPPSC) has minimum 500 questions covering all major subjects
-- **SC-003**: 95% of extracted questions pass validation without manual intervention
-- **SC-004**: Question extraction accuracy achieves 90%+ when compared to manual extraction of sample papers
-- **SC-005**: Duplicate detection identifies 99%+ of cross-exam duplicates based on test set
-- **SC-006**: All questions include source attribution (exam type, year, official/secondary)
-- **SC-007**: Question bank statistics are accurate within 1% margin when verified manually
-- **SC-008**: Raw paper storage organized such that any paper can be located within 30 seconds
-- **SC-009**: The full pipeline (scrape → extract → validate → import) processes 50 questions per minute average
-- **SC-010**: Zero questions with unverified answers enter student-facing practice sessions
+- **P2-SC-001**: Question bank expands from 150 to 1500+ verified questions within 8 hours
+- **P2-SC-002**: Each exam type (SPSC, PPSC, KPPSC) has minimum 500 questions covering all major subjects
+- **P2-SC-003**: 95% of extracted questions pass validation without manual intervention
+- **P2-SC-004**: Question extraction accuracy achieves 90%+ when compared to manual extraction of sample papers
+- **P2-SC-005**: Duplicate detection identifies 99%+ of cross-exam duplicates based on test set
+- **P2-SC-006**: All questions include source attribution (exam type, year, official/secondary)
+- **P2-SC-007**: Question bank statistics are accurate within 1% margin when verified manually
+- **P2-SC-008**: Raw paper storage organized such that any paper can be located within 30 seconds
+- **P2-SC-009**: The full pipeline (scrape → extract → validate → import) processes 50 questions per minute average
+- **P2-SC-010**: Zero questions with unverified answers enter student-facing practice sessions
 
 ## Acceptance Criteria
 

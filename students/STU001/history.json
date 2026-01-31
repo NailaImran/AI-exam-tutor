@@ -1,0 +1,13 @@
+{
+  "$schema": "exam-tutor/student-history/v1",
+  "student_id": "STU001",
+  "total_sessions": 0,
+  "total_questions_attempted": 0,
+  "total_correct": 0,
+  "overall_accuracy": 0,
+  "first_session_date": null,
+  "last_session_date": null,
+  "current_eri": null,
+  "eri_band": null,
+  "sessions": []
+}

@@ -1,0 +1,182 @@
+{
+  "$schema": "exam-tutor/syllabus/v1",
+  "exam_type": "KPPSC",
+  "version": "2024",
+  "last_updated": "2026-01-19T00:00:00Z",
+  "total_subjects": 6,
+  "total_topics": 30,
+  "subjects": [
+    {
+      "name": "Pakistan Studies",
+      "code": "PK",
+      "weight": 0.20,
+      "topics": [
+        {
+          "name": "Creation of Pakistan",
+          "weight": 0.25,
+          "description": "Events and personalities leading to Pakistan's creation (1857-1947)"
+        },
+        {
+          "name": "Pakistan Constitution",
+          "weight": 0.20,
+          "description": "Evolution of Pakistan's constitution from 1947 to present"
+        },
+        {
+          "name": "Geography",
+          "weight": 0.20,
+          "description": "Physical features, climate, natural resources with KPK focus"
+        },
+        {
+          "name": "Economy of Pakistan",
+          "weight": 0.15,
+          "description": "Economic sectors, development, challenges"
+        },
+        {
+          "name": "Foreign Relations",
+          "weight": 0.20,
+          "description": "Pakistan's relations with neighboring and world countries"
+        }
+      ]
+    },
+    {
+      "name": "General Knowledge",
+      "code": "GK",
+      "weight": 0.20,
+      "topics": [
+        {
+          "name": "World Geography",
+          "weight": 0.20,
+          "description": "Continents, countries, capitals, physical features"
+        },
+        {
+          "name": "General Science",
+          "weight": 0.25,
+          "description": "Basic physics, chemistry, biology concepts"
+        },
+        {
+          "name": "Famous Personalities",
+          "weight": 0.15,
+          "description": "Historical and contemporary notable figures"
+        },
+        {
+          "name": "International Organizations",
+          "weight": 0.20,
+          "description": "UN, WHO, IMF, World Bank, regional organizations"
+        },
+        {
+          "name": "Inventions and Discoveries",
+          "weight": 0.20,
+          "description": "Scientific discoveries and technological inventions"
+        }
+      ]
+    },
+    {
+      "name": "Current Affairs",
+      "code": "CA",
+      "weight": 0.15,
+      "topics": [
+        {
+          "name": "Pakistan Current Events",
+          "weight": 0.40,
+          "description": "Recent political, economic, social developments"
+        },
+        {
+          "name": "International Current Events",
+          "weight": 0.35,
+          "description": "Global political and economic developments"
+        },
+        {
+          "name": "Sports Updates",
+          "weight": 0.15,
+          "description": "Recent sports events, achievements, records"
+        },
+        {
+          "name": "Awards and Honors",
+          "weight": 0.10,
+          "description": "Recent national and international awards"
+        }
+      ]
+    },
+    {
+      "name": "English",
+      "code": "ENG",
+      "weight": 0.15,
+      "topics": [
+        {
+          "name": "Grammar",
+          "weight": 0.30,
+          "description": "Parts of speech, tenses, sentence structure"
+        },
+        {
+          "name": "Vocabulary",
+          "weight": 0.25,
+          "description": "Synonyms, antonyms, word meanings"
+        },
+        {
+          "name": "Comprehension",
+          "weight": 0.25,
+          "description": "Reading and understanding passages"
+        },
+        {
+          "name": "Sentence Correction",
+          "weight": 0.20,
+          "description": "Identifying and correcting grammatical errors"
+        }
+      ]
+    },
+    {
+      "name": "Mathematics",
+      "code": "MTH",
+      "weight": 0.15,
+      "topics": [
+        {
+          "name": "Quantitative Aptitude",
+          "weight": 0.30,
+          "description": "Percentages, ratios, averages, profit/loss"
+        },
+        {
+          "name": "Algebra",
+          "weight": 0.25,
+          "description": "Linear equations, quadratic equations, inequalities"
+        },
+        {
+          "name": "Geometry",
+          "weight": 0.20,
+          "description": "Areas, volumes, angles, triangles, circles"
+        },
+        {
+          "name": "Data Interpretation",
+          "weight": 0.25,
+          "description": "Tables, graphs, charts analysis"
+        }
+      ]
+    },
+    {
+      "name": "Islamiat",
+      "code": "ISL",
+      "weight": 0.15,
+      "topics": [
+        {
+          "name": "Islamiat Fundamentals",
+          "weight": 0.25,
+          "description": "Tawheed, Risalat, Akhirat, Angels, Holy Books"
+        },
+        {
+          "name": "Pillars of Islam",
+          "weight": 0.25,
+          "description": "Shahada, Salat, Zakat, Sawm, Hajj"
+        },
+        {
+          "name": "Life of Prophet Muhammad",
+          "weight": 0.30,
+          "description": "Seerah, Ghazwat, teachings"
+        },
+        {
+          "name": "Islamic History",
+          "weight": 0.20,
+          "description": "Khilafat-e-Rashida, Islamic civilization"
+        }
+      ]
+    }
+  ]
+}

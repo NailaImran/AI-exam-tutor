@@ -1,0 +1,164 @@
+{
+  "$schema": "exam-tutor/whatsapp-templates/v1",
+  "version": "1.0.0",
+  "templates": {
+    "daily_question": {
+      "name": "daily_question",
+      "description": "Daily MCQ question sent to students",
+      "format": {
+        "header": "📚 Daily Question - {{exam_type}}",
+        "body": "Good morning! Here's your daily practice question:\n\n**Topic**: {{topic}}\n\n{{question_text}}\n\nA) {{option_a}}\nB) {{option_b}}\nC) {{option_c}}\nD) {{option_d}}\n\nReply with A, B, C, or D",
+        "footer": "Your current ERI: {{current_eri}}"
+      },
+      "variables": [
+        "exam_type",
+        "topic",
+        "question_text",
+        "option_a",
+        "option_b",
+        "option_c",
+        "option_d",
+        "current_eri"
+      ]
+    },
+    "answer_feedback_correct": {
+      "name": "answer_feedback_correct",
+      "description": "Feedback when student answers correctly",
+      "format": {
+        "header": "✅ Correct!",
+        "body": "Great job! The answer is **{{correct_answer}}**.\n\n**Explanation**: {{explanation}}\n\n📊 Your updated ERI: {{new_eri}} ({{eri_change}})\n\nKeep up the great work! 💪",
+        "footer": "Topic: {{topic}}"
+      },
+      "variables": [
+        "correct_answer",
+        "explanation",
+        "new_eri",
+        "eri_change",
+        "topic"
+      ]
+    },
+    "answer_feedback_incorrect": {
+      "name": "answer_feedback_incorrect",
+      "description": "Feedback when student answers incorrectly",
+      "format": {
+        "header": "❌ Not quite",
+        "body": "The correct answer is **{{correct_answer}}**.\n\nYou answered: {{student_answer}}\n\n**Explanation**: {{explanation}}\n\n📊 Your updated ERI: {{new_eri}}\n\nDon't worry - every mistake is a learning opportunity! 📖",
+        "footer": "Topic: {{topic}}"
+      },
+      "variables": [
+        "correct_answer",
+        "student_answer",
+        "explanation",
+        "new_eri",
+        "topic"
+      ]
+    },
+    "weekly_report_summary": {
+      "name": "weekly_report_summary",
+      "description": "Weekly progress report summary",
+      "format": {
+        "header": "📈 Weekly Progress Report",
+        "body": "Hi {{display_name}}! Here's your week in review:\n\n📊 **ERI**: {{eri_start}} → {{eri_end}} ({{eri_change}})\n📝 **Sessions**: {{sessions_count}}\n✅ **Accuracy**: {{accuracy}}%\n\n**Top Focus Area**: {{weak_topic}}\n\n{{recommendation}}\n\nFull report: {{report_link}}",
+        "footer": "Keep practicing! You're making progress."
+      },
+      "variables": [
+        "display_name",
+        "eri_start",
+        "eri_end",
+        "eri_change",
+        "sessions_count",
+        "accuracy",
+        "weak_topic",
+        "recommendation",
+        "report_link"
+      ]
+    },
+    "test_start": {
+      "name": "test_start",
+      "description": "Confirmation when student starts a test",
+      "format": {
+        "header": "📝 Practice Test Started",
+        "body": "Great! Let's begin your {{question_count}}-question practice test.\n\n**Focus**: {{focus_topic}}\n**Difficulty**: {{difficulty}}\n\nHere's Question 1:\n\n{{question_text}}\n\nA) {{option_a}}\nB) {{option_b}}\nC) {{option_c}}\nD) {{option_d}}",
+        "footer": "Reply with A, B, C, or D"
+      },
+      "variables": [
+        "question_count",
+        "focus_topic",
+        "difficulty",
+        "question_text",
+        "option_a",
+        "option_b",
+        "option_c",
+        "option_d"
+      ]
+    },
+    "test_next_question": {
+      "name": "test_next_question",
+      "description": "Next question in a test sequence",
+      "format": {
+        "body": "Question {{current}} of {{total}}:\n\n{{question_text}}\n\nA) {{option_a}}\nB) {{option_b}}\nC) {{option_c}}\nD) {{option_d}}",
+        "footer": "Reply with A, B, C, or D"
+      },
+      "variables": [
+        "current",
+        "total",
+        "question_text",
+        "option_a",
+        "option_b",
+        "option_c",
+        "option_d"
+      ]
+    },
+    "test_complete": {
+      "name": "test_complete",
+      "description": "Test completion with results",
+      "format": {
+        "header": "🎉 Test Complete!",
+        "body": "Great job completing your practice test!\n\n**Results**:\n✅ Correct: {{correct}}/{{total}}\n📊 Accuracy: {{accuracy}}%\n\n**Updated ERI**: {{new_eri}} ({{eri_change}})\n\n**Question Breakdown**:\n{{breakdown}}\n\n{{encouragement}}",
+        "footer": "Keep practicing to improve!"
+      },
+      "variables": [
+        "correct",
+        "total",
+        "accuracy",
+        "new_eri",
+        "eri_change",
+        "breakdown",
+        "encouragement"
+      ]
+    },
+    "milestone_badge": {
+      "name": "milestone_badge",
+      "description": "Notification when student reaches ERI milestone",
+      "format": {
+        "header": "🏆 Milestone Achieved!",
+        "body": "Congratulations {{display_name}}! 🎉\n\nYou've reached **ERI {{milestone}}** and are now in the **{{band}}** band!\n\nThis is a significant achievement in your {{exam_type}} preparation journey.\n\nWould you like to share your achievement? Reply 'BADGE' to get a shareable badge!",
+        "footer": "Keep up the excellent work!"
+      },
+      "variables": [
+        "display_name",
+        "milestone",
+        "band",
+        "exam_type"
+      ]
+    },
+    "study_plan_approved": {
+      "name": "study_plan_approved",
+      "description": "Notification when study plan is approved",
+      "format": {
+        "header": "📋 Study Plan Ready!",
+        "body": "Great news {{display_name}}!\n\nYour personalized study plan has been reviewed and approved. 📚\n\n**Plan Duration**: {{weeks}} weeks\n**Daily Time**: {{daily_minutes}} minutes\n**Priority Topic**: {{priority_topic}}\n\nYour first session: {{first_topic}} on {{first_date}}\n\nLet's get started on your {{exam_type}} preparation!",
+        "footer": "You've got this! 💪"
+      },
+      "variables": [
+        "display_name",
+        "weeks",
+        "daily_minutes",
+        "priority_topic",
+        "first_topic",
+        "first_date",
+        "exam_type"
+      ]
+    }
+  }
+}

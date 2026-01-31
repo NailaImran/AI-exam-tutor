@@ -1,0 +1,79 @@
+{
+  "$schema": "exam-tutor/session-detail/v1",
+  "session_id": "session-2026-01-26-001",
+  "student_id": "test-student",
+  "session_date": "2026-01-26T14:30:00Z",
+  "session_type": "practice",
+  "exam_type": "PPSC",
+  "subject": "Pakistan Studies",
+  "questions": [
+    {
+      "id": "PPSC-PK-00001",
+      "text": "When was the first constitution of Pakistan enacted?",
+      "options": {"A": "1947", "B": "1956", "C": "1962", "D": "1973"},
+      "correct_answer": "B",
+      "student_answer": "B",
+      "is_correct": true,
+      "topic": "Constitutional History",
+      "difficulty": "easy",
+      "time_spent_seconds": 18
+    },
+    {
+      "id": "PPSC-PK-00005",
+      "text": "The Objectives Resolution was passed by the Constituent Assembly in:",
+      "options": {"A": "1947", "B": "1948", "C": "1949", "D": "1950"},
+      "correct_answer": "C",
+      "student_answer": "C",
+      "is_correct": true,
+      "topic": "Constitutional History",
+      "difficulty": "easy",
+      "time_spent_seconds": 22
+    },
+    {
+      "id": "PPSC-PK-00011",
+      "text": "When was the Pakistan Resolution (Lahore Resolution) passed?",
+      "options": {"A": "March 23, 1939", "B": "March 23, 1940", "C": "August 14, 1947", "D": "March 23, 1941"},
+      "correct_answer": "B",
+      "student_answer": "B",
+      "is_correct": true,
+      "topic": "Independence Movement",
+      "difficulty": "easy",
+      "time_spent_seconds": 15
+    },
+    {
+      "id": "PPSC-PK-00003",
+      "text": "The 18th Amendment to the Constitution was passed in which year?",
+      "options": {"A": "2008", "B": "2010", "C": "2012", "D": "2015"},
+      "correct_answer": "B",
+      "student_answer": "C",
+      "is_correct": false,
+      "topic": "Constitutional History",
+      "difficulty": "medium",
+      "time_spent_seconds": 35
+    },
+    {
+      "id": "PPSC-PK-00018",
+      "text": "The Lucknow Pact between Congress and Muslim League was signed in:",
+      "options": {"A": "1914", "B": "1916", "C": "1918", "D": "1920"},
+      "correct_answer": "B",
+      "student_answer": "A",
+      "is_correct": false,
+      "topic": "Independence Movement",
+      "difficulty": "hard",
+      "time_spent_seconds": 40
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "correct": 3,
+    "incorrect": 2,
+    "skipped": 0,
+    "accuracy_percentage": 60.00,
+    "avg_time_per_question": 26,
+    "total_time_seconds": 130
+  },
+  "topic_breakdown": [
+    {"topic_name": "Constitutional History", "attempted": 3, "correct": 2, "accuracy_percentage": 66.67},
+    {"topic_name": "Independence Movement", "attempted": 2, "correct": 1, "accuracy_percentage": 50.00}
+  ]
+}

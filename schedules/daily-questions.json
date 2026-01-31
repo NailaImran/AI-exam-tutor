@@ -1,0 +1,31 @@
+{
+  "$schema": "exam-tutor/scheduled-task/v1",
+  "task_type": "daily_question",
+  "enabled": true,
+  "schedule": {
+    "frequency": "daily",
+    "hour": 8,
+    "minute": 0,
+    "day_of_week": null,
+    "timezone": "Asia/Karachi"
+  },
+  "target": {
+    "scope": "all_opted_in",
+    "student_id": null
+  },
+  "last_run": null,
+  "next_run": "2026-01-31T08:00:00+05:00",
+  "config": {
+    "question_selection": {
+      "mode": "student",
+      "difficulty": "adaptive",
+      "subject_rotation": true,
+      "avoid_repeats_days": 30
+    },
+    "delivery": {
+      "respect_quiet_hours": true,
+      "retry_on_failure": true,
+      "max_retries": 3
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "exam-tutor/scheduled-task/v1",
+  "task_type": "weekly_report",
+  "enabled": true,
+  "description": "Generate and deliver weekly progress reports to opted-in students",
+  "schedule": {
+    "frequency": "weekly",
+    "day_of_week": 0,
+    "hour": 9,
+    "minute": 0,
+    "timezone": "Asia/Karachi"
+  },
+  "target": {
+    "scope": "all_opted_in",
+    "student_id": null
+  },
+  "config": {
+    "report_period_days": 7,
+    "include_recommendations": true,
+    "delivery_method": "whatsapp",
+    "skip_if_no_activity": false,
+    "min_days_between_reports": 6
+  },
+  "last_run": {
+    "timestamp": null,
+    "status": null,
+    "items_processed": null,
+    "reports_generated": null,
+    "reports_delivered": null
+  },
+  "next_run": null
+}
