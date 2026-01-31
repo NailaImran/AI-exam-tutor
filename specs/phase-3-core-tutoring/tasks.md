@@ -154,12 +154,12 @@
 
 ### Implementation for User Story 4
 
-- [ ] T068 [US4] Create eri-badge-generator skill in .claude/skills/exam-tutor/eri-badge-generator/SKILL.md
-- [ ] T069 [US4] Define skill inputs: student_id, include_display_name (boolean)
-- [ ] T070 [US4] Define skill outputs: badge_path, badge_metadata JSON
-- [ ] T071 [US4] Implement SVG template loading from contracts/eri-badge-template.svg
-- [ ] T072 [US4] Implement placeholder substitution: ERI_SCORE, READINESS_BAND, EXAM_TYPE, DISPLAY_NAME
-- [ ] T073 [US4] Implement band color mapping: not_ready=#e53e3e, developing=#ed8936, approaching=#ecc94b, ready=#48bb78, exam_ready=#38a169
+- [x] T068 [US4] Create eri-badge-generator skill in .claude/skills/exam-tutor/eri-badge-generator/SKILL.md
+- [x] T069 [US4] Define skill inputs: student_id, include_display_name (boolean)
+- [x] T070 [US4] Define skill outputs: badge_path, badge_metadata JSON
+- [x] T071 [US4] Implement SVG template loading from contracts/eri-badge-template.svg
+- [x] T072 [US4] Implement placeholder substitution: ERI_SCORE, READINESS_BAND, EXAM_TYPE, DISPLAY_NAME
+- [x] T073 [US4] Implement band color mapping: not_ready=#e53e3e, developing=#ed8936, approaching=#ecc94b, ready=#48bb78, exam_ready=#38a169
 - [ ] T074 [US4] Implement privacy check: only include display_name if sharing_consent.allow_badge_sharing is true
 - [ ] T075 [US4] Save badge to memory/students/{student_id}/badges/badge-{date}.png
 - [ ] T076 [US4] Save metadata to memory/students/{student_id}/badges/badge-{date}.json
