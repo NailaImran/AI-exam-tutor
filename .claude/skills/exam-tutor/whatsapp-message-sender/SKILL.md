@@ -428,10 +428,179 @@ Input: {
 }
 ```
 
+## Milestone Badge Offering Workflow
+
+When a student reaches an ERI milestone (40, 60, 80, or exam_ready), the system offers them a shareable badge:
+
+### Automatic Milestone Detection
+
+After each ERI recalculation, check for new milestones:
+
+```javascript
+async function checkAndOfferMilestoneBadge(student_id, new_eri, previous_eri) {
+  const milestones = [40, 60, 80]
+
+  for (const threshold of milestones) {
+    // Check if just crossed this threshold
+    if (new_eri >= threshold && previous_eri < threshold) {
+      await sendMilestoneNotification(student_id, threshold, getBandForScore(new_eri))
+      return true
+    }
+  }
+
+  // Special case: reached exam_ready band (81+)
+  if (new_eri >= 81 && previous_eri < 81) {
+    await sendMilestoneNotification(student_id, new_eri, "exam_ready")
+    return true
+  }
+
+  return false
+}
+```
+
+### Send Milestone Notification
+
+```javascript
+async function sendMilestoneNotification(student_id, milestone, band) {
+  const profile = await loadProfile(student_id)
+
+  // Send milestone_badge message
+  await whatsapp_message_sender({
+    phone_number: profile.whatsapp.phone_number,
+    message_type: "milestone_badge",
+    content: {
+      student: {
+        display_name: profile.sharing_consent.display_name || profile.name
+      },
+      milestone: {
+        milestone: milestone,
+        band: formatBandLabel(band),
+        exam_type: profile.exam_target
+      }
+    }
+  })
+}
+```
+
+### Handle Badge Request Reply
+
+When student replies "BADGE" to milestone notification:
+
+```javascript
+async function handleBadgeRequest(student_id) {
+  // 1. Check if student has badge sharing consent
+  const profile = await loadProfile(student_id)
+
+  if (!profile.sharing_consent.allow_badge_sharing) {
+    // Send privacy prompt
+    return sendPrivacyConsentRequest(student_id)
+  }
+
+  // 2. Generate badge via eri-badge-generator
+  const badge_result = await eri_badge_generator({
+    student_id: student_id,
+    include_display_name: true
+  })
+
+  if (!badge_result.success) {
+    return sendError(student_id, "Unable to generate badge. Please try again later.")
+  }
+
+  // 3. Send badge image via WhatsApp
+  await sendBadgeImage(student_id, badge_result.badge_path)
+
+  // 4. Send sharing instructions
+  await whatsapp_message_sender({
+    phone_number: profile.whatsapp.phone_number,
+    message_type: "badge_delivery",
+    content: {
+      badge_path: badge_result.badge_path,
+      share_message: `I just reached ERI ${badge_result.badge_metadata.eri_score} in my ${badge_result.badge_metadata.exam_type} preparation! 🎉`
+    }
+  })
+}
+```
+
+### Integration with exam-readiness-calculator
+
+The exam-readiness-calculator skill should trigger milestone checking:
+
+```
+exam-readiness-calculator output includes:
+- previous_score: number
+- current_score: number
+- milestone_crossed: boolean
+- milestone_value: number | null
+
+If milestone_crossed is true:
+  → Trigger milestone badge offering via whatsapp-message-sender
+```
+
+### Milestone Message Flow
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                  Milestone Badge Offering Flow                   │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  ┌──────────────────┐                                           │
+│  │ ERI Recalculated │                                           │
+│  │ (after practice) │                                           │
+│  └────────┬─────────┘                                           │
+│           │                                                      │
+│           ▼                                                      │
+│  ┌──────────────────┐                                           │
+│  │ Check Milestone  │──── No milestone crossed ────► (end)      │
+│  │ Thresholds       │                                           │
+│  └────────┬─────────┘                                           │
+│           │ Milestone crossed!                                   │
+│           ▼                                                      │
+│  ┌──────────────────┐                                           │
+│  │ Send milestone_  │                                           │
+│  │ badge message    │                                           │
+│  │ via WhatsApp     │                                           │
+│  └────────┬─────────┘                                           │
+│           │                                                      │
+│           ▼                                                      │
+│  ┌──────────────────┐                                           │
+│  │ Student receives │                                           │
+│  │ "Reply BADGE to  │                                           │
+│  │ get shareable"   │                                           │
+│  └────────┬─────────┘                                           │
+│           │                                                      │
+│           ▼                                                      │
+│  ┌──────────────────┐      ┌──────────────────┐                 │
+│  │ Student replies  │      │ No reply         │                 │
+│  │ "BADGE"          │      │ (reminder later) │                 │
+│  └────────┬─────────┘      └──────────────────┘                 │
+│           │                                                      │
+│           ▼                                                      │
+│  ┌──────────────────┐                                           │
+│  │ Check sharing    │──── No consent ────► Request consent      │
+│  │ consent          │                                           │
+│  └────────┬─────────┘                                           │
+│           │ Has consent                                          │
+│           ▼                                                      │
+│  ┌──────────────────┐                                           │
+│  │ Generate badge   │                                           │
+│  │ (eri-badge-      │                                           │
+│  │ generator)       │                                           │
+│  └────────┬─────────┘                                           │
+│           │                                                      │
+│           ▼                                                      │
+│  ┌──────────────────┐                                           │
+│  │ Send badge image │                                           │
+│  │ + share message  │                                           │
+│  └──────────────────┘                                           │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
 ## Related Skills
 
 - daily-question-selector (selects questions)
 - answer-evaluator (evaluates responses)
 - performance-tracker (updates stats)
-- exam-readiness-calculator (updates ERI)
+- exam-readiness-calculator (updates ERI, triggers milestone detection)
 - progress-report-generator (generates reports for delivery)
+- eri-badge-generator (generates shareable badges for milestones)

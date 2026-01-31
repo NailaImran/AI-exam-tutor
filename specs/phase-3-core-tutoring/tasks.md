@@ -160,12 +160,12 @@
 - [x] T071 [US4] Implement SVG template loading from contracts/eri-badge-template.svg
 - [x] T072 [US4] Implement placeholder substitution: ERI_SCORE, READINESS_BAND, EXAM_TYPE, DISPLAY_NAME
 - [x] T073 [US4] Implement band color mapping: not_ready=#e53e3e, developing=#ed8936, approaching=#ecc94b, ready=#48bb78, exam_ready=#38a169
-- [ ] T074 [US4] Implement privacy check: only include display_name if sharing_consent.allow_badge_sharing is true
-- [ ] T075 [US4] Save badge to memory/students/{student_id}/badges/badge-{date}.png
-- [ ] T076 [US4] Save metadata to memory/students/{student_id}/badges/badge-{date}.json
-- [ ] T077 [US4] Implement milestone detection: reached_40, reached_60, reached_80, exam_ready
-- [ ] T078 [US4] Implement milestone_badge WhatsApp template for milestone notifications
-- [ ] T079 [US4] Add milestone badge offering via whatsapp-message-sender
+- [x] T074 [US4] Implement privacy check: only include display_name if sharing_consent.allow_badge_sharing is true
+- [x] T075 [US4] Save badge to memory/students/{student_id}/badges/badge-{date}.png
+- [x] T076 [US4] Save metadata to memory/students/{student_id}/badges/badge-{date}.json
+- [x] T077 [US4] Implement milestone detection: reached_40, reached_60, reached_80, exam_ready
+- [x] T078 [US4] Implement milestone_badge WhatsApp template for milestone notifications
+- [x] T079 [US4] Add milestone badge offering via whatsapp-message-sender
 
 **Checkpoint**: ERI badge generation fully functional with privacy controls
 
