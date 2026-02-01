@@ -1,24 +1,24 @@
 <!--
   SYNC IMPACT REPORT
   ==================
-  Version change: 1.0.0 → 1.1.0
+  Version change: 1.1.0 → 1.2.0
 
   Modified principles:
-  - VI. Bounded Autonomy: Expanded to include subagent authority and scheduled actions
+  - VI. Bounded Autonomy: Added B2B and business operations autonomy rules
 
   Added sections:
-  - VII. Privacy-First Sharing (new principle for viral/social features)
-  - Subagent Authority (new section under Bounded Autonomy)
-  - Scheduled Actions (new section for cron-based automation)
-  - External Integrations (expanded with WhatsApp MCP, LinkedIn MCP)
-  - Public Sharing Rules (new section for ERI badges and achievements)
+  - VIII. B2B Academy Operations (new principle for multi-student features)
+  - Phase 4 subagents (academy-operations-coordinator, business-intelligence-coordinator)
+  - Business Scheduled Actions (weekly audits, CEO briefings)
+  - External Integrations (Odoo, email-mcp for Phase 4)
+  - B2B Data Isolation rules
 
   Removed sections: None
 
   Templates requiring updates:
-  - .specify/templates/plan-template.md: ✅ No updates needed (Constitution Check section is generic)
-  - .specify/templates/spec-template.md: ✅ No updates needed (template is technology-agnostic)
-  - .specify/templates/tasks-template.md: ✅ No updates needed (task structure is compatible)
+  - .specify/templates/plan-template.md: ✅ No updates needed
+  - .specify/templates/spec-template.md: ✅ No updates needed
+  - .specify/templates/tasks-template.md: ✅ No updates needed
 
   Follow-up TODOs: None
 -->
@@ -127,25 +127,54 @@ Student achievements MAY be shared publicly only with explicit, informed consent
 - Students MUST be able to revoke sharing consent at any time
 - Shared content MUST be deletable upon student request
 
+### VIII. B2B Academy Operations (Phase 4)
+
+Academy administrators MAY view aggregated data for their enrolled students only.
+
+**Academy Admin Permissions**:
+- View student ERI scores and progress for enrolled students only
+- Assign batch tests to enrolled students
+- View performance comparison and leaderboards
+- Generate parent reports for enrolled students
+- Access aggregate analytics (no individual session details)
+
+**Data Isolation Rules**:
+- Academy A MUST NOT access Academy B's student data
+- Individual student detailed sessions remain private (academy sees aggregates only)
+- Parent reports MUST be approved by academy admin before sending
+- Student consent required before enrolling in academy view
+
+**B2B Prohibited Actions**:
+- Academies MUST NOT modify individual student profiles
+- Academies MUST NOT access student chat/interaction history
+- Academies MUST NOT share student data with third parties
+- Cross-academy student comparison is PROHIBITED
+
 ## Subagent Authority
 
 Subagents inherit this constitution and operate under additional constraints:
 
-| Subagent | Autonomous Actions | Requires Approval |
-|----------|-------------------|-------------------|
-| study-strategy-planner | Generate study plan drafts, analyze weak areas, suggest difficulty progression | Activate or modify active study plans |
-| progress-reporting-coordinator | Generate progress reports, calculate trends, prepare weekly summaries | Send reports via external channels |
-| social-media-coordinator | Draft social posts, generate ERI badges, select shareable achievements | Publish to any external platform |
+| Subagent | Phase | Autonomous Actions | Requires Approval |
+|----------|-------|-------------------|-------------------|
+| assessment-examiner | 2 | Evaluate MCQs, calculate ERI, identify weak areas, update metrics | None (pure computation) |
+| study-strategy-planner | 3 | Generate study plan drafts, analyze weak areas, suggest difficulty progression | Activate or modify active study plans |
+| progress-reporting-coordinator | 3 | Generate progress reports, calculate trends, prepare weekly summaries | Send reports via external channels |
+| social-media-coordinator | 3 | Draft social posts, generate ERI badges, select shareable achievements | Publish to any external platform |
+| academy-operations-coordinator | 4 | Generate batch test assignments, calculate comparative metrics, draft parent reports | Assign tests to students, send parent reports |
+| business-intelligence-coordinator | 4 | Generate business audits, calculate revenue metrics, draft CEO briefings | Any payment actions, external business communications |
 
 **Subagent Constraints**:
 - Subagents MUST NOT bypass human approval for actions marked as requiring approval
 - Subagents MUST log all generated content before submission for approval
 - Subagents MUST respect rate limits on external APIs
 - Subagents MUST fail gracefully and notify parent agent on errors
+- B2B subagents MUST maintain strict data isolation between academies
 
 ## Scheduled Actions
 
 Automated actions MAY run on schedules with the following rules:
+
+### Phase 3 Scheduled Actions
 
 | Action | Default Schedule | Configurable | Approval |
 |--------|-----------------|--------------|----------|
@@ -154,11 +183,22 @@ Automated actions MAY run on schedules with the following rules:
 | ERI recalculation | After each session | No | Auto |
 | Daily LinkedIn question | 9:00 AM PKT | Yes, global | Required before each post |
 
+### Phase 4 Scheduled Actions
+
+| Action | Default Schedule | Configurable | Approval |
+|--------|-----------------|--------------|----------|
+| Weekly parent reports | Saturday 10:00 AM local | Yes, per academy | Auto-generate, manual send |
+| Weekly business audit | Monday 6:00 AM PKT | No | Auto-generate |
+| CEO briefing | Monday 8:00 AM PKT | No | Auto-generate |
+| Subscription renewal reminder | 7 days before expiry | No | Auto |
+| Ralph Wiggum loop | Every 6 hours | No | Auto (within bounds) |
+
 **Scheduling Rules**:
-- All schedules MUST respect student timezone preferences
+- All schedules MUST respect student/academy timezone preferences
 - Students MUST be able to pause/resume scheduled messages
 - Missed schedules MUST NOT queue up (skip if window passed)
 - Schedule changes MUST be logged for audit
+- Business schedules MUST NOT send external communications without approval
 
 ## Behavioral Rules
 
@@ -286,21 +326,26 @@ ERI = (Accuracy x 0.40) + (Coverage x 0.25) + (Recency x 0.20) + (Consistency x 
 
 ### External Integrations
 
-| Integration | MCP Server | Purpose | Approval Required |
-|-------------|------------|---------|-------------------|
-| WhatsApp | whatsapp-mcp | Daily questions, test delivery, notifications | Yes, per message type |
-| LinkedIn | linkedin-mcp | Daily question posts, achievement sharing | Yes, per post |
-| Filesystem | @anthropic-ai/mcp-server-filesystem | Student data, question bank, logs | No (internal) |
-| GitHub | @modelcontextprotocol/server-github | Version control, issues | No (internal) |
+| Integration | MCP Server | Phase | Purpose | Approval Required |
+|-------------|------------|-------|---------|-------------------|
+| Filesystem | @anthropic-ai/mcp-server-filesystem | 1 | Student data, question bank, logs | No (internal) |
+| GitHub | @modelcontextprotocol/server-github | 1 | Version control, issues | No (internal) |
+| WhatsApp | whatsapp-mcp | 3 | Daily questions, test delivery, notifications | Yes, per message type |
+| LinkedIn | linkedin-mcp | 3 | Daily question posts, achievement sharing | Yes, per post |
+| Email | email-mcp | 4 | Parent reports, business notifications | Yes, per email |
+| Odoo | odoo-mcp | 4 | Payment tracking, subscriptions | Yes, all actions |
+| Twitter | twitter-mcp | 4 | Daily questions, engagement | Yes, per post |
+| Instagram | instagram-mcp | 4 | Visual content, stories | Yes, per post |
 
 ### External Actions
 
 All external actions require human-in-the-loop approval:
-- LinkedIn posts or messages
+- LinkedIn, Twitter, Instagram posts or messages
 - WhatsApp notifications (except pre-approved scheduled content)
-- Email communications
+- Email communications (including parent reports)
 - Any social media activity
 - Public sharing of student achievements
+- Payment or subscription modifications via Odoo
 
 ## Public Sharing Rules
 
@@ -344,5 +389,6 @@ All feature implementations MUST verify compliance with these principles. Comple
 |---------|------|---------|
 | 1.0.0 | 2026-01-18 | Initial constitution |
 | 1.1.0 | 2026-01-30 | Phase 3 updates: subagent authority, scheduled actions, privacy-first sharing, external integrations |
+| 1.2.0 | 2026-02-01 | Phase 4 updates: B2B academy operations, business subagents, Odoo integration, data isolation rules |
 
-**Version**: 1.1.0 | **Ratified**: 2026-01-18 | **Last Amended**: 2026-01-30
+**Version**: 1.2.0 | **Ratified**: 2026-01-18 | **Last Amended**: 2026-02-01
