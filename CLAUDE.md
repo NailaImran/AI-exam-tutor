@@ -11,6 +11,21 @@ This project is a **Digital FTE Competitive Exam Tutor** for Pakistani provincia
 - PPSC (Punjab Public Service Commission)
 - KPPSC (Khyber Pakhtunkhwa Public Service Commission)
 
+## Phase Structure
+
+| Phase | Name | Status | Spec Folder |
+|-------|------|--------|-------------|
+| **Phase 1** | Foundation | Complete | `specs/phase-1-foundation/` |
+| **Phase 2** | Question Bank | Complete | `specs/phase-2-question-bank/` |
+| **Phase 3** | Growth Engine | Complete | `specs/phase-3-core-tutoring/` |
+| **Phase 4** | Full Platform & Autonomous | Planned | `specs/phase-4-gold-tier/` |
+
+**Phase Scope:**
+- **Phase 1**: Vault structure, 4 core skills, basic Q&A loop
+- **Phase 2**: Question bank automation, 1500+ questions
+- **Phase 3**: ERI, adaptive tests, WhatsApp, study plans, social media
+- **Phase 4**: B2B dashboard, Odoo integration, autonomous operations
+
 ## Project Structure
 
 ```
@@ -70,36 +85,45 @@ AI-exam-tutor/
 
 ## Skill Architecture
 
-### Skill Inventory (18 Total)
+### Skill Inventory
 
-| Category | Skill | Purpose |
+| Phase | Category | Skill | Purpose |
+|-------|----------|-------|---------|
+| 1 | CORE | student-profile-loader | Load student context from memory |
+| 1 | CORE | question-bank-querier | Retrieve questions by criteria |
+| 1 | CORE | answer-evaluator | Evaluate responses (pure computation) |
+| 1 | CORE | performance-tracker | Persist results to memory |
+| 2 | CORE | exam-readiness-calculator | Calculate ERI (0-100) |
+| 2 | CORE | weak-area-identifier | Find topics needing practice |
+| 2 | SUPPORTING | diagnostic-assessment-generator | Create baseline tests |
+| 2 | SUPPORTING | adaptive-test-generator | Generate personalized tests |
+| 3 | SUPPORTING | study-plan-generator | Create study schedules |
+| 3 | SUPPORTING | progress-report-generator | Generate progress reports |
+| 3 | ENGAGEMENT | whatsapp-message-sender | WhatsApp messaging & test sessions |
+| 3 | ENGAGEMENT | daily-question-selector | Select daily questions with rotation |
+| 3 | ENGAGEMENT | scheduled-task-runner | Cron-like task execution |
+| 3 | ENGAGEMENT | approval-workflow | Human-in-the-loop approvals |
+| 3 | ENGAGEMENT | eri-badge-generator | Generate shareable ERI badges |
+| 3 | ENGAGEMENT | social-post-generator | LinkedIn post generation |
+| 4 | OPTIONAL | session-logger | Audit logging |
+| 4 | OPTIONAL | syllabus-mapper | Cross-exam topic mapping |
+| 4 | B2B | batch-test-assigner | Assign tests to groups |
+| 4 | B2B | performance-comparator | Compare student performance |
+| 4 | B2B | parent-report-generator | Create parent-friendly reports |
+| 4 | PREMIUM | mock-exam-generator | Full timed mock exams |
+| 4 | PREMIUM | deep-dive-analyzer | Detailed weak area analysis |
+| 4 | BUSINESS | payment-tracker | Track payments via Odoo |
+| 4 | BUSINESS | subscription-manager | Manage subscription lifecycle |
+| 4 | BUSINESS | business-audit-generator | Weekly business metrics |
+
+### Subagent Inventory (4 Total)
+
+| Subagent | Phase | Purpose |
 |----------|-------|---------|
-| CORE | student-profile-loader | Load student context from memory |
-| CORE | question-bank-querier | Retrieve questions by criteria |
-| CORE | answer-evaluator | Evaluate responses (pure computation) |
-| CORE | performance-tracker | Persist results to memory |
-| CORE | exam-readiness-calculator | Calculate ERI (0-100) |
-| CORE | weak-area-identifier | Find topics needing practice |
-| SUPPORTING | diagnostic-assessment-generator | Create baseline tests |
-| SUPPORTING | adaptive-test-generator | Generate personalized tests |
-| SUPPORTING | study-plan-generator | Create study schedules |
-| SUPPORTING | progress-report-generator | Generate progress reports |
-| OPTIONAL | session-logger | Audit logging |
-| OPTIONAL | syllabus-mapper | Cross-exam topic mapping |
-| PHASE 3 | whatsapp-message-sender | WhatsApp messaging & test sessions |
-| PHASE 3 | daily-question-selector | Select daily questions with rotation |
-| PHASE 3 | scheduled-task-runner | Cron-like task execution |
-| PHASE 3 | approval-workflow | Human-in-the-loop approvals |
-| PHASE 3 | eri-badge-generator | Generate shareable ERI badges |
-| PHASE 3 | social-post-generator | LinkedIn post generation |
-
-### Subagent Inventory (3 Total)
-
-| Subagent | Purpose |
-|----------|---------|
-| study-strategy-planner | Orchestrate study plan creation with approval |
-| progress-reporting-coordinator | Weekly report generation and delivery |
-| social-media-coordinator | LinkedIn post workflow with approval |
+| assessment-examiner | 2 | Evaluate MCQs, calculate ERI, identify weak areas |
+| study-strategy-planner | 3 | Orchestrate study plan creation with approval |
+| progress-reporting-coordinator | 3 | Weekly report generation and delivery |
+| social-media-coordinator | 3 | LinkedIn post workflow with approval |
 
 ### Exam Readiness Index (ERI)
 
@@ -353,9 +377,14 @@ When testing skills:
 - Exam types limited to: SPSC, PPSC, KPPSC
 
 ## Active Technologies
-- Claude Code Skills (Markdown-based prompts), JSON (data), Markdown (documents) + MCP Filesystem Server (@anthropic-ai/mcp-server-filesystem) (001-phase1-foundation)
-- Local file system (JSON files in memory/, question-bank/, syllabus/) (001-phase1-foundation)
-- Local file system (JSON files in vault) (001-phase1-foundation)
+- Claude Code Skills (Markdown-based prompts), JSON (data), Markdown (documents)
+- MCP Filesystem Server (@anthropic-ai/mcp-server-filesystem)
+- MCP GitHub Server (@modelcontextprotocol/server-github)
+- MCP Context7 Server (@upstash/context7-mcp)
+- Local file system (JSON files in memory/, question-bank/, syllabus/)
 
 ## Recent Changes
-- 001-phase1-foundation: Added Claude Code Skills (Markdown-based prompts), JSON (data), Markdown (documents) + MCP Filesystem Server (@anthropic-ai/mcp-server-filesystem)
+- Consolidated Phase 4 (B2B) into Phase 5, then renamed Phase 5 → Phase 4 for sequential numbering
+- Added social-media-coordinator agent, fixed progress-reporting-coordinator
+- Removed duplicate .claude/subagents/ directory (agents now only in .claude/agents/)
+- Phase 1-3: Complete | Phase 4: Planned (B2B, Odoo, Autonomous)
