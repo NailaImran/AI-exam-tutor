@@ -251,7 +251,7 @@ This document tracks all implementation tasks organized by MASTER_PLAN phases. E
 
 **Subagent**: academy-operations-coordinator
 
-**Spec Folder**: `specs/phase-5-gold-tier/`
+**Spec Folder**: `specs/phase-4-gold-tier/`
 
 ### Stage 4A: B2B Academy Features
 
@@ -285,7 +285,7 @@ This document tracks all implementation tasks organized by MASTER_PLAN phases. E
 
 ---
 
-## Phase 5: Autonomous Excellence (Gold+) ⏳ NOT STARTED
+## Phase 4: Autonomous Excellence (Gold+) ⏳ NOT STARTED
 
 **Goal**: Fully autonomous operations, business integration, scaling.
 
@@ -318,7 +318,7 @@ This document tracks all implementation tasks organized by MASTER_PLAN phases. E
 - [ ] T119 Implement referral-tracker skill
 - [ ] T120 Implement score-predictor skill (ML-based)
 
-### Phase 5 Completion Gate
+### Phase 4 Completion Gate
 
 - [ ] Odoo tracks payments, shows subscription status
 - [ ] Auto-renewal reminder sent 7 days before expiry
@@ -327,7 +327,7 @@ This document tracks all implementation tasks organized by MASTER_PLAN phases. E
 - [ ] Ralph Wiggum loop runs autonomously
 - [ ] Error recovery handles 90%+ of failures
 
-**Phase 5 Summary**: 0/13 tasks complete (0%)
+**Phase 4 Summary**: 0/13 tasks complete (0%)
 
 ---
 
@@ -339,7 +339,7 @@ This document tracks all implementation tasks organized by MASTER_PLAN phases. E
 | Phase 2: Core Product | 37 | 33 | 4 | ⏳ IN PROGRESS |
 | Phase 3: Growth Engine | 17 | 0 | 17 | ⏳ NOT STARTED |
 | Phase 4: Full Platform | 10 | 0 | 10 | ⏳ NOT STARTED |
-| Phase 5: Autonomous | 13 | 0 | 13 | ⏳ NOT STARTED |
+| Phase 4: Autonomous | 13 | 0 | 13 | ⏳ NOT STARTED |
 | **Total** | **120** | **76** | **44** | **63%** |
 
 ---
@@ -415,7 +415,7 @@ Phase 4: Full Platform
     └── parent-report-generator
             │
             ▼
-Phase 5: Autonomous
+Phase 4: Autonomous
     │
     ├── payment-tracker
     ├── business-audit-generator

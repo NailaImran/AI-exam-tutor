@@ -181,7 +181,7 @@ ERI = (Accuracy × 0.40) + (Coverage × 0.25) + (Recency × 0.20) + (Consistency
 │                                                                            │
 │  Week 1-2          Week 2-3          Week 3-4          Week 4-6           │
 │  ─────────         ─────────         ─────────         ─────────          │
-│  Phase 1           Phase 2           Phase 3           Phase 5            │
+│  Phase 1           Phase 2           Phase 3           Phase 4            │
 │  Foundation        Core Product      Growth Engine     Full Platform      │
 │                                                                            │
 │  ├── BRONZE ──────────────────┤                                           │
@@ -209,20 +209,20 @@ ERI = (Accuracy × 0.40) + (Coverage × 0.25) + (Recency × 0.20) + (Consistency
 | **Phase 1** | [phase-1-foundation/](./phase-1-foundation/) | Complete | [SPEC.md](./phase-1-foundation/SPEC.md), [PLAN.md](./phase-1-foundation/PLAN.md), [BUILD.md](./phase-1-foundation/BUILD.md) |
 | **Phase 2** | [phase-2-question-bank/](./phase-2-question-bank/) | Complete | [SPEC.md](./phase-2-question-bank/SPEC.md), [PLAN.md](./phase-2-question-bank/PLAN.md) |
 | **Phase 3** | [phase-3-core-tutoring/](./phase-3-core-tutoring/) | Complete | ERI, Adaptive Tests, WhatsApp, Social Media |
-| **Phase 5** | [phase-5-gold-tier/](./phase-5-gold-tier/) | Planned | B2B, Odoo, Autonomous, Full Platform |
+| **Phase 4** | [phase-4-gold-tier/](./phase-4-gold-tier/) | Planned | B2B, Odoo, Autonomous, Full Platform |
 
 ### Phase Mapping Clarification
 
-> **Note**: Phase 4 (B2B Integration) was consolidated into Phase 5 for streamlined development.
+> **Note**: Phase 4 (B2B Integration) was consolidated into Phase 4 for streamlined development.
 
 | Conceptual Phase | Implementation Spec | Scope |
 |------------------|---------------------|-------|
 | Phase 1: Foundation | `specs/phase-1-foundation/` | Vault structure, 4 core skills, basic Q&A loop |
 | Phase 2: Question Bank | `specs/phase-2-question-bank/` | Question bank automation, 1500+ questions |
 | Phase 3: Growth Engine | `specs/phase-3-core-tutoring/` | ERI, adaptive tests, WhatsApp, study plans, social media |
-| Phase 5: Full Platform | `specs/phase-5-gold-tier/` | B2B dashboard, Odoo, autonomous ops, premium features |
+| Phase 4: Full Platform | `specs/phase-4-gold-tier/` | B2B dashboard, Odoo, autonomous ops, premium features |
 
-**Why Phase 4 was removed:** B2B features were consolidated into Phase 5 to:
+**Why Phase 4 was removed:** B2B features were consolidated into Phase 4 to:
 1. Focus on core B2C functionality first (Phases 1-3)
 2. Bundle all enterprise/premium features together
 3. Simplify the development roadmap
@@ -357,7 +357,7 @@ ERI = (Accuracy × 0.40) + (Coverage × 0.25) + (Recency × 0.20) + (Consistency
 
 ---
 
-### Phase 5: Full Platform & Autonomous Excellence (Gold - 40+ hrs)
+### Phase 4: Full Platform & Autonomous Excellence (Gold - 40+ hrs)
 
 **Goal:** B2B features, premium upsells, autonomous operations, business integration
 
@@ -491,7 +491,7 @@ ERI = (Accuracy × 0.40) + (Coverage × 0.25) + (Recency × 0.20) + (Consistency
 | Adaptive Practice Tests | 2 | Silver | Personalized questions |
 | Study Plan Generator | 3 | Silver | AI-created schedules |
 | Daily Reminders | 3 | Silver | Cron-based notifications |
-| Predicted Score | 5 | Gold+ | ML-based prediction |
+| Predicted Score | 4 | Gold+ | ML-based prediction |
 
 ### Engagement & Growth Features
 
@@ -500,28 +500,28 @@ ERI = (Accuracy × 0.40) + (Coverage × 0.25) + (Recency × 0.20) + (Consistency
 | WhatsApp Bot | 3 | Silver | Daily questions, test delivery |
 | Shareable ERI Badge | 3 | Silver | Social proof, viral loop |
 | Daily Free Question (Social) | 3 | Silver | LinkedIn/Facebook lead gen |
-| Challenge a Friend | 5 | Gold | Head-to-head tests |
-| Leaderboard | 5 | Gold | Competitive ranking |
-| Referral Rewards | 5 | Gold | Growth engine |
+| Challenge a Friend | 4 | Gold | Head-to-head tests |
+| Leaderboard | 4 | Gold | Competitive ranking |
+| Referral Rewards | 4 | Gold | Growth engine |
 
 ### Premium/Upsell Features
 
 | Feature | Phase | Tier | Notes |
 |---------|-------|------|-------|
 | 1-on-1 AI Study Plan | 3 | Silver | Premium personalization |
-| Full Timed Mock Exams | 5 | Gold | 100+ questions, timer |
-| Weak Area Deep Dive | 5 | Gold | Detailed recommendations |
-| Previous Year Paper Packs | 5 | Gold | Content bundle |
+| Full Timed Mock Exams | 4 | Gold | 100+ questions, timer |
+| Weak Area Deep Dive | 4 | Gold | Detailed recommendations |
+| Previous Year Paper Packs | 4 | Gold | Content bundle |
 
 ### B2B / Academy Features
 
 | Feature | Phase | Tier | Notes |
 |---------|-------|------|-------|
-| Multi-Student Dashboard | 5 | Gold | Academy admin view |
-| Batch Test Assignment | 5 | Gold | Group testing |
-| Performance Comparison | 5 | Gold | Student rankings |
-| Auto Parent Reports | 5 | Gold | Email/WhatsApp delivery |
-| White-Label Branding | 5 | Gold | Enterprise only |
+| Multi-Student Dashboard | 4 | Gold | Academy admin view |
+| Batch Test Assignment | 4 | Gold | Group testing |
+| Performance Comparison | 4 | Gold | Student rankings |
+| Auto Parent Reports | 4 | Gold | Email/WhatsApp delivery |
+| White-Label Branding | 4 | Gold | Enterprise only |
 
 ### Business Operations
 
@@ -529,11 +529,11 @@ ERI = (Accuracy × 0.40) + (Coverage × 0.25) + (Recency × 0.20) + (Consistency
 |---------|-------|------|-------|
 | Plan.md Reasoning | 2 | Bronze+ | Decision documentation |
 | Human-in-the-Loop | 3 | Silver | Approval workflows |
-| Session Logging | 5 | Gold | Audit trail |
-| Payment Tracking (Odoo) | 5 | Gold | Subscription management |
-| Auto-Renewal Reminders | 5 | Gold | Retention |
-| Weekly Business Audit | 5 | Gold | Metrics dashboard |
-| CEO Briefing | 5 | Gold | Executive summary |
+| Session Logging | 4 | Gold | Audit trail |
+| Payment Tracking (Odoo) | 4 | Gold | Subscription management |
+| Auto-Renewal Reminders | 4 | Gold | Retention |
+| Weekly Business Audit | 4 | Gold | Metrics dashboard |
+| CEO Briefing | 4 | Gold | Executive summary |
 
 ---
 
@@ -561,22 +561,22 @@ ERI = (Accuracy × 0.40) + (Coverage × 0.25) + (Recency × 0.20) + (Consistency
 | social-post-generator | ENGAGEMENT | 3 | question-bank-querier | linkedin-mcp |
 | eri-badge-generator | ENGAGEMENT | 3 | exam-readiness-calculator | image generation |
 | daily-question-selector | ENGAGEMENT | 3 | question-bank-querier | scheduler-mcp |
-| **PHASE 5 - Full Platform & Autonomous** |||||
-| session-logger | OPTIONAL | 5 | None | write_file |
-| syllabus-mapper | OPTIONAL | 5 | None | read_file |
-| batch-test-assigner | B2B | 5 | question-bank-querier | write_file |
-| performance-comparator | B2B | 5 | performance-tracker | read_file |
-| parent-report-generator | B2B | 5 | progress-report-generator | email-mcp |
-| challenge-coordinator | ENGAGEMENT | 5 | adaptive-test-generator | whatsapp-mcp |
-| mock-exam-generator | PREMIUM | 5 | question-bank-querier | None |
-| deep-dive-analyzer | PREMIUM | 5 | weak-area-identifier | None |
-| payment-tracker | BUSINESS | 5 | None | odoo-mcp |
-| subscription-manager | BUSINESS | 5 | payment-tracker | odoo-mcp |
-| renewal-reminder | BUSINESS | 5 | subscription-manager | whatsapp-mcp |
-| business-audit-generator | BUSINESS | 5 | payment-tracker | read_file |
-| ceo-briefing-generator | BUSINESS | 5 | business-audit-generator | write_file |
-| referral-tracker | ENGAGEMENT | 5 | student-profile-loader | write_file |
-| score-predictor | PREMIUM | 5 | performance-tracker | None |
+| **PHASE 4 - Full Platform & Autonomous** |||||
+| session-logger | OPTIONAL | 4 | None | write_file |
+| syllabus-mapper | OPTIONAL | 4 | None | read_file |
+| batch-test-assigner | B2B | 4 | question-bank-querier | write_file |
+| performance-comparator | B2B | 4 | performance-tracker | read_file |
+| parent-report-generator | B2B | 4 | progress-report-generator | email-mcp |
+| challenge-coordinator | ENGAGEMENT | 4 | adaptive-test-generator | whatsapp-mcp |
+| mock-exam-generator | PREMIUM | 4 | question-bank-querier | None |
+| deep-dive-analyzer | PREMIUM | 4 | weak-area-identifier | None |
+| payment-tracker | BUSINESS | 4 | None | odoo-mcp |
+| subscription-manager | BUSINESS | 4 | payment-tracker | odoo-mcp |
+| renewal-reminder | BUSINESS | 4 | subscription-manager | whatsapp-mcp |
+| business-audit-generator | BUSINESS | 4 | payment-tracker | read_file |
+| ceo-briefing-generator | BUSINESS | 4 | business-audit-generator | write_file |
+| referral-tracker | ENGAGEMENT | 4 | student-profile-loader | write_file |
+| score-predictor | PREMIUM | 4 | performance-tracker | None |
 
 ### Subagent Schedule
 
@@ -586,8 +586,8 @@ ERI = (Accuracy × 0.40) + (Coverage × 0.25) + (Recency × 0.20) + (Consistency
 | study-strategy-planner | 3 | study-plan-generator, syllabus-mapper, weak-area-identifier | Plan request |
 | progress-reporting-coordinator | 3 | progress-report-generator, exam-readiness-calculator | Weekly/on-demand |
 | social-media-coordinator | 3 | social-post-generator, daily-question-selector, eri-badge-generator | Daily schedule |
-| academy-operations-coordinator | 5 | batch-test-assigner, performance-comparator, parent-report-generator | Academy requests |
-| business-intelligence-coordinator | 5 | payment-tracker, business-audit-generator, ceo-briefing-generator | Weekly schedule |
+| academy-operations-coordinator | 4 | batch-test-assigner, performance-comparator, parent-report-generator | Academy requests |
+| business-intelligence-coordinator | 4 | payment-tracker, business-audit-generator, ceo-briefing-generator | Weekly schedule |
 
 ---
 
@@ -1030,7 +1030,7 @@ ExamTutor-Vault/
 │                                                                           │
 │  ═════════════════════════════════════════════════════════════════════   │
 │                                                                           │
-│  PHASE 5: Full Platform & Autonomous (Gold)                             │
+│  PHASE 4: Full Platform & Autonomous (Gold)                             │
 │  ──────────────────────────────────────────                              │
 │  ┌──────────────────┐   ┌──────────────────┐   ┌──────────────────┐      │
 │  │batch-test-       │   │performance-      │   │challenge-        │      │
@@ -1179,10 +1179,10 @@ exam-readiness-calc    weak-area-identifier
 | 5 questions reached | Free user | Show upgrade CTA | 3 |
 | ERI > 60 | Free/Basic | Suggest mock exam (Premium) | 3 |
 | 7 days of streaks | Free user | Offer Basic trial | 3 |
-| Exam date < 30 days | Basic/Premium | Offer Exam Pack | 5 |
-| Multiple students asked | Individual | Suggest Academy plan | 5 |
-| Subscription expiring | Basic/Premium | Send renewal reminder | 5 |
-| Churned user | Ex-Premium | Win-back campaign | 5 |
+| Exam date < 30 days | Basic/Premium | Offer Exam Pack | 4 |
+| Multiple students asked | Individual | Suggest Academy plan | 4 |
+| Subscription expiring | Basic/Premium | Send renewal reminder | 4 |
+| Churned user | Ex-Premium | Win-back campaign | 4 |
 
 ---
 
@@ -1337,7 +1337,7 @@ exam-readiness-calc    weak-area-identifier
 | 18-19 | Create eri-badge-generator | ENGAGEMENT skill |
 | 19-21 | Human approval workflow, cron scheduling | Automation |
 
-### Week 4-6 (Dec 29 - Jan 18): Phase 5 - Full Platform & Autonomous
+### Week 4-6 (Dec 29 - Jan 18): Phase 4 - Full Platform & Autonomous
 
 | Day | Task | Skills/Components |
 |-----|------|-------------------|
