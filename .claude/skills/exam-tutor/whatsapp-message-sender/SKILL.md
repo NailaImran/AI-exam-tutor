@@ -596,6 +596,549 @@ If milestone_crossed is true:
 └─────────────────────────────────────────────────────────────────┘
 ```
 
+## WhatsApp Test Session Management
+
+This section covers the complete test-via-WhatsApp functionality (US6).
+
+### Test Session State
+
+Location: `memory/students/{student_id}/whatsapp-session.json`
+
+```json
+{
+  "$schema": "exam-tutor/whatsapp-session/v1",
+  "student_id": "string",
+  "active_test": {
+    "test_id": "string | null",
+    "started_at": "string ISO 8601 | null",
+    "exam_type": "SPSC | PPSC | KPPSC",
+    "focus_topic": "string | null",
+    "difficulty": "easy | medium | hard | adaptive",
+    "questions": [
+      {
+        "question_id": "string",
+        "text": "string",
+        "options": {"A": "", "B": "", "C": "", "D": ""},
+        "topic": "string",
+        "correct_answer": "string"
+      }
+    ],
+    "current_question": "integer (0-based index)",
+    "answers": [
+      {
+        "question_id": "string",
+        "student_answer": "A | B | C | D | null",
+        "answered_at": "string ISO 8601 | null"
+      }
+    ],
+    "total_questions": "integer",
+    "timeout_at": "string ISO 8601 (started_at + 30 minutes)"
+  },
+  "last_activity": "string ISO 8601",
+  "session_status": "idle | active_test | awaiting_answer"
+}
+```
+
+### Start Test Keyword Detection (T107)
+
+```javascript
+const TEST_START_KEYWORDS = [
+  "start test",
+  "begin test",
+  "take test",
+  "practice test",
+  "test me",
+  "quiz me",
+  "start quiz"
+]
+
+async function detectTestStartIntent(message_text) {
+  const lower = message_text.toLowerCase().trim()
+
+  for (const keyword of TEST_START_KEYWORDS) {
+    if (lower.includes(keyword)) {
+      return true
+    }
+  }
+
+  return false
+}
+```
+
+### Test Session Workflow
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│              WhatsApp Test Session Workflow                      │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  ┌──────────────────┐                                           │
+│  │ Student sends    │                                           │
+│  │ "start test"     │                                           │
+│  └────────┬─────────┘                                           │
+│           │                                                      │
+│           ▼                                                      │
+│  ┌──────────────────┐                                           │
+│  │ 1. Load/create   │                                           │
+│  │ session state    │                                           │
+│  └────────┬─────────┘                                           │
+│           │                                                      │
+│           ▼                                                      │
+│  ┌──────────────────┐                                           │
+│  │ 2. Check for     │──── Active test exists ────► Resume test  │
+│  │ active test      │                                           │
+│  └────────┬─────────┘                                           │
+│           │ No active test                                       │
+│           ▼                                                      │
+│  ┌──────────────────┐                                           │
+│  │ 3. Invoke        │                                           │
+│  │ adaptive-test-   │                                           │
+│  │ generator        │                                           │
+│  └────────┬─────────┘                                           │
+│           │                                                      │
+│           ▼                                                      │
+│  ┌──────────────────┐                                           │
+│  │ 4. Initialize    │                                           │
+│  │ test session     │                                           │
+│  │ state            │                                           │
+│  └────────┬─────────┘                                           │
+│           │                                                      │
+│           ▼                                                      │
+│  ┌──────────────────┐                                           │
+│  │ 5. Send          │                                           │
+│  │ test_start msg   │                                           │
+│  │ with Q1          │                                           │
+│  └────────┬─────────┘                                           │
+│           │                                                      │
+│  ═══════════════════════════════════════════════════════════    │
+│  ANSWER LOOP                                                     │
+│  ═══════════════════════════════════════════════════════════    │
+│           │                                                      │
+│           ▼                                                      │
+│  ┌──────────────────┐                                           │
+│  │ 6. Student       │                                           │
+│  │ replies A/B/C/D  │                                           │
+│  └────────┬─────────┘                                           │
+│           │                                                      │
+│           ▼                                                      │
+│  ┌──────────────────┐                                           │
+│  │ 7. Record answer │                                           │
+│  │ in session       │                                           │
+│  └────────┬─────────┘                                           │
+│           │                                                      │
+│           ▼                                                      │
+│  ┌──────────────────┐      ┌──────────────────┐                 │
+│  │ 8. More          │ No   │ 9. Complete test │                 │
+│  │ questions?       │─────►│ evaluation       │                 │
+│  └────────┬─────────┘      └────────┬─────────┘                 │
+│           │ Yes                      │                           │
+│           ▼                          ▼                           │
+│  ┌──────────────────┐      ┌──────────────────┐                 │
+│  │ Send next        │      │ 10. Batch        │                 │
+│  │ question         │      │ evaluate answers │                 │
+│  └────────┬─────────┘      └────────┬─────────┘                 │
+│           │                          │                           │
+│           └────► (back to step 6)    ▼                           │
+│                                ┌──────────────────┐              │
+│                                │ 11. Update ERI   │              │
+│                                │ and stats        │              │
+│                                └────────┬─────────┘              │
+│                                         │                        │
+│                                         ▼                        │
+│                                ┌──────────────────┐              │
+│                                │ 12. Send         │              │
+│                                │ test_complete    │              │
+│                                │ with results     │              │
+│                                └────────┬─────────┘              │
+│                                         │                        │
+│                                         ▼                        │
+│                                ┌──────────────────┐              │
+│                                │ 13. Clear        │              │
+│                                │ session state    │              │
+│                                └──────────────────┘              │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Start Test Flow (T095, T096, T101)
+
+```javascript
+async function startWhatsAppTest(student_id, phone_number) {
+  // 1. Load or create session state
+  const session_path = `memory/students/${student_id}/whatsapp-session.json`
+  let session = await loadOrCreateSession(student_id)
+
+  // 2. Check for existing active test
+  if (session.active_test && session.active_test.test_id) {
+    // Check if timed out
+    if (new Date() > new Date(session.active_test.timeout_at)) {
+      // Abandon old test
+      await abandonTest(student_id, session)
+    } else {
+      // Resume existing test
+      return resumeTest(student_id, phone_number, session)
+    }
+  }
+
+  // 3. Generate test via adaptive-test-generator
+  const profile = await loadProfile(student_id)
+  const test = await adaptive_test_generator({
+    student_id: student_id,
+    exam_type: profile.exam_target,
+    question_count: 5,  // Default 5 questions for WhatsApp
+    difficulty: "adaptive"
+  })
+
+  // 4. Initialize session state
+  const now = new Date()
+  session.active_test = {
+    test_id: test.test_id,
+    started_at: now.toISOString(),
+    exam_type: profile.exam_target,
+    focus_topic: test.focus_topic || null,
+    difficulty: test.difficulty,
+    questions: test.questions,
+    current_question: 0,
+    answers: test.questions.map(q => ({
+      question_id: q.id,
+      student_answer: null,
+      answered_at: null
+    })),
+    total_questions: test.questions.length,
+    timeout_at: new Date(now.getTime() + 30 * 60 * 1000).toISOString()
+  }
+  session.session_status = "active_test"
+  session.last_activity = now.toISOString()
+
+  await saveSession(student_id, session)
+
+  // 5. Send test_start message with first question
+  const first_question = test.questions[0]
+  await whatsapp_message_sender({
+    phone_number: phone_number,
+    message_type: "test_start",
+    content: {
+      test: {
+        question_count: test.questions.length,
+        focus_topic: test.focus_topic || "Mixed",
+        difficulty: test.difficulty
+      },
+      question: {
+        text: first_question.text,
+        options: first_question.options
+      }
+    }
+  })
+
+  return {
+    success: true,
+    test_id: test.test_id,
+    questions_count: test.questions.length,
+    status: "started"
+  }
+}
+```
+
+### Handle Answer and Next Question (T097, T102)
+
+```javascript
+async function handleTestAnswer(student_id, phone_number, answer) {
+  const session = await loadSession(student_id)
+
+  if (!session.active_test || session.session_status !== "active_test") {
+    return { success: false, error: "No active test" }
+  }
+
+  // Validate answer
+  const valid_answers = ["A", "B", "C", "D"]
+  const normalized_answer = answer.toUpperCase().trim()
+
+  if (!valid_answers.includes(normalized_answer)) {
+    // Send reminder to reply with valid answer
+    await whatsapp_message_sender({
+      phone_number: phone_number,
+      message_type: "answer_reminder",
+      content: {
+        message: "Please reply with A, B, C, or D"
+      }
+    })
+    return { success: false, error: "Invalid answer format" }
+  }
+
+  // Record answer (NO evaluation yet - sequential delivery without explanations)
+  const current_idx = session.active_test.current_question
+  session.active_test.answers[current_idx].student_answer = normalized_answer
+  session.active_test.answers[current_idx].answered_at = new Date().toISOString()
+  session.last_activity = new Date().toISOString()
+
+  // Move to next question
+  session.active_test.current_question += 1
+
+  // Check if test complete
+  if (session.active_test.current_question >= session.active_test.total_questions) {
+    // Test complete - proceed to evaluation
+    return completeTest(student_id, phone_number, session)
+  }
+
+  // Save session and send next question
+  await saveSession(student_id, session)
+
+  const next_question = session.active_test.questions[session.active_test.current_question]
+  await whatsapp_message_sender({
+    phone_number: phone_number,
+    message_type: "test_next_question",
+    content: {
+      test: {
+        current: session.active_test.current_question + 1,
+        total: session.active_test.total_questions
+      },
+      question: {
+        text: next_question.text,
+        options: next_question.options
+      }
+    }
+  })
+
+  return {
+    success: true,
+    question_number: session.active_test.current_question + 1,
+    total: session.active_test.total_questions,
+    status: "next_question_sent"
+  }
+}
+```
+
+### Complete Test with Batch Evaluation (T098, T103, T104)
+
+```javascript
+async function completeTest(student_id, phone_number, session) {
+  // 1. Batch evaluate all answers
+  const results = []
+  let correct_count = 0
+
+  for (let i = 0; i < session.active_test.questions.length; i++) {
+    const question = session.active_test.questions[i]
+    const answer = session.active_test.answers[i]
+
+    const evaluation = await answer_evaluator({
+      question_id: question.question_id,
+      student_answer: answer.student_answer,
+      correct_answer: question.correct_answer
+    })
+
+    results.push({
+      question_number: i + 1,
+      question_id: question.question_id,
+      topic: question.topic,
+      student_answer: answer.student_answer,
+      correct_answer: question.correct_answer,
+      is_correct: evaluation.is_correct,
+      explanation: question.explanation || null
+    })
+
+    if (evaluation.is_correct) {
+      correct_count++
+    }
+  }
+
+  // 2. Calculate accuracy
+  const accuracy = (correct_count / session.active_test.total_questions) * 100
+
+  // 3. Update performance via performance-tracker
+  await performance_tracker({
+    student_id: student_id,
+    session_type: "whatsapp_test",
+    session_id: session.active_test.test_id,
+    results: results
+  })
+
+  // 4. Recalculate ERI
+  const previous_eri = await getERI(student_id)
+  const eri_result = await exam_readiness_calculator({
+    student_id: student_id
+  })
+  const eri_change = eri_result.current_score - previous_eri
+
+  // 5. Format breakdown
+  const breakdown = results.map((r, i) =>
+    `Q${r.question_number}: ${r.is_correct ? "✅" : "❌"} ${r.topic}`
+  ).join("\n")
+
+  // 6. Generate encouragement
+  const encouragement = generateEncouragement(accuracy)
+
+  // 7. Send test_complete message
+  await whatsapp_message_sender({
+    phone_number: phone_number,
+    message_type: "test_complete",
+    content: {
+      test: {
+        results: {
+          correct: correct_count,
+          accuracy: Math.round(accuracy)
+        },
+        total: session.active_test.total_questions
+      },
+      feedback: {
+        new_eri: eri_result.current_score,
+        eri_change: eri_change >= 0 ? `+${eri_change}` : `${eri_change}`,
+        breakdown: breakdown,
+        encouragement: encouragement
+      }
+    }
+  })
+
+  // 8. Clear session state
+  session.active_test = null
+  session.session_status = "idle"
+  session.last_activity = new Date().toISOString()
+  await saveSession(student_id, session)
+
+  // 9. Check for milestone
+  await checkAndOfferMilestoneBadge(student_id, eri_result.current_score, previous_eri)
+
+  return {
+    success: true,
+    test_id: session.active_test?.test_id,
+    correct: correct_count,
+    total: session.active_test?.total_questions,
+    accuracy: accuracy,
+    new_eri: eri_result.current_score,
+    status: "completed"
+  }
+}
+
+function generateEncouragement(accuracy) {
+  if (accuracy >= 80) {
+    return "🌟 Excellent performance! You're well prepared!"
+  } else if (accuracy >= 60) {
+    return "👍 Good job! Keep practicing to improve."
+  } else if (accuracy >= 40) {
+    return "📚 You're making progress. Focus on your weak areas."
+  } else {
+    return "💪 Every test is a learning opportunity. Review the topics and try again!"
+  }
+}
+```
+
+### Timeout Handling (T105)
+
+```javascript
+async function checkTestTimeout(student_id) {
+  const session = await loadSession(student_id)
+
+  if (!session.active_test) {
+    return { timed_out: false }
+  }
+
+  const now = new Date()
+  const timeout = new Date(session.active_test.timeout_at)
+
+  if (now > timeout) {
+    // Timeout - abandon test
+    await abandonTest(student_id, session)
+    return {
+      timed_out: true,
+      test_id: session.active_test.test_id,
+      questions_answered: session.active_test.current_question
+    }
+  }
+
+  return {
+    timed_out: false,
+    remaining_minutes: Math.ceil((timeout - now) / (1000 * 60))
+  }
+}
+
+async function abandonTest(student_id, session) {
+  // Save partial results if any answers given
+  if (session.active_test.current_question > 0) {
+    // Could save partial session for analytics
+  }
+
+  // Clear session
+  session.active_test = null
+  session.session_status = "idle"
+  session.last_activity = new Date().toISOString()
+  await saveSession(student_id, session)
+}
+```
+
+### Session Resume (T106)
+
+```javascript
+async function resumeTest(student_id, phone_number, session) {
+  const current_idx = session.active_test.current_question
+  const current_question = session.active_test.questions[current_idx]
+  const answered_count = session.active_test.answers.filter(a => a.student_answer).length
+
+  // Send reminder with current question
+  await whatsapp_message_sender({
+    phone_number: phone_number,
+    message_type: "test_resume",
+    content: {
+      test: {
+        current: current_idx + 1,
+        total: session.active_test.total_questions,
+        answered: answered_count
+      },
+      question: {
+        text: current_question.text,
+        options: current_question.options
+      },
+      remaining_minutes: Math.ceil(
+        (new Date(session.active_test.timeout_at) - new Date()) / (1000 * 60)
+      )
+    }
+  })
+
+  return {
+    success: true,
+    status: "resumed",
+    current_question: current_idx + 1,
+    remaining_minutes: Math.ceil(
+      (new Date(session.active_test.timeout_at) - new Date()) / (1000 * 60)
+    )
+  }
+}
+```
+
+### Incoming Message Handler (T107)
+
+```javascript
+async function handleIncomingWhatsAppMessage(phone_number, message_text) {
+  // 1. Find student by phone
+  const student = await findStudentByPhone(phone_number)
+  if (!student) {
+    return { error: "Unknown phone number" }
+  }
+
+  // 2. Load session
+  const session = await loadSession(student.student_id)
+
+  // 3. Check if in active test
+  if (session.session_status === "active_test") {
+    // Expect answer A/B/C/D
+    return handleTestAnswer(student.student_id, phone_number, message_text)
+  }
+
+  // 4. Check for test start intent
+  if (await detectTestStartIntent(message_text)) {
+    return startWhatsAppTest(student.student_id, phone_number)
+  }
+
+  // 5. Check for badge request
+  if (message_text.toUpperCase().trim() === "BADGE") {
+    return handleBadgeRequest(student.student_id)
+  }
+
+  // 6. Check for daily question answer (if pending)
+  // ... existing daily question handling
+
+  return { handled: false, message: "Unknown command" }
+}
+```
+
 ## Related Skills
 
 - daily-question-selector (selects questions)
@@ -604,3 +1147,4 @@ If milestone_crossed is true:
 - exam-readiness-calculator (updates ERI, triggers milestone detection)
 - progress-report-generator (generates reports for delivery)
 - eri-badge-generator (generates shareable badges for milestones)
+- adaptive-test-generator (creates tests for WhatsApp sessions)

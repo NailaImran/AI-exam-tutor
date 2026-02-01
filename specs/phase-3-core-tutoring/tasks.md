@@ -207,19 +207,19 @@
 
 ### Implementation for User Story 6
 
-- [ ] T095 [US6] Extend whatsapp-message-sender skill with test session state management
-- [ ] T096 [US6] Implement test_start message type per contracts/whatsapp-templates.json
-- [ ] T097 [US6] Implement test_next_question message type for sequential delivery
-- [ ] T098 [US6] Implement test_complete message type with results breakdown
-- [ ] T099 [US6] Create WhatsApp test session state in memory/students/{student_id}/whatsapp-session.json
-- [ ] T100 [US6] Implement session state: active_test, current_question, answers[], started_at
-- [ ] T101 [US6] Integrate with adaptive-test-generator skill for test creation
-- [ ] T102 [US6] Implement sequential question delivery (no explanations until complete)
-- [ ] T103 [US6] Implement batch evaluation using answer-evaluator at test end
-- [ ] T104 [US6] Implement results formatting with per-question breakdown
-- [ ] T105 [US6] Implement 30-minute timeout for abandoned tests
-- [ ] T106 [US6] Implement session resume capability for partial completions
-- [ ] T107 [US6] Add "start test" keyword detection in incoming message handling
+- [x] T095 [US6] Extend whatsapp-message-sender skill with test session state management
+- [x] T096 [US6] Implement test_start message type per contracts/whatsapp-templates.json
+- [x] T097 [US6] Implement test_next_question message type for sequential delivery
+- [x] T098 [US6] Implement test_complete message type with results breakdown
+- [x] T099 [US6] Create WhatsApp test session state in memory/students/{student_id}/whatsapp-session.json
+- [x] T100 [US6] Implement session state: active_test, current_question, answers[], started_at
+- [x] T101 [US6] Integrate with adaptive-test-generator skill for test creation
+- [x] T102 [US6] Implement sequential question delivery (no explanations until complete)
+- [x] T103 [US6] Implement batch evaluation using answer-evaluator at test end
+- [x] T104 [US6] Implement results formatting with per-question breakdown
+- [x] T105 [US6] Implement 30-minute timeout for abandoned tests
+- [x] T106 [US6] Implement session resume capability for partial completions
+- [x] T107 [US6] Add "start test" keyword detection in incoming message handling
 
 **Checkpoint**: Full test completion via WhatsApp fully functional
 

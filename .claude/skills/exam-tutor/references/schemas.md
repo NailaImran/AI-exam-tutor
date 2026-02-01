@@ -660,6 +660,53 @@ Metadata: `memory/students/{student_id}/badges/badge-{date}.json`
 | ready | Green | #48bb78 |
 | exam_ready | Dark Green | #38a169 |
 
+### WhatsAppSession
+
+Location: `memory/students/{student_id}/whatsapp-session.json`
+
+```json
+{
+  "$schema": "exam-tutor/whatsapp-session/v1",
+  "student_id": "string (required)",
+  "active_test": {
+    "test_id": "string | null",
+    "started_at": "string ISO 8601 | null",
+    "exam_type": "SPSC | PPSC | KPPSC",
+    "focus_topic": "string | null",
+    "difficulty": "easy | medium | hard | adaptive",
+    "questions": [
+      {
+        "question_id": "string",
+        "text": "string",
+        "options": {"A": "", "B": "", "C": "", "D": ""},
+        "topic": "string",
+        "correct_answer": "string",
+        "explanation": "string | null"
+      }
+    ],
+    "current_question": "integer (0-based index)",
+    "answers": [
+      {
+        "question_id": "string",
+        "student_answer": "A | B | C | D | null",
+        "answered_at": "string ISO 8601 | null"
+      }
+    ],
+    "total_questions": "integer",
+    "timeout_at": "string ISO 8601 (started_at + 30 minutes)"
+  },
+  "last_activity": "string ISO 8601 (required)",
+  "session_status": "idle | active_test | awaiting_answer (required)"
+}
+```
+
+### WhatsAppSession Validation Rules
+
+- `timeout_at` MUST be 30 minutes after `started_at`
+- `current_question` MUST be between 0 and `total_questions - 1`
+- `answers` array length MUST equal `questions` array length
+- `session_status` MUST be "active_test" when `active_test` is not null
+
 ## Validation Rules
 
 ### Required Fields
