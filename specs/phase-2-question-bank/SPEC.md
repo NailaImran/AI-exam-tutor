@@ -142,9 +142,8 @@ Phase 2 automates the collection and processing of past exam papers to rapidly e
 ```
 
 ### Out of Scope (Later Phases)
-- **Phase 3**: Adaptive test generation, study plans, ERI-based recommendations
-- **Phase 4**: WhatsApp, Gmail, LinkedIn integration
-- **Phase 5**: Odoo integration, payment/subscription features, multi-student academy features
+- **Phase 3**: Adaptive test generation, study plans, ERI-based recommendations, WhatsApp integration, LinkedIn posts
+- **Phase 5**: B2B features, Odoo integration, payment/subscription features, multi-student academy features
 
 ## Technical Requirements
 
