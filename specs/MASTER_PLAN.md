@@ -213,7 +213,7 @@ ERI = (Accuracy × 0.40) + (Coverage × 0.25) + (Recency × 0.20) + (Consistency
 
 ### Phase Mapping Clarification
 
-> **Note**: Phase 4 (B2B Integration) was consolidated into Phase 4 for streamlined development.
+> **Note**: The project uses sequential phase numbering (1 → 2 → 3 → 4). Phase 4 combines B2B features, premium features, and autonomous operations.
 
 | Conceptual Phase | Implementation Spec | Scope |
 |------------------|---------------------|-------|
@@ -222,10 +222,10 @@ ERI = (Accuracy × 0.40) + (Coverage × 0.25) + (Recency × 0.20) + (Consistency
 | Phase 3: Growth Engine | `specs/phase-3-core-tutoring/` | ERI, adaptive tests, WhatsApp, study plans, social media |
 | Phase 4: Full Platform | `specs/phase-4-gold-tier/` | B2B dashboard, Odoo, autonomous ops, premium features |
 
-**Why Phase 4 was removed:** B2B features were consolidated into Phase 4 to:
-1. Focus on core B2C functionality first (Phases 1-3)
-2. Bundle all enterprise/premium features together
-3. Simplify the development roadmap
+**Phase 4 Scope:** All enterprise/premium features bundled together:
+1. B2B: Multi-student dashboard, batch testing, parent reports
+2. Premium: Mock exams, deep analysis, challenge mode
+3. Business: Odoo integration, payments, autonomous operations
 
 ---
 
