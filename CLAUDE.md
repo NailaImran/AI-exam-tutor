@@ -70,7 +70,7 @@ AI-exam-tutor/
 
 ## Skill Architecture
 
-### Skill Inventory (12 Total)
+### Skill Inventory (18 Total)
 
 | Category | Skill | Purpose |
 |----------|-------|---------|
@@ -86,6 +86,20 @@ AI-exam-tutor/
 | SUPPORTING | progress-report-generator | Generate progress reports |
 | OPTIONAL | session-logger | Audit logging |
 | OPTIONAL | syllabus-mapper | Cross-exam topic mapping |
+| PHASE 3 | whatsapp-message-sender | WhatsApp messaging & test sessions |
+| PHASE 3 | daily-question-selector | Select daily questions with rotation |
+| PHASE 3 | scheduled-task-runner | Cron-like task execution |
+| PHASE 3 | approval-workflow | Human-in-the-loop approvals |
+| PHASE 3 | eri-badge-generator | Generate shareable ERI badges |
+| PHASE 3 | social-post-generator | LinkedIn post generation |
+
+### Subagent Inventory (3 Total)
+
+| Subagent | Purpose |
+|----------|---------|
+| study-strategy-planner | Orchestrate study plan creation with approval |
+| progress-reporting-coordinator | Weekly report generation and delivery |
+| social-media-coordinator | LinkedIn post workflow with approval |
 
 ### Exam Readiness Index (ERI)
 
@@ -103,7 +117,7 @@ ERI = (Accuracy × 0.40) + (Coverage × 0.25) + (Recency × 0.20) + (Consistency
 
 ## MCP Integration
 
-This project uses three MCP servers: **filesystem** (core operations), **github** (version control), and **context7** (documentation lookup).
+This project uses five MCP servers: **filesystem** (core operations), **github** (version control), **context7** (documentation lookup), **whatsapp** (Phase 3 messaging), and **linkedin** (Phase 3 social posts).
 
 ### Configuration (`.claude/mcp.json`)
 
@@ -199,6 +213,56 @@ Context7 provides real-time documentation lookup to ensure accurate API usage an
 6. exam-readiness-calculator      → Baseline ERI
 7. weak-area-identifier           → Initial weak areas
 8. study-plan-generator           → Create plan
+```
+
+### Phase 3: WhatsApp Daily Question
+```
+1. scheduled-task-runner      → Trigger at 8 AM PKT
+2. daily-question-selector    → Select question with rotation
+3. student-profile-loader     → Load student context
+4. whatsapp-message-sender    → Send daily_question message
+5. [Student replies A/B/C/D]
+6. answer-evaluator           → Evaluate response
+7. performance-tracker        → Update stats
+8. exam-readiness-calculator  → Recalculate ERI
+9. whatsapp-message-sender    → Send feedback message
+```
+
+### Phase 3: WhatsApp Test Session
+```
+1. [Student sends "start test"]
+2. whatsapp-message-sender    → Start session, create test
+3. adaptive-test-generator    → Create 5-question test
+4. whatsapp-message-sender    → Send test_start with Q1
+5. [Student answers each question]
+6. whatsapp-message-sender    → Send test_next_question
+7. [After all questions]
+8. answer-evaluator           → Batch evaluate
+9. performance-tracker        → Save session
+10. exam-readiness-calculator → Update ERI
+11. whatsapp-message-sender   → Send test_complete
+```
+
+### Phase 3: Study Plan Approval
+```
+1. study-strategy-planner     → Orchestrate workflow
+2. weak-area-identifier       → Get priority topics
+3. study-plan-generator       → Create plan draft
+4. approval-workflow          → Save to needs_action/
+5. [Human reviews and approves]
+6. approval-workflow          → Move to done/, activate
+7. whatsapp-message-sender    → Notify student
+```
+
+### Phase 3: LinkedIn Post Generation
+```
+1. scheduled-task-runner      → Trigger at 9 AM PKT
+2. social-media-coordinator   → Orchestrate workflow
+3. daily-question-selector    → Select with rotation
+4. social-post-generator      → Create formatted post
+5. approval-workflow          → Save to needs_action/
+6. [Human reviews and approves]
+7. approval-workflow          → Publish via LinkedIn MCP
 ```
 
 ## Development Guidelines

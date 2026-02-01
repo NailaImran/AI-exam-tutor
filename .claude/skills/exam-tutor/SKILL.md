@@ -50,21 +50,65 @@ Additional capabilities for specific use cases:
 | [session-logger](./session-logger/SKILL.md) | Audit logging | write_file, create_directory |
 | [syllabus-mapper](./syllabus-mapper/SKILL.md) | Cross-exam mapping | read_file |
 
+### Phase 3: Growth Engine Skills (8)
+
+Skills for engagement, notifications, and social features:
+
+| Skill | Purpose | MCP Tools |
+|-------|---------|-----------|
+| [whatsapp-message-sender](./whatsapp-message-sender/SKILL.md) | WhatsApp messaging & test sessions | WhatsApp MCP, read_file, write_file |
+| [daily-question-selector](./daily-question-selector/SKILL.md) | Select daily questions with rotation | read_file |
+| [scheduled-task-runner](./scheduled-task-runner/SKILL.md) | Cron-like task execution | read_file, write_file |
+| [approval-workflow](./approval-workflow/SKILL.md) | Human-in-the-loop approvals | read_file, write_file |
+| [eri-badge-generator](./eri-badge-generator/SKILL.md) | Generate shareable ERI badges | read_file, write_file |
+| [social-post-generator](./social-post-generator/SKILL.md) | LinkedIn post generation | read_file, write_file |
+
+### Phase 3: Subagents (3)
+
+Autonomous agents that orchestrate skill workflows:
+
+| Subagent | Purpose | Skills Used |
+|----------|---------|-------------|
+| [study-strategy-planner](../../subagents/study-strategy-planner/AGENT.md) | Orchestrate study plan creation | weak-area-identifier, study-plan-generator, approval-workflow |
+| [progress-reporting-coordinator](../../subagents/progress-reporting-coordinator/AGENT.md) | Weekly report generation | progress-report-generator, whatsapp-message-sender |
+| [social-media-coordinator](../../subagents/social-media-coordinator/AGENT.md) | LinkedIn post workflow | daily-question-selector, social-post-generator, approval-workflow |
+
 ## MCP Server Requirements
 
-This skill bundle requires the **filesystem MCP server**:
+This skill bundle requires multiple MCP servers:
 
+### Filesystem (Required)
 ```json
 {
-  "mcpServers": {
-    "filesystem": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@anthropic-ai/mcp-server-filesystem",
-        "--root", "./",
-        "--allowed-paths", ["memory/", "question-bank/", "syllabus/", "logs/"]
-      ]
+  "filesystem": {
+    "command": "npx",
+    "args": ["-y", "@anthropic-ai/mcp-server-filesystem", "E:/AI-exam-tutor"]
+  }
+}
+```
+
+### WhatsApp (Phase 3 - Optional)
+```json
+{
+  "whatsapp": {
+    "command": "npx",
+    "args": ["-y", "@anthropic-ai/mcp-server-whatsapp"],
+    "env": {
+      "WHATSAPP_PHONE_ID": "${WHATSAPP_PHONE_ID}",
+      "WHATSAPP_ACCESS_TOKEN": "${WHATSAPP_ACCESS_TOKEN}"
+    }
+  }
+}
+```
+
+### LinkedIn (Phase 3 - Optional)
+```json
+{
+  "linkedin": {
+    "command": "npx",
+    "args": ["-y", "@anthropic-ai/mcp-server-linkedin"],
+    "env": {
+      "LINKEDIN_ACCESS_TOKEN": "${LINKEDIN_ACCESS_TOKEN}"
     }
   }
 }
@@ -82,11 +126,19 @@ project-root/
 │           ├── profile.json
 │           ├── history.json
 │           ├── topic-stats.json
+│           ├── eri.json
+│           ├── weak-areas.json
 │           ├── active-plan.json
+│           ├── whatsapp-session.json     # Phase 3: WhatsApp test state
 │           ├── sessions/
 │           │   └── {session_id}.json
-│           └── reports/
-│               └── {date}.md
+│           ├── plans/                     # Phase 3: Study plan history
+│           │   └── plan-{date}.json
+│           ├── reports/
+│           │   └── {date}.md
+│           └── badges/                    # Phase 3: ERI badges
+│               ├── badge-{date}.svg
+│               └── badge-{date}.json
 ├── question-bank/
 │   ├── SPSC/
 │   ├── PPSC/
@@ -99,6 +151,19 @@ project-root/
 │   └── KPPSC/
 │       ├── syllabus-structure.json
 │       └── topic-weights.json
+├── schedules/                             # Phase 3: Schedule configs
+│   ├── daily-questions.json
+│   ├── weekly-reports.json
+│   ├── linkedin-posts.json
+│   └── linkedin-rotation.json
+├── needs_action/                          # Phase 3: Approval queues
+│   ├── study-plans/
+│   └── social-posts/
+├── done/                                  # Phase 3: Completed approvals
+│   ├── study-plans/
+│   └── social-posts/
+├── queue/                                 # Phase 3: Message queues
+│   └── whatsapp/
 └── logs/
     └── sessions/
         └── {student_id}/
@@ -149,6 +214,60 @@ ERI = (Accuracy × 0.40) + (Coverage × 0.25) + (Recency × 0.20) + (Consistency
 6. exam-readiness-calculator → Baseline ERI
 7. weak-area-identifier      → Initial weak areas
 8. study-plan-generator      → Create plan
+```
+
+### Phase 3: WhatsApp Daily Question
+
+```
+1. scheduled-task-runner      → Trigger at 8 AM PKT
+2. daily-question-selector    → Select question with rotation
+3. student-profile-loader     → Load student context
+4. whatsapp-message-sender    → Send daily_question message
+5. [Student replies A/B/C/D]
+6. answer-evaluator           → Evaluate response
+7. performance-tracker        → Update stats
+8. exam-readiness-calculator  → Recalculate ERI
+9. whatsapp-message-sender    → Send feedback message
+```
+
+### Phase 3: WhatsApp Test Session
+
+```
+1. [Student sends "start test"]
+2. whatsapp-message-sender    → Detect intent, start session
+3. adaptive-test-generator    → Create 5-question test
+4. whatsapp-message-sender    → Send test_start with Q1
+5. [Student answers each question]
+6. whatsapp-message-sender    → Send test_next_question
+7. [After all questions]
+8. answer-evaluator           → Batch evaluate
+9. performance-tracker        → Save session
+10. exam-readiness-calculator → Update ERI
+11. whatsapp-message-sender   → Send test_complete
+```
+
+### Phase 3: Study Plan Approval
+
+```
+1. study-strategy-planner     → Orchestrate workflow
+2. weak-area-identifier       → Get priority topics
+3. study-plan-generator       → Create plan draft
+4. approval-workflow          → Save to needs_action/
+5. [Human reviews and approves]
+6. approval-workflow          → Move to done/, activate
+7. whatsapp-message-sender    → Notify student
+```
+
+### Phase 3: LinkedIn Post Generation
+
+```
+1. scheduled-task-runner      → Trigger at 9 AM PKT
+2. social-media-coordinator   → Orchestrate workflow
+3. daily-question-selector    → Select with rotation
+4. social-post-generator      → Create formatted post
+5. approval-workflow          → Save to needs_action/
+6. [Human reviews and approves]
+7. approval-workflow          → Publish via LinkedIn MCP
 ```
 
 See [references/skill-orchestration.md](./references/skill-orchestration.md) for complete workflow documentation.

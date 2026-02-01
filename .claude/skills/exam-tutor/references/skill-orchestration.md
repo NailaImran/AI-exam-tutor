@@ -697,3 +697,435 @@ Example: 2026-01-20T10:35:22Z | VALIDATE | Q-042 | REJECTED | MISSING_OPTION_D
 | Add 1 question to bank | < 200 milliseconds |
 | Full pipeline (100 papers) | < 30 minutes |
 | Rebuild master index | < 2 minutes (for 1500 questions) |
+
+---
+
+# Phase 3: Growth Engine Workflows
+
+## Skill Dependency Graph (Phase 3)
+
+```
+                    ┌─────────────────────────┐
+                    │  scheduled-task-runner  │
+                    └───────────┬─────────────┘
+                                │
+            ┌───────────────────┼───────────────────┐
+            │                   │                   │
+            ▼                   ▼                   ▼
+┌───────────────────┐  ┌───────────────────┐  ┌─────────────────────┐
+│ daily-question-   │  │ progress-report-  │  │ social-post-        │
+│ selector          │  │ generator         │  │ generator           │
+└─────────┬─────────┘  └─────────┬─────────┘  └──────────┬──────────┘
+          │                      │                        │
+          ▼                      ▼                        ▼
+┌───────────────────┐  ┌───────────────────┐  ┌─────────────────────┐
+│ whatsapp-message- │  │ whatsapp-message- │  │ approval-workflow   │
+│ sender            │  │ sender            │  │                     │
+└─────────┬─────────┘  └───────────────────┘  └──────────┬──────────┘
+          │                                              │
+          ▼                                              ▼
+┌───────────────────┐                        ┌─────────────────────┐
+│ answer-evaluator  │                        │ LinkedIn MCP        │
+└─────────┬─────────┘                        └─────────────────────┘
+          │
+          ▼
+┌───────────────────┐
+│ performance-      │
+│ tracker           │
+└─────────┬─────────┘
+          │
+          ▼
+┌───────────────────┐      ┌───────────────────┐
+│ exam-readiness-   │─────►│ eri-badge-        │
+│ calculator        │      │ generator         │
+└───────────────────┘      └───────────────────┘
+```
+
+## Workflow Templates (Phase 3)
+
+### 10. Daily WhatsApp Question Delivery
+
+```yaml
+workflow: daily_whatsapp_question
+trigger: Scheduled task at 8 AM PKT (schedules/daily-questions.json)
+
+steps:
+  1. scheduled-task-runner
+     - Check if enabled
+     - Check if current time matches schedule
+     - Get list of opted-in students
+
+  2. For each opted-in student:
+     a. student-profile-loader
+        - Load student context
+        - Verify WhatsApp opt-in
+
+     b. daily-question-selector
+        input:
+          exam_type: student.exam_target
+          mode: "student"
+          student_id: student.student_id
+        output:
+          question: Selected question with rotation
+
+     c. whatsapp-message-sender
+        input:
+          phone_number: student.whatsapp.phone_number
+          message_type: "daily_question"
+          content:
+            question: {...}
+            student: {current_eri: ...}
+        output:
+          message_id: Sent message ID
+
+  3. [Student replies with A/B/C/D]
+
+  4. answer-evaluator
+     input:
+       question_id: sent_question.id
+       student_answer: reply.text
+     output:
+       is_correct: boolean
+       explanation: string
+
+  5. performance-tracker
+     input:
+       student_id: student.student_id
+       session_type: "daily_question"
+       results: [evaluation_result]
+
+  6. exam-readiness-calculator
+     input:
+       student_id: student.student_id
+     output:
+       previous_score: number
+       current_score: number
+       milestone_crossed: boolean
+
+  7. whatsapp-message-sender
+     - Send feedback (correct or incorrect)
+     - Include updated ERI
+
+  8. If milestone_crossed:
+     - Send milestone_badge notification
+     - Offer shareable badge
+
+output: Daily question delivered, answered, and tracked
+```
+
+### 11. WhatsApp Test Session
+
+```yaml
+workflow: whatsapp_test_session
+trigger: Student sends "start test" via WhatsApp
+
+steps:
+  1. whatsapp-message-sender (incoming handler)
+     - Detect "start test" intent
+     - Load/create session state
+
+  2. Check for active test
+     - If exists and not timed out: resume
+     - If exists and timed out: abandon
+     - If none: create new
+
+  3. adaptive-test-generator
+     input:
+       student_id: student.student_id
+       exam_type: student.exam_target
+       question_count: 5
+       difficulty: "adaptive"
+     output:
+       test_id: string
+       questions: array
+
+  4. Initialize session state
+     - Save to whatsapp-session.json
+     - Set timeout_at (30 minutes)
+
+  5. whatsapp-message-sender
+     - Send test_start with first question
+
+  6. Answer loop (5 iterations):
+     a. [Student replies A/B/C/D]
+     b. Record answer in session state
+     c. If more questions: send test_next_question
+     d. If complete: proceed to step 7
+
+  7. Batch evaluation
+     - answer-evaluator for all questions
+     - Calculate correct count and accuracy
+
+  8. performance-tracker
+     - Save complete session
+
+  9. exam-readiness-calculator
+     - Update ERI
+
+  10. whatsapp-message-sender
+      - Send test_complete with results
+      - Include per-question breakdown
+
+  11. Clear session state
+
+  12. If milestone crossed:
+      - Offer badge
+
+output: Test completed via WhatsApp conversation
+```
+
+### 12. Study Plan Generation with Approval
+
+```yaml
+workflow: study_plan_with_approval
+trigger: study-strategy-planner subagent invoked
+
+steps:
+  1. student-profile-loader
+     - Load student context
+
+  2. weak-area-identifier
+     input:
+       student_id: student.student_id
+     output:
+       weak_areas: [{topic, severity_score, accuracy}]
+
+  3. study-plan-generator
+     input:
+       student_id: student.student_id
+       exam_type: student.exam_target
+       target_exam_date: student.target_exam_date
+       daily_time_minutes: student.preferences.daily_time_minutes
+       weak_areas: from step 2
+     output:
+       plan: StudyPlan JSON
+       draft_path: memory path
+
+  4. Copy plan to approval queue
+     - Write to needs_action/study-plans/{student_id}-plan-{date}.json
+     - Set status: "pending_approval"
+
+  5. [Human reviews plan in needs_action/]
+
+  6. If approved:
+     a. approval-workflow
+        input:
+          action_type: "study_plan"
+          item_id: plan filename
+          decision: "approve"
+          reviewer: reviewer ID
+        output:
+          - Move to done/
+          - Copy to active-plan.json
+          - status: "active"
+
+     b. whatsapp-message-sender
+        - Send study_plan_approved notification
+
+  7. If rejected:
+     a. approval-workflow
+        input:
+          action_type: "study_plan"
+          decision: "reject"
+          feedback: "reason for rejection"
+        output:
+          - Move to done/
+          - status: "rejected"
+
+output: Study plan approved and activated, or rejected with feedback
+```
+
+### 13. LinkedIn Post Generation with Approval
+
+```yaml
+workflow: linkedin_post_generation
+trigger: Scheduled task at 9 AM PKT (schedules/linkedin-posts.json)
+
+steps:
+  1. scheduled-task-runner
+     - Check if enabled
+     - Check if post already exists for today
+
+  2. Load rotation tracking
+     - Read schedules/linkedin-rotation.json
+     - Get last_topics, last_questions, last_exam_types
+
+  3. daily-question-selector
+     input:
+       exam_type: rotate_exam_type()
+       mode: "linkedin"
+       excluded_topics: last_topics[0:3]
+       excluded_ids: last_questions[0:30]
+     output:
+       question: Selected question
+
+  4. social-post-generator
+     input:
+       exam_type: selected exam
+       excluded_question_ids: last_questions
+     output:
+       post: SocialPost JSON
+       character_count: number
+
+  5. Validate post
+     - Ensure <= 3000 characters
+     - Ensure <= 5 hashtags
+
+  6. Save to approval queue
+     - Write to needs_action/social-posts/linkedin-{date}.json
+     - Set status: "pending_approval"
+
+  7. [Human reviews post in needs_action/]
+
+  8. If approved:
+     a. approval-workflow
+        input:
+          action_type: "social_post"
+          item_id: post filename
+          decision: "approve"
+        output:
+          - Publish via LinkedIn MCP
+          - Set published_at
+          - Move to done/
+
+  9. If rejected:
+     a. approval-workflow
+        input:
+          decision: "reject"
+          feedback: "reason"
+        output:
+          - Move to done/
+          - status: "rejected"
+
+  10. Update rotation tracking
+      - Add topic to last_topics
+      - Add question_id to last_questions
+
+output: Post published to LinkedIn, or rejected with feedback
+```
+
+### 14. Weekly Progress Report
+
+```yaml
+workflow: weekly_progress_report
+trigger: Scheduled task on Sundays (schedules/weekly-reports.json)
+
+steps:
+  1. scheduled-task-runner
+     - Get list of active students
+
+  2. For each student with opted_in_reports:
+     a. progress-report-generator
+        input:
+          student_id: student.student_id
+          period_start: 7 days ago
+          period_end: today
+        output:
+          report_path: markdown file
+          metadata_path: JSON file
+          summary: {eri_start, eri_end, eri_change, ...}
+
+     b. If eri_change >= 5:
+        - Add congratulations to report
+
+     c. whatsapp-message-sender
+        input:
+          message_type: "weekly_report_summary"
+          content:
+            report: summary data
+            report_link: path to full report
+
+output: Weekly reports generated and delivered
+```
+
+### 15. ERI Badge Generation
+
+```yaml
+workflow: eri_badge_generation
+trigger: Student requests badge OR milestone reached
+
+steps:
+  1. student-profile-loader
+     - Load profile with sharing_consent
+
+  2. Check consent
+     - If !allow_badge_sharing: return error
+
+  3. Load ERI data
+     - Read eri.json
+     - Get current_score, band
+
+  4. eri-badge-generator
+     input:
+       student_id: student.student_id
+       include_display_name: true
+     output:
+       badge_path: SVG file
+       badge_metadata: JSON with milestone info
+
+  5. If milestone detected:
+     - Set is_milestone: true
+     - Set milestone_type
+
+  6. whatsapp-message-sender (if triggered by badge request)
+     - Send badge image
+     - Include sharing instructions
+
+output: Badge generated and optionally delivered
+```
+
+## Error Handling Strategies (Phase 3)
+
+### Skill Failure Recovery
+
+| Skill | Failure Impact | Recovery Strategy |
+|-------|----------------|-------------------|
+| scheduled-task-runner | Medium | Log, retry next interval |
+| daily-question-selector | Low | Use random question |
+| whatsapp-message-sender | High | Queue for retry (3 attempts) |
+| approval-workflow | Medium | Leave in needs_action, alert |
+| social-post-generator | Low | Skip today's post |
+| eri-badge-generator | Low | Notify user of failure |
+
+### WhatsApp Delivery Failures
+
+```yaml
+scenario: WhatsApp API unavailable
+response:
+  1. Queue message in queue/whatsapp/
+  2. Set status: "pending"
+  3. Retry with exponential backoff (5m, 15m, 60m)
+  4. After 3 failures: mark as failed, notify admin
+```
+
+### Approval Queue Stuck
+
+```yaml
+scenario: Items in needs_action/ for > 24 hours
+response:
+  1. Detect aged items
+  2. Send reminder notification
+  3. If social post: skip (post was time-sensitive)
+  4. If study plan: keep waiting
+```
+
+## Subagent Authority Matrix
+
+Per Constitution v1.1.0:
+
+| Subagent | Autonomous Actions | Requires Approval |
+|----------|-------------------|-------------------|
+| study-strategy-planner | Load data, generate plans | Activate study plan |
+| progress-reporting-coordinator | Generate reports, send notifications | None |
+| social-media-coordinator | Select questions, format posts | Publish to LinkedIn |
+
+## Performance Targets (Phase 3)
+
+| Operation | Target Performance |
+|-----------|-------------------|
+| Daily question delivery | < 5 seconds per student |
+| WhatsApp test session | < 2 seconds per question |
+| Study plan generation | < 10 seconds |
+| Progress report generation | < 5 seconds |
+| Badge generation | < 2 seconds |
+| LinkedIn post generation | < 3 seconds |

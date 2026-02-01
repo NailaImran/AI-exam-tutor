@@ -229,17 +229,17 @@
 
 **Purpose**: Integration, validation, and documentation
 
-- [ ] T108 Update .claude/skills/exam-tutor/SKILL.md with Phase 3 skills inventory
-- [ ] T109 Update .claude/skills/exam-tutor/references/skill-orchestration.md with Phase 3 workflows
-- [ ] T110 [P] Validate all WhatsApp message templates render correctly
-- [ ] T111 [P] Validate all JSON schemas in contracts/ folder
-- [ ] T112 [P] Validate approval workflow for study plans end-to-end
-- [ ] T113 [P] Validate approval workflow for social posts end-to-end
-- [ ] T114 Test daily question schedule execution manually
-- [ ] T115 Test weekly report schedule execution manually
-- [ ] T116 Test LinkedIn post schedule execution manually
-- [ ] T117 Run quickstart.md validation checklist
-- [ ] T118 Update CLAUDE.md with Phase 3 skills and workflows
+- [x] T108 Update .claude/skills/exam-tutor/SKILL.md with Phase 3 skills inventory
+- [x] T109 Update .claude/skills/exam-tutor/references/skill-orchestration.md with Phase 3 workflows
+- [x] T110 [P] Validate all WhatsApp message templates render correctly
+- [x] T111 [P] Validate all JSON schemas in contracts/ folder
+- [x] T112 [P] Validate approval workflow for study plans end-to-end
+- [x] T113 [P] Validate approval workflow for social posts end-to-end
+- [x] T114 Test daily question schedule execution manually
+- [x] T115 Test weekly report schedule execution manually
+- [x] T116 Test LinkedIn post schedule execution manually
+- [x] T117 Run quickstart.md validation checklist
+- [x] T118 Update CLAUDE.md with Phase 3 skills and workflows
 
 ---
 
@@ -332,13 +332,13 @@ Task: "US5 - Create social-post-generator skill"
 ### Silver Tier Gate Checklist
 
 After all phases:
-- [ ] WhatsApp bot sends daily question at 8 AM
-- [ ] Student completes test via WhatsApp
-- [ ] Study plan requires human approval
-- [ ] ERI badge generated as PNG
-- [ ] LinkedIn auto-posts daily (with approval)
-- [ ] 2+ watchers operational (filesystem + WhatsApp)
-- [ ] Cron scheduling working
+- [x] WhatsApp bot sends daily question at 8 AM
+- [x] Student completes test via WhatsApp
+- [x] Study plan requires human approval
+- [x] ERI badge generated as PNG
+- [x] LinkedIn auto-posts daily (with approval)
+- [x] 2+ watchers operational (filesystem + WhatsApp)
+- [x] Cron scheduling working
 
 ---
 
