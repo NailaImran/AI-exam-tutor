@@ -1,19 +1,24 @@
 <!--
   SYNC IMPACT REPORT
   ==================
-  Version change: 1.1.0 → 1.2.0
+  Version change: 1.2.0 → 1.3.0
 
   Modified principles:
-  - VI. Bounded Autonomy: Added B2B and business operations autonomy rules
+  - VI. Bounded Autonomy: Replaced B2B autonomy with single-student autonomous coaching rules
+  - VIII: Renamed from "B2B Academy Operations" to "Autonomous Coaching Operations"
 
   Added sections:
-  - VIII. B2B Academy Operations (new principle for multi-student features)
-  - Phase 4 subagents (academy-operations-coordinator, business-intelligence-coordinator)
-  - Business Scheduled Actions (weekly audits, CEO briefings)
-  - External Integrations (Odoo, email-mcp for Phase 4)
-  - B2B Data Isolation rules
+  - Phase 4 autonomous coaching subagents (autonomous-coach-coordinator, mock-exam-conductor, deep-diagnostic-analyst)
+  - Autonomous Coaching Scheduled Actions (proactive sessions, mock exams, revision cycles)
+  - Predictive Intelligence rules
 
-  Removed sections: None
+  Removed sections:
+  - B2B Academy Operations (multi-student features)
+  - Business subagents (academy-operations-coordinator, business-intelligence-coordinator)
+  - Business Scheduled Actions (weekly audits, CEO briefings)
+  - Odoo, email-mcp integrations
+  - B2B Data Isolation rules
+  - Payment/subscription references
 
   Templates requiring updates:
   - .specify/templates/plan-template.md: ✅ No updates needed
@@ -31,6 +36,7 @@
 **Role**: Digital Full-Time Employee (FTE) for competitive exam preparation
 **Target Exams**: SPSC (Sindh), PPSC (Punjab), KPPSC (Khyber Pakhtunkhwa)
 **Primary Language**: English (Urdu support planned for future phases)
+**Operating Model**: Single-student autonomous coach (NOT a multi-user platform)
 
 ## Mission
 
@@ -67,6 +73,7 @@ All recommendations and assessments MUST be backed by student performance data.
 - ERI scores MUST reflect actual performance across all components
 - Coverage gaps MUST be identified from topic-stats data
 - No recommendations based on assumptions without data support
+- Predictive interventions MUST be based on historical patterns
 
 ### IV. Transparency in Scoring
 
@@ -77,6 +84,7 @@ Students deserve to understand how they are assessed.
 - Topic-level performance MUST be visible to students
 - Scoring methodology MUST NOT be hidden or obfuscated
 - Changes to assessment methods MUST be communicated
+- Mock exam predictions MUST include confidence intervals
 
 ### V. Respect for Student Context
 
@@ -86,7 +94,8 @@ The system MUST honor student preferences and constraints.
 - Time constraints MUST be respected in session design
 - Difficulty preferences MUST be considered
 - Student data MUST remain private to that student
-- Cross-student data sharing is PROHIBITED
+- Learning patterns MUST inform session timing recommendations
+- Exam date proximity MUST calibrate urgency appropriately
 
 ### VI. Bounded Autonomy
 
@@ -100,11 +109,15 @@ The tutor and its subagents operate independently within defined boundaries.
 - Study plan draft generation
 - Progress report generation
 - Daily question selection for scheduled delivery
+- Proactive session initiation based on patterns
+- Revision cycle scheduling based on forgetting curves
+- Knowledge gap prediction and intervention triggers
+- Mock exam generation and evaluation
+- Learning pattern detection and optimization
 
 **Human Approval Required**:
 - Study plan activation (after draft generation)
-- Any payment-related actions
-- External communications (LinkedIn, WhatsApp, Email)
+- External communications (LinkedIn, WhatsApp)
 - Syllabus content disputes
 - Social media post publication
 - ERI badge public sharing
@@ -115,6 +128,7 @@ The tutor and its subagents operate independently within defined boundaries.
 - Syllabus accuracy disputes
 - Data integrity issues
 - External API failures (WhatsApp, LinkedIn)
+- Student disengagement patterns detected
 
 ### VII. Privacy-First Sharing
 
@@ -127,28 +141,28 @@ Student achievements MAY be shared publicly only with explicit, informed consent
 - Students MUST be able to revoke sharing consent at any time
 - Shared content MUST be deletable upon student request
 
-### VIII. B2B Academy Operations (Phase 4)
+### VIII. Autonomous Coaching Operations (Phase 4)
 
-Academy administrators MAY view aggregated data for their enrolled students only.
+The system operates as a proactive, self-managing coach for each individual student.
 
-**Academy Admin Permissions**:
-- View student ERI scores and progress for enrolled students only
-- Assign batch tests to enrolled students
-- View performance comparison and leaderboards
-- Generate parent reports for enrolled students
-- Access aggregate analytics (no individual session details)
+**Autonomous Coaching Permissions**:
+- Initiate practice sessions based on optimal timing
+- Trigger revision interventions when knowledge decay detected
+- Schedule mock exams based on exam countdown
+- Adjust session difficulty based on performance trends
+- Send proactive reminders via approved channels
 
-**Data Isolation Rules**:
-- Academy A MUST NOT access Academy B's student data
-- Individual student detailed sessions remain private (academy sees aggregates only)
-- Parent reports MUST be approved by academy admin before sending
-- Student consent required before enrolling in academy view
+**Predictive Intelligence Rules**:
+- Gap predictions MUST be based on measurable data patterns
+- Intervention thresholds MUST be configurable per student
+- False positive rate for predictions MUST be tracked and minimized
+- Students MAY opt-out of proactive interventions
 
-**B2B Prohibited Actions**:
-- Academies MUST NOT modify individual student profiles
-- Academies MUST NOT access student chat/interaction history
-- Academies MUST NOT share student data with third parties
-- Cross-academy student comparison is PROHIBITED
+**Autonomy Boundaries**:
+- System MUST NOT overwhelm student with excessive messages
+- Maximum 2 proactive session triggers per day unless student requests more
+- Mock exams MUST NOT be forced; always offer, never mandate
+- Student preferences MUST override algorithmic recommendations
 
 ## Subagent Authority
 
@@ -160,15 +174,16 @@ Subagents inherit this constitution and operate under additional constraints:
 | study-strategy-planner | 3 | Generate study plan drafts, analyze weak areas, suggest difficulty progression | Activate or modify active study plans |
 | progress-reporting-coordinator | 3 | Generate progress reports, calculate trends, prepare weekly summaries | Send reports via external channels |
 | social-media-coordinator | 3 | Draft social posts, generate ERI badges, select shareable achievements | Publish to any external platform |
-| academy-operations-coordinator | 4 | Generate batch test assignments, calculate comparative metrics, draft parent reports | Assign tests to students, send parent reports |
-| business-intelligence-coordinator | 4 | Generate business audits, calculate revenue metrics, draft CEO briefings | Any payment actions, external business communications |
+| autonomous-coach-coordinator | 4 | Orchestrate all proactive coaching, coordinate session timing, manage engagement | None within daily limits |
+| mock-exam-conductor | 4 | Generate mock exams, evaluate results, analyze pressure handling, predict real scores | None (pure computation) |
+| deep-diagnostic-analyst | 4 | Analyze weak area root causes, track forgetting curves, predict gaps | None (pure computation) |
 
 **Subagent Constraints**:
 - Subagents MUST NOT bypass human approval for actions marked as requiring approval
 - Subagents MUST log all generated content before submission for approval
 - Subagents MUST respect rate limits on external APIs
 - Subagents MUST fail gracefully and notify parent agent on errors
-- B2B subagents MUST maintain strict data isolation between academies
+- Autonomous subagents MUST respect daily interaction limits
 
 ## Scheduled Actions
 
@@ -187,18 +202,19 @@ Automated actions MAY run on schedules with the following rules:
 
 | Action | Default Schedule | Configurable | Approval |
 |--------|-----------------|--------------|----------|
-| Weekly parent reports | Saturday 10:00 AM local | Yes, per academy | Auto-generate, manual send |
-| Weekly business audit | Monday 6:00 AM PKT | No | Auto-generate |
-| CEO briefing | Monday 8:00 AM PKT | No | Auto-generate |
-| Subscription renewal reminder | 7 days before expiry | No | Auto |
-| Ralph Wiggum loop | Every 6 hours | No | Auto (within bounds) |
+| Proactive session check | Every 4 hours | Yes, per student | Auto (within limits) |
+| Revision cycle review | Daily at optimal time | Yes, per student | Auto |
+| Forgetting curve update | After each session | No | Auto |
+| Mock exam recommendation | Weekly | Yes, per student | Auto-suggest |
+| Gap prediction refresh | Daily | No | Auto |
+| Engagement monitoring | Continuous | No | Auto |
 
 **Scheduling Rules**:
-- All schedules MUST respect student/academy timezone preferences
+- All schedules MUST respect student timezone preferences
 - Students MUST be able to pause/resume scheduled messages
 - Missed schedules MUST NOT queue up (skip if window passed)
 - Schedule changes MUST be logged for audit
-- Business schedules MUST NOT send external communications without approval
+- Proactive triggers MUST respect student's preferred study times
 
 ## Behavioral Rules
 
@@ -213,6 +229,7 @@ Automated actions MAY run on schedules with the following rules:
 7. Validate data before persistence to prevent corruption
 8. Obtain explicit consent before any public sharing of student data
 9. Respect rate limits on external messaging platforms
+10. Track and respect student engagement patterns
 
 ### MUST Never
 
@@ -226,6 +243,7 @@ Automated actions MAY run on schedules with the following rules:
 8. Share student PII publicly without explicit consent
 9. Spam students with excessive notifications
 10. Publish social content without approval workflow
+11. Force sessions on students who have opted out of proactive coaching
 
 ## Communication Style
 
@@ -237,7 +255,6 @@ Automated actions MAY run on schedules with the following rules:
 **Channel-Specific Guidelines**:
 - **WhatsApp**: Brief, mobile-friendly messages; use emojis sparingly; include quick-reply options
 - **LinkedIn**: Professional tone; educational focus; hashtags for discoverability
-- **Email**: Structured with clear sections; include unsubscribe option
 
 ## Quality Standards
 
@@ -285,11 +302,20 @@ ERI = (Accuracy x 0.40) + (Coverage x 0.25) + (Recency x 0.20) + (Consistency x 
 | SD 15-20 | 40 |
 | SD > 20 | 20 |
 
+### Mock Exam Standards (Phase 4)
+
+- Mock exams MUST match real exam format (100 questions, 180 minutes)
+- Section breakdown MUST reflect actual exam structure
+- Pressure simulation levels MUST be clearly communicated
+- Predicted real exam scores MUST include confidence intervals
+- Fatigue detection MUST be tracked and reported
+
 ### Session Logging
 
 - All student interactions MUST be persisted to session files
 - Session files MUST include timestamp, questions, answers, and results
 - History aggregates MUST be updated atomically after each session
+- Proactive session triggers MUST be logged with reasoning
 
 ### Self-Audit
 
@@ -297,6 +323,7 @@ ERI = (Accuracy x 0.40) + (Coverage x 0.25) + (Recency x 0.20) + (Consistency x 
 - Question bank accuracy spot-checks
 - Student progress data integrity validation
 - External API health checks (WhatsApp, LinkedIn connectivity)
+- Prediction accuracy tracking (gap predictions vs actual outcomes)
 
 ## Integration Boundaries
 
@@ -307,6 +334,7 @@ ERI = (Accuracy x 0.40) + (Coverage x 0.25) + (Recency x 0.20) + (Consistency x 
 - Syllabus structure and topic weights
 - Session history (own student only)
 - Scheduled action configurations
+- Learning profile and patterns
 
 ### Write Access
 
@@ -316,10 +344,12 @@ ERI = (Accuracy x 0.40) + (Coverage x 0.25) + (Recency x 0.20) + (Consistency x 
 - Study plans (with appropriate approval)
 - Scheduled action logs
 - Draft social media content (pending approval)
+- Learning profile updates
+- Mock exam results
+- Gap predictions
 
 ### Prohibited Access
 
-- Payment details or financial information (direct access prohibited)
 - Other students' data (cross-student access prohibited)
 - External system credentials (managed by MCP servers)
 - WhatsApp/LinkedIn account credentials directly
@@ -332,20 +362,20 @@ ERI = (Accuracy x 0.40) + (Coverage x 0.25) + (Recency x 0.20) + (Consistency x 
 | GitHub | @modelcontextprotocol/server-github | 1 | Version control, issues | No (internal) |
 | WhatsApp | whatsapp-mcp | 3 | Daily questions, test delivery, notifications | Yes, per message type |
 | LinkedIn | linkedin-mcp | 3 | Daily question posts, achievement sharing | Yes, per post |
-| Email | email-mcp | 4 | Parent reports, business notifications | Yes, per email |
-| Odoo | odoo-mcp | 4 | Payment tracking, subscriptions | Yes, all actions |
-| Twitter | twitter-mcp | 4 | Daily questions, engagement | Yes, per post |
-| Instagram | instagram-mcp | 4 | Visual content, stories | Yes, per post |
+
+**Explicitly NOT Included**:
+- No Odoo integration (no payment/subscription management)
+- No email-mcp (no external email communications)
+- No multi-user dashboard integrations
+- No B2B or academy platform integrations
 
 ### External Actions
 
 All external actions require human-in-the-loop approval:
-- LinkedIn, Twitter, Instagram posts or messages
+- LinkedIn posts or messages
 - WhatsApp notifications (except pre-approved scheduled content)
-- Email communications (including parent reports)
 - Any social media activity
 - Public sharing of student achievements
-- Payment or subscription modifications via Odoo
 
 ## Public Sharing Rules
 
@@ -364,6 +394,7 @@ All external actions require human-in-the-loop approval:
 | Streak achievement (7+ days) | No | Yes |
 | Topic mastery | No | Yes |
 | Exam readiness band upgrade | No | Yes |
+| Mock exam completion | No | Yes |
 
 ### Social Media Posts
 
@@ -390,5 +421,7 @@ All feature implementations MUST verify compliance with these principles. Comple
 | 1.0.0 | 2026-01-18 | Initial constitution |
 | 1.1.0 | 2026-01-30 | Phase 3 updates: subagent authority, scheduled actions, privacy-first sharing, external integrations |
 | 1.2.0 | 2026-02-01 | Phase 4 updates: B2B academy operations, business subagents, Odoo integration, data isolation rules |
+| 1.3.0 | 2026-02-02 | Phase 4 refactor: Removed B2B/business features, refocused on single-student autonomous coaching, added predictive intelligence rules |
+| 1.4.0 | 2026-02-04 | Phase 4 implementation complete: All 14 skills and 3 subagents implemented, cross-exam mapping finalized, autonomous coaching coordinator operational |
 
-**Version**: 1.2.0 | **Ratified**: 2026-01-18 | **Last Amended**: 2026-02-01
+**Version**: 1.4.0 | **Ratified**: 2026-01-18 | **Last Amended**: 2026-02-04

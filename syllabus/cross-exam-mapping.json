@@ -1,152 +1,1502 @@
 {
-  "$schema": "exam-tutor/cross-exam-mapping/v1",
-  "version": "2024",
+  "$schema": "exam-tutor/cross-exam-mapping/v2",
+  "version": "2026",
+  "last_updated": "2026-02-03T00:00:00Z",
+  "description": "Complete topic equivalence mapping across SPSC, PPSC, and KPPSC exams",
+  "common_core": [
+    "Economy of Pakistan",
+    "Foreign Relations",
+    "World Geography",
+    "Famous Personalities",
+    "International Organizations",
+    "Inventions and Discoveries",
+    "International Current Events",
+    "Sports Updates",
+    "Awards and Honors",
+    "Vocabulary",
+    "Comprehension",
+    "Sentence Correction",
+    "Algebra",
+    "Geometry",
+    "Data Interpretation",
+    "Pillars of Islam",
+    "Life of Prophet Muhammad",
+    "Islamic History"
+  ],
+  "provincial_specific": {
+    "SPSC": [
+      "Sindh Local Government",
+      "Sindh Geography",
+      "Sindh History Post-1947",
+      "Sindh Culture and Heritage"
+    ],
+    "PPSC": [
+      "Punjab Local Government",
+      "Punjab Geography",
+      "Punjab History",
+      "Punjab Development Programs"
+    ],
+    "KPPSC": [
+      "KPK Local Government",
+      "KPK Geography",
+      "KPK History and Tribal Areas",
+      "KPK Development and CPEC"
+    ]
+  },
   "mappings": {
     "PPSC": {
       "Independence Movement": {
+        "subject": "Pakistan Studies",
+        "weight": 0.25,
         "equivalents": {
           "SPSC": {
             "topic": "Pakistan Movement",
             "confidence": 0.95,
-            "notes": "Nearly identical coverage, same historical events"
+            "coverage_overlap": 0.92,
+            "notes": "Nearly identical coverage, same historical events (1857-1947)"
           },
           "KPPSC": {
             "topic": "Creation of Pakistan",
-            "confidence": 0.90,
-            "notes": "Similar scope with regional emphasis variations"
+            "confidence": 0.92,
+            "coverage_overlap": 0.88,
+            "notes": "Similar scope with minor regional emphasis variations"
           }
         }
       },
       "Constitutional History": {
+        "subject": "Pakistan Studies",
+        "weight": 0.20,
         "equivalents": {
           "SPSC": {
             "topic": "Constitutional Development",
-            "confidence": 0.92,
-            "notes": "Same constitutional amendments and structure"
+            "confidence": 0.95,
+            "coverage_overlap": 0.90,
+            "notes": "Same constitutional amendments and federal structure"
           },
           "KPPSC": {
             "topic": "Pakistan Constitution",
-            "confidence": 0.90,
-            "notes": "Similar content, different question patterns"
+            "confidence": 0.93,
+            "coverage_overlap": 0.88,
+            "notes": "Similar content, minor question pattern differences"
           }
         }
       },
       "Geography of Pakistan": {
+        "subject": "Pakistan Studies",
+        "weight": 0.20,
         "equivalents": {
           "SPSC": {
             "topic": "Physical Geography",
-            "confidence": 0.85,
-            "notes": "SPSC may emphasize Sindh geography more"
+            "confidence": 0.80,
+            "coverage_overlap": 0.70,
+            "notes": "SPSC emphasizes Sindh geography; national geography shared"
           },
           "KPPSC": {
             "topic": "Geography",
-            "confidence": 0.85,
-            "notes": "KPPSC may emphasize KPK geography more"
+            "confidence": 0.80,
+            "coverage_overlap": 0.70,
+            "notes": "KPPSC emphasizes KPK geography; national geography shared"
+          }
+        }
+      },
+      "Economy of Pakistan": {
+        "subject": "Pakistan Studies",
+        "weight": 0.15,
+        "equivalents": {
+          "SPSC": {
+            "topic": "Economy of Pakistan",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical national economic content"
+          },
+          "KPPSC": {
+            "topic": "Economy of Pakistan",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical national economic content"
+          }
+        }
+      },
+      "Foreign Relations": {
+        "subject": "Pakistan Studies",
+        "weight": 0.20,
+        "equivalents": {
+          "SPSC": {
+            "topic": "Foreign Relations",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical foreign policy content"
+          },
+          "KPPSC": {
+            "topic": "Foreign Relations",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical foreign policy content"
+          }
+        }
+      },
+      "World Geography": {
+        "subject": "General Knowledge",
+        "weight": 0.20,
+        "equivalents": {
+          "SPSC": {
+            "topic": "World Geography",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical world geography content"
+          },
+          "KPPSC": {
+            "topic": "World Geography",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical world geography content"
           }
         }
       },
       "General Science": {
+        "subject": "General Knowledge",
+        "weight": 0.25,
         "equivalents": {
           "SPSC": {
             "topic": "Everyday Science",
             "confidence": 0.95,
-            "notes": "Essentially the same topics across all exams"
+            "coverage_overlap": 0.92,
+            "notes": "Essentially same topics, slightly different naming"
           },
           "KPPSC": {
             "topic": "General Science",
             "confidence": 0.98,
+            "coverage_overlap": 0.98,
             "notes": "Identical topic coverage"
           }
         }
       },
+      "Famous Personalities": {
+        "subject": "General Knowledge",
+        "weight": 0.15,
+        "equivalents": {
+          "SPSC": {
+            "topic": "Famous Personalities",
+            "confidence": 0.95,
+            "coverage_overlap": 0.90,
+            "notes": "Mostly same, SPSC may include more Sindhi personalities"
+          },
+          "KPPSC": {
+            "topic": "Famous Personalities",
+            "confidence": 0.95,
+            "coverage_overlap": 0.90,
+            "notes": "Mostly same, KPPSC may include more Pashtun personalities"
+          }
+        }
+      },
+      "International Organizations": {
+        "subject": "General Knowledge",
+        "weight": 0.20,
+        "equivalents": {
+          "SPSC": {
+            "topic": "International Organizations",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical coverage of UN, WHO, IMF, etc."
+          },
+          "KPPSC": {
+            "topic": "International Organizations",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical coverage of UN, WHO, IMF, etc."
+          }
+        }
+      },
+      "Inventions and Discoveries": {
+        "subject": "General Knowledge",
+        "weight": 0.20,
+        "equivalents": {
+          "SPSC": {
+            "topic": "Inventions and Discoveries",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical scientific content"
+          },
+          "KPPSC": {
+            "topic": "Inventions and Discoveries",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical scientific content"
+          }
+        }
+      },
+      "Pakistan Current Events": {
+        "subject": "Current Affairs",
+        "weight": 0.40,
+        "equivalents": {
+          "SPSC": {
+            "topic": "Pakistan Current Events",
+            "confidence": 0.85,
+            "coverage_overlap": 0.75,
+            "notes": "National events same; SPSC includes Sindh-specific events"
+          },
+          "KPPSC": {
+            "topic": "Pakistan Current Events",
+            "confidence": 0.85,
+            "coverage_overlap": 0.75,
+            "notes": "National events same; KPPSC includes KPK-specific events"
+          }
+        }
+      },
+      "International Current Events": {
+        "subject": "Current Affairs",
+        "weight": 0.35,
+        "equivalents": {
+          "SPSC": {
+            "topic": "International Current Events",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical global events coverage"
+          },
+          "KPPSC": {
+            "topic": "International Current Events",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical global events coverage"
+          }
+        }
+      },
+      "Sports Updates": {
+        "subject": "Current Affairs",
+        "weight": 0.15,
+        "equivalents": {
+          "SPSC": {
+            "topic": "Sports Updates",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical sports content"
+          },
+          "KPPSC": {
+            "topic": "Sports Updates",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical sports content"
+          }
+        }
+      },
+      "Awards and Honors": {
+        "subject": "Current Affairs",
+        "weight": 0.10,
+        "equivalents": {
+          "SPSC": {
+            "topic": "Awards and Honors",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical awards coverage"
+          },
+          "KPPSC": {
+            "topic": "Awards and Honors",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical awards coverage"
+          }
+        }
+      },
       "Grammar": {
+        "subject": "English",
+        "weight": 0.30,
         "equivalents": {
           "SPSC": {
             "topic": "English Grammar",
             "confidence": 0.95,
-            "notes": "Standard grammar topics across all exams"
+            "coverage_overlap": 0.95,
+            "notes": "Standard grammar topics, slight naming difference"
           },
           "KPPSC": {
             "topic": "Grammar",
             "confidence": 0.98,
+            "coverage_overlap": 0.98,
             "notes": "Identical grammar requirements"
           }
         }
       },
+      "Vocabulary": {
+        "subject": "English",
+        "weight": 0.25,
+        "equivalents": {
+          "SPSC": {
+            "topic": "Vocabulary",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical vocabulary requirements"
+          },
+          "KPPSC": {
+            "topic": "Vocabulary",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical vocabulary requirements"
+          }
+        }
+      },
+      "Comprehension": {
+        "subject": "English",
+        "weight": 0.25,
+        "equivalents": {
+          "SPSC": {
+            "topic": "Comprehension",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical comprehension format"
+          },
+          "KPPSC": {
+            "topic": "Comprehension",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical comprehension format"
+          }
+        }
+      },
+      "Sentence Correction": {
+        "subject": "English",
+        "weight": 0.20,
+        "equivalents": {
+          "SPSC": {
+            "topic": "Sentence Correction",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical error correction format"
+          },
+          "KPPSC": {
+            "topic": "Sentence Correction",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical error correction format"
+          }
+        }
+      },
       "Arithmetic": {
+        "subject": "Mathematics",
+        "weight": 0.30,
         "equivalents": {
           "SPSC": {
             "topic": "Basic Mathematics",
-            "confidence": 0.90,
-            "notes": "Similar mathematical concepts"
+            "confidence": 0.92,
+            "coverage_overlap": 0.88,
+            "notes": "Same concepts, different naming convention"
           },
           "KPPSC": {
             "topic": "Quantitative Aptitude",
             "confidence": 0.88,
-            "notes": "KPPSC may include more aptitude-style questions"
+            "coverage_overlap": 0.82,
+            "notes": "KPPSC includes more aptitude-style questions"
+          }
+        }
+      },
+      "Algebra": {
+        "subject": "Mathematics",
+        "weight": 0.25,
+        "equivalents": {
+          "SPSC": {
+            "topic": "Algebra",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical algebraic content"
+          },
+          "KPPSC": {
+            "topic": "Algebra",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical algebraic content"
+          }
+        }
+      },
+      "Geometry": {
+        "subject": "Mathematics",
+        "weight": 0.20,
+        "equivalents": {
+          "SPSC": {
+            "topic": "Geometry",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical geometry content"
+          },
+          "KPPSC": {
+            "topic": "Geometry",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical geometry content"
+          }
+        }
+      },
+      "Data Interpretation": {
+        "subject": "Mathematics",
+        "weight": 0.25,
+        "equivalents": {
+          "SPSC": {
+            "topic": "Data Interpretation",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical data analysis content"
+          },
+          "KPPSC": {
+            "topic": "Data Interpretation",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical data analysis content"
           }
         }
       },
       "Basic Beliefs": {
+        "subject": "Islamiat",
+        "weight": 0.25,
         "equivalents": {
           "SPSC": {
             "topic": "Islamic Studies - Beliefs",
             "confidence": 0.95,
-            "notes": "Universal Islamic content"
+            "coverage_overlap": 0.95,
+            "notes": "Universal Islamic content, slight naming difference"
           },
           "KPPSC": {
             "topic": "Islamiat Fundamentals",
             "confidence": 0.95,
-            "notes": "Universal Islamic content"
+            "coverage_overlap": 0.95,
+            "notes": "Universal Islamic content, slight naming difference"
           }
         }
       },
-      "Current Affairs": {
+      "Pillars of Islam": {
+        "subject": "Islamiat",
+        "weight": 0.25,
         "equivalents": {
           "SPSC": {
-            "topic": "Current Affairs",
-            "confidence": 0.80,
-            "notes": "National events similar, regional events differ"
+            "topic": "Pillars of Islam",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
           },
           "KPPSC": {
-            "topic": "Current Affairs",
-            "confidence": 0.80,
-            "notes": "National events similar, regional events differ"
+            "topic": "Pillars of Islam",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          }
+        }
+      },
+      "Life of Prophet Muhammad": {
+        "subject": "Islamiat",
+        "weight": 0.30,
+        "equivalents": {
+          "SPSC": {
+            "topic": "Life of Prophet Muhammad",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical Seerah content"
+          },
+          "KPPSC": {
+            "topic": "Life of Prophet Muhammad",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical Seerah content"
+          }
+        }
+      },
+      "Islamic History": {
+        "subject": "Islamiat",
+        "weight": 0.20,
+        "equivalents": {
+          "SPSC": {
+            "topic": "Islamic History",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical Islamic civilization content"
+          },
+          "KPPSC": {
+            "topic": "Islamic History",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical Islamic civilization content"
           }
         }
       }
     },
     "SPSC": {
       "Pakistan Movement": {
+        "subject": "Pakistan Studies",
+        "weight": 0.25,
         "equivalents": {
           "PPSC": {
             "topic": "Independence Movement",
             "confidence": 0.95,
+            "coverage_overlap": 0.92,
             "notes": "Nearly identical coverage"
           },
           "KPPSC": {
             "topic": "Creation of Pakistan",
-            "confidence": 0.90,
+            "confidence": 0.92,
+            "coverage_overlap": 0.88,
             "notes": "Similar historical content"
+          }
+        }
+      },
+      "Constitutional Development": {
+        "subject": "Pakistan Studies",
+        "weight": 0.20,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Constitutional History",
+            "confidence": 0.95,
+            "coverage_overlap": 0.90,
+            "notes": "Same constitutional amendments and structure"
+          },
+          "KPPSC": {
+            "topic": "Pakistan Constitution",
+            "confidence": 0.93,
+            "coverage_overlap": 0.88,
+            "notes": "Similar content"
+          }
+        }
+      },
+      "Physical Geography": {
+        "subject": "Pakistan Studies",
+        "weight": 0.20,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Geography of Pakistan",
+            "confidence": 0.80,
+            "coverage_overlap": 0.70,
+            "notes": "National geography shared; Sindh-specific content does not transfer"
+          },
+          "KPPSC": {
+            "topic": "Geography",
+            "confidence": 0.75,
+            "coverage_overlap": 0.65,
+            "notes": "National geography shared; provincial content differs significantly"
+          }
+        }
+      },
+      "Economy of Pakistan": {
+        "subject": "Pakistan Studies",
+        "weight": 0.15,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Economy of Pakistan",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical national economic content"
+          },
+          "KPPSC": {
+            "topic": "Economy of Pakistan",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical national economic content"
+          }
+        }
+      },
+      "Foreign Relations": {
+        "subject": "Pakistan Studies",
+        "weight": 0.20,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Foreign Relations",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical foreign policy content"
+          },
+          "KPPSC": {
+            "topic": "Foreign Relations",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical foreign policy content"
+          }
+        }
+      },
+      "World Geography": {
+        "subject": "General Knowledge",
+        "weight": 0.20,
+        "equivalents": {
+          "PPSC": {
+            "topic": "World Geography",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical world geography content"
+          },
+          "KPPSC": {
+            "topic": "World Geography",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical world geography content"
+          }
+        }
+      },
+      "Everyday Science": {
+        "subject": "General Knowledge",
+        "weight": 0.25,
+        "equivalents": {
+          "PPSC": {
+            "topic": "General Science",
+            "confidence": 0.95,
+            "coverage_overlap": 0.92,
+            "notes": "Same content, different naming"
+          },
+          "KPPSC": {
+            "topic": "General Science",
+            "confidence": 0.95,
+            "coverage_overlap": 0.92,
+            "notes": "Same content, different naming"
+          }
+        }
+      },
+      "Famous Personalities": {
+        "subject": "General Knowledge",
+        "weight": 0.15,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Famous Personalities",
+            "confidence": 0.95,
+            "coverage_overlap": 0.90,
+            "notes": "Mostly same; some regional personalities differ"
+          },
+          "KPPSC": {
+            "topic": "Famous Personalities",
+            "confidence": 0.95,
+            "coverage_overlap": 0.90,
+            "notes": "Mostly same; some regional personalities differ"
+          }
+        }
+      },
+      "International Organizations": {
+        "subject": "General Knowledge",
+        "weight": 0.20,
+        "equivalents": {
+          "PPSC": {
+            "topic": "International Organizations",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          },
+          "KPPSC": {
+            "topic": "International Organizations",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          }
+        }
+      },
+      "Inventions and Discoveries": {
+        "subject": "General Knowledge",
+        "weight": 0.20,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Inventions and Discoveries",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          },
+          "KPPSC": {
+            "topic": "Inventions and Discoveries",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          }
+        }
+      },
+      "Pakistan Current Events": {
+        "subject": "Current Affairs",
+        "weight": 0.40,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Pakistan Current Events",
+            "confidence": 0.85,
+            "coverage_overlap": 0.75,
+            "notes": "National events same; Sindh-specific events don't transfer"
+          },
+          "KPPSC": {
+            "topic": "Pakistan Current Events",
+            "confidence": 0.85,
+            "coverage_overlap": 0.75,
+            "notes": "National events same; provincial events differ"
+          }
+        }
+      },
+      "International Current Events": {
+        "subject": "Current Affairs",
+        "weight": 0.35,
+        "equivalents": {
+          "PPSC": {
+            "topic": "International Current Events",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical global events"
+          },
+          "KPPSC": {
+            "topic": "International Current Events",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical global events"
+          }
+        }
+      },
+      "Sports Updates": {
+        "subject": "Current Affairs",
+        "weight": 0.15,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Sports Updates",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical content"
+          },
+          "KPPSC": {
+            "topic": "Sports Updates",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical content"
+          }
+        }
+      },
+      "Awards and Honors": {
+        "subject": "Current Affairs",
+        "weight": 0.10,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Awards and Honors",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical content"
+          },
+          "KPPSC": {
+            "topic": "Awards and Honors",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical content"
+          }
+        }
+      },
+      "English Grammar": {
+        "subject": "English",
+        "weight": 0.30,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Grammar",
+            "confidence": 0.95,
+            "coverage_overlap": 0.95,
+            "notes": "Same content, slight naming difference"
+          },
+          "KPPSC": {
+            "topic": "Grammar",
+            "confidence": 0.95,
+            "coverage_overlap": 0.95,
+            "notes": "Same content, slight naming difference"
+          }
+        }
+      },
+      "Vocabulary": {
+        "subject": "English",
+        "weight": 0.25,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Vocabulary",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          },
+          "KPPSC": {
+            "topic": "Vocabulary",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          }
+        }
+      },
+      "Comprehension": {
+        "subject": "English",
+        "weight": 0.25,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Comprehension",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical format"
+          },
+          "KPPSC": {
+            "topic": "Comprehension",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical format"
+          }
+        }
+      },
+      "Sentence Correction": {
+        "subject": "English",
+        "weight": 0.20,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Sentence Correction",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical format"
+          },
+          "KPPSC": {
+            "topic": "Sentence Correction",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical format"
+          }
+        }
+      },
+      "Basic Mathematics": {
+        "subject": "Mathematics",
+        "weight": 0.30,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Arithmetic",
+            "confidence": 0.92,
+            "coverage_overlap": 0.88,
+            "notes": "Same concepts, different naming"
+          },
+          "KPPSC": {
+            "topic": "Quantitative Aptitude",
+            "confidence": 0.88,
+            "coverage_overlap": 0.82,
+            "notes": "KPPSC has more aptitude-style questions"
+          }
+        }
+      },
+      "Algebra": {
+        "subject": "Mathematics",
+        "weight": 0.25,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Algebra",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          },
+          "KPPSC": {
+            "topic": "Algebra",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          }
+        }
+      },
+      "Geometry": {
+        "subject": "Mathematics",
+        "weight": 0.20,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Geometry",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          },
+          "KPPSC": {
+            "topic": "Geometry",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          }
+        }
+      },
+      "Data Interpretation": {
+        "subject": "Mathematics",
+        "weight": 0.25,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Data Interpretation",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          },
+          "KPPSC": {
+            "topic": "Data Interpretation",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          }
+        }
+      },
+      "Islamic Studies - Beliefs": {
+        "subject": "Islamiat",
+        "weight": 0.25,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Basic Beliefs",
+            "confidence": 0.95,
+            "coverage_overlap": 0.95,
+            "notes": "Universal Islamic content"
+          },
+          "KPPSC": {
+            "topic": "Islamiat Fundamentals",
+            "confidence": 0.95,
+            "coverage_overlap": 0.95,
+            "notes": "Universal Islamic content"
+          }
+        }
+      },
+      "Pillars of Islam": {
+        "subject": "Islamiat",
+        "weight": 0.25,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Pillars of Islam",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          },
+          "KPPSC": {
+            "topic": "Pillars of Islam",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          }
+        }
+      },
+      "Life of Prophet Muhammad": {
+        "subject": "Islamiat",
+        "weight": 0.30,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Life of Prophet Muhammad",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          },
+          "KPPSC": {
+            "topic": "Life of Prophet Muhammad",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          }
+        }
+      },
+      "Islamic History": {
+        "subject": "Islamiat",
+        "weight": 0.20,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Islamic History",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          },
+          "KPPSC": {
+            "topic": "Islamic History",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
           }
         }
       }
     },
     "KPPSC": {
       "Creation of Pakistan": {
+        "subject": "Pakistan Studies",
+        "weight": 0.25,
         "equivalents": {
           "PPSC": {
             "topic": "Independence Movement",
-            "confidence": 0.90,
+            "confidence": 0.92,
+            "coverage_overlap": 0.88,
             "notes": "Similar historical content"
           },
           "SPSC": {
             "topic": "Pakistan Movement",
-            "confidence": 0.90,
+            "confidence": 0.92,
+            "coverage_overlap": 0.88,
             "notes": "Similar historical content"
           }
         }
+      },
+      "Pakistan Constitution": {
+        "subject": "Pakistan Studies",
+        "weight": 0.20,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Constitutional History",
+            "confidence": 0.93,
+            "coverage_overlap": 0.88,
+            "notes": "Similar content"
+          },
+          "SPSC": {
+            "topic": "Constitutional Development",
+            "confidence": 0.93,
+            "coverage_overlap": 0.88,
+            "notes": "Similar content"
+          }
+        }
+      },
+      "Geography": {
+        "subject": "Pakistan Studies",
+        "weight": 0.20,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Geography of Pakistan",
+            "confidence": 0.80,
+            "coverage_overlap": 0.70,
+            "notes": "National geography shared; KPK-specific content does not transfer"
+          },
+          "SPSC": {
+            "topic": "Physical Geography",
+            "confidence": 0.75,
+            "coverage_overlap": 0.65,
+            "notes": "National geography shared; provincial content differs significantly"
+          }
+        }
+      },
+      "Economy of Pakistan": {
+        "subject": "Pakistan Studies",
+        "weight": 0.15,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Economy of Pakistan",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical national economic content"
+          },
+          "SPSC": {
+            "topic": "Economy of Pakistan",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical national economic content"
+          }
+        }
+      },
+      "Foreign Relations": {
+        "subject": "Pakistan Studies",
+        "weight": 0.20,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Foreign Relations",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical foreign policy content"
+          },
+          "SPSC": {
+            "topic": "Foreign Relations",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical foreign policy content"
+          }
+        }
+      },
+      "World Geography": {
+        "subject": "General Knowledge",
+        "weight": 0.20,
+        "equivalents": {
+          "PPSC": {
+            "topic": "World Geography",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical content"
+          },
+          "SPSC": {
+            "topic": "World Geography",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical content"
+          }
+        }
+      },
+      "General Science": {
+        "subject": "General Knowledge",
+        "weight": 0.25,
+        "equivalents": {
+          "PPSC": {
+            "topic": "General Science",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          },
+          "SPSC": {
+            "topic": "Everyday Science",
+            "confidence": 0.95,
+            "coverage_overlap": 0.92,
+            "notes": "Same content, different naming"
+          }
+        }
+      },
+      "Famous Personalities": {
+        "subject": "General Knowledge",
+        "weight": 0.15,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Famous Personalities",
+            "confidence": 0.95,
+            "coverage_overlap": 0.90,
+            "notes": "Mostly same; some regional personalities differ"
+          },
+          "SPSC": {
+            "topic": "Famous Personalities",
+            "confidence": 0.95,
+            "coverage_overlap": 0.90,
+            "notes": "Mostly same; some regional personalities differ"
+          }
+        }
+      },
+      "International Organizations": {
+        "subject": "General Knowledge",
+        "weight": 0.20,
+        "equivalents": {
+          "PPSC": {
+            "topic": "International Organizations",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          },
+          "SPSC": {
+            "topic": "International Organizations",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          }
+        }
+      },
+      "Inventions and Discoveries": {
+        "subject": "General Knowledge",
+        "weight": 0.20,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Inventions and Discoveries",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          },
+          "SPSC": {
+            "topic": "Inventions and Discoveries",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          }
+        }
+      },
+      "Pakistan Current Events": {
+        "subject": "Current Affairs",
+        "weight": 0.40,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Pakistan Current Events",
+            "confidence": 0.85,
+            "coverage_overlap": 0.75,
+            "notes": "National events same; KPK-specific events don't transfer"
+          },
+          "SPSC": {
+            "topic": "Pakistan Current Events",
+            "confidence": 0.85,
+            "coverage_overlap": 0.75,
+            "notes": "National events same; provincial events differ"
+          }
+        }
+      },
+      "International Current Events": {
+        "subject": "Current Affairs",
+        "weight": 0.35,
+        "equivalents": {
+          "PPSC": {
+            "topic": "International Current Events",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical global events"
+          },
+          "SPSC": {
+            "topic": "International Current Events",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical global events"
+          }
+        }
+      },
+      "Sports Updates": {
+        "subject": "Current Affairs",
+        "weight": 0.15,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Sports Updates",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical content"
+          },
+          "SPSC": {
+            "topic": "Sports Updates",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical content"
+          }
+        }
+      },
+      "Awards and Honors": {
+        "subject": "Current Affairs",
+        "weight": 0.10,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Awards and Honors",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical content"
+          },
+          "SPSC": {
+            "topic": "Awards and Honors",
+            "confidence": 0.98,
+            "coverage_overlap": 0.95,
+            "notes": "Identical content"
+          }
+        }
+      },
+      "Grammar": {
+        "subject": "English",
+        "weight": 0.30,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Grammar",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical grammar requirements"
+          },
+          "SPSC": {
+            "topic": "English Grammar",
+            "confidence": 0.95,
+            "coverage_overlap": 0.95,
+            "notes": "Same content, slight naming difference"
+          }
+        }
+      },
+      "Vocabulary": {
+        "subject": "English",
+        "weight": 0.25,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Vocabulary",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          },
+          "SPSC": {
+            "topic": "Vocabulary",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          }
+        }
+      },
+      "Comprehension": {
+        "subject": "English",
+        "weight": 0.25,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Comprehension",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical format"
+          },
+          "SPSC": {
+            "topic": "Comprehension",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical format"
+          }
+        }
+      },
+      "Sentence Correction": {
+        "subject": "English",
+        "weight": 0.20,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Sentence Correction",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical format"
+          },
+          "SPSC": {
+            "topic": "Sentence Correction",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical format"
+          }
+        }
+      },
+      "Quantitative Aptitude": {
+        "subject": "Mathematics",
+        "weight": 0.30,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Arithmetic",
+            "confidence": 0.88,
+            "coverage_overlap": 0.82,
+            "notes": "KPPSC has more aptitude-style questions"
+          },
+          "SPSC": {
+            "topic": "Basic Mathematics",
+            "confidence": 0.88,
+            "coverage_overlap": 0.82,
+            "notes": "KPPSC has more aptitude-style questions"
+          }
+        }
+      },
+      "Algebra": {
+        "subject": "Mathematics",
+        "weight": 0.25,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Algebra",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          },
+          "SPSC": {
+            "topic": "Algebra",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          }
+        }
+      },
+      "Geometry": {
+        "subject": "Mathematics",
+        "weight": 0.20,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Geometry",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          },
+          "SPSC": {
+            "topic": "Geometry",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          }
+        }
+      },
+      "Data Interpretation": {
+        "subject": "Mathematics",
+        "weight": 0.25,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Data Interpretation",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          },
+          "SPSC": {
+            "topic": "Data Interpretation",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          }
+        }
+      },
+      "Islamiat Fundamentals": {
+        "subject": "Islamiat",
+        "weight": 0.25,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Basic Beliefs",
+            "confidence": 0.95,
+            "coverage_overlap": 0.95,
+            "notes": "Universal Islamic content"
+          },
+          "SPSC": {
+            "topic": "Islamic Studies - Beliefs",
+            "confidence": 0.95,
+            "coverage_overlap": 0.95,
+            "notes": "Universal Islamic content"
+          }
+        }
+      },
+      "Pillars of Islam": {
+        "subject": "Islamiat",
+        "weight": 0.25,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Pillars of Islam",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          },
+          "SPSC": {
+            "topic": "Pillars of Islam",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          }
+        }
+      },
+      "Life of Prophet Muhammad": {
+        "subject": "Islamiat",
+        "weight": 0.30,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Life of Prophet Muhammad",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          },
+          "SPSC": {
+            "topic": "Life of Prophet Muhammad",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          }
+        }
+      },
+      "Islamic History": {
+        "subject": "Islamiat",
+        "weight": 0.20,
+        "equivalents": {
+          "PPSC": {
+            "topic": "Islamic History",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          },
+          "SPSC": {
+            "topic": "Islamic History",
+            "confidence": 0.98,
+            "coverage_overlap": 0.98,
+            "notes": "Identical content"
+          }
+        }
       }
+    }
+  },
+  "transfer_statistics": {
+    "PPSC_to_SPSC": {
+      "average_confidence": 0.94,
+      "average_coverage": 0.91,
+      "high_transfer_topics": 24,
+      "partial_transfer_topics": 3,
+      "provincial_specific_gaps": 4
+    },
+    "PPSC_to_KPPSC": {
+      "average_confidence": 0.93,
+      "average_coverage": 0.90,
+      "high_transfer_topics": 23,
+      "partial_transfer_topics": 4,
+      "provincial_specific_gaps": 4
+    },
+    "SPSC_to_PPSC": {
+      "average_confidence": 0.94,
+      "average_coverage": 0.91,
+      "high_transfer_topics": 24,
+      "partial_transfer_topics": 3,
+      "provincial_specific_gaps": 4
+    },
+    "SPSC_to_KPPSC": {
+      "average_confidence": 0.93,
+      "average_coverage": 0.89,
+      "high_transfer_topics": 23,
+      "partial_transfer_topics": 4,
+      "provincial_specific_gaps": 4
+    },
+    "KPPSC_to_PPSC": {
+      "average_confidence": 0.93,
+      "average_coverage": 0.90,
+      "high_transfer_topics": 23,
+      "partial_transfer_topics": 4,
+      "provincial_specific_gaps": 4
+    },
+    "KPPSC_to_SPSC": {
+      "average_confidence": 0.93,
+      "average_coverage": 0.89,
+      "high_transfer_topics": 23,
+      "partial_transfer_topics": 4,
+      "provincial_specific_gaps": 4
     }
   }
 }

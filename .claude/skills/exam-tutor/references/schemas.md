@@ -730,3 +730,393 @@ All schemas have required fields marked. Skills must validate:
 - `weight`: 0.00 to 1.00
 - `confidence`: 0.00 to 1.00
 - `eri_score`: 0 to 100
+
+---
+
+## Phase 4: Autonomous Coach Schemas
+
+### learning-profile.json
+
+Location: `memory/students/{student_id}/learning-profile.json`
+
+```json
+{
+  "$schema": "exam-tutor/learning-profile/v1",
+  "student_id": "string (required)",
+  "optimal_study_times": ["morning", "evening"],
+  "session_duration_preference": "integer minutes (default: 30)",
+  "learning_velocity": {
+    "fast_topics": ["string topic names"],
+    "slow_topics": ["string topic names"]
+  },
+  "engagement_patterns": {
+    "peak_days": ["monday", "wednesday", "saturday"],
+    "low_engagement_days": ["friday"],
+    "average_sessions_per_week": "number",
+    "dropout_risk_indicators": ["string indicators"]
+  },
+  "preferred_difficulty_ramp": "gradual | aggressive | mixed (default: gradual)",
+  "response_to_pressure": "low | moderate | high (default: moderate)",
+  "created_at": "string ISO 8601 (required)",
+  "updated_at": "string ISO 8601 (required)"
+}
+```
+
+### mock-exam-result.json
+
+Location: `memory/students/{student_id}/mock-exams/{session_id}.json`
+
+```json
+{
+  "$schema": "exam-tutor/mock-exam-result/v1",
+  "session_id": "string (required)",
+  "student_id": "string (required)",
+  "exam_type": "SPSC | PPSC | KPPSC (required)",
+  "exam_format": {
+    "total_questions": "integer (default: 100)",
+    "duration_minutes": "integer (default: 180)",
+    "sections": ["pakistan_studies", "general_knowledge", "current_affairs", "english", "math"]
+  },
+  "results": {
+    "completed_questions": "integer (required)",
+    "time_taken_minutes": "integer (required)",
+    "time_per_question_avg_seconds": "number (required)",
+    "section_breakdown": {
+      "<section_name>": {
+        "correct": "integer",
+        "total": "integer",
+        "time_avg": "number seconds"
+      }
+    },
+    "overall_score": "number 0-100 (required)",
+    "percentile_estimate": "number 0-100 (optional)"
+  },
+  "analysis": {
+    "pressure_handling": "low | moderate | high (required)",
+    "fatigue_detected_at_question": "integer | null",
+    "accuracy_trend": "string description (required)",
+    "time_management": "string description (required)"
+  },
+  "predictions": {
+    "predicted_real_exam_score": "number 0-100 (required)",
+    "confidence_interval": ["number lower", "number upper"],
+    "ready_for_exam": "boolean (required)",
+    "recommended_mock_count": "integer (required)"
+  },
+  "created_at": "string ISO 8601 (required)"
+}
+```
+
+### retention-data.json
+
+Location: `memory/students/{student_id}/retention-data.json`
+
+```json
+{
+  "$schema": "exam-tutor/retention-data/v1",
+  "student_id": "string (required)",
+  "topics": {
+    "<topic_id>": {
+      "easiness_factor": "number >= 1.3 (default: 2.5)",
+      "repetition_count": "integer (default: 0)",
+      "optimal_interval_days": "integer (default: 1)",
+      "last_quality": "integer 0-5",
+      "last_reviewed": "string ISO 8601",
+      "retention_score": "number 0-1",
+      "decay_rate": "number per day",
+      "status": "strong | stable | weakening | critical",
+      "review_history": [
+        {
+          "date": "string ISO 8601",
+          "accuracy": "number 0-100",
+          "quality": "integer 0-5",
+          "interval_before": "integer days",
+          "interval_after": "integer days"
+        }
+      ]
+    }
+  },
+  "settings": {
+    "algorithm": "sm2",
+    "minimum_retention_target": "number (default: 0.70)",
+    "initial_easiness_factor": "number (default: 2.5)"
+  },
+  "updated_at": "string ISO 8601"
+}
+```
+
+### revision-queue.json
+
+Location: `memory/students/{student_id}/revision-queue.json`
+
+```json
+{
+  "$schema": "exam-tutor/revision-queue/v1",
+  "student_id": "string (required)",
+  "queue": [
+    {
+      "topic_id": "string (required)",
+      "subject": "string (required)",
+      "last_reviewed": "string ISO 8601 (required)",
+      "retention_score": "number 0-1 (required)",
+      "decay_rate": "number 0-1 (required)",
+      "due_date": "string ISO 8601 (required)",
+      "priority": "urgent | high | normal | low (required)",
+      "revision_count": "integer (required)",
+      "optimal_interval_days": "integer (required)"
+    }
+  ],
+  "settings": {
+    "algorithm": "sm2 (default)",
+    "minimum_retention_target": "number 0-1 (default: 0.70)",
+    "daily_revision_limit": "integer (default: 10)"
+  },
+  "updated_at": "string ISO 8601 (required)"
+}
+```
+
+### gap-predictions.json
+
+Location: `memory/students/{student_id}/gap-predictions.json`
+
+```json
+{
+  "$schema": "exam-tutor/gap-predictions/v1",
+  "student_id": "string (required)",
+  "predictions": [
+    {
+      "topic_id": "string (required)",
+      "subject": "string (required)",
+      "current_score": "number 0-1 (required)",
+      "predicted_score_7d": "number 0-1 (required)",
+      "predicted_score_14d": "number 0-1 (required)",
+      "risk_level": "high | medium | low (required)",
+      "contributing_factors": ["string factors"],
+      "recommended_action": "string action (required)"
+    }
+  ],
+  "generated_at": "string ISO 8601 (required)"
+}
+```
+
+### Session Audit Log (Phase 4)
+
+Location: `logs/sessions/{student_id}/{YYYY-MM-DD}.json`
+
+```json
+{
+  "$schema": "exam-tutor/session-audit-log/v1",
+  "date": "string ISO 8601 date (required)",
+  "sessions": [
+    {
+      "session_id": "string (required)",
+      "type": "autonomous_daily | mock_exam | intervention | student_initiated (required)",
+      "initiated_by": "system | student (required)",
+      "trigger_reason": "scheduled | gap_detected | revision_due | student_request (required)",
+      "started_at": "string ISO 8601 (required)",
+      "ended_at": "string ISO 8601 (required)",
+      "duration_minutes": "integer (required)",
+      "activities": [
+        {
+          "activity": "string activity type",
+          "questions_count": "integer",
+          "score": "number 0-1"
+        }
+      ],
+      "eri_before": "number 0-100 (required)",
+      "eri_after": "number 0-100 (required)",
+      "notes": "string (optional)"
+    }
+  ]
+}
+```
+
+### diagnostic-report.json
+
+Location: `memory/students/{student_id}/diagnostics/{topic_id}-{date}.json`
+
+```json
+{
+  "$schema": "exam-tutor/diagnostic-report/v1",
+  "student_id": "string (required)",
+  "topic_id": "string (required)",
+  "analyzed_at": "string ISO 8601 (required)",
+  "depth": "quick | standard | comprehensive (required)",
+  "current_accuracy": "number 0-100 (required)",
+  "severity": "critical | severe | moderate | mild (required)",
+  "root_causes": {
+    "primary": {
+      "code": "no_practice | insufficient_practice | historically_difficult | related_weakness | knowledge_decay | concept_confusion | time_pressure | difficulty_mismatch (required)",
+      "name": "string human readable (required)",
+      "confidence": "number 0-1 (required)",
+      "evidence": ["string data points (required)"]
+    },
+    "secondary": [
+      {
+        "code": "string (required)",
+        "name": "string (required)",
+        "confidence": "number 0-1 (required)"
+      }
+    ]
+  },
+  "contributing_factors": {
+    "negative": [
+      {
+        "factor": "practice_recency | practice_volume | retention_health | trend_direction | related_topic_health | difficulty_progression (required)",
+        "impact": "negative (required)",
+        "value": "number 0-1 (required)",
+        "description": "string (required)"
+      }
+    ],
+    "positive": [
+      {
+        "factor": "string (required)",
+        "impact": "positive (required)",
+        "value": "number 0-1 (required)",
+        "description": "string (required)"
+      }
+    ]
+  },
+  "recommendations": {
+    "primary_action": {
+      "action_type": "practice | review | prerequisite | drill (required)",
+      "description": "string (required)",
+      "specific_instruction": "string (required)",
+      "topic_focus": "string topic_id (required)",
+      "difficulty_level": "easy | medium | hard | adaptive (required)",
+      "questions_recommended": "integer (required)",
+      "estimated_time_minutes": "integer (required)",
+      "priority": "urgent | high | medium | low (required)",
+      "success_criteria": "string (required)"
+    },
+    "secondary_actions": [
+      {
+        "action_type": "string (required)",
+        "description": "string (required)",
+        "priority": "string (required)"
+      }
+    ]
+  }
+}
+```
+
+### trigger-log.json
+
+Location: `logs/triggers/{student_id}/{YYYY-MM-DD}.json`
+
+```json
+{
+  "$schema": "exam-tutor/trigger-log/v1",
+  "student_id": "string (required)",
+  "date": "string ISO 8601 date (required)",
+  "decisions": [
+    {
+      "decision_id": "string UUID (required)",
+      "checked_at": "string ISO 8601 (required)",
+      "trigger_score": "number 0-1 (required)",
+      "factor_scores": {
+        "time_gap": "number 0-1",
+        "knowledge_decay": "number 0-1",
+        "exam_urgency": "number 0-1",
+        "engagement": "number 0-1"
+      },
+      "should_trigger": "boolean (required)",
+      "status": "triggered | rejected | deferred (required)",
+      "rejection_reason": "daily_limit_reached | cooldown_active | score_below_threshold | quiet_hours_active | null",
+      "triggered_at": "string ISO 8601 | null",
+      "session_id": "string | null (if session was started)"
+    }
+  ],
+  "daily_summary": {
+    "total_checks": "integer (required)",
+    "total_triggers": "integer (required)",
+    "total_rejections": "integer (required)"
+  }
+}
+```
+
+### engagement-status.json
+
+Location: `memory/students/{student_id}/engagement-status.json`
+
+```json
+{
+  "$schema": "exam-tutor/engagement-status/v1",
+  "student_id": "string (required)",
+  "current_score": "number 0-1 (required)",
+  "trend": "improving | stable | slightly_declining | declining (required)",
+  "dropout_risk_level": "low | medium | high (required)",
+  "dropout_risk_indicators": ["declining_frequency | declining_performance | long_gaps | high_abandonment | shortened_sessions | reduced_questions"],
+  "last_checked": "string ISO 8601 (required)",
+  "engagement_history": [
+    {
+      "week_start": "string ISO 8601",
+      "score": "number 0-1",
+      "sessions_count": "integer",
+      "avg_accuracy": "number 0-100"
+    }
+  ],
+  "nudge_effectiveness": {
+    "total_nudges_sent": "integer",
+    "nudges_responded": "integer",
+    "response_rate": "number 0-1",
+    "avg_response_time_hours": "number"
+  }
+}
+```
+
+### optimized-schedule.json
+
+Location: `memory/students/{student_id}/optimized-schedule.json`
+
+```json
+{
+  "$schema": "exam-tutor/optimized-schedule/v1",
+  "student_id": "string (required)",
+  "generated_at": "string ISO 8601 (required)",
+  "week_start_date": "string ISO 8601 (required)",
+  "schedule": {
+    "<day_name>": [
+      {
+        "start_time": "HH:MM (required)",
+        "end_time": "HH:MM (required)",
+        "duration_minutes": "integer (required)",
+        "optimal_score": "number 0-1 (required)",
+        "content": {
+          "type": "revision | gap_intervention | practice | maintenance (required)",
+          "topic_id": "string (required)",
+          "priority": "integer (required)"
+        }
+      }
+    ]
+  },
+  "summary": {
+    "total_sessions": "integer (required)",
+    "total_hours": "number (required)",
+    "optimal_time_coverage": "number 0-1 (required)"
+  }
+}
+```
+
+### Phase 4 Validation Rules
+
+#### Autonomy Limits
+- Maximum 2 proactive session triggers per day
+- Minimum 4 hours cooldown between proactive triggers
+- Student preferences override algorithmic recommendations
+
+#### Retention Thresholds
+- `retention_score < 0.50`: Intervention required (urgent)
+- `retention_score < 0.70`: Revision due (high priority)
+- `retention_score >= 0.70`: On track (normal priority)
+
+#### Engagement Monitoring
+- Dropout risk indicators checked against 14-day windows
+- Graduated nudging: 1 day → 3 days → 7 days
+- Maximum 1 nudge per 24 hours
+- Escalate to human after 3 consecutive unresponsive nudges
+
+#### Mock Exam Format
+- PPSC/SPSC/KPPSC: 100 questions, 180 minutes, 5 sections
+- Section weights: 20 questions per section
+- Fatigue detection: Track accuracy decline after question 70

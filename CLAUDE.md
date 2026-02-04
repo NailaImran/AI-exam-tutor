@@ -18,13 +18,13 @@ This project is a **Digital FTE Competitive Exam Tutor** for Pakistani provincia
 | **Phase 1** | Foundation | Complete | `specs/phase-1-foundation/` |
 | **Phase 2** | Question Bank | Complete | `specs/phase-2-question-bank/` |
 | **Phase 3** | Growth Engine | Complete | `specs/phase-3-core-tutoring/` |
-| **Phase 4** | Full Platform & Autonomous | Planned | `specs/phase-4-gold-tier/` |
+| **Phase 4** | Autonomous Coach | In Progress | `specs/phase-4-gold-tier/` |
 
 **Phase Scope:**
 - **Phase 1**: Vault structure, 4 core skills, basic Q&A loop
 - **Phase 2**: Question bank automation, 1500+ questions
 - **Phase 3**: ERI, adaptive tests, WhatsApp, study plans, social media
-- **Phase 4**: B2B dashboard, Odoo integration, autonomous operations
+- **Phase 4**: Full autonomy, mock exams, deep diagnosis, predictive coaching
 
 ## Project Structure
 
@@ -60,7 +60,14 @@ AI-exam-tutor/
 │       ├── topic-stats.json        # Topic-level performance
 │       ├── active-plan.json        # Current study plan
 │       ├── sessions/               # Individual session details
-│       └── reports/                # Generated progress reports
+│       ├── reports/                # Generated progress reports
+│       ├── learning-profile.json   # Phase 4: Learning patterns
+│       ├── revision-queue.json     # Phase 4: Spaced repetition queue
+│       ├── gap-predictions.json    # Phase 4: Predicted weak areas
+│       ├── urgency-config.json     # Phase 4: Exam countdown config
+│       ├── engagement-tracking.json # Phase 4: Disengagement state
+│       ├── daily-interactions.json # Phase 4: Daily message limits
+│       └── mock-exams/             # Phase 4: Mock exam sessions
 │
 ├── question-bank/
 │   ├── SPSC/{Subject}/*.json
@@ -105,18 +112,22 @@ AI-exam-tutor/
 | 3 | ENGAGEMENT | approval-workflow | Human-in-the-loop approvals |
 | 3 | ENGAGEMENT | eri-badge-generator | Generate shareable ERI badges |
 | 3 | ENGAGEMENT | social-post-generator | LinkedIn post generation |
-| 4 | OPTIONAL | session-logger | Audit logging |
-| 4 | OPTIONAL | syllabus-mapper | Cross-exam topic mapping |
-| 4 | B2B | batch-test-assigner | Assign tests to groups |
-| 4 | B2B | performance-comparator | Compare student performance |
-| 4 | B2B | parent-report-generator | Create parent-friendly reports |
-| 4 | PREMIUM | mock-exam-generator | Full timed mock exams |
-| 4 | PREMIUM | deep-dive-analyzer | Detailed weak area analysis |
-| 4 | BUSINESS | payment-tracker | Track payments via Odoo |
-| 4 | BUSINESS | subscription-manager | Manage subscription lifecycle |
-| 4 | BUSINESS | business-audit-generator | Weekly business metrics |
+| 4 | CORE | session-logger | Audit trail for all interactions |
+| 4 | CORE | syllabus-mapper | Cross-exam topic mapping |
+| 4 | MASTERY | mock-exam-generator | Full timed mock exams |
+| 4 | MASTERY | mock-exam-evaluator | Comprehensive mock scoring |
+| 4 | MASTERY | exam-pressure-simulator | Time pressure simulation |
+| 4 | INTELLIGENCE | deep-dive-analyzer | Root-cause weak area analysis |
+| 4 | INTELLIGENCE | learning-pattern-detector | Identify optimal study patterns |
+| 4 | INTELLIGENCE | knowledge-gap-predictor | Predict future weak areas |
+| 4 | INTELLIGENCE | forgetting-curve-tracker | Track knowledge decay |
+| 4 | AUTONOMY | autonomous-session-initiator | Proactive session triggers |
+| 4 | AUTONOMY | study-pattern-optimizer | Study schedule optimization |
+| 4 | AUTONOMY | revision-cycle-manager | Spaced repetition management |
+| 4 | AUTONOMY | exam-countdown-calibrator | Smart urgency adjustment |
+| 4 | AUTONOMY | motivation-monitor | Engagement tracking |
 
-### Subagent Inventory (4 Total)
+### Subagent Inventory (7 Total)
 
 | Subagent | Phase | Purpose |
 |----------|-------|---------|
@@ -124,6 +135,9 @@ AI-exam-tutor/
 | study-strategy-planner | 3 | Orchestrate study plan creation with approval |
 | progress-reporting-coordinator | 3 | Weekly report generation and delivery |
 | social-media-coordinator | 3 | LinkedIn post workflow with approval |
+| autonomous-coach-coordinator | 4 | Master orchestrator for proactive coaching |
+| mock-exam-conductor | 4 | End-to-end mock exam management |
+| deep-diagnostic-analyst | 4 | Comprehensive weakness analysis |
 
 ### Exam Readiness Index (ERI)
 
@@ -289,6 +303,39 @@ Context7 provides real-time documentation lookup to ensure accurate API usage an
 7. approval-workflow          → Publish via LinkedIn MCP
 ```
 
+### Phase 4: Autonomous Daily Coaching
+```
+1. autonomous-session-initiator  → Check if session needed
+2. learning-pattern-detector     → Get optimal study window
+3. motivation-monitor            → Check engagement level
+4. revision-cycle-manager        → Get due revision items
+5. knowledge-gap-predictor       → Identify at-risk topics
+6. [Generate personalized session]
+7. whatsapp-message-sender       → Proactively engage student
+8. session-logger                → Record session
+```
+
+### Phase 4: Full Mock Exam
+```
+1. mock-exam-generator           → Create full exam (100 questions)
+2. exam-pressure-simulator       → Configure time pressure
+3. whatsapp-message-sender       → Deliver exam
+4. [Student completes mock]
+5. mock-exam-evaluator           → Score with breakdown
+6. deep-dive-analyzer            → Analyze weak sections
+7. exam-countdown-calibrator     → Recalibrate urgency
+8. session-logger                → Record completion
+```
+
+### Phase 4: Predictive Gap Intervention
+```
+1. forgetting-curve-tracker      → Identify decaying knowledge
+2. knowledge-gap-predictor       → Project future weak areas
+3. revision-cycle-manager        → Schedule preventive revision
+4. autonomous-session-initiator  → Trigger intervention
+5. whatsapp-message-sender       → Notify student
+```
+
 ## Development Guidelines
 
 ### Skill Design Principles
@@ -384,7 +431,8 @@ When testing skills:
 - Local file system (JSON files in memory/, question-bank/, syllabus/)
 
 ## Recent Changes
-- Consolidated Phase 4 (B2B) into Phase 5, then renamed Phase 5 → Phase 4 for sequential numbering
-- Added social-media-coordinator agent, fixed progress-reporting-coordinator
-- Removed duplicate .claude/subagents/ directory (agents now only in .claude/agents/)
-- Phase 1-3: Complete | Phase 4: Planned (B2B, Odoo, Autonomous)
+- **Phase 4 Implementation In Progress** - Autonomous Coach skills and subagents being built
+- Completed Phase 4 skills: session-logger, syllabus-mapper, mock-exam-generator, mock-exam-evaluator, exam-pressure-simulator, deep-dive-analyzer, learning-pattern-detector, knowledge-gap-predictor, forgetting-curve-tracker, autonomous-session-initiator, study-pattern-optimizer, revision-cycle-manager, exam-countdown-calibrator, motivation-monitor
+- Completed Phase 4 subagents: autonomous-coach-coordinator, mock-exam-conductor, deep-diagnostic-analyst
+- Updated cross-exam-mapping.json with complete bidirectional mappings for SPSC/PPSC/KPPSC
+- Phase 1-3: Complete | Phase 4: In Progress (Autonomous Coach)

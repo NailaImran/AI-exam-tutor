@@ -1129,3 +1129,385 @@ Per Constitution v1.1.0:
 | Progress report generation | < 5 seconds |
 | Badge generation | < 2 seconds |
 | LinkedIn post generation | < 3 seconds |
+
+---
+
+# Phase 4: Autonomous Coach Workflows
+
+## Skill Dependency Graph (Phase 4)
+
+```
+                    ┌─────────────────────────────────┐
+                    │  autonomous-coach-coordinator    │
+                    │  (Master Orchestrator)           │
+                    └───────────────┬─────────────────┘
+                                    │
+        ┌───────────────────────────┼───────────────────────────┐
+        │                           │                           │
+        ▼                           ▼                           ▼
+┌─────────────────┐    ┌─────────────────────┐    ┌─────────────────────┐
+│ mock-exam-      │    │ deep-diagnostic-    │    │ revision-cycle-     │
+│ conductor       │    │ analyst             │    │ manager             │
+└────────┬────────┘    └──────────┬──────────┘    └──────────┬──────────┘
+         │                        │                          │
+    ┌────┴────┐           ┌───────┴───────┐                  │
+    ▼         ▼           ▼               ▼                  ▼
+┌──────┐ ┌──────┐  ┌───────────┐  ┌───────────┐  ┌───────────────────┐
+│mock- │ │mock- │  │deep-dive- │  │knowledge- │  │forgetting-curve-  │
+│exam- │ │exam- │  │analyzer   │  │gap-       │  │tracker            │
+│gen   │ │eval  │  │           │  │predictor  │  │                   │
+└──────┘ └──────┘  └───────────┘  └───────────┘  └───────────────────┘
+                                        │
+                                        ▼
+                              ┌───────────────────┐
+                              │ learning-pattern- │
+                              │ detector          │
+                              └───────────────────┘
+```
+
+## Workflow Templates (Phase 4)
+
+### 16. Autonomous Daily Coaching
+
+```yaml
+workflow: autonomous_daily_coaching
+trigger: autonomous-coach-coordinator scheduled check (every 4 hours)
+
+steps:
+  1. autonomous-session-initiator
+     input:
+       student_id: student.student_id
+       context: {time_of_day, days_since_last_session, eri_trend}
+     output:
+       session_needed: boolean
+       trigger_reason: scheduled | gap_detected | revision_due | null
+
+  2. If !session_needed: exit
+
+  3. Check daily limits
+     - Read today's session log
+     - If proactive_triggers >= 2: exit
+     - If last_trigger < 4 hours ago: exit
+
+  4. learning-pattern-detector
+     input:
+       student_id: student.student_id
+     output:
+       optimal_study_times: [array]
+       current_window_match: boolean
+
+  5. If !current_window_match: schedule for later, exit
+
+  6. motivation-monitor
+     input:
+       student_id: student.student_id
+     output:
+       engagement_level: high | medium | low
+       burnout_risk: boolean
+
+  7. If burnout_risk: skip proactive, exit
+
+  8. revision-cycle-manager
+     input:
+       student_id: student.student_id
+     output:
+       due_items: [{topic, priority, retention_score}]
+
+  9. knowledge-gap-predictor
+     input:
+       student_id: student.student_id
+     output:
+       at_risk_topics: [{topic, risk_level, predicted_score_7d}]
+
+  10. Generate personalized session
+      - Combine due_items + at_risk_topics
+      - Prioritize by urgency
+      - Generate 5-10 question adaptive test
+
+  11. whatsapp-message-sender
+      input:
+        message_type: "proactive_session"
+        content: session details
+
+  12. session-logger
+      input:
+        type: "autonomous_daily"
+        initiated_by: "system"
+        trigger_reason: from step 1
+
+output: Proactive session initiated or skipped with reason
+```
+
+### 17. Full Mock Exam Session
+
+```yaml
+workflow: full_mock_exam
+trigger: mock-exam-conductor invoked (weekly or on-demand)
+
+steps:
+  1. mock-exam-generator
+     input:
+       student_id: student.student_id
+       exam_type: student.exam_target
+       duration_minutes: 180
+       total_questions: 100
+     output:
+       mock_session: {session_id, questions by section}
+
+  2. exam-pressure-simulator
+     input:
+       session_id: mock_session.session_id
+       pressure_level: standard | high | extreme
+     output:
+       time_warnings: [timestamps]
+       difficulty_curve: adjusted
+
+  3. whatsapp-message-sender
+     - Deliver exam with instructions
+     - Set timer for 180 minutes
+
+  4. [Student completes mock under timed conditions]
+
+  5. mock-exam-evaluator
+     input:
+       session_id: mock_session.session_id
+       answers: student_answers
+     output:
+       section_breakdown: {per section scores}
+       overall_score: number
+       fatigue_detected_at: question number
+       accuracy_trend: description
+
+  6. deep-dive-analyzer
+     input:
+       student_id: student.student_id
+       weak_sections: from mock results
+     output:
+       root_causes: [{section, cause, recommendation}]
+
+  7. Predict real exam score
+     input:
+       mock_scores: [this and previous mocks]
+     output:
+       predicted_score: number
+       confidence_interval: [low, high]
+       ready_for_exam: boolean
+
+  8. study-plan-generator
+     - Update plan based on mock results
+     - Adjust focus areas
+
+  9. exam-countdown-calibrator
+     input:
+       student_id: student.student_id
+       exam_date: student.target_exam_date
+       mock_result: this session
+     output:
+       urgency_level: low | medium | high | critical
+       recommended_mock_frequency: weekly | bi-weekly
+
+  10. whatsapp-message-sender
+      - Send comprehensive results
+      - Include section breakdown
+      - Include prediction with confidence
+
+  11. session-logger
+      input:
+        type: "mock_exam"
+        initiated_by: student | system
+        results: summary
+
+output: Mock exam completed with predictions and updated plan
+```
+
+### 18. Predictive Gap Intervention
+
+```yaml
+workflow: predictive_gap_intervention
+trigger: deep-diagnostic-analyst detects retention decay
+
+steps:
+  1. forgetting-curve-tracker
+     input:
+       student_id: student.student_id
+     output:
+       decaying_topics: [{topic, retention_score, decay_rate}]
+
+  2. Filter topics with retention_score < 0.50
+
+  3. knowledge-gap-predictor
+     input:
+       student_id: student.student_id
+       focus_topics: decaying_topics
+     output:
+       predictions: [{topic, predicted_score_7d, predicted_score_14d, risk_level}]
+
+  4. Filter high-risk predictions
+
+  5. revision-cycle-manager
+     input:
+       student_id: student.student_id
+       intervention_topics: high_risk_topics
+     output:
+       scheduled_revisions: [{topic, due_date, priority}]
+
+  6. autonomous-session-initiator
+     input:
+       student_id: student.student_id
+       trigger_reason: "gap_detected"
+       target_topics: high_risk_topics
+     output:
+       session_triggered: boolean
+
+  7. If session_triggered:
+     whatsapp-message-sender
+     input:
+       message_type: "intervention"
+       content: "You haven't practiced {topic} in 2 weeks. Your retention is at risk."
+
+  8. session-logger
+     input:
+       type: "intervention"
+       initiated_by: "system"
+       trigger_reason: "gap_detected"
+       topics: high_risk_topics
+
+output: Intervention session triggered for at-risk topics
+```
+
+### 19. Cross-Exam Preparation
+
+```yaml
+workflow: cross_exam_preparation
+trigger: Student changes exam target (PPSC → SPSC)
+
+steps:
+  1. student-profile-loader
+     - Load current profile
+     - Get previous exam_target
+
+  2. syllabus-mapper
+     input:
+       source_exam: previous_exam_target
+       target_exam: new_exam_target
+       student_id: student.student_id
+     output:
+       topic_mappings: [{source_topic, target_topic, confidence}]
+       coverage_transfer: percentage
+
+  3. knowledge-gap-predictor
+     input:
+       student_id: student.student_id
+       exam_type: new_exam_target
+       existing_coverage: topic_mappings
+     output:
+       new_gaps: topics not covered in previous exam
+
+  4. Update profile
+     - Set exam_target to new value
+     - Note transition date
+
+  5. adaptive-test-generator
+     input:
+       focus_topics: new_gaps
+       exam_type: new_exam_target
+     output:
+       transition_test: diagnostic for new exam gaps
+
+  6. study-plan-generator
+     input:
+       weak_areas: new_gaps
+       existing_strengths: transferred coverage
+     output:
+       transition_plan: focused on new exam requirements
+
+output: Transition complete with gap analysis and new plan
+```
+
+### 20. Final Readiness Assessment
+
+```yaml
+workflow: final_readiness_assessment
+trigger: 7 days before exam_date
+
+steps:
+  1. exam-countdown-calibrator
+     input:
+       student_id: student.student_id
+       exam_date: student.target_exam_date
+     output:
+       days_remaining: 7
+       urgency_level: critical
+
+  2. Load all mock exam results
+     - Calculate average score
+     - Calculate trend (improving, stable, declining)
+
+  3. exam-readiness-calculator
+     input:
+       student_id: student.student_id
+     output:
+       current_eri: number
+       band: string
+
+  4. knowledge-gap-predictor
+     input:
+       student_id: student.student_id
+       prediction_window: 7 days
+     output:
+       final_risk_topics: remaining weak areas
+
+  5. Calculate final prediction
+     input:
+       mock_average: number
+       eri: number
+       trend: string
+     output:
+       predicted_exam_score: number
+       confidence_interval: [low, high]
+
+  6. Generate readiness report
+     - If ERI >= 81: "exam_ready" - "You're prepared. Trust your preparation."
+     - If ERI 61-80: "ready" - "Good shape. Focus on {specific topics}."
+     - If ERI 41-60: "approaching" - "Consider postponing if possible."
+     - If ERI < 41: "not_ready" - "Significant gaps remain. Recommended actions..."
+
+  7. whatsapp-message-sender
+     - Deliver final readiness assessment
+     - Include confidence interval
+     - Include specific recommendations
+
+output: Final readiness assessment delivered
+```
+
+## Subagent Authority Matrix (Phase 4)
+
+Per Constitution v1.3.0:
+
+| Subagent | Autonomous Actions | Requires Approval |
+|----------|-------------------|-------------------|
+| autonomous-coach-coordinator | Session triggers (within limits), coordination | None within daily limits |
+| mock-exam-conductor | Generate, evaluate, predict | None (pure computation) |
+| deep-diagnostic-analyst | Analyze, track, predict | None (pure computation) |
+
+## Autonomy Guardrails
+
+| Guardrail | Implementation |
+|-----------|----------------|
+| Daily limit | Max 2 proactive triggers/day (check session log) |
+| Cooldown | Minimum 4 hours between proactive triggers |
+| Burnout prevention | motivation-monitor checks engagement level |
+| Opt-out | Student can disable proactive mode in profile |
+| Preference override | Student preferences always win over algorithm |
+
+## Performance Targets (Phase 4)
+
+| Operation | Target Performance |
+|-----------|-------------------|
+| Autonomous session check | < 2 seconds |
+| Mock exam generation | < 10 seconds |
+| Mock exam evaluation | < 5 seconds |
+| Gap prediction | < 3 seconds |
+| Forgetting curve update | < 1 second |
+| Cross-exam mapping | < 5 seconds |
+| Final readiness assessment | < 10 seconds |

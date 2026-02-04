@@ -1,11 +1,13 @@
 ---
 name: session-logger
-description: Creates an audit log entry for a practice session. Use this skill at the end of every practice session for debugging, analytics, and audit trail purposes. Records session metadata, duration, and key events. Optional skill for compliance and troubleshooting.
+description: Creates an audit log entry for practice sessions including Phase 4 autonomous coaching sessions. Use this skill at the end of every session for debugging, analytics, and audit trail purposes. Records session metadata, duration, key events, and autonomous coaching triggers. CORE skill for Phase 4 (promoted from OPTIONAL).
+phase: 4
+category: CORE
 ---
 
 # Session Logger
 
-Creates detailed audit logs for practice sessions.
+Creates detailed audit logs for all practice sessions including autonomous coaching interventions.
 
 ## MCP Integration
 
@@ -90,8 +92,31 @@ This skill uses the **filesystem MCP server** for writing log files.
   },
   "session_type": {
     "type": "enum",
-    "values": ["diagnostic", "adaptive", "timed", "review"],
+    "values": ["diagnostic", "adaptive", "timed", "review", "mock_exam", "autonomous_daily", "intervention", "student_initiated"],
     "required": true
+  },
+  "initiated_by": {
+    "type": "enum",
+    "values": ["system", "student"],
+    "required": false,
+    "default": "student",
+    "description": "Phase 4: Who initiated the session"
+  },
+  "trigger_reason": {
+    "type": "enum",
+    "values": ["scheduled", "gap_detected", "revision_due", "student_request", "mock_scheduled", "intervention_required"],
+    "required": false,
+    "description": "Phase 4: Why the session was triggered"
+  },
+  "eri_before": {
+    "type": "number",
+    "required": false,
+    "description": "Phase 4: ERI score before session"
+  },
+  "eri_after": {
+    "type": "number",
+    "required": false,
+    "description": "Phase 4: ERI score after session"
   },
   "start_time": {
     "type": "string",
@@ -157,6 +182,11 @@ This skill uses the **filesystem MCP server** for writing log files.
 | `session_resumed` | Session resumed | pause_duration |
 | `session_completed` | Session finished normally | completion_reason |
 | `session_abandoned` | Session ended early | abandonment_reason |
+| `autonomous_trigger` | System initiated session | trigger_reason, context |
+| `mock_exam_started` | Full mock exam began | exam_type, total_questions, duration_minutes |
+| `mock_exam_completed` | Full mock exam finished | overall_score, predicted_real_score |
+| `intervention_triggered` | Gap intervention began | at_risk_topics, retention_scores |
+| `fatigue_detected` | Accuracy decline observed | question_number, accuracy_trend |
 
 ## Example Log Entry
 
