@@ -430,8 +430,62 @@ When testing skills:
 - MCP Context7 Server (@upstash/context7-mcp)
 - Local file system (JSON files in memory/, question-bank/, syllabus/)
 
+## Autonomous Infrastructure (Digital FTE Layer)
+
+### Folder-Based Workflow State Machine
+
+```
+inbox/             → External drops (WhatsApp callbacks, manual files)
+needs_action/      → Claude's processing queue (watchers write here)
+plans/             → Claude's reasoning artifacts (Plan.md files)
+pending_approval/  → Awaiting human review before execution
+approved/          → Human-approved actions (orchestrator executes)
+rejected/          → Declined actions (logged, not executed)
+done/              → Completed items
+logs/audit/        → Structured JSON audit trail (YYYY-MM-DD.json)
+logs/pipeline/     → Orchestrator pipeline logs
+logs/briefings/    → Weekly CEO briefing Markdown files
+```
+
+### Ralph Wiggum Stop Hook
+`.claude/hooks/stop_hook.py` — Intercepts Claude's exit when `needs_action/`,
+`inbox/`, or `pending_approval/` have pending files. Re-injects a processing
+prompt (up to 10 iterations) to keep Claude working autonomously.
+Registered in `.claude/settings.local.json` under `hooks.Stop`.
+
+### Key Infrastructure Files
+
+| File | Purpose |
+|------|---------|
+| `orchestrator.py` | Master process: scheduling, folder watching, Claude triggers |
+| `watchdog.py` | Health monitor: restarts dead processes, audit logs |
+| `watchers/base_watcher.py` | Abstract base for all watcher daemons |
+| `watchers/inbox_watcher.py` | Monitors /inbox/ for dropped files |
+| `watchers/whatsapp_watcher.py` | Polls WhatsApp API for student replies |
+| `utils/security.py` | Permission boundaries, DEV_MODE, audit log writer |
+| `utils/retry_handler.py` | @with_retry decorator, GracefulDegradation queue |
+| `Business_Goals.md` | Live KPI tracker, weekly audit logic |
+| `setup/permission_boundaries.md` | Auto-approve vs always-require-approval |
+| `setup/windows_task_scheduler.md` | How to run Watchdog 24/7 on Windows |
+
+### Security Rules
+- Always check `utils/security.check_permission(action)` before external actions
+- NEVER auto-retry payment actions — always require fresh human approval
+- DRY_RUN=true in `.env` during development (logs all actions, executes none)
+- Audit logs written to `logs/audit/YYYY-MM-DD.json` with full JSON schema
+
+### Processing a needs_action/ File
+When Claude finds a file in `needs_action/`:
+1. Read the YAML front matter to get `type:` field
+2. Match to skill/workflow (e.g., `test_request` → adaptive-test-generator)
+3. Execute the workflow
+4. If output requires external action → write to `pending_approval/`
+5. Move source file to `done/`
+6. Write audit entry via `utils/security.write_audit_log()`
+
 ## Recent Changes
 - **Phase 4 Implementation In Progress** - Autonomous Coach skills and subagents being built
+- **Digital FTE Infrastructure Added** - Ralph Wiggum hook, orchestrator, watchers, watchdog, security layer, error recovery
 - Completed Phase 4 skills: session-logger, syllabus-mapper, mock-exam-generator, mock-exam-evaluator, exam-pressure-simulator, deep-dive-analyzer, learning-pattern-detector, knowledge-gap-predictor, forgetting-curve-tracker, autonomous-session-initiator, study-pattern-optimizer, revision-cycle-manager, exam-countdown-calibrator, motivation-monitor
 - Completed Phase 4 subagents: autonomous-coach-coordinator, mock-exam-conductor, deep-diagnostic-analyst
 - Updated cross-exam-mapping.json with complete bidirectional mappings for SPSC/PPSC/KPPSC

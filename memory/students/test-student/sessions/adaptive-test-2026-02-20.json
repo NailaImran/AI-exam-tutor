@@ -1,0 +1,111 @@
+{
+  "$schema": "exam-tutor/session/v1",
+  "session_id": "sess-test-student-20260220-001",
+  "student_id": "test-student",
+  "exam_type": "PPSC",
+  "subject": "Pakistan Studies",
+  "session_type": "adaptive_practice",
+  "status": "pending_answers",
+  "created_at": "2026-02-20T00:00:00Z",
+  "source_request": "inbox/test-request-sample.md",
+
+  "adaptive_rationale": {
+    "Independence Movement": {
+      "accuracy": 40,
+      "status": "weak",
+      "questions_assigned": 3,
+      "difficulty_target": ["medium", "hard"]
+    },
+    "Constitutional History": {
+      "accuracy": 60,
+      "status": "borderline",
+      "questions_assigned": 2,
+      "difficulty_target": ["medium"]
+    }
+  },
+
+  "questions": [
+    {
+      "q_number": 1,
+      "id": "PPSC-PK-00013",
+      "topic": "Independence Movement",
+      "difficulty": "medium",
+      "text": "The Two-Nation Theory was first articulated by:",
+      "options": {
+        "A": "Quaid-e-Azam Muhammad Ali Jinnah",
+        "B": "Allama Iqbal",
+        "C": "Sir Syed Ahmed Khan",
+        "D": "Liaquat Ali Khan"
+      },
+      "correct_answer": "C",
+      "student_answer": null,
+      "is_correct": null
+    },
+    {
+      "q_number": 2,
+      "id": "PPSC-PK-00014",
+      "topic": "Independence Movement",
+      "difficulty": "medium",
+      "text": "Allama Iqbal delivered his famous Allahabad Address in:",
+      "options": {
+        "A": "1928",
+        "B": "1929",
+        "C": "1930",
+        "D": "1931"
+      },
+      "correct_answer": "C",
+      "student_answer": null,
+      "is_correct": null
+    },
+    {
+      "q_number": 3,
+      "id": "PPSC-PK-00018",
+      "topic": "Independence Movement",
+      "difficulty": "hard",
+      "text": "The Lucknow Pact between Congress and Muslim League was signed in:",
+      "options": {
+        "A": "1914",
+        "B": "1916",
+        "C": "1918",
+        "D": "1920"
+      },
+      "correct_answer": "B",
+      "student_answer": null,
+      "is_correct": null
+    },
+    {
+      "q_number": 4,
+      "id": "PPSC-PK-00002",
+      "topic": "Constitutional History",
+      "difficulty": "medium",
+      "text": "Which constitution of Pakistan introduced the Presidential form of government?",
+      "options": {
+        "A": "1956 Constitution",
+        "B": "1962 Constitution",
+        "C": "1973 Constitution",
+        "D": "Interim Constitution 1972"
+      },
+      "correct_answer": "B",
+      "student_answer": null,
+      "is_correct": null
+    },
+    {
+      "q_number": 5,
+      "id": "PPSC-PK-00003",
+      "topic": "Constitutional History",
+      "difficulty": "medium",
+      "text": "The 18th Amendment to the Constitution was passed in which year?",
+      "options": {
+        "A": "2008",
+        "B": "2010",
+        "C": "2012",
+        "D": "2015"
+      },
+      "correct_answer": "B",
+      "student_answer": null,
+      "is_correct": null
+    }
+  ],
+
+  "summary": null
+}

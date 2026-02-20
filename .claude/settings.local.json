@@ -1,0 +1,50 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd master plan and subagent definitions for exam tutor\n\n- Add comprehensive MASTER_PLAN.md with 5-phase development roadmap,\n  feature-to-phase mapping, monetization strategy, and success criteria\n- Add three subagent definitions in .claude/agents/:\n  - assessment-examiner: Evaluates MCQ attempts, calculates ERI, identifies weak areas\n  - study-strategy-planner: Creates personalized study plans and difficulty progression\n  - progress-reporting-coordinator: Generates progress summaries and trend analysis\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git fetch:*)",
+      "Bash(bash:*)",
+      "Bash(copy \".specify\\\\memory\\\\constitution.md\" \"specs\\\\CONSTITUTION.md\")",
+      "Bash(ls:*)",
+      "Bash(.specify/scripts/bash/create-new-feature.sh:*)",
+      "Bash(.specify/scripts/bash/create-phr.sh:*)",
+      "Bash(dir:*)",
+      "Bash(git commit:*)",
+      "WebSearch",
+      "WebFetch(domain:pakmcqs.com)",
+      "WebFetch(domain:www.ilmkidunya.com)",
+      "WebFetch(domain:examsmcqs.com)",
+      "WebFetch(domain:www.doc4shares.com)",
+      "WebFetch(domain:www.taleem360.com)",
+      "WebFetch(domain:educated.pk)",
+      "Bash(pdftotext:*)",
+      "WebFetch(domain:drive.google.com)",
+      "Bash(git push:*)",
+      "Bash(git checkout master)",
+      "Bash(\"C:/Program Files/Git/bin/bash.exe\" .specify/scripts/bash/check-prerequisites.sh --json --require-tasks --include-tasks)",
+      "Bash(\"C:/Program Files/Git/bin/bash.exe\" .specify/scripts/bash/create-phr.sh --title \"implement-revision-cycle-engine\" --stage green --feature \"phase-4-gold-tier\" --json)",
+      "Bash(\"C:/Program Files/Git/bin/bash.exe\" .specify/scripts/bash/create-phr.sh --title \"implement-deep-diagnostic-analyzer\" --stage green --feature \"phase-4-gold-tier\" --json)",
+      "Bash(\"C:/Program Files/Git/bin/bash.exe\" .specify/scripts/bash/create-phr.sh --title \"implement-learning-pattern-detector\" --stage green --feature \"phase-4-gold-tier\" --json)",
+      "Bash(\"C:/Program Files/Git/bin/bash.exe\" .specify/scripts/bash/create-phr.sh --title \"implement-enhancement-features\" --stage green --feature \"phase-4-gold-tier\" --json)",
+      "Bash(git config:*)",
+      "Bash(.specify/scripts/bash/check-prerequisites.sh:*)",
+      "Bash(python:*)",
+      "Bash(python3:*)",
+      "Bash(py -3 -c:*)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python .claude/hooks/stop_hook.py"
+          }
+        ]
+      }
+    ]
+  }
+}
