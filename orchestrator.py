@@ -76,7 +76,7 @@ def audit_log(action_type: str, target: str, result: str,
               approved_by: str = "system"):
     """Write a structured JSON audit log entry."""
     LOGS_DIR.mkdir(parents=True, exist_ok=True)
-    today = datetime.utcnow().strftime("%Y-%m-%d")
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     log_file = LOGS_DIR / f"{today}.json"
 
     entry = {
@@ -263,9 +263,9 @@ def setup_schedule():
     schedule.every().sunday.at("21:00").do(weekly_report_task)
 
     logger.info("Scheduled tasks registered:")
-    logger.info("  08:00 — Daily Question (WhatsApp)")
-    logger.info("  09:00 — LinkedIn Post (pending approval)")
-    logger.info("  21:00 Sunday — Weekly Reports (pending approval)")
+    logger.info("  08:00 PKT -> Daily Question (WhatsApp)")
+    logger.info("  09:00 PKT -> LinkedIn Post (pending approval)")
+    logger.info("  21:00 PKT Sunday -> Weekly Reports (pending approval)")
 
 
 # ---------------------------------------------------------------------------
